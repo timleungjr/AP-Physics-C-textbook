@@ -1,0 +1,132 @@
+\documentclass[12pt,twoside]{book}
+%\documentclass[12pt,twocolumn,oneside]{book}
+\usepackage[letterpaper,margin=1in]{geometry}
+%\usepackage[letterpaper,
+%  showcrop,
+%  margin=.6in,
+%  layoutsize={5.5in,8.5in},
+%  layoutoffset={1.5in,1.25in}]{geometry}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{siunitx}
+\usepackage[siunitx]{circuitikz}
+\usepackage[ISO]{diffcoeff}
+\usepackage{endnotes}
+\usepackage{bm}
+%\usepackage{newtxmath,newtxtext}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{cancel}
+\usepackage{xcolor,colortbl} % Once all the tables are removed, we should be
+%able to remove this package
+\usepackage{titlesec}
+\usepackage{multicol}
+
+\titleformat{\chapter}[display]{\normalfont\bfseries\filcenter}
+            {}%\LARGE\thechapter}
+            {1ex}
+            {\titlerule[3pt]\vspace{5pt}\LARGE\thechapter\hfill}
+            [\vspace{5pt}{\titlerule[3pt]}]
+
+\captionsetup{
+  figurename={Fig.},
+  width=\linewidth,  % width of caption is 90% of current textwidth
+  labelfont=bf,        % the label, e.g. figure 12, is bold
+  font=footnotesize,   % the whole caption text (label + content) is small
+  format=hang,         % no caption text under the label
+}
+
+\tikzset{
+  >=latex,
+  voltage dir=RP,
+}
+\tikzstyle{axes}=[thick,->]
+\tikzstyle{vector}=[very thick,->]
+\tikzstyle{function}=[very thick,red]
+\tikzstyle{mass}=[thick,fill=cyan!25]
+\tikzstyle{every node}=[font=\footnotesize]%scriptsize]
+\tikzstyle{balloon1}=[ball color=red]
+\tikzstyle{balloon2}=[ball color=blue]
+
+\setlength\columnsep{20pt}
+
+\sisetup{
+  inter-unit-product=\cdot,
+  per-mode=symbol
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\usetikzlibrary{decorations.pathmorphing,patterns}
+
+\newcommand{\pic}[2]{
+  \includegraphics[width=#1\textwidth]{#2}
+}
+
+\newcommand{\iii}{\bm{\hat\imath}}
+\newcommand{\jjj}{\bm{\hat\jmath}}
+\newcommand{\kkk}{\bm{\hat k}}
+
+\newcommand\vertarrowbox[2]{%
+    \begin{array}[t]{@{}c@{}} #1 \\
+    \rotatebox{90}{$\xrightarrow{\hphantom{abcdefgh}}$} \\[-1ex]
+    \mathclap{\scriptstyle\text{#2}}%
+    \end{array}}
+
+
+\title{This is How I Teach AP C}
+\author{Dr.\ Timothy Leung}
+\date{Updated: \today}
+
+
+\begin{document}
+\frontmatter
+\maketitle
+
+%\tableofcontents
+%
+%\listoffigures
+%
+%\listoftables
+
+\mainmatter
+%\part{Mechanics}
+
+%\input{../kinematics-calculus/PhysAPC-01b-kinematicsHandout}
+%\input{../kinematics-calculus/PhysAPC-01c-motionGraphs}
+%\input{../kinematics-calculus/PhysAPC-01d-projectileMotion}
+%
+%\input{../dynamics-calculus/PhysAPC-02-dynamics}
+%\input{../dynamicsMultiBody/multiBodyDynamics}
+%\input{../energy-calculus/PhysAPC-03-workEnergy}
+%\input{../momentum-calculus/PhysAPC-04-momentum}
+%\input{../centreOfMass/CM}
+%\input{../circularMotion/PhysAPC-06-circMotion}
+%\input{../rotationalMotion/rotationalMotion}
+%\input{../harmonicMotion/harmonicMotion}
+%\input{../universalGravitation/univGravity}
+
+%\part{Electricity and Magnetism}
+
+\input{../electrostatics/PhysAPC-14-Electrostatics}
+\input{../electrostatics2/PhysAPC-15-gaussLaw}
+\input{../capacitors-calculus/PhysAPC-16-Capacitors}
+\input{../magnetism/PhysAPC-17-magnetism1}
+\input{../magnetism2/PhysAPC-18-faradaysLaw}
+%\input{../magnetism3/PhysAPC-19-faradaysLawAsymmetry}
+\input{../circuits1-calculus/PhysAPC-20-Circuits}
+\input{../circuits2-calculus/PhysAPC-21-circuitAnalysis2}
+%
+%\appendix
+%
+%\input{../kinematics-calculus/PhysAPC-01a-vectorsCalculus}
+%\input{../graphingTechniques/graphingTechiques}
+%\input{../keplers-laws/PhysAPC-12-keplersLaws}
+%
+%\theendnotes
+\end{document}

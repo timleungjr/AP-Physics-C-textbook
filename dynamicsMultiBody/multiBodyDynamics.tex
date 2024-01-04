@@ -1,0 +1,477 @@
+\section{Rigid Body Dynamics of Multiple Bodies}
+\label{sec:multibody}
+
+
+\begin{center}
+  \pic{.7}{../dynamics-calculus/graphics/worldslongestroadtrainwithpowertrailer8}
+\end{center}
+\begin{itemize}
+\item The objects are connected by a cable or a solid linkage with negligible
+  mass
+\item All objects (usually) have the same acceleration
+\item Require multiple free-body diagrams
+\end{itemize}
+
+
+\section{Introduction}
+To solve a multi-body problem, you can follow these procedures:
+\begin{enumerate}
+\item Draw a FBD on each of the objects
+\item Sum all the forces on all the objects along the direction of motion
+  \begin{itemize}
+  \item Direction of motion is usually very obvious
+    \item All internal forces should cancel and do not figure into the
+      acceleration of the system
+  \end{itemize}
+\item Compute the acceleration of the entire system using second law of motion
+  \begin{itemize}
+  \item Remember that (usually) every object has the same acceleration!
+  \end{itemize}
+\item Go back to the FBD of each of the objects and compute the unknown
+  forces
+\end{enumerate}
+
+\section{Motion Along Level Surfaces}
+
+\subsection{Objects Connected by Massless Cables}
+Three masses ($m_1$, $m_2$ and $m_3$) are connected by massless
+cables\footnote{Obviously cables are not \emph{literally} massless, but here,
+we assume that the masses of the cables are insignificant compared to the
+masses, and therefore we can ignore them without making our answers
+inaccurate}, and pulled to the right by an external force $\vec F$ across a
+level surface, as shown in Figure~\ref{fig:tension}. The coefficient of kinetic
+friction between the masses and the surface is $\mu$.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[thick] (0,0)--(10,0);
+    \draw[mass] (1,0) rectangle (2.5,1) node[midway]{$m_3$};
+    \draw[brown,line width=2] (2.5,.5)--(4,.5)
+    node[midway,above]{$T_2$};
+    \draw[mass] (4,0) rectangle (5.5,1) node[midway]{$m_2$};
+    \draw[brown,line width=2] (5.5,.5)--(7,.5)
+    node[midway,above]{$T_1$};
+    \draw[mass] (7,0) rectangle (8.5,1) node[midway]{$m_1$};
+    \draw[vector] (8.5,.5)--(9.3,.5) node[right]{$\vec F$};
+  \end{tikzpicture}
+  \caption{Three masses are connected by massless cables and accelerate
+    together.}
+  \label{fig:tension}
+\end{figure}
+
+For this example, we want to consider the following questions:
+\begin{enumerate}[nosep,leftmargin=15pt]
+\item What are the forces acting on each of the masses?
+\item What is the acceleration of the system, assuming that the cables do not
+  break?
+\item What are the magnitudes of the tension forces ($T_1$ and $T_2$) in the
+  two cables?
+\end{enumerate}
+
+\textbf{Step 1---Free-Body Diagrams:} Our first step to finding the solution to
+the questions is to draw free-body diagrams for each of the masses, as shown in
+Figure~\ref{fig:fbd1}.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[lightgray]
+    \draw (0,0)--(9.5,0);
+    \draw (1,0) rectangle (2.5,1) node[midway]{$m_3$};
+    \draw[line width=2] (2.5,.5)--(4,.5);
+    \draw (4,0) rectangle (5.5,1) node[midway]{$m_2$};
+    \draw[line width=2] (5.5,.5)--(7,.5);
+    \draw (7,0) rectangle (8.5,1) node[midway]{$m_1$};
+    \begin{scope}[vector]
+      \begin{scope}[orange]
+        \fill (1.75,.5) circle (.1);
+        \draw (1.75,.5)--(1.75,-1) node[below]{$m_3\vec g$};
+          \draw (1.75,.5)--(1.75,2) node[above]{$\vec N_3$};
+          \draw (1.75,.5)--(3,.5) node[above]{$\vec T_2$};
+          \draw (1.75,.5)--(1,.5) node[below]{$\vec f_3$};
+      \end{scope}
+      \begin{scope}[violet]
+        \fill (4.75,.5) circle (.1);
+        \draw (4.75,.5)--(4.75,-1) node[below]{$m_2\vec g$};
+        \draw (4.75,.5)--(4.75,2) node[above]{$\vec N_2$};
+        \draw (4.75,.5)--(6,.5) node[above]{$\vec T_1$};
+        \draw (4.75,.54)--(3.5,.54) node[above]{$\vec T_2$};
+        \draw (4.75,.46)--(4,.46) node[below]{$\vec f_2$};
+      \end{scope}
+      \begin{scope}[blue]
+        \fill (7.75,.5) circle (.1);
+        \draw (7.75,.5)--(7.75,-1) node[below]{$m_1\vec g$};
+        \draw (7.75,.5)--(7.75,2) node[above]{$\vec N_1$};
+        \draw (7.75,.5)--(9.75,.5) node[right]{$\vec F$};
+        \draw (7.75,.54)--(6.5,.54) node[above]{$\vec T_1$};
+        \draw (7.75,.46)--(7,.46) node[below]{$\vec f_1$};
+      \end{scope}
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Free-body diagrams}
+  \label{fig:fbd1}
+\end{figure}
+
+In doing so, we note that
+\begin{itemize}[nosep,leftmargin=15pt]
+\item External force $\vec F$ is only applied to $m_1$, therefore it
+  should not appear on the other free-body diagrams
+\item Kinetic friction of the masses are: $f_1=\mu N_1=\mu m_1g$,
+  $f_2=\mu N_2=\mu m_2g$, and $f_3=\mu N_3=\mu m_3g$. (In a general problem, the
+  coefficients of friction do not need to be the same for all the masses, but
+  we are simplifying the problem here.
+\item $T_1$ and $T_2$ are action-reaction pair of forces
+\end{itemize}
+
+
+\textbf{Step 2---Second law of motion:} Once the free-body diagrams are
+completed, we can sum the forces along the direction of motion for each object,
+i.e.\ applying the second law of motion individually on each object.
+\begin{align}
+  {\color{blue} F-\mu m_1g-T_1} &= {\color{blue}m_1a}\label{eq:m1}\\
+  {\color{orange} T_1-\mu m_2g-T_2} &= {\color{orange}m_2a}\label{eq:m2}\\
+  {\color{violet} T_2-\mu m_3g} &= {\color{violet}m_3a}\label{eq:m3}
+\end{align}
+Since the cables do not break, all three masses have the same acceleration $a$
+towards the right. Therefore we can \emph{sum} the three equations above
+(Eqs.~\ref{eq:m1}--\ref{eq:m3}) to get the expression:
+\begin{align}
+  \nonumber
+  F-\mu(m_1+m_2+m_3)g &= (m_1+m_2+m_3)a\\
+  F-\mu Mg &= Ma \label{eq:law2-system}
+\end{align}
+which is just the second law of motion applied to the whole system as a single
+object. Here, we introduce the variable $M=m_1+m_2+m_3$ to represent the total
+mass of the whole system.
+
+We can now use Eq.~\ref{eq:law2-system} to calculate the acceleration of the
+entire system:
+\begin{equation}
+  a=\frac FM-\mu g
+  \label{eq:accel}
+\end{equation}
+Depending on the problem, you may be solving for the algebraic expression, or
+an actual numerical value.
+
+\textbf{Step 3---Unknown Forces:} Once the acceleration of the system is known,
+we can find all the other unknown forces---in this case, tension forces $T_1$
+and $T_2$.
+
+The easiest way is to solve for $T_2$ is to look at the force balance of
+$\color{orange}m_3$ (Eq.~\ref{eq:m3}). Solving for $T_2$ and substituting the
+acceleration that we got from Eq.~\ref{eq:accel}, we get:
+\begin{align*}
+  T_2&=m_3 a+\mu m_3 g\\
+  &=m_3({\color{red}a}+\mu g)\\
+  &=m_3\left({\color{red}\frac FM-\mu g}+\mu g\right)\\
+  &=\frac{m_3}M F\\
+  T_2 &=\frac{m_3}{m_1+m_2+m_3} F
+\end{align*}
+Then, to solve for $T_1$, we can use the force balance of $\color{blue}m_1$ in
+Eq.~\ref{eq:m1}. Solving for $T_1$, and substituting the acceleration from
+Eq.~\ref{eq:accel}, we find the expression for $T_1$:
+\begin{align*}
+  T_1 &=F-m_1({\color{red}a}+\mu g)\\
+  &=F-m_1\left({\color{red}\frac FM-\mu g}+\mu g\right)\\
+  &=F-m_1\frac FM\\
+  &=\frac{M-m_1}MF\\
+  T_1&=\left(\frac{m_2+m_3}{m_1+m_2+m_3}\right)F
+\end{align*}
+Of course, we can also use the force balance of $\color{violet}m_2$ to find
+$T_1$. Solving for $T_1$ in Eq.~\ref{eq:m2}:
+\begin{align*}
+  T_1 &=T_2 + \mu m_2g + m_2a\\
+  &=T_2 + m_2(a + \mu g)\\
+  &=\frac{m_3}MF + m_2\left(\frac FM -\mu g + \mu g\right)\\
+  &=\frac{m_2+m_3}MF\\
+  &=\left(\frac{m_2+m_3}{m_1+m_2+m_3}\right)F\\
+\end{align*}
+which is the same as before.
+
+But there is yet another way to find $T_1$! This time we treat
+$\color{violet}m_2$ and $\color{orange}m_3$ as a single object. In this case, we add Eqs.~\ref{eq:m2} and \ref{eq:m3} together, and then solving for $T_1$
+and substituting acceleration from Eq.~\ref{eq:accel}:
+\begin{align*}
+  T_1& =(m_2+m_3)(a+\mu g)\\
+  & =(m_2+m_3)(\frac FM-\mu g+\mu g)\\
+  & =\frac{m_2+m_3}MF\\
+  & =\frac{m_2+m_3}{m_1+m_2+m_3}F\\
+\end{align*}
+Which, not surprisingly, is the same answer as using the other two methods.
+Ultimately, the multi-problem is an exercise that you have done many times
+in your math classes: solving multiple equations with multiple unknowns. In
+this case, there are 3 unknowns ($a$, $T_1$ and $T_2$) and 3 equations.
+
+\newpage
+\subsection{Another Connected Bodies Example}
+Two masses ($m_1$ and $m_2$) are being pushed along a level surface by an
+external applied force $\vec F$, as shown in Figure~\ref{fig:pushed}. The
+coefficient of kinetic friction between the masses and the surface is $\mu$.
+Like the previous example, we want to consider the following questions:
+\begin{enumerate}[nosep,leftmargin=15pt]
+\item What is the acceleration of the masses?
+\item What is the normal force that $m_1$ exerts on $m_2$?
+\end{enumerate}
+This problem is very similar to the previous example.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=4/3]
+    \draw[thick] (-1.5,0)--(3.5,0);
+    \draw[mass] rectangle (1,1) node[midway]{$m_1$};
+    \draw[mass] (1,0) rectangle (2.5,1.25) node[midway]{$m_2$};
+    \draw[vector] (-1,.5)--(0,.5) node[pos=0,left]{$\vec F$};
+  \end{tikzpicture}
+  \caption{Two masses pushed together by an external force}
+  \label{fig:pushed}
+\end{figure}
+
+\textbf{Step 1---Free-body diagrams:} Like the previous problem, we start with
+drawing free-body diagrams for each of the masses, shown in
+Figure~\ref{fig:fbd-pushed}.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=4/3,orange,vector]
+      \fill circle (.07);
+      \draw (0,0)--+(1.4,0) node[right]{$\vec F$};
+      \draw (0,0)--+(0,-1) node[right]{$m_1\vec g$};
+      \draw (0,0)--+(0,1) node[left]{$\vec N_1$};
+      \draw (0,.05)--+(-.8,0) node[above]{$\vec N_{12}$};
+      \draw (0,0)--+(-.5,0) node[below]{$\vec f_1$};
+    \end{tikzpicture}
+    \subcaption{Mass $m_1$}
+  \end{subfigure}
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=4/3,vector,violet]
+      \fill circle (.07);
+      \draw (0,0)--+(0,1) node[right]{$\vec N_2$};
+      \draw (0,0)--+(-.45,0) node[below]{$\vec f_2$};
+      \draw (0,0)--+(0,-1) node[right]{$m_2\vec g$};
+      \draw (0,0)--+(.8,0) node[right]{$\vec N_{12}$};
+    \end{tikzpicture}
+    \subcaption{Mass $m_2$}
+  \end{subfigure}
+  \caption{Free-body diagrams for the pushed-blocks example}
+  \label{fig:fbd-pushed}
+\end{figure}
+
+There are a few details about the normal forces.
+\begin{itemize}[nosep,leftmargin=15pt]
+\item All normal forces ($N_1$, $N_2$ and $N_{12}$) appear in the free-body
+  diagrams as if they only act on the centre of mass. In fact, the normal force
+  is spread over the entire contact surface.
+\item The normal force $\vec N_{12}$ is at the contact between the two masses.
+  It is an action-reaction pair, similar to the tension force in the previous
+  example. When $m_1$ pushes against $m_2$ (action), $m_2$ pushes back against
+  $m_1$ (reaction).
+\end{itemize}  
+
+
+\textbf{Step 2--Second law of motion:} Using the free-body digrams, we then sum
+forces along the direction of motion for each mass:
+\begin{align}
+  {\color{orange}F-N_{21}-\underbrace{\mu m_1g}_{f_1}} &={\color{orange}m_1a} \\
+  {\color{violet}N_{12}-\underbrace{\mu m_2g}_{f_2}} &= {\color{violet}m_2a}
+\end{align}
+Again, we recognize that both masses must have the acceleration. Adding them
+together, we have
+\begin{align}
+  \nonumber
+  F - \mu(m_1+m_2)g  &= (m_1+m_2)a\\
+  F - \mu Mg  &= Ma \label{eq:system}
+\end{align}
+where $M=m_1+m_2$ is the total mass of the system of objects.
+Eq.~\ref{eq:system} is essentially the second law of motion applied to the
+entire system as if it is a single object. Solving for acceleration, we have:
+\begin{equation}
+  a= \frac FM- \mu g
+  \label{eq:accel2}
+\end{equation}
+Eq.~\ref{eq:accel2} is identical to Eq.~\ref{eq:accel} from our first example.
+Again, like the last problem, acceleration can be expressed as an algebraic
+expression or with numerical values depending on the problem.
+
+\textbf{Step 3--Find remaining forces:} Once acceleration is known, we can find
+the remaining unknown force: the normal force $N_{12}$ between the blocks.
+The magnitude of the normal force $N_{12}$ can be calculated using the
+force-balance equations of either mass. Using the equation for $M_1$ and solving
+for $N_{12}$:
+\begin{align*}
+  N_{12} &= F- m_1({\color{red}a}+\mu g)\\
+  &= {\color{blue}F} - m_1\left({\color{red}\frac FM-\mu g} +\mu g\right) \\
+  &= {\color{blue}M\frac FM} - m_1\left(\frac FM\right) \\
+  &= \frac{M-m_1}M F\\
+  N_{12}&= \frac{m_2}{m_1+m_2} F
+\end{align*}
+Or we can apply the same procedure to the force balance for $m_2$:
+\begin{align*}
+  N_{12} &= m_2 ({\color{red}a} + \mu g) \\
+  &= m_2 \left({\color{red}\frac FM-\mu g} + \mu g\right) \\
+  &= m_2 \left(\frac FM\right) \\
+  &= \frac{m_2}{m_1+m_2} F
+\end{align*}
+which is the same as before.
+
+\newpage
+\subsection{Stacked Objects}
+Two blocks ($m_1$ and $m_2$) are stacked on top of each other above a
+frictionless table, as shown in Figure~\ref{fig:stacked}. An external force
+$\vec F$ is applied to $m_2$, causing both blocks to accelerate to the right
+together without slipping. The coefficients of static and kinetic friction
+between the masses are $\mu_s$ and $\mu_k$ respectively.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[thick] (-1,0)--(5.5,0);
+    \draw[mass] rectangle (3,1) node[midway]{$m_2$};
+    \draw[mass] (.75,1) rectangle (2.25,1.75) node[midway]{$m_1$};
+    \draw[vector] (3,.5)--(4.5,.5) node[right]{$\vec F$};
+  \end{tikzpicture}
+  \caption{Two masses stacked on top of each other on a frictionless table.}
+  \label{fig:stacked}
+\end{figure}
+
+We want to consider the following questions:
+\begin{enumerate}[nosep,leftmargin=12pt]
+\item What is the maximum acceleration of the masses without slipping?
+\item What is the magnitude of the external force $F$ at maximum
+  acceleration?
+\item What is the acceleration of $m_1$ if $F$ exceeds this maximum value?
+\end{enumerate}
+
+
+\textbf{Step 1--Free-body diagrams:} As in the previous example, we draw
+free-body diagrams of both masses.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \begin{tikzpicture}[orange,vector]
+      \fill (1.5,1.375) circle (.1);
+      \draw (1.5,1.375)--+(1.5,0) node[right,fill=yellow!30]{$\vec f$};
+      \draw (1.5,1.375)--+(0,-1.2) node[right]{$m_1\vec g$};
+      \draw (1.5,1.375)--+(0,1.2)  node[left=3,fill=pink!20]{$\vec N_{12}$};
+    \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \begin{tikzpicture}[vector,violet]
+      \fill (1.5,.5) circle (.1);
+      \draw (1.5,.5)--+(2,0) node[right]{$\vec F$};
+      \draw (1.5,.5)--+(-1.5,0) node[left,fill=yellow!30]{$\vec f$};
+      \draw (1.55,.5)--+(0,-1.2) node[right]{$m_2\vec g$};
+      \draw (1.45,.5)--+(0,-1.2) node[left=3,fill=pink!20]{$\vec N_{12}$};
+      \draw (1.5,.5)--+(0,1.2) node[left]{$\vec N_2$};
+    \end{tikzpicture}
+  \end{subfigure}
+\end{figure}
+There are two action-reaction pairs of forces:
+\begin{itemize}
+\item Normal force $N_{12}$ at the interface between $m_1$ and $m_2$ acts upwards
+  on $m_1$ and downwards on $m_2$
+\item Static friction\footnote{That is, if the blocks don't slide against each
+other. If they do, then the friction would be kinetic friction instead} $f$,
+  also at the interface between $m_1$ and $m_2$, acts forward on $m_1$, and
+  backwards on $m_2$.
+\end{itemize}
+$f$ is the force that actually accelerates $m_1$ forward! (Think about
+what happens when there is no friction between the masses.)
+
+
+\textbf{Step 2:} For problems like this, we focus on the top blocks first.
+The force that pulls the block forward is the static friction force $f_s$.
+The second law of motion applied to $m_1$ is:
+%  \vspace{.1in}
+%  \begin{columns}
+%    \column{.25\textwidth}
+%    \centering
+%    \begin{tikzpicture}[scale=.95,vector,orange]
+%      \fill circle (.08);
+%      \draw (0,0)--(1.5,0) node[right]{$\vec f_s$};
+%      \draw (0,0)--(0,-1.2) node[right]{$m_1\vec g$};
+%      \draw (0,0)--(0,1.2) node[left]{$\vec N_{12}$};
+%    \end{tikzpicture}
+%
+Summing the forces along the direction of motion:
+\begin{equation}
+  f = m_1a
+\end{equation}
+Maximum acceleration $a_\text{max}$ occurs when static friction is also at
+maximum, i.e.\ $f=\max f_s=\mu_s N_{12}=\mu_s m_1g$:
+\begin{align}
+  \nonumber
+  \mu_s m_1g &= m_1a_\text{max}\\
+  a_\text{max} &=\mu_s g
+\end{align}
+We see that the maximum acceleration is, in fact, independent of mass.
+
+\textbf{Step 3:} Once the $a_\text{max}$ is known, we can use it to calculate
+the maximum applied force. We can do this by substituting the expression for
+acceleation into the force balance for $m_2$:
+\begin{align*}
+  F_\text{net}=F_\text{max}-f &= m_2a_\text{max}\\
+  F_\text{max} &= m_2a_\text{max}+f_s\\
+  &= m_2(\mu_sg)+\mu_s m_1g\\
+  F_\text{max} &=\mu_s(m_1+m_2)g
+\end{align*}
+Or treat the whole system as a single object with total mass of $m_1+m_2$:
+\begin{align}
+  \nonumber
+  F_\text{max} &= (m_1+m_2)a_\text{max}\\
+  &= \mu_s(m_1+m_2)g
+\end{align}
+Of course both ways gives you the same answer.
+
+\section{Atwood Machine--Pulley Problems}
+
+\subsection{Example Problem: Atwood Machine}
+An \textbf{Atwood machine} is made of two objects connected by a rope that
+runs over a pulley. The pulley allows the direction of force and direction
+of motion to change between two objects.
+%  \begin{columns}
+%    \column{.35\textwidth}
+%    \begin{center}
+%      \pic1{graphics/pulley_prob_2}
+%    \end{center}
+%    \column{.65\textwidth}
+%    \textbf{Example:} The object on the left has a mass of $M$ and the object
+%    on the right has a mass of $m$.
+%    \begin{itemize}
+%    \item What is the acceleration of the masses?
+%    \item What is the tension in the rope?
+%    \end{itemize}
+%  \end{columns}
+
+
+%  More typically, an Atwood machine problem is one where two objects are
+%  sliding on a surface. These surfaces may have (or may not) have friction. In
+%  this example, two blocks are connected by a massless string over a
+%  frictionless pulley as shown in the diagram.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=1.5,thick]
+    \draw[ultra thick,brown] (-2,.4)--(.1,.4);
+    \draw (0,0)--(-4,0) node[pos=.35,below]{$\mu$};
+    \draw[fill=magenta!50] (-2,0) rectangle +(-1,.75) node[midway]{$m$};
+    \begin{scope}[rotate=-30]
+      \draw[ultra thick,brown] (1,.4)--(-.05,.4);
+      \draw (0,0)--(3,0) node[midway,below left]{$\mu$};
+      \draw[mass] (1,0) rectangle (2.5,1) node[midway,rotate=-30]{$M$};
+    \end{scope}
+    \begin{scope}[rotate=-15]
+      \draw[fill=gray] (0,.3) circle (.15);
+      \draw[fill=lightgray] (0,.3) circle (.1);
+      \draw[ultra thick] (0,0)--(0,.3);
+      \fill (0,.3) circle (.04);
+      \end{scope}
+    \draw[gray] (0,0)--(0,-1.5);
+    \draw[->] (0,-.5) arc(270:330:.5) node[midway,below]{$\phi$};
+  \end{tikzpicture}
+\end{figure}
+%  \begin{enumerate}[(a)]
+%  \item Determine the acceleration of the blocks.
+%  \item Calculate the tension in the string.
+%  \end{enumerate}
+%\end{document}
+%

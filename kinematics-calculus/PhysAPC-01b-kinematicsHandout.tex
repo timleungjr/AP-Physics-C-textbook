@@ -1,0 +1,434 @@
+\chapter{Kinematics of Rectilinear Motion}
+\label{chapter:kinematics}
+
+
+\textbf{Kinematics} is a discipline with in mechanics for describing the
+motion of points, bodies (objects), and systems of bodies (groups of objects).
+It is the mathematical representation of the relationship between
+\emph{position}, \emph{displacement}, \emph{distance}, \emph{velocity},
+\emph{speed} and \emph{acceleration}. Note that kinematics does \emph{not}
+deal with what causes motion. In high-school level\footnote{Grades 11 and 12 in
+  the provincial curriculum} physics courses, kinematics problem usually deals
+with motion under constant acceleration. However, in the AP Physics C, we need
+a fuller understanding using calculus.
+
+\section{Cartesian Coordinate System}
+Before we even dive into describing motion, we need to have a framework for
+describing. For rectilinear moiton, the preferred coordinate system is the
+\emph{cartesian} system, shown in Fig.~\ref{fig:cartesian}\footnote{For
+\emph{circular} and general curvilinear motions, we will use the \emph{polar
+coordinate system} in 2D, or \emph{cylindrical coordinate system} or
+\emph{spherical coordinate system} in 3D}. The origin of the coordinate system
+is called ``reference point''. In the ``IJK'' notation for vectors, the $\iii$,
+$\jjj$ $\kkk$ vectors are unit vectors pointing in the direction of the $x$,
+$y$ and $z$ axes respectively.
+\begin{figure}[ht]  
+  \centering
+  \begin{subfigure}{.3\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \draw[axes] (-2,0)--(2,0) node[right]{+};
+      \draw[thick] (0,.08)--(0,-.08) node[below=-1]{$O$};
+    \end{tikzpicture}
+    \caption{The 1D coordinate system is the number line.}
+  \end{subfigure}  
+  \begin{subfigure}{.3\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \draw[axes] (0,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,0)--(0,2) node[above]{$y$};
+      \draw[vector] (0,0)--(.8,0) node[above]{$\iii$};
+      \draw[vector] (0,0)--(0,.8) node[right]{$\jjj$};
+    \end{tikzpicture}
+    \caption{The 2D coordinate system is the $xy$-plane.}
+  \end{subfigure}
+  \begin{subfigure}{.3\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \draw[axes] (0,0)--(1.6,-.5) node[right]{$y$};
+      \draw[axes] (0,0)--(-1,-.6) node[left]{$x$};
+      \draw[axes] (0,0)--(0,1.7) node[above]{$z$};
+    \end{tikzpicture}
+    \caption{The 3D coordinate system is the Cartesian ($xyz$) space.}
+  \end{subfigure}
+  \caption{Cartesian coordinate systems}
+  \label{fig:cartesian}
+\end{figure}
+
+\section{Kinematic Quantities}
+
+\subsection{Position, Displacement and Distance}
+Once the coordinate system has been established, we can describe where any
+object is. \textbf{Position} is a vector describing the location of an object
+in a coordinate system. In the IJK notation, position of an object is
+expressed by its $x$, $y$ and $z$ components. If the object is in motion, then
+the position vector is a function of time $t$.
+\begin{equation*}
+  \bm r(t)=
+  \underbrace{x(t)\iii}_{\bm x(t)} +
+  \underbrace{y(t)\jjj}_{\bm y(t)} +
+  \underbrace{z(t)\kkk}_{\bm z(t)}
+\end{equation*}
+An example is shown in Fig.~\ref{fig:position}. The SI unit for position is a
+\emph{metre} (\si{\metre}).
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=.6]
+    \draw[axes] (0,0)--(5.5,0) node[right]{$x$};
+    \draw[axes] (0,0)--(0,4.5) node[above]{$y$};
+    \draw[vector,red!80!black] (0,0)--(4,3) node[midway,above]{$\bm r(t)$};
+    \draw[vector,orange] (0,0)--(0,3) node[midway,left]{$\bm y(t)$};
+    \draw[vector,violet] (0,0)--(4,0) node[midway,below]{$\bm x(t)$};
+    %    \draw[thick,dash dot,<->] (4,1)..controls (6,5) and (5,7)..(2,6)
+    %    node[midway,right]{$s$};
+  \end{tikzpicture}
+  \caption{Position vector of an object inside a 2D cartesian coordinate
+    system. The vectors $\bm x$ and $\bm y$ are the $x$ and $y$ components of
+    $\bm r$ respestively.}
+  %, displacement and distance in a Cartesian coordinate
+  %  system.}
+  \label{fig:position}
+\end{figure}
+
+
+When an object moves, the \textbf{displacement} is the change in position from
+the initial position ($\bm r_o$) to the current position ($\bm r(t)$) within
+the same coordinate system. Since the current position is a function of time,
+so is displacement:
+\begin{equation}
+  \Delta\bm r(t)=\bm r(t)-\bm r_0
+\end{equation}
+A two-dimensional case is illustrated graphcin Fig.~\ref{fig:displacement}.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=.6]
+    \draw[axes] (0,0)--(5.5,0) node[right]{$x$};
+    \draw[axes] (0,0)--(0,4.5) node[above]{$y$};
+    \draw[vector,red!80!black] (0,0)--(4,1) node[midway,below]{$\bm r_i$};
+    \draw[vector,red!80!black] (0,0)--(1,3.5) node[midway,left]{$\bm r(t)$};
+    \draw[vector,blue] (4,1)--(1,3.5) node[midway,right]{$\Delta \bm r(t)$};
+  \end{tikzpicture}
+  \caption{Displacement vector}
+  \label{fig:displacement}
+\end{figure}
+In the cartesian coordinate system, the $x$, $y$ and $z$ axes are linearly
+indepedent, displacement can be expressed by its components:
+\begin{equation}
+  \Delta\bm r(t)=%\Delta\bm r_x(t)-\bm r_i
+  \underbrace{\left(x(t)-x_i\right)}_{\Delta r_x}\iii +
+  \underbrace{\left(y(t)-y_i\right)}_{\Delta r_y}\jjj +
+  \underbrace{\left(z(t)-z_i\right)}_{\Delta r_z}\kkk
+\end{equation}
+%The use of IJK notation makes vector addition and subtraction less prone to
+%errors.
+Like position, the SI unit for displacement is also a \emph{metre}. Note that
+since ``reference point'' is the origin of the coordinate system, i.e.\
+$\bm r_\text{ref}=\bm0$, any position vector $\bm r$ is also its displacement
+from the reference point.
+
+
+\textbf{Distance} $s$ is a quantity that is \emph{similar} (and related) to
+displacement. It is the \emph{length of the path} taken when an object moves
+from position $\bm r_o$ to current position $\bm r(t)$, as shown in
+Fig.~\ref{fig:d-vs-d}. Unlike displacement, however, distance is a scalar
+quantity that is always positive: $s\geq 0$, i.e.\ you can never walk a
+\emph{negative} distance to the store. Because the path is not always a
+straight line, therefore while the magnitude of the displacement vector is also
+a scalar, it is not necessarily the same as distance:
+\begin{equation}
+  s(t)\geq |\Delta\bm r(t)|
+\end{equation}
+
+
+
+\subsection{Velocity and Speed}
+
+\textbf{Velocity} is a quantity used to describe how \emph{fast} an object is
+moving. If position $\bm r(t)$ is differentiable in time $t$, then its
+\textbf{instantaneous velocity} $\bm v(t)$ can be found at any time $t$ by
+differentiating $\bm r$ with respect to $t$. The SI unit for velocity is
+\emph{meters per second} (\si{\metre\per\second}):
+\begin{equation}
+  \boxed{\bm v(t)= \diff{\bm r(t)}t}
+\end{equation}
+Since position $\bm r(t)$ has $x(t)$, $y(t)$ and $z(t)$ components along the
+(linearly independent) $\iii$, $\jjj$ and $\kkk$ directions, we can take the
+time derivative of every component to obtain the velocity components $v_x$,
+$v_y$ and $v_z$ in those directions:
+\begin{equation*}
+  \bm v(t)= \diff{\bm r}t=
+  \diff xt\iii + \diff yt\jjj + \diff zy\kkk =
+  v_x\iii + v_y\jjj + v_z\kkk
+\end{equation*}
+By the fundamental theorem of calculus, if instantaneous velocity $\bm v(t)$
+is the time derivative of position $\bm r(t)$ with respect to time $t$, then
+$\bm r(t)$ is the time integral of $\bm v(t)$:
+\begin{equation}
+  \boxed{\bm r(t)=\int\bm v(t)\dl t + \bm r_0}
+  \quad\text{or}\quad
+  \boxed{\Delta\bm r(t)=\int_{t_0}^t\bm v(t)\dl t}
+\end{equation}
+The constant of integration $\bm r_0=\bm r(0)$ is the object's \emph{initial
+position} at $t=0$. As was the case in differentiation, we can integrate each
+component to get $\bm r$:
+\begin{equation*}
+  \bm r(t)= \left(
+  \int v_x(t)\iii + \int v_y(t)\jjj + \int v_z(t)\kkk \right)\dl t + \bm r_0
+\end{equation*}
+
+
+The \textbf{average velocity} ($\overline{\bm v}$)\footnote{For
+\emph{time averages}, the convention amongst \emph{most} physicists is to
+write a bar over the quantity, as we have done here. In contrast, for
+\emph{ensemble averages}, e.g.\ the average speeds of many particles, we use
+the notation $\langle v\rangle$.} of an object is the change in position
+$\Delta\bm r$ over a finite time interval $\Delta t$:
+\begin{equation}
+  \boxed{
+    \overline{\bm v}(t)= \frac{\Delta\bm r}{\Delta t}
+      =\frac{\int_{t_0}^t \bm r(t)dt}{t-t_0}
+  }
+\end{equation}
+Like instantaneous velocity, we can find the $x$, $y$ and $z$ components of
+average velocity by separating components in each direction:
+\begin{equation*}
+  \overline{\bm v}=
+  \frac{\Delta x}{\Delta t}\iii +
+  \frac{\Delta y}{\Delta t}\jjj +
+  \frac{\Delta z}{\Delta t}\kkk =
+  \overline v_x\iii +
+  \overline v_y\jjj +
+  \overline v_z\kkk
+\end{equation*}
+
+
+
+\textbf{Instantaneous speed} $v(t)$ is the rate of change of distance with
+respect to time.\footnote{It is regrettable that both velocity and speed use
+  the symbol $v$, but \emph{c'est la vie}.} Like velocity, the unit for
+speed is also \si{\metre\per\second}:
+\begin{equation*}
+  \boxed{v(t)=\diff st}
+\end{equation*}
+Since distance is a scalar quantity, so too is speed. As distance along any
+must be non-negative, i.e.\ $s(t)>0$, so must the instantaneous speed,
+$v(t)\geq 0$. Instantaneous speed $v$ is the magnitude of the instantaneous
+velocity vector $\bm v$. Likewise, \textbf{average speed} ($\overline v(t)$) is
+similar to average velocity: it is the distance travelled over a finite time
+interval.\footnote{It should be obvious that unlike instantaneous speed, average
+  speed is not the magnitude of the average velocity.}
+\begin{equation}
+  \boxed{\overline v(t)=\frac s(t){\Delta t}}
+\end{equation}
+
+
+%\section{Path}
+%
+%Sometimes instead of explicitly describing the position $x=x(t)$ and $y=y(t)$,
+%the path of an object can be given in terms of $x$ coordinate $y=y(x)$, while
+%giving the $x$ (or $y$) coordinate as a function of time.
+%\begin{itemize}
+%\item In this case, substitute the expression for $x(t)$ into $y=y(x)$ to
+%  get an expression of $y=y(t)$
+%\item Take derivative using chain rule to get $v_y=v_y(t)$
+%\end{itemize}
+
+
+\subsection{Acceleration}
+
+In the same way that velocity is the rate of change in position with respect
+to time, \textbf{instantaneous acceleration} $\bm a(t)$ is the rate of change
+in velocity with respect to time, and the second time derivative of position.
+The SI unit for acceleration is \emph{meters per second squared}
+(\si{\metre\per\second\squared}):
+\begin{equation}
+  \boxed{\bm a(t)= \diff{\bm v(t)}t=\diff[2]{\bm r(t)}t}
+\end{equation}
+%Although in grades 11 and 12 physics courses, students deal almost exclusively
+%with constant ccceleration, in AP Physics, it must be understood that
+%acceleration can also vary with time, and that calculus must be used in many
+%cases.
+%  \begin{enumerate}
+%  \item Take derivative of $\bm x(t)$ to get $\bm v(t)=\bm x'(t)$
+%  \item Take derivative again of $\bm v(t)$ to get $\bm a(t)=\bm v'(t)$
+%  \end{enumerate}
+%\end{frame}
+Again, by the fundamental theorem of calculus, instantaneous velocity
+$\bm v(t)$ is the time integral of instantaneous acceleration $\bm a(t)$:
+\begin{equation}
+  \boxed{\bm v(t)=\int\bm a(t)\dl t+\bm v_0} =
+  \left(
+  \int a_x\bm{\hat\imath} +
+  \int a_y\bm{\hat\jmath} +
+  \int a_z\bm{\hat k}
+  \right)\dl t +\bm v_0
+\end{equation}
+where $\bm v_0$ is the initial velocity at $t=0$.
+
+\subsection{Acceleration as Functions of Position and Velocity}
+
+Since, according to the second law of motion, acceleration is proportional to
+the net force ($F=ma$), therefore there are instances where acceleration is
+often expressed as functions of other motion quantities rather than time. For
+example:
+\begin{itemize}[leftmargin=15pt]
+\item\textbf{Gravitational force}\footnote{Newton's law of universal
+  gravitation: $F_g=\dfrac{Gm_1m_2}{r^2}$} or
+  \textbf{electrostatic force}\footnote{Coulomb's law:
+    $F_q=\dfrac{kq_1q_2}{r^2}$} are both inversely proportional to
+  the square of the distance (called the inverse-square law), and therefore
+  acceleration is best express by this complicated differential equation:
+  \begin{equation*}
+    a(x)=\frac A{x^2} \quad\text{or}\quad \diff[2] xt=\frac A{x^2}
+  \end{equation*}
+  The solution will likely require numerical integration.
+
+\item\textbf{Spring force} is proportional to displacement\footnote{By Hookes's
+  law $\bm F_s=-k\bm x$, where $k$ is the spring constant that describes the
+  stiffness of the spring}, and therefore acceleration is expressed as:
+  \begin{equation*}
+    a(x)=-bx\quad\text{or}\quad \diff[2] xt=-bx
+  \end{equation*}
+  The solution to this \emph{second-order ordinary differential equation with
+    constant coefficient} is a sinusoidal function, i.e.\
+  $x(t)=A\sin(\omega t+\phi)$, and the motion is a \emph{simple harmonic
+    motion} that will be studied in a later topic.
+
+\item\textbf{Damping force}  is usually proportional to velocity, leading
+  to an expression for acceleration:
+  \begin{equation*}
+    a(v)=-cv\quad\text{or}\quad \diff vt=-cv
+  \end{equation*}
+  This time, the equation is a \emph{first-order ordinary differential equation}
+  that can be solved by separating the $dt$ term and $v$ terms and then
+  integrating, and the expression for velocity is an exponential function:
+  \begin{equation*}
+    \diff vt=-cv\quad\rightarrow\quad \int\frac{\dl v}{v}=-\int c\dl t
+    \quad\rightarrow\quad \ln(v)=-ct+C
+    \quad\rightarrow\quad v(t)=v_0e^{-ct}
+  \end{equation*}
+  Once the velocity expression is obtained, the expression for $x(t)$ and
+  $a(t)$ can also easily be obtained by integrating and differentiating.
+
+\item\textbf{Aerodynamic forces} such as drag and lift\footnote{The equations
+  for lift and drag forces are $L=\dfrac12\rho v^2C_LA_\text{ref}$ and
+  $D=\dfrac12\rho v^2C_DA_\text{ref}$ respectively, where $\rho$ is the density
+  of the fluid, $A_\text{ref}$ is the reference area, $C_L$ is the lift
+  coeffcient and $C_D$ is the drag coefficient}, which are proportional
+  to the square of the velocity, leading to an expression for acceleration 
+  \begin{equation*}
+    a(v)=-kv^2\quad\text{or}\quad \diff vt=-kv^2
+  \end{equation*}
+  Not surprisingly, the process of solving the problem is similar to that of
+  the damping function, but this time, the solution is a hyperbolic function:
+  \begin{equation*}
+    \diff vt=-kv^2\quad\rightarrow\quad \int\frac{\dl v}{v^2}=-\int k\dl t
+    \quad\rightarrow\quad -\frac1v=-kt+C
+    \quad\rightarrow\quad v(t)=\frac{1}{ct+C}
+  \end{equation*}
+\end{itemize}
+In practice, multiple forces may act on an object, and each of them will be
+functions of other motion quantities, and therefore the solution may require
+solving more complex differential equations.
+
+\subsection{Special Notation When Differentiating With Time}
+
+Physicists and engineers often use a special notation when the derivative is
+taken with respect to \emph{time} (and not spatial derivatives), by writing a
+dot above the variable for \emph{first} derivative, and \emph{two} dots for
+\emph{second} derivative, etc. For example, velocity is the first derivative
+of position, i.e.\ $\bm v=\dot{\bm r}$ while acceleration is the second
+derivative, i.e.\ $\bm a = \dot{\bm v}=\ddot{\bm r}$. This notation will be
+used when it is convenient to do so.
+
+
+\subsection{Higher Derivatives}
+
+For anyone curious about higher derivatives, the time derivative of
+acceleration is called \textbf{jerk} $\bm j(t)$ with a unit of
+\si{\metre\per\second\cubed}:
+\begin{equation}
+  \bm j(t)=\diff{\bm a}t=\diff[2]{\bm v}t=\diff[3]{\bm r}t
+\end{equation}
+The measurement of jerk is used in many sensors, for example, in accelerometers
+in airbags to determine if the acceleration of a car is under normal operation
+(small $j$ value) or if a crash is in progress (high $j$ value). The time
+derivative of jerk is \textbf{jounce}, or \textbf{snap}, with unit of
+\si{\metre\per\second^4}:
+\begin{equation}
+  \bm s(t)=\diff{\bm j}t=\diff[2]{\bm a}t=\diff[3]{\bm v}t=\diff[4]{\bm r}t
+\end{equation}
+The next two derivatives of snap are called \textbf{crackle} and
+\textbf{pop}\footnote{As in the cartoon mascots for Kellogg's rice crispies},
+but these higher derivatives have little to know physical meaning, and are
+therefore rarely used.
+
+
+
+\subsection{Kinematic Equations for Constant Acceleration}
+
+Although kinematic problems in AP Physics often require calculus\footnote{Unlike
+  your AP Calculus exams, the differentiation/integration in AP Physics will be
+  fairly straightforward}, basic kinematic equations for \emph{constant}
+acceleration are still a very powerful tool. For constant acceleration
+$\bm a$, velocity can be obtained by integrating in time:
+\begin{equation}
+  \bm v(t)=\int\bm a\dl t\quad\rightarrow\quad
+  \boxed{\bm v(t)=\bm v_0+\bm at}
+  \label{eq:big5-1}
+\end{equation}
+where $\bm v_0$ is the initial velocity at $t=0$. Integrating again for the
+position vector:
+\begin{equation}
+  \bm r(t)=\int \bm v\dl t\quad\rightarrow\quad
+  \boxed{\bm r(t)=\bm r_0+\bm v_0t+\frac12 \bm at^2}
+  \label{eq:big5-2}
+\end{equation}
+where $\bm r_0$ is the initial position at $t=0$. The position vector is
+quadratic in time.
+
+The derivation of the last equation is slightly more laborious. From
+Eqs.~\ref{eq:big5-1} and \ref{eq:big5-2}, if acceleration is constant, then
+both the the velocity and position vectors are continuously differentiable. In
+one-dimension\footnote{for simplicity}, the differentiation can be expressed as:
+\begin{align*}
+  \diff vt&=\diff vx\diff xt\\
+  a&=v\diff vx
+\end{align*}
+Multiplying both sides by $\dl x$ and integrating, we have:
+\begin{align*}
+  \int_{x_0}^x a\dl x&=\int_{v_0}^v v\dl v\\
+  a(x-x_0)&=\frac12\left(v^2-v_0^2\right)
+\end{align*}
+or in the more familiar form:
+\begin{equation}
+  \boxed{v^2 = v_0^2+ 2a(x-x_0)}
+  \label{eq:big5-3}
+\end{equation}
+%Eqs.~\ref{eq:big5-1}, \ref{eq:big5-2} and \ref{eq:big5-3} are provided in the
+%AP Exam equation sheet.
+
+
+%  \textbf{One object:} the problem provides $3$ of the $5$ variables, and you
+%  are asked to find a $4$th one.
+%  \begin{itemize}
+%  \item Define the positive direction (usually very obvious)
+%  \item Apply the correct kinematic equation and solve the problem!
+%  \end{itemize}
+%
+%  \vspace{.2in}\textbf{Two objects:} two objects are in motion. Usually one of
+%  them is moving at constant velocity while the other is accelerating.
+%  \begin{itemize}
+%  \item Time interval $\Delta t$ and displacement $\Delta\bm x$ of the two
+%    objects are related
+%  \item Examples:
+%    \begin{itemize}
+%    \item Police car chasing a speeder
+%    \item Two football players running towards each other
+%    \item A person trying to catch the bus
+%    \end{itemize}
+%  \end{itemize}
+%\end{frame}
+
+
+
