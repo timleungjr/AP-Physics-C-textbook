@@ -1,5 +1,5 @@
 all:
-	xelatex APC-mechanics
-	xelatex APC-mechanics
+	xelatex APC
+	xelatex APC
 clean:
 	rm -rf *~ *.*~ *.log *.nav *.aux *.out *.snm *.toc *.ent *.lot *.lof
