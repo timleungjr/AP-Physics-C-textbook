@@ -370,15 +370,20 @@ for power through a resistor:
 
 
 
-\section{Kirchhoff's Circuits Laws}
-
-\subsection{Kirchhoff's Current Law}
+\section{Kirchhoff's Current Law}
 The electric current that flows into any junction in an electric circuit must
 be equal to the current which flows out.
 
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=1.6,thick]
+  \begin{tikzpicture}[thick]
+%    \fill circle (.07);
+%    \draw (0,2)--(0,-1.5) to[R] (0,-3);
+%    \begin{scope}[rotate around={-60:(0,0)}]
+%      \draw (0,0)--(0,-1.5);
+%      \draw (0,-1.5) to[C,l=$C$,rotate around={-60:(0,-1.5)}] (0,-3);
+%    \end{scope}
+%    \draw[rotate=60] (0,0)--(0,-2);
     \draw (.2,1) to[short,o-] (1.5,1)--(3.5,1)--(3.5,-.2);
     \draw (1.5,1)--(1.5,-.2);
     \draw (2.5,1)--(2.5,-.2);
@@ -401,16 +406,31 @@ anywhere in the circuit. The law is a consequence of conservation of charge.
 
 
 
-\subsection{Kirchhoff's Voltage Law}
+\section{Kirchhoff's Voltage Law}
 The voltage changes around any closed loop in the circuit must sum to zero,
-no matter what path you take through an electric circuit.
+no matter what path you take through an electric circuit. This also applies
+regardless of what circuit devices are along the path. In the example shown
+in Fig.~\ref{fig:kvl1}, a resistor $R$, capacitor $C$ and an inductor $L$ are
+in parallel with a battery of emf $\mathcal E$.
 
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=1.8,american voltages]
-    \draw[thick] (0,0) to[battery1,l=$\mathcal E$] (0,1.5)--(1.2,1.5)
-    to[R=$R$] (1.2,0)--(0,0);
+  \begin{tikzpicture}[scale=1.5,american voltages,thick]
+    \draw (0,0) to[battery1,l=$\mathcal E$] (0,1.5)
+    --(1.5,1.5) to[R=$R$] (1.5,0)--(0,0);
+    \draw (1.5,1.5)--(3,1.5) to[C,l=$C$] (3,0)--(1.5,0);
+    \draw (3,1.5)--(4.5,1.5) to[L,l=$L$] (4.5,0)--(3,0);
+    \node[below] at (0,0) {\small$A$};
+    \node[above] at (0,1.5) {\small$B$};
+    \node[above] at (1.5,1.5) {\small$C$};
+    \node[above] at (3,1.5) {\small$D$};
+    \node[above] at (4.5,1.5) {\small$E$};
+    \node[below] at (4.5,0) {\small$F$};
+    \node[below] at (3,0) {\small$G$};
+    \node[below] at (1.5,0) {\small$H$};
   \end{tikzpicture}
+  \caption{A circuit with multiple circuit devices}
+  \label{fig:kvl1}
 \end{figure}
 
 Assume that the current flows clockwise and we draw a clockwise loop, we get

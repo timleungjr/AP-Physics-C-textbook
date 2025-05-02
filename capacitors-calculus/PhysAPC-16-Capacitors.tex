@@ -59,7 +59,7 @@ electric field and potential difference simplifies to:
 simplest form of a capacitor is a set of closely spaced parallel plates:
 \begin{figure}[ht]
   \centering
-  \pic{.5}{../capacitors-calculus/cap19}
+  \pic{.5}{capacitors-calculus/cap19}
 \end{figure}
 When the plates are connected to a battery, the battery transfer charges to
 the plates until the voltage $V$ equals the battery terminals. After that,
@@ -102,7 +102,7 @@ where $\SI1\farad=\SI1{\coulomb\per\volt}$.
 When charging up a capacitor, imagine positive charges moving from the
 negatively charged plate to the positively charged plate
 \begin{center}
-  \pic{.45}{../capacitors-calculus/slide14}
+  \pic{.45}{capacitors-calculus/slide14}
 \end{center}
 %Initially neither plates are charged, so moving the first charge takes very
 %little work; as the electric field builds, more and more work needs to be
@@ -230,6 +230,20 @@ $a$ and $b$) and the permittivity.
 
 
 \section{Spherical Capacitor}
+Two spherical charges can also be arranged to act as a capacitor. In the
+configuration shown in Fig.~\ref{fig:spherical-capacitor}, the inner sphere
+carries a charge of +Q, while the outer spherical shell carries a charge of
+$-Q$. The electric field between the sphere is
+\begin{equation*}
+  E=\frac1{4\pi\epsilon_0}\frac Q{r^2}
+\end{equation*}
+as we have already determined. Therefore the electric potential difference
+between the inner sphere ($r=a$) and the outer spherical shell $r=b$) is given
+by:
+\begin{equation*}
+  |\Delta V|=\int_a^bE\dl r=\frac Q{4\pi\epsilon_0}\int_a^b\frac{\dl r}{r^2}
+  =\frac Q{4\pi\epsilon_0}\left(\frac1a-\frac1b\right)
+\end{equation*}
 
 \begin{figure}[ht]
   \centering
@@ -255,12 +269,13 @@ $a$ and $b$) and the permittivity.
       \foreach \theta in {15,45,...,360}{
         \draw[vector,orange,rotate=\theta] (.7,0)--(1.95,0);
       }
+      \draw[thick,dashed,red] circle (1);
       \draw[thick] (0,-2)--(0,-2.5)--(2.5,-2.5)
       to[battery,l_=$\mathcal E$] (2.5,0)--(2.05,0) arc (0:-180:.08)--(.7,0);
     \end{tikzpicture}
-  \end{subfigure}
-  
+  \end{subfigure}  
   \caption{A spherical capacitor}
+  \label{fig:spherical-capacitor}
 \end{figure}
 Regardless of the geometry of the capacitor, the electric field will always
 be proportional to the charge, i.e.:
@@ -275,7 +290,7 @@ and therefore the voltage will always be proportional to charge as well.
 \section{Dielectric Constants}
 \begin{figure}[ht]
   \centering
-  \pic{.5}{../capacitors-calculus/Figure_20_05_05a}
+  \pic{.5}{capacitors-calculus/Figure_20_05_05a}
 \end{figure}
 
 \begin{itemize}

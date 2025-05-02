@@ -5,9 +5,6 @@ While \textbf{kinematics} describes the motion of any object mathematically,
 \textbf{dynamics} describes \emph{what} causes motion to change
 
 
-\section{Forces}
-
-
 \section{Laws of Motion}
 
 The first law of motion, as stated in \emph{Principia}, says that:
@@ -66,7 +63,7 @@ table on an airplane in flight. The cup is stationary relative to the
 passengers, but moving relative to anyone outside watching the airplane fly by.
 \begin{figure}[ht]
   \centering
-  \pic{.4}{../dynamics-calculus/coffeecup}
+  \pic{.4}{dynamics-calculus/coffeecup}
   \caption{A cup of water on an airplane is flight is stationary only
     passengers on the airplane, but not to observers outside}
   \label{fig:cup}
@@ -80,7 +77,7 @@ will observe exactly the same thing. The motion of the ball gives me no
 information about whether I am at rest on in uniform motion
 \begin{figure}[ht]
   \centering
-  \pic{.4}{../dynamics-calculus/Aging-Self-2}
+  \pic{.4}{dynamics-calculus/Aging-Self-2}
   \caption{Observing the motion of a dropped tennis ball gives no hint as to
     whether you are stationary or moving in uniform motion.}
   \label{fig:tennisball}
@@ -96,7 +93,6 @@ information about whether I am at rest on in uniform motion
     \end{minipage}
   }
 \end{center}
-
 Like the first law, the second law of motion as descrribed by Newton is also a
 ``special case'' that assumes a constant mass. We can summarize the first two
 laws into one of the most recognizable equation:
@@ -105,7 +101,6 @@ laws into one of the most recognizable equation:
     \bm F_\text{net}(t)=\sum\bm F=m\bm a(t)
   }
 \end{equation}
-
 For non-constant mass, net force is the rate of change of momentum $\bm p$.
 \begin{equation*}
   \bm F_\text{net}(t)=\diff{\bm p}t
@@ -172,7 +167,7 @@ There are two broad categories of forces:
 Common forces that we encounter may include:
 \begin{itemize}[nosep,leftmargin=12pt]
 \item Weight (gravitational force) $\bm F_g$
-\item Normal force $\bm F_N$
+\item Normal force $\bm F_n$
 \item Friction force (static $\bm f_s$ and kinetic $\bm f_k$)
 \item Tension force $\bm F_T$
 \item Applied force $\bm F_a$
@@ -198,7 +193,7 @@ Gravity is the force of attraction between all objects with mass
 \item Based on the law of universal gravitation:
   \begin{equation*}
     \boxed{F_g=\frac{Gm_1m_2}{r^2}}\;\;
-    \text{\normalsize where}\;\;
+    \text{where}\;\;
     G=\SI{6.674e-11}{\newton\metre\squared\per\kilo\gram\squared}
   \end{equation*}
 \end{itemize}  
@@ -214,9 +209,8 @@ Gravity is the force of attraction between all objects with mass
     \draw[mass] rectangle (1.5,1);
     \fill (.75,.5) circle (2pt);
     \draw[vector] (.75,.5)--(.75,-.5) node[below]{$\bm F_g$};
-    \draw[vector] (.75,.5)--(.75,1.5) node[above]{$\bm F_N$};
+    \draw[vector] (.75,.5)--(.75,1.5) node[above]{$\bm F_n$};
   \end{tikzpicture}
-    %$\bm F_g=-\bm F_N$\\(special case)
 \end{figure}
 
 \begin{itemize}
@@ -226,7 +220,6 @@ Gravity is the force of attraction between all objects with mass
   with no additional applied force, the magnitude of the normal force is
   equal to the magnitude of the weight of the object, i.e.\ $N=mg$
 \end{itemize}
-
 The normal force remains perpendicular to the support surface even when it is
 at an angle:
 \begin{figure}[ht]
@@ -307,7 +300,7 @@ analysis process.
   \end{itemize}
 \end{itemize}
 \begin{center}
-  \pic{.5}{../dynamics-calculus/graphics/friction}
+  \pic{.5}{dynamics-calculus/graphics/friction}
 \end{center}
 
 
@@ -398,7 +391,7 @@ often friction is what accelerates things. \textbf{Example:} the forward
 acceleration of a car is caused by the static friction between the tires and
 the road.
 \begin{center}
-  \pic{.38}{../dynamics-calculus/graphics/all-season-tires}
+  \pic{.38}{dynamics-calculus/graphics/all-season-tires}
 \end{center}
 Tires also generated a force called \emph{rolling resistance} as it rolls
 along a road because the weight of the car deforms the tires.
@@ -419,9 +412,9 @@ a fluid resistance force called \textbf{drag} $\bm F_D$. It is defined as:
 Unlike kinetic friction, drag force scales with the square of the speed of the
 object relative to the fluid that it is moving in:
 \begin{figure}[ht]
-  \pic{.338}{../dynamics-calculus/graphics/boeing787}
-  \pic{.35}{../dynamics-calculus/graphics/ganna}
-  \pic{.263}{../dynamics-calculus/graphics/submarine}
+  \pic{.338}{dynamics-calculus/graphics/boeing787}
+  \pic{.35}{dynamics-calculus/graphics/ganna}
+  \pic{.263}{dynamics-calculus/graphics/submarine}
   \caption{Object moving through fluids will experience a drag force}
   \label{fig:drag}
 \end{figure}
@@ -499,7 +492,7 @@ increases as an object speeds up, and therefore a free-falling object does
 %  crate just starts to move and the time at which you are pulling it with a
 %  velocity of \SI{1.4}{m/s}?
 %  \begin{center}
-%    \pic{.5}{../dynamics-calculus/graphics/pull-box}
+%    \pic{.5}{dynamics-calculus/graphics/pull-box}
 %  \end{center}
 
 %  \textbf{Example:} You are holding an \SI{85}{kg} trunk at the top of a ramp
@@ -527,7 +520,7 @@ increases as an object speeds up, and therefore a free-falling object does
 \textbf{Tension} $\bm F_T$ is the force that is transmitted through objects
 that can be stretched, e.g.\ a rope that is being pulled
 \begin{center}
-  \pic{.6}{../dynamics-calculus/graphics/3-rope}
+  \pic{.6}{dynamics-calculus/graphics/3-rope}
 \end{center}
 \begin{itemize}
 \item Examples: ropes, cables, strings, etc.
@@ -652,7 +645,7 @@ from the wall on the ladder and the coefficient of static friction $\mu_s$
 at the interface of the ladder with the floor that prevents the ladder from
 slipping.
 \begin{center}
-    \pic{.3}{../dynamics-calculus/graphics/ladder}
+    \pic{.3}{dynamics-calculus/graphics/ladder}
 \end{center}
 
 
@@ -661,7 +654,7 @@ slipping.
 %\section{Multi-Body Problems}
 %
 %\begin{figure}[ht]
-%  \pic1{../dynamics-calculus/graphics/worldslongestroadtrainwithpowertrailer8}
+%  \pic1{dynamics-calculus/graphics/worldslongestroadtrainwithpowertrailer8}
 %  \caption{A road train that is common in Australia}
 %  \label{fig:roadtrain}
 %\end{figure}
@@ -772,7 +765,7 @@ slipping.
 %%  \begin{columns}
 %%    \column{.35\textwidth}
 %%    \centering
-%%    \pic1{../dynamics-calculus/graphics/pulley_prob_2}
+%%    \pic1{dynamics-calculus/graphics/pulley_prob_2}
 %%
 %%    \column{.65\textwidth}
 %%    \textbf{Example:} The object on the left has a mass of $M$ and the object
@@ -797,7 +790,7 @@ slipping.
 %%    sliding occurs. There may be more than one inequality. 
 %%    
 %%    \column{.4\textwidth}
-%%    \pic{1}{../dynamics-calculus/graphics/pulley_prob_6}
+%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_6}
 %%  
 %%
 %%
@@ -816,7 +809,7 @@ slipping.
 %%    Determine the pulling force $F$. Ignore the mass of the pulleys. 
 %%    
 %%    \column{.4\textwidth}
-%%    \pic{1}{../dynamics-calculus/graphics/pulley_prob_7}
+%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_7}
 %%    
 %%
 %
@@ -834,7 +827,7 @@ slipping.
 %%      $10M$ mass?
 %%    }
 %%    
-%%    \pic{1}{../dynamics-calculus/graphics/pulley_prob_9}
+%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_9}
 %%  
 %%
 %

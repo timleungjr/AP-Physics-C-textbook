@@ -1,11 +1,12 @@
 \documentclass[12pt,twoside]{book}
 %\documentclass[12pt,twocolumn,oneside]{book}
-\usepackage[letterpaper,margin=1in]{geometry}
-%\usepackage[letterpaper,
-%  showcrop,
-%  margin=.6in,
-%  layoutsize={5.5in,8.5in},
-%  layoutoffset={1.5in,1.25in}]{geometry}
+%\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[letterpaper,
+  showcrop,
+  margin=.7in,
+  layoutsize={6in,9in},
+  layoutoffset={1.25in,1in}]{geometry}
+
 
 \usepackage{amsmath}
 \usepackage{enumitem}
@@ -25,6 +26,7 @@
 %able to remove this package
 \usepackage{titlesec}
 \usepackage{multicol}
+\usepackage[many]{tcolorbox}
 
 \titleformat{\chapter}[display]{\normalfont\bfseries\filcenter}
             {}%\LARGE\thechapter}
@@ -34,7 +36,7 @@
 
 \captionsetup{
   figurename={Fig.},
-  width=\linewidth,  % width of caption is 90% of current textwidth
+  width=.9\textwidth,  % width of caption is 90% of current textwidth
   labelfont=bf,        % the label, e.g. figure 12, is bold
   font=footnotesize,   % the whole caption text (label + content) is small
   format=hang,         % no caption text under the label
@@ -79,6 +81,167 @@
     \end{array}}
 
 
+\newtcolorbox{sidenote}[1][]{
+  enhanced,
+  breakable,
+  skin=enhancedlast jigsaw,
+  attach boxed title to top left={xshift=-4mm,yshift=-.5mm},
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=violet,
+  colframe=violet,
+  interior style={
+    color=violet!5
+    %top color=blue!10,
+    %bottom color=red!10
+  },
+  boxed title style={
+    empty,
+    arc=0pt,
+    outer arc=0pt,
+    boxrule=0pt
+  },
+  underlay boxed title={
+    \fill[violet] 
+      (title.north west) -- 
+      (title.north east) -- 
+      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) -- 
+      ([xshift=4mm,yshift=0.5mm]frame.north east) -- 
+      +(0mm,-1mm) -- 
+      (title.south west) -- cycle;
+    \fill[violet!45] 
+      ([yshift=-0.5mm]frame.north west) -- 
+      +(-0.4,0) -- 
+      +(0,-0.3) -- cycle;
+    \fill[violet!45] 
+      ([yshift=-0.5mm]frame.north east) -- 
+      +(0,-.3) -- +(.4,0) -- cycle; 
+  },
+  title={Side Note},
+  #1
+}
+
+
+
+\newtcolorbox{example}[1][]{
+  enhanced,
+  breakable,
+  skin=enhancedlast jigsaw,
+  attach boxed title to top left={xshift=-4mm,yshift=-.5mm},
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=orange,
+  colframe=orange,
+  interior style={
+    color=yellow!5
+    %top color=blue!10,
+    %bottom color=red!10
+  },
+  boxed title style={
+    empty,
+    arc=0pt,
+    outer arc=0pt,
+    boxrule=0pt
+  },
+  underlay boxed title={
+    \fill[orange] 
+      (title.north west) -- 
+      (title.north east) -- 
+      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) -- 
+      ([xshift=4mm,yshift=0.5mm]frame.north east) -- 
+      +(0mm,-1mm) -- 
+      (title.south west) -- cycle;
+    \fill[orange!50] 
+      ([yshift=-0.5mm]frame.north west) -- 
+      +(-0.4,0) -- 
+      +(0,-0.3) -- cycle;
+    \fill[orange!50] 
+      ([yshift=-0.5mm]frame.north east) -- 
+      +(0,-.3) -- +(.4,0) -- cycle; 
+  },
+  title={Example},
+  #1
+}
+
+
+\newtcolorbox{common-question}[1][]{
+  enhanced,
+  breakable,
+  skin=enhancedlast jigsaw,
+  attach boxed title to top left={xshift=-4mm,yshift=-.5mm},
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=green!60!black,
+  colframe=green!60!black,
+  interior style={
+    color=green!5
+    %top color=blue!10,
+    %bottom color=red!10
+  },
+  boxed title style={
+    empty,
+    arc=0pt,
+    outer arc=0pt,
+    boxrule=0pt
+  },
+  underlay boxed title={
+    \fill[green!60!black] 
+      (title.north west) -- 
+      (title.north east) -- 
+      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) -- 
+      ([xshift=4mm,yshift=0.5mm]frame.north east) -- 
+      +(0mm,-1mm) -- 
+      (title.south west) -- cycle;
+    \fill[green!45] 
+      ([yshift=-0.5mm]frame.north west) -- 
+      +(-0.4,0) -- 
+      +(0,-0.3) -- cycle;
+    \fill[green!45] 
+      ([yshift=-0.5mm]frame.north east) -- 
+      +(0,-.3) -- +(.4,0) -- cycle; 
+  },
+  title={Common Question},
+  #1
+}
+
+
+\newtcolorbox{definition}[1][]{
+  enhanced,
+%  breakable,
+%  skin=enhancedlast jigsaw,
+%  attach boxed title to top left={xshift=-4mm,yshift=-.5mm},
+%  fonttitle=\bfseries\sffamily,
+%  colbacktitle=green!60!black,
+  colframe=cyan,
+  interior style={
+    color=cyan!5
+%    %top color=blue!10,
+%    %bottom color=red!10
+  },
+%  boxed title style={
+%    empty,
+%    arc=0pt,
+%    outer arc=0pt,
+%    boxrule=0pt
+%  },
+%  underlay boxed title={
+%    \fill[green!60!black] 
+%      (title.north west) -- 
+%      (title.north east) -- 
+%      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) -- 
+%      ([xshift=4mm,yshift=0.5mm]frame.north east) -- 
+%      +(0mm,-1mm) -- 
+%      (title.south west) -- cycle;
+%    \fill[green!45] 
+%      ([yshift=-0.5mm]frame.north west) -- 
+%      +(-0.4,0) -- 
+%      +(0,-0.3) -- cycle;
+%    \fill[green!45] 
+%      ([yshift=-0.5mm]frame.north east) -- 
+%      +(0,-.3) -- +(.4,0) -- cycle; 
+%  },
+%  title={Common Question},
+%  #1
+}
+
+
 \title{This is How I Teach AP C}
 \author{Dr.\ Timothy Leung}
 \date{Updated: \today}
@@ -88,13 +251,14 @@
 \frontmatter
 \maketitle
 
-%\tableofcontents
-%
+\tableofcontents
+
 %\listoffigures
-%
+
 %\listoftables
 
 \mainmatter
+
 \part{Mechanics}
 
 \input{../kinematics-calculus/PhysAPC-01b-kinematicsHandout}
@@ -109,6 +273,7 @@
 \input{../circularMotion/PhysAPC-06-circMotion}
 \input{../rotationalMotion/rotationalMotion}
 \input{../harmonicMotion/harmonicMotion}
+\input{../harmonicMotion/harmonicMotion-practice-questions}
 \input{../universalGravitation/univGravity}
 
 \part{Electricity and Magnetism}
@@ -126,7 +291,6 @@
 
 \input{../kinematics-calculus/PhysAPC-01a-vectorsCalculus}
 \input{../graphingTechniques/graphingTechiques}
-%\input{../keplers-laws/PhysAPC-12-keplersLaws}
-%
+
 %\theendnotes
 \end{document}

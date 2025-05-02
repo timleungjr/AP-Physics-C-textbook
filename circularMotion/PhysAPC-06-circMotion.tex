@@ -52,7 +52,7 @@ motion are shown in Fig.~\ref{fig:curvilinear-motions}.
     \begin{tikzpicture}[scale=.9]
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
-      \draw[function,domain=-1.7:1.7] plot(\x,{.5*(\x*\x)-.3});
+      \draw[function,domain={-1.7:1.7}] plot(\x,{.5*(\x*\x)-.3});
     \end{tikzpicture}
     \caption{Parabolic motion}
   \end{subfigure}
@@ -61,21 +61,14 @@ motion are shown in Fig.~\ref{fig:curvilinear-motions}.
     \begin{tikzpicture}[scale=.9]
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
+%      \draw[domain=0:25,variable=\t,samples=200,function]
+%      plot({\t r:1.75*exp(-.1*\t)});
     \end{tikzpicture}
     \caption{Inward/Outward spiral}
   \end{subfigure}
   \caption{Examples of curvilinear motion in two dimensions}
   \label{fig:curvilinear-motions}
 \end{figure}
-%In Grade 12 Physics, you should have studied
-%\emph{uniform} circular motion, where:
-%\begin{itemize}
-%\item the object's speed (magnitude of velocity) is constant
-%\item the object's \textbf{centripetal acceleration} is toward the center
-%\item the object's acceleration is caused by a \textbf{centripetal force}
-%\end{itemize}
-
-
 
 Like the Cartesian system, the polar coordinate system is also right-handed;
 basics vectors $\hat{\bm r}$ (``radial direction'') and $\hat{\bm\theta}$
@@ -250,17 +243,17 @@ notation is mathematically rigorous and consistent
 
 
 
-%%\begin{frame}{Relativity Velocity}
-%%  If two points $A$ and $B$ are rotating with the same angular velocity with the
-%%  same cent, their relative position is given by:
-%%
-%%  \begin{equation}
-%%    \boxed{
-%%      \bm V_B=\bm V_A+ \bm\omega\times\bm r_{BA}
-%%    }
-%%  }
-%%
-%%  Where $\bm r_{BA}$ is the position of $B$ relative to $A$.
+%\begin{frame}{Relativity Velocity}
+%  If two points $A$ and $B$ are rotating with the same angular velocity with the
+%  same cent, their relative position is given by:
+%
+%  \begin{equation}
+%    \boxed{
+%      \bm V_B=\bm V_A+ \bm\omega\times\bm r_{BA}
+%    }
+%  }
+%
+%  Where $\bm r_{BA}$ is the position of $B$ relative to $A$.
 
 
 
@@ -1133,45 +1126,42 @@ yo-yo is at the top of its swing.
 %
 %
 %
-%\begin{frame}{Example Problem}
-%  \textbf{Example:} A cord is tied to a pail of water, and the pail is swung
-%  in a vertical circle of \SI{1.}\metre. What must be the minimum velocity of
-%  the pail be at its highest point so that no water spills out?
+\begin{example}
+  \textbf{Example:} A cord is tied to a pail of water, and the pail is swung
+  in a vertical circle of \SI{1.}\metre. What must be the minimum velocity of
+  the pail be at its highest point so that no water spills out?
 %  \begin{enumerate}[(A)]
 %  \item\SI{3.1}{\metre\per\second}
 %  \item\SI{5.6}{\metre\per\second}
 %  \item\SI{20.7}{\metre\per\second}
 %  \item\SI{100.5}{\metre\per\second}
-%  \end{enumerate}
-%
-%
-%
-%
-%\begin{frame}{Example: Roller Coaster}
-%  \textbf{Example:} A roller coaster car is on a track that forms a circular
-%  loop, of radius $R$, in the vertical plane. If the car is to maintain contact
-%  with the track at the top of the loop (generally considered to be a good
-%  thing), what is the minimum speed that the car must have at the bottom of the
-%  loop. Ignore air resistance and rolling friction.
+\end{example}
+
+\begin{example}
+  \textbf{Example:} A roller coaster car is on a track that forms a circular
+  loop, of radius $R$, in the vertical plane. If the car is to maintain contact
+  with the track at the top of the loop (generally considered to be a good
+  thing), what is the minimum speed that the car must have at the bottom of the
+  loop? Ignore air resistance and rolling friction.
 %  \begin{enumerate}[(A)]
 %  \item $\sqrt{2gR}$
 %  \item $\sqrt{3gR}$
 %  \item $\sqrt{4gR}$
 %  \item $\sqrt{5gR}$
 %  \end{enumerate}
+\end{example}
 %
 %
 %
-%
-%\begin{frame}{Example}
-%  \textbf{Example:} A stone of mass $m$ is attached to a light strong string
-%  and whirled in a \emph{vertical} circle of radius $r$. At the exact bottom of
-%  the path, the tension of the string is three times the weight of the stone.
-%  The stone's speed at that point is given by:
+\begin{example}
+  \textbf{Example:} A stone of mass $m$ is attached to a light strong string
+  and whirled in a \emph{vertical} circle of radius $r$. At the exact bottom of
+  the path, the tension of the string is three times the weight of the stone.
+  The stone's speed at that point is:
 %  \begin{enumerate}[(A)]
 %  \item $2\sqrt{gR}$
 %  \item $\sqrt{2gR}$
 %  \item $\sqrt{3gR}$
 %  \item $4gR$
-%  \end{enumerate}
-%\end{document}
+\end{example}
+
