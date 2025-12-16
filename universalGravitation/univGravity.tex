@@ -45,7 +45,7 @@ opposite in direction, hence the attraction is \emph{mutual}.
 \begin{common-question}
   \textbf{What happens when $r=0$?} It is worth pointing out that point masses
   do not actually exist, and that even an electron has a finite size. Therefore
-  the situation for $r=0$ will never arise; $F_g$ is never be infinite. From a
+  the situation for $r=0$ will never arise; $F_g$ can never be infinite. From a
   practical point of view, whether a mass can be treated as a point mass is a
   matter of \emph{scale}. For example, at the scale of the solar system, the
   sun and all the planets, moons, comets can all be considered as point masses,
@@ -117,7 +117,7 @@ two-mass system, we can group the variables in the law of universal
 gravitation to find $\mathbf g$:
 \begin{equation*}
   F_g
-  =\underbrace{\left[\frac{Gm_1}{r^2}\right]}_{=g}m_2
+  =\underbracket[1pt]{\left[\frac{Gm_1}{r^2}\right]}_{=g}m_2
   =m_2 g
 \end{equation*}
 The vector field function $\mathbf g$ is known as the \textbf{gravitational field}
@@ -139,7 +139,7 @@ $r=r_E=\SI{6.371e6}\metre$) to obtain the commonly-known value of
   g\approx\SI{9.81}{\metre\per\second\squared}\quad\text{or}\quad
   g\approx\SI{9.81}{\newton\per\kilo\gram}
 \end{equation*}
-both units are equivalent.
+Both units are equivalent.
 
 
 
@@ -516,17 +516,20 @@ indicating that gravity is a conservative force with the following properties:
 \fcolorbox{black}{yellow!10}{
   \small
   \begin{minipage}{.97\linewidth}
-    \begin{itemize}[nosep,leftmargin=12pt]
-    \item $(+)$ work by gravity decreases gravitational potential energy
-    \item $(-)$ work by gravity increases gravitational potential energy
-    \item $W_g$ depends on $r_0$ and $r_1$, but not \emph{how}
-      it goes from $r_0\rightarrow r_1$ (path independence)
+    \begin{enumerate}%[nosep,leftmargin=12pt]
+    \item When work by gravity is \emph{positive}, there is a \emph{decrease}
+      in gravitational potential energy by the same amount
+    \item When work by gravity is \emph{negative}, there is an \emph{increase}
+      in gravitational potential energy by the same amount
+    \item Work done by gravity is path independent: $W_g$ depends on $r_0$ and
+      $r_1$, but not \emph{how} it goes from $r_0\rightarrow r_1$
     \item Only work done by gravity can affect gravitational potential energy
-    \end{itemize}
+    \end{enumerate}%itemize}
   \end{minipage}
 }
 
-that we are familiar with from Chapter~\ref{chapter:energy}.
+that we are familiar with from the discussion of conservative vs.\
+non-conservative forces Chapter~\ref{chapter:energy}.
 
 The fundamental theorem of calculus shows that gravitational force
 $\mathbf F_g$ is the \emph{negative gradient} of the gravitational potential
@@ -628,10 +631,9 @@ of Earth with some initial velocity $\mathbf v$.
       \node at (0,0) {\pic{.45}{universalGravitation/earth-1200px}};
       \fill[red] (0,1.7) circle (.05);
       \draw[function,->] (0,1.7) arc (90:30:1 and 1.45);
-      %\draw[function,->,domain=0:.5] plot(\x,{-.5*\x*\x+1.7});
       \draw[dashed,gray,thick] circle (1.7);
     \end{tikzpicture}
-    \caption{With a low initial velocity, the object falls onto the planet
+    \caption{At a low initial velocity, the object falls onto the planet
       after travelling only a short distance}
   \end{subfigure}
   \hspace{.3in}
@@ -803,8 +805,8 @@ There is a simple relationship between orbital speed and escape speed:
 \end{equation}
 
 \begin{example}
-  Determine the escape velocity for a \SI{1.60e4}{\kilo\gram} rocket leaving
-  the surface of Earth.
+  Determine the escape speed for a \SI{1.60e4}{\kilo\gram} rocket leaving the
+  surface of Earth.
     
   \vspace{.2in}
   \textbf{Solution:} All we have to do is to substitute the correct values into
@@ -817,23 +819,31 @@ There is a simple relationship between orbital speed and escape speed:
     =\SI{1.12e4}{\metre\per\second}
   \end{equation*}
   This means that the object leaves the surface at more than
-  \SI{11}{\kilo\metre\per\second}. Consider that a commercial airliner flies at
+  \SI{11}{\kilo\metre\per\second}. Consider that commercial airliners fly at
   about \SI{13}{\kilo\metre} in altitude, the rocket will reach that height in
   just over 1 second. The rocket's mass, although is given to you, is not
   required in solving the problem.
 \end{example}
 
+The equation for the escape speed is based on:
+\begin{itemize}
+\item The object have a \emph{constant} mass
+\item All the work is done by gravitational force
+\end{itemize}
+Neither of which apply to the case for a rocket going into space. In reality, a
+rocket will reach hypersonic (about Mach 5) speeds at launch, and therefore
+have an enormous amount of drag force acting on it. Additionally, the mass of a
+rocket is mostly in its fuel, while the mass of the structure, engines, and
+payload comprises of a very small percentage of the weight at launch.
 
-The equation for the escape speed is based on the object have a \emph{constant}
-mass, which is \emph{not} the case for a rocket going into space. In reality, a
-rocket will be travelling at supersonic speeds, and therefore have an enormous
-amount of drag force acting on it. Additionally, the mass of a rocket is mostly
-in its fuel, while the mass of the structure, engines, and payload comprises of
-a very small percentage of the weight at launch.
+The equation for escape speed is more suited if an object is \emph{catapulted}
+from a planet or moon that does not have an atmoshere. Nevertheless,
+Eq.~\ref{eq:escape-speed} gives us an approximation to the speed that is needed
+to escape the gravitational pull of a planet.
 
-It's important to note that the object can escape from the \emph{surface} or
-the planet, or it can escape from \emph{orbit}. In Fig.~\ref{fig:two-escapes},
-both objects have the same escape velocity.
+It is also important to note that the object can escape from the \emph{surface}
+or the planet, or it can escape from \emph{orbit}.
+In Fig.~\ref{fig:two-escapes}, both objects have the same escape velocity.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.4\linewidth}
@@ -851,7 +861,7 @@ both objects have the same escape velocity.
   \begin{subfigure}{.4\linewidth}
     \centering
     \begin{tikzpicture}[scale=1.8]
-      \node at (0,0) {\pic{.58}{universalGravitation/earth-1200px}};
+      \node at (0,0) {\pic{.61}{universalGravitation/earth-1200px}};
       \draw[thick] circle (1) node[below]{$M$};
       \draw[mass] (0,1) circle (.05);
       \draw[mass] (2,0) circle (.05);
@@ -872,8 +882,9 @@ speed of
 
 
 \section{Orbital Energies}
-We can obtain the \textbf{orbital kinetic energy} in a perfectly circular
-orbit by using the orbital speed in our expression of kinetic energy:
+We can obtain the \textbf{orbital kinetic energy} in a perfectly circular orbit
+by using the orbital speed in our expression of kinetic energy, for when a small
+object is orbiting around a much larger mass:
 \begin{equation}
   K_\text{orbit}=\frac12mv_\text{orbit}^2=\frac12m
   \left(\sqrt{\frac{GM}r}\right)^2=\boxed{\frac{GMm}{2r}}
@@ -882,6 +893,11 @@ We already have an expression for gravitational potential energy:
 \begin{equation}
     U_g=-\frac{GMm}r=-2K_\text{orbit}
 \end{equation}
+The ratio between gravitational potential energy and kinetic energy
+($U_g=-2K_\text{orbit}$) is not unique to gravity. An electron that ``orbits''
+around a much heavier nucleus also has the same ratio between \emph{electric}
+potential energy and kinetic enery.
+
 The \textbf{total orbital energy} is the sum of $K$ and $U_g$:
 \begin{equation}
   E_T=K_\text{orbit}+U_g=-\frac{GMm}{2r}=-K_\text{orbit}
@@ -902,42 +918,41 @@ space debris, orbiting around a planet, or it could be a planet, or comet, or
 asteroids orbiting the sun. However, there are situations where two objects
 of comparable masses orbit each other. In Fig.~\ref{fig:binary1}, two stars of
 mass $m_1\approx m_2$ are in circular orbit around each other. Both stars orbit
-a common orbital centre which is the centre of mass of the binary system. 
+a common orbital centre which is the centre of mass of the binary system.
+Gravitational force still provides the centripetal force.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.4]
     \fill circle (.2) node[left]{cm};
     \draw[dashed] circle (4);
     \draw[dashed] circle (8);
-    \draw[axes,rotate=30] (0,0)--(0,8) node[above]{$r_1$};
-    \draw[axes,rotate=-110] (0,0)--(4,0) node[below]{$r_2$};
-    \draw[vector] (-8,0)--+(0,4) node[above]{$\mathbf v_1$};
-    \draw[vector] (4,0)--+(0,-6) node[below]{$\mathbf v_2$};
-    \draw[vector,blue] (-8,0)--(-5,0) node[above]{$\mathbf F_g$};
-    \draw[vector,red] (4,0)--(1,0) node[above]{$\mathbf F_g$};
-    %\shade[ball color=red] (4,0) circle (1) node[white]{$m_2$};
-    %\shade[ball color=blue] (-8,0) circle (.7) node[white]{$m_1$};
+    %\draw[axes,rotate=30] (0,0)--(0,8) node[above]{$r_1$};
+    %\draw[axes,rotate=-110] (0,0)--(4,0) node[below]{$r_2$};
+    \draw[vector,blue] (-8,0)--+(0,3) node[above]{$\mathbf v_1$};
+    \draw[vector,red] (4,0)--+(0,-6) node[below]{$\mathbf v_2$};
+    \draw[vector,blue] (-8,0)--+(1.5,0) node[above]{$\mathbf F_g$};
+    \draw[vector,red] (4,0)--+(-3,0) node[above]{$\mathbf F_g$};
     \node at (-8,0) {\pic{.03}{universalGravitation/blue-star1}};
     \node at (4,0) {\pic{.06}{universalGravitation/orange-star1}};
+    \draw[|<->|] (-8,-2.5)--+(8,0) node[midway,fill=white]{$r_1$};
+    \draw[<->] (0,-2.5)--+(4,0) node[midway,fill=white]{$r_2$};
   \end{tikzpicture}
   \caption{Two stars of comparable masses in circular orbital motion about
     their centre of mass}
   \label{fig:binary1}
 \end{figure}    
-Gravitational force still provides the centripetal force.
 
-\begin{example}
-  \textbf{Binary System Example:} Two stars of mass $m_1$ and $m_2=2m_1$ orbit
-  each other. From Chapter~\ref{chapter:cm}, we know that the orbital distances
-  are related by $r_1=2r_2$. To find the orbital speed of $m_1$, Setting the
-  gravitational force to be the centripetal force:
+\begin{example}[Binary Star System]
+  Two stars of mass $m_1$ and $m_2=2m_1$ orbit each other, i.e.\ they orbit
+  around their centre of mass. From Chapter~\ref{chapter:cm}, we know that the
+  orbital distances are related by $r_1=2r_2$. To find the orbital speed of
+  $m_1$, Setting the gravitational force to be the centripetal force:
   \begin{equation*}
     F_c=ma_c\quad\rightarrow\quad \frac{Gm_1m_2}{(r_1+r_2)^2}=\frac{m_1v_1^2}{r_1}
   \end{equation*}
-  Note that unlike the case in Section~\ref{sec:orbital-speed}, the orbital
-  radius $r_1$ is \emph{not} the same as the distance between the distance
-  between the stars ($r_1+r_2$). Now setting $m_2=2m_1$ and $r_2=r_1/2$, the
-  equation becomes:
+  Unlike the case in Section~\ref{sec:orbital-speed}, the orbital radius $r_1$
+  is \emph{not} the distance between the stars, which is $r_1+r_2$. Setting
+  $m_2=2m_1$ and $r_2=r_1/2$, the equation becomes:
   \begin{equation*}
     \frac{Gm_1(2m_1)}{[r_1+(r_1/2)]^2}=\frac{m_1v_1^2}{r_1}
     \quad\rightarrow\quad
@@ -961,7 +976,9 @@ Gravitational force still provides the centripetal force.
   \begin{equation*}
     v_2=\sqrt{\frac{2Gm_1}{9r_1}}=\frac12v_1
   \end{equation*}
-  This would mean that both stars have the same orbital period.
+  $m_2$ orbits at half the radius and halt the speed. This means that both
+  stars have the same orbital period. This should make sense if the orbits are
+  to remain stable.
 \end{example}
 
 
