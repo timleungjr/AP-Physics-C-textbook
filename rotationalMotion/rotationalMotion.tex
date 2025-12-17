@@ -277,29 +277,27 @@ The scalar quantity $mr^2$ defined in Eqs.~\ref{eq:l-vector} and
 \textbf{rotational inertia}), with a unit of \textbf{kilogram meter squared}
 (\si{\kilo\gram\metre\squared}). Moment of inertia can be considered to be an
 object's ``rotational mass''. Angular momentum now be expressed as:
-\begin{equation}
-  \boxed{
-    \bm L=I\bm\omega
-  }
+\begin{important-equation}
+  \bm L=I\bm\omega
   \label{eq:angular-momentum}
-\end{equation}
+\end{important-equation}
 For a \emph{single particle} of mass $m$ rotating at a fixed distance $r$ from
 the pivot, moment of inertia is defined as:
-\begin{equation}
-  \boxed{I=mr^2}
-\end{equation}
+\begin{important-equation}
+  I=mr^2\quad\text{(single particle)}
+\end{important-equation}
 For a collection of $N$ discrete particles rotating with the same $\bm\omega$,
 each of mass $m_i$ at distance $r_i$ from a common pivot, the total moment of
 inertia is the sum of the inidividual moments of inertia:
-\begin{equation}
-  \boxed{I=\sum_{i=1}^N m_ir_i^2}
+\begin{important-equation}
+  I=\sum_{i=1}^N m_ir_i^2\quad\text{($N$ discrete particles)}
 \end{equation}
 As the number of masses approaches infinity ($N\rightarrow\infty$), i.e.\ a
 continuous distribution of mass rotating about a pivot, the summation
 becomes an integral:
-\begin{equation}
-  \boxed{I=\int r^2\dl m}
-\end{equation}
+\begin{important-equation}
+  I=\int r^2\dl m\quad\text{(continuous distribution of mass)}
+\end{important-equation}
 We have included the moment of inertia of several three-dimensional objects in
 Table~\ref{tabl:moment-3d}.
 \begin{table}[ht]
@@ -314,26 +312,69 @@ regardless of how you measure it, moment of inertia $I$ depend on the
 orientation of the axis of rotation, and how the mass is distributed. Both of
 these can change with time.
 
-%Comparing the exressions of linear momentum to that of angular momentum in
-%Eq.~\ref{eq:angular-momentum}, we can see that they are very similar in form,
-%in that they are the multiple of a ``mass'' term and a velocity term:
-%\begin{align*}
-%  \bm p &= m\bm v\\
-%  \bm L &= I\bm\omega
-%\end{align*}
-%Just as $\bm p$ describes the \emph{translational} state of motion of an
-%object, $\bm L$ describes its \emph{rotational} state of a rotating system.
+\begin{example}
+  A slender rod of length $L$ and mass $M$ is hinged at one end, as shown in
+  the diagram below. Assuming that the density of the rod is uniform, what is
+  its moment of inertia about its
+  \begin{enumerate}
+  \item pivot?
+  \item centre of mass?
+  \end{enumerate}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[mass] rectangle (10,.8);
+      \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
+      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L};
+      \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
+    \end{tikzpicture}
+  \end{center}
+
+  \textbf{Solution:}
+\end{example}
+
+
+\begin{example}
+  A slender rod with a density that varies linearly ($\gamma=\alpha x$) with
+  length, total length $L$ is hinged at one end, as shown in the diagram below.
+  Assuming that the density of the rod is uniform, what is its moment of
+  inertia about its pivot?
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[mass] rectangle (10,.8);
+      \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
+      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L};
+      \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
+    \end{tikzpicture}
+  \end{center}
+
+  \textbf{Solution:}
+\end{example}
+
 
 
 
 \section{Laws of Motion for Rotational Motion}
+
 In the first two sections of this chapter, we have defined the concept of
 torque and linear momentum. We also know that torque is responsible for
-changing the rotational state of an object. Now we can our knowledge of the
-laws of motion for linear/translational motion to formulate the the laws of
-motion for rorational motion.
+changing the rotational state of an object.
 
-\subsection{First Law}% of Motion}
+When we compare the exressions of linear momentum to that of angular momentum in
+Eq.~\ref{eq:angular-momentum}, we can see that they are very similar in form,
+in that they are the multiple of a ``mass'' term and a velocity term:
+\begin{align*}
+  \bm p &= m\bm v\\
+  \bm L &= I\bm\omega
+\end{align*}
+Just as $\bm p$ describes the \emph{translational} state of motion of a
+translational system, $\bm L$ describes its \emph{rotational} state of a
+rotating system.
+
+Now we can extend our knowledge of the laws of motion for translational motion
+to formulate the the laws of motion for rorational motion.
+
+\subsection{First Law}
+
 An object is in \textbf{translational equilibrium} when the net force acting on
 it is zero:
 \begin{equation*}
@@ -393,26 +434,26 @@ centre of mass:
   \bm F(t)=m\bm a_\text{cm}(t)
 \end{equation*}
 
-Likewise, the second law of motion for rotational motion is similar,
-but with torque $\bm\tau$ replacing force $\bm F$, and angular momentum
-$\bm L$ replacing linear momentum $\bm p$:
-\begin{equation}
-  \boxed{
-    \bm\tau_\text{net}(t)=\diff{\bm L}t
-  }
+Likewise, the second law of motion for rotational motion is similar, but with
+torque $\bm\tau$ replacing force $\bm F$, and angular momentum $\bm L$
+replacing linear momentum $\bm p$:
+\begin{important-equation}
+  \bm\tau_\text{net}(t)=\diff{\bm L}t
   \label{eq:2nd-law-rotational}
-\end{equation}
+\end{important-equation}
 For objects with constant momentum of inertia $I$,
 Eq.~\ref{eq:2nd-law-rotational} reduces to:
-\begin{equation}
-  \boxed{
-    \bm\tau_\text{net}(t)=I\bm\alpha(t)
-  }
-\end{equation}
+\begin{important-equation}
+  \bm\tau_\text{net}(t)=I\bm\alpha(t)
+  \quad\text{(constant moment of inertia)}
+\end{important-equation}
 
-%\subsection{Third Law of Motion}
+
+
+
 
 \subsection{But there is no rotational motion, is there?}
+
 Even when there is no apparent rotational motion, it does not necessarily mean
 that angular momentum is zero. In the example shown in
 Figure~\ref{fig:straight-line-angular-momentum}, a mass $m$ travels along a
@@ -468,6 +509,12 @@ constant.
     lowest position?
   \end{minipage}
 }
+
+
+\subsection{Conservation of Angular Momentum in a Collision}
+
+In a collision between two objects, not only is translational momentum
+conserved, angular momentum must be conserved as well.
 
 
 \section{Work \& Energy in Rotational Motion}
