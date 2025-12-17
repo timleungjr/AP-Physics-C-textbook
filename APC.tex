@@ -29,16 +29,16 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%-----------------------------------------------------------------------------
+%--------------------------------------L---------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %-----------------------------------------------------------------------------
 
 \documentclass[
-	11pt, % Default font size, select one of 10pt, 11pt or 12pt
+	10pt, % Default font size, select one of 10pt, 11pt or 12pt
 	%fleqn, % Left align equations
-	letterpaper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
-	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
-]{../LegrandOrangeBook}
+	%letterpaper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+        oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{LegrandOrangeBook}
 \usepackage{enumitem}
 \usepackage{siunitx}
 \usepackage[siunitx]{circuitikz}
@@ -62,6 +62,7 @@
 }
 \tikzstyle{axes}=[thick,->]
 \tikzstyle{vector}=[very thick,->]
+\tikzstyle{vectors}=[very thick,->]
 \tikzstyle{function}=[very thick,red]
 \tikzstyle{mass}=[thick,fill=cyan!25]
 \tikzstyle{every node}=[font=\footnotesize]%scriptsize]
@@ -79,9 +80,9 @@
   \includegraphics[width=#1\textwidth]{#2}
 }
 
-\newcommand{\iii}{\mathbf{\hat i}}
-\newcommand{\jjj}{\mathbf{\hat j}}
-\newcommand{\kkk}{\mathbf{\hat k}}
+\newcommand{\iii}{\hat{\bm i}}
+\newcommand{\jjj}{\hat{\bm j}}
+\newcommand{\kkk}{\hat{\bm k}}
 
 
 \newcommand\vertarrowbox[2]{%
@@ -265,7 +266,7 @@
 \input{dynamics-calculus/PhysAPC-02-dynamics}
 \input{dynamicsMultiBody/multiBodyDynamics}
 \input{energy-calculus/PhysAPC-03-workEnergy}
-\input{momentum-calculus/PhysAPC-04-momentum}
+\input{momentum-calculus/momentum-impulse-collisions}
 \input{centreOfMass/CM}
 \input{circularMotion/PhysAPC-06-circMotion}
 \input{rotationalMotion/rotationalMotion}

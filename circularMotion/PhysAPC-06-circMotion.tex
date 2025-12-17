@@ -172,15 +172,11 @@ Using the fundamental theorem of calculus, angular position $\theta(t)$ and
 angular displacement $\Delta\theta(t)$ can be obtained by integrating
 $\omega(t)$. The difference, of course, is that one integral is indefinite, and
 the other is not.
-\begin{equation}
-  \boxed{
-    \theta(t)=\int\omega(t)\dl t +\theta_0
-  }\quad\quad
-  \boxed{
-    \Delta\theta(t)=\int_{t_0}^t\omega(t)\dl t
-  }
-\end{equation}
-
+\begin{important-equation}
+  \theta(t)=\int\omega(t)\dl t +\theta_0
+  \quad\quad
+  \Delta\theta(t)=\int_{t_0}^t\omega(t)\dl t
+\end{important-equation}
 Again, if motion is confined to the $xy$-plane, then $\omega$ is positive when
 the object moves in the counterclockwise direction, and negative when it moves
 clockwise (Fig.~\ref{fig:omega-plus-minus}).
@@ -261,9 +257,9 @@ notation is mathematically rigorous and consistent
 Analogous to the relation between velocity $\bm v$ and acceleration $\bm a$,
 the time derivative of angular velocity $\omega(t)$ is
 \textbf{angular acceleration}:
-\begin{equation}
+\begin{important-equation}
   \alpha=\diff{\omega}t=\diff[2]{\theta}t
-\end{equation}
+\end{important-equation}
 The unit for angular acceleration is \emph{radian per second squared}
 \si{\radian\per\second\squared}. The sign convention for $\alpha$ is the same
 as for $\theta$ and $\omega$. Similar to the relationship between velocity and
@@ -278,15 +274,11 @@ therefore $a_t=0$.
 By the fundamental theorem of calculus, we can of course integrate angular
 acceleration to find the angular velocity (or the \emph{change} in angular
 velocity) as a function of time:
-\begin{equation}
-  \boxed{
-    \omega(t)=\int\alpha(t)\dl t+\omega_0
-  }
+\begin{important-equation}
+  \omega(t)=\int\alpha(t)\dl t+\omega_0
   \quad\quad
-  \boxed{
-    \Delta\omega(t)=\int_{t_0}^t\alpha(t)\dl t
-  }
-\end{equation}
+  \Delta\omega(t)=\int_{t_0}^t\alpha(t)\dl t
+\end{important-equation}
 The relationships are the same as in rectilinear motion.
 
 
@@ -545,25 +537,21 @@ The total acceleration is the vector sum of both components:
 \section{Dynamics of Circular Motion}
 
 By the second law of motion $\bm F_\text{net}=m\bm a$, acceleration must be
-caused by a net force along that direction. Along the angular direction
-($\hat{\bm\theta}$), tangential acceleration is caused by the tangential force
-$\bm F_t$:
-\begin{equation}
-  \boxed{
-    \bm F_t=m\bm a_t=mr\alpha\hat{\bm\theta}
-  }
-\end{equation}
+caused by a net force along that direction. Along the direction of motion
+(i.e.\ the angular direction $\hat{\bm\theta}$), tangential acceleration is
+caused by the \textbf{tangential force} $\bm F_t$:
+\begin{important-equation}
+  \bm F_t=m\bm a_t=mr\alpha\hat{\bm\theta}
+\end{important-equation}
 while in the radial ($\hat{\bm r}$) direction, centripetal acceleration
-(directed in the $-\hat{\bm r}$ direction) is caused by a
-\textbf{centripetal force}:
-\begin{equation}
-  \boxed{
-    \bm F_c
-    =m\bm a_c
-    =-\frac{mv^2}r\hat{\bm r}
-    =-m\left(\omega^2r\right)\hat{\bm r}
-  }
-\end{equation}
+(directed in the inward radial direction $-\hat{\bm r}$) is caused by a
+\textbf{centripetal force} $\bm F_c$:
+\begin{important-equation}
+  \bm F_c
+  =m\bm a_c
+  =-\frac{mv^2}r\hat{\bm r}
+  =-m\left(\omega^2r\right)\hat{\bm r}
+\end{important-equation}
 %  The condition for circular motion is the second law of motion:
 %
 %  \begin{equation}
@@ -1154,10 +1142,10 @@ yo-yo is at the top of its swing.
 %
 %
 \begin{example}
-  \textbf{Example:} A stone of mass $m$ is attached to a light strong string
-  and whirled in a \emph{vertical} circle of radius $r$. At the exact bottom of
-  the path, the tension of the string is three times the weight of the stone.
-  The stone's speed at that point is:
+  A stone of mass $m$ is attached to a light strong string and whirled in a
+  \emph{vertical} circle of radius $r$. At the exact bottom of the path, the
+  tension of the string is three times the weight of the stone. The stone's
+  speed at that point is:
 %  \begin{enumerate}[(A)]
 %  \item $2\sqrt{gR}$
 %  \item $\sqrt{2gR}$

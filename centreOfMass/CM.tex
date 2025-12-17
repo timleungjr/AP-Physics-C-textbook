@@ -171,16 +171,113 @@ The densities do not have to be constant
 
 
 
-\subsection{Centroid}
+\section{Centroid}
 For an object with a uniform mass distribution (i.e.\ constant density), the
 centre of mass is also its geometric centre, called the \textbf{centroid}.
-The locations of centroids can be found in most physics and math textbooks.
-\begin{table}[ht]
+Some 2D examples are shown in the figure.
+\begin{figure}[ht]
   \centering
-  \pic{.8}{centreOfMass/eng130C9_11}
-  \caption{Centroids of common two-dimensional shapes.}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=.45]
+      \draw[mass] rectangle (7,4);
+      \draw[<->] (-.3,0)--+(0,4) node[midway,left=-1]{$a$};
+      \draw[<->] (0,-.3)--+(7,0) node[midway,below=-1]{$b$};
+      
+      \draw[<->] (3.5,0)--+(0,2) node[midway,right=-1]{$\frac a2$};
+      \draw[<->] (0,2)--+(3.5,0) node[midway,above=-1]{$\frac b2$};
+
+      \fill[red] (3.5,2) circle (.08) node[right]{cm};
+    \end{tikzpicture}
+    \caption{Rectangular Area}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering  
+    \begin{tikzpicture}[scale=.45]
+      \draw[mass] (0,0)--(5.5,4)--(8,0)--(0,0);
+      \draw (5.5,0)--+(0,4);
+      \draw[<->] (-.3,0)--+(0,4) node[midway,fill=black!2]{$h$};
+      \draw[<->] (0,-.3)--+(5.5,0) node[midway,below=-1]{$b$};
+      \draw[<->] (5.5,-.3)--+(2.5,0) node[midway,below=-1]{$a$};
+      
+      \draw[<->] (11.5/3,0)--+(0,4/3) node[midway,left=-1]{$\frac h3$};
+      \draw[<->] (11.5/3,4/3)--(8,4/3) node[midway,above=-1]{
+        \small $\frac{b+2a}3$};
+      \draw (8,0)--(8,1.5);
+      \draw (-.5,4)--(6,4);
+      \fill[red] (11.5/3,4/3) circle (.08) node[above]{cm};
+    \end{tikzpicture}
+    \caption{Triangular Area}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering  
+    \begin{tikzpicture}[scale=.45]
+      \draw[mass] (0,0)--(0,4.5)--(7,3)--(7,0)--(0,0);
+      \draw[<->] (-.3,0)--+(0,4.5) node[midway,left=-1]{$a$};
+      \draw[<->] (7.3,0)--+(0,3) node[midway,right=-1]{$b$};
+      \draw[<->] (0,-.3)--+(7,0) node[midway,below=-1]{$L$};
+      
+      \draw[<->] (3.3,0)--+(0,1.9) node[midway,right=-1]{
+        $\frac{a^2+ab+b^2}{3(a+b)}$};
+      \draw[<->] (0,1.9)--+(3.3,0) node[midway,above=-1]{
+        $\frac{L(a+2b)}{2(a+b)}$};
+
+      \fill[red] (3.3,1.9) circle (.08) node[right]{cm};
+    \end{tikzpicture}
+    \caption{Trapezoidal Area}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering  
+    \begin{tikzpicture}[scale=.5]
+      \draw[mass] circle (2.5);
+      \draw[->,rotate=-50] (0,0)--(2.5,0) node[midway,above=-1]{$r$};
+      \fill[red] circle (.08) node[left]{cm};
+    \end{tikzpicture}
+    \caption{Circular Area}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering  
+    \begin{tikzpicture}[scale=.5]
+      \draw[black!2] circle (2.5);
+      \draw[mass] (2.5,0) arc (0:180:2.5)--(2.5,0);
+      \draw[dash dot] (0,0)--(0,2.7);
+      \draw[<->] (0,0)--+(0,1.1) node[midway,right=-1]{$\frac{4r}{3\pi}$};
+
+      \draw[->,rotate=-45] (0,0)--(-2.5,0) node[midway,above=-1]{$r$};
+      \fill[red] (0,1.1) circle (.08) node[above]{cm};
+    \end{tikzpicture}
+    \caption{Semi-Circular Area}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering  
+    \begin{tikzpicture}[scale=.5]
+      \draw[black!2] circle (2.5);
+      \draw[mass] (0,0)--(0,2.5) arc (90:180:2.5)--(0,0);
+      \draw (-1.1,-.5)--(-1.1,1.1)--(.5,1.1);
+      
+      \draw[<->|] (.3,1.1)--(.3,0) node[midway,right=-1]{
+        \small$\frac{4r}{3\pi}$};
+      \draw[<->|] (-1.1,-.3)--(0,-.3) node[midway,below=-1]{
+        \small$\frac{4r}{3\pi}$};
+      \draw[->,rotate=-45] (0,0)--(-2.5,0) node[midway,above=-1]{$r$};
+      \fill[red] (-1.1,1.1) circle (.08) node[left]{cm};
+    \end{tikzpicture}
+    \caption{Quarter-Circular Area}
+  \end{subfigure}
+  \caption{Centroids of some 2D shapes}
   \label{tabl:centroids}
-\end{table}
+\end{figure}
+
+%\subsection{Centroid}
+%For an object with a uniform mass distribution (i.e.\ constant density), the
+%centre of mass is also its geometric centre, called the \textbf{centroid}.
+%The locations of centroids can be found in most physics and math textbooks.
+%\begin{table}[ht]
+%  \centering
+%  \pic{.8}{centreOfMass/eng130C9_11}
+%  \caption{Centroids of common two-dimensional shapes.}
+%  
+%\end{table}
 
 
 
