@@ -15,9 +15,9 @@
 
 Magnetic flux is defined as:
 \begin{equation}
-  \boxed{\Phi_m=\int_\mathcal{S}\bm B\cdot\dl\bm A}
+  \boxed{\Phi_m=\int_\mathcal{S}\bm B\cdot\dl{\bm A}}
 \end{equation}
-where $\bm B$ is the magnetic field, and $\dl\bm A$ is the infinitesimal
+where $\bm B$ is the magnetic field, and $\dl{\bm A}$ is the infinitesimal
 area pointing \textbf{outwards}. Note that magnetic flux can also be
 expressed as:
 \begin{equation}
@@ -39,7 +39,7 @@ with Carl Gauss. The unit is defined as:
 The magnetic flux over any closed surface $\mathcal S$ must always be zero.
 This is \textbf{Gauss's law for magnetism}:
 \begin{equation}
-  \boxed{\oint_{\mathcal S}\bm B\cdot\dl\bm A=0}
+  \boxed{\oint_{\mathcal S}\bm B\cdot\dl{\bm A}=0}
 \end{equation}
 Since magnetic field lines only exist as a loop, that means there should be
 equal amount of ``flux'' flowing out of a closed surface as entering the
@@ -59,7 +59,7 @@ induces electric field $\bm E$ in a circuit, and therefore an
 induced electromotive force, or \emph{emf}, $\mathcal E$ (voltage gain):
 \begin{equation}
   \boxed{
-    \mathcal E=-\oint\bm E\cdot\dl\bm\ell={\color{red}-}
+    \mathcal E=-\oint\bm E\cdot\dl{\bm\ell}={\color{red}-}
     \diff{\Phi_m}t
   }
 \end{equation}
@@ -90,7 +90,7 @@ The plane of the loop is perpendicular to $\bm B$.
       it is a function of time:
     
       \begin{displaymath}
-        \Phi_m(t)=\int_{\mathcal S}\bm B(t)\cdot\dl\bm A=B(t)A
+        \Phi_m(t)=\int_{\mathcal S}\bm B(t)\cdot\dl{\bm A}=B(t)A
       \end{displaymath}\par
     };
     \draw[thick,->,red] (flux) to[out=0,in=110] (-.75,1.5)
@@ -322,7 +322,7 @@ as we expect from Lenz's law.
   \centering
   \begin{tikzpicture}[auto,node distance=105, thick]
     \node[fill=pink!40,font=\large] (a) {
-      $\displaystyle\Phi_m=\int_{\mathcal S}\bm B\cdot\dl\bm A$};
+      $\displaystyle\Phi_m=\int_{\mathcal S}\bm B\cdot\dl{\bm A}$};
     \node[fill=green!20,font=\large] (b) [right of=a] {
       $\displaystyle\left|\diff{\Phi_m}t\right|=\mathcal E$};
     \node[fill=blue!20,font=\large] (c) [right of=b] {

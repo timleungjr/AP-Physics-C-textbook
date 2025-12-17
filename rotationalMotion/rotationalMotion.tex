@@ -8,7 +8,7 @@ $\bm\omega$ is \emph{out of the page}; if rotation is clockwise, $\bm\omega$ is
 \emph{into the page}.}, as shown in Fig~\ref{fig:uniform}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.8]
+  \begin{tikzpicture}[scale=.7]
     \draw[axes] (-3,0)--(3,0) node[right]{$x$};
     \draw[axes] (0,-3)--(0,3) node[above]{$y$};
     \draw[dashed] circle(2.5);
@@ -178,11 +178,9 @@ pivot. This can be when the force acts through the pivot, or when
 
 When there are multiple forces generating torque about a point, the net torque
 is the vector sum of all torques acting at that point:
-\begin{equation}
-  \boxed{
-    \bm\tau_\text{net}=\sum_i\bm\tau_i
-  }
-\end{equation}
+\begin{important-equation}
+  \bm\tau_\text{net}=\sum_i\bm\tau_i
+\end{important-equation}
 Torque can come from individual forces acting at a point, e.g.\ when the
 gravitational force, acting at the centre of mass, rotates a beam, or when an
 applied force rotates a door handle. We can express those simply as:
@@ -194,37 +192,34 @@ e.g.\ force on the head of a screwdriver. For rotational motion, we only care
 about the torque. In most cases, we are not concenred with exactly how the
 force generates the torque, only that a torque is generated.
 
-\fcolorbox{black}{yellow!5}{
-  \small
-  \begin{minipage}{.97\linewidth}
-    \textbf{Example:} Find the net torque on point C.
-    \begin{center}
-      \begin{tikzpicture}[scale=1.75]
-        \begin{scope}[thick]
-          \fill[blue!40,draw=black] (-1.65,-.12) rectangle (1.65,.12);
-          \draw[<->] (-1.5,-.27)--(1.5,-.27) node[midway,fill=yellow!5]{3.0 m};
-          \draw[<->] (-1.5,.27)--(0,.27) node[midway,fill=yellow!5]{1.5 m};
-          \draw[dashed] (-2.2,0)--(2.2,0);
-          \draw[dashed] (0,0)--(0,.5);
-        \end{scope}
-        \begin{scope}[orange,vector]
-          \draw[rotate=-45] (0,0)--(0,1.5) node[right]{\SI{30}\newton};
-          \draw[rotate around={30:(-1.5,0)}] (-1.5,0)--(-2.5,0)
-          node[left]{\SI{20}\newton};
-          \draw[rotate around={-30:(1.5,0)}] (1.5,0)--(2.2,0)
-          node[right]{\SI{10}\newton};
-        \end{scope}
-        \draw[axes] (0,.4) arc(90:45:.4) node[pos=.7,above]{\ang{45}};
-        \draw[axes] (-1.9,0) arc(180:210:.4) node[midway,left]{\ang{30}};
-        \draw[axes] (1.9,0) arc(0:-30:.4) node[midway,right]{\ang{30}};
-        \fill (-1.5,0) circle(.1) node[white]{\textbf{A}};
-        \fill circle(.1) node[white]{\textbf{B}};
-        \fill (1.5,0) circle (.1) node[white]{\textbf{C}};
-      \end{tikzpicture}
-    \end{center}
-  \end{minipage}
-}
-
+\begin{example}
+  Find the net torque on point C.
+  \begin{center}
+    \begin{tikzpicture}[scale=1.75]
+      \begin{scope}[thick]
+        \fill[blue!40,draw=black] (-1.65,-.12) rectangle (1.65,.12);
+        \draw[<->] (-1.5,-.27)--(1.5,-.27) node[midway,fill=yellow!5]{3.0 m};
+        \draw[<->] (-1.5,.27)--(0,.27) node[midway,fill=yellow!5]{1.5 m};
+        \draw[dashed] (-2.2,0)--(2.2,0);
+        \draw[dashed] (0,0)--(0,.5);
+      \end{scope}
+      \begin{scope}[orange,vector]
+        \draw[rotate=-45] (0,0)--(0,1.5) node[right]{\SI{30}\newton};
+        \draw[rotate around={30:(-1.5,0)}] (-1.5,0)--(-2.5,0)
+        node[left]{\SI{20}\newton};
+        \draw[rotate around={-30:(1.5,0)}] (1.5,0)--(2.2,0)
+        node[right]{\SI{10}\newton};
+      \end{scope}
+      \draw[axes] (0,.4) arc(90:45:.4) node[pos=.7,above]{\ang{45}};
+      \draw[axes] (-1.9,0) arc(180:210:.4) node[midway,left]{\ang{30}};
+      \draw[axes] (1.9,0) arc(0:-30:.4) node[midway,right]{\ang{30}};
+      \fill (-1.5,0) circle(.1) node[white]{\textbf{A}};
+      \fill circle(.1) node[white]{\textbf{B}};
+      \fill (1.5,0) circle (.1) node[white]{\textbf{C}};
+    \end{tikzpicture}
+  \end{center}
+  \textbf{Solution:}
+\end{example}
 
 
 \section{Angular Momentum}
@@ -246,13 +241,11 @@ Fig.~\ref{fig:mass-on-stick}.
     angular monentum}
   \label{fig:mass-on-stick}
 \end{figure}
-At any moment in time, it has a linear momentum of $\bm p=m\bm v$, but it
-also has an \textbf{angular momentum} $\bm L$, defined in a way analagous to
-the relationship between force and torque:
+At any moment in time, it has a linear momentum of $\bm p=m\bm v$, but it also
+has an \textbf{angular momentum} $\bm L$, defined in a way analagous to the
+relationship between force and torque:
 \begin{equation}
-  \boxed{
-    \bm L=\bm r\times\bm p
-  }
+  \bm L=\bm r\times\bm p
   \label{eq:ang-momentum-def}
 \end{equation}
 The unit for angular momentum is a \emph{kilogram meter squared per second}
@@ -294,7 +287,7 @@ each of mass $m_i$ at distance $r_i$ from a common pivot, the total moment of
 inertia is the sum of the inidividual moments of inertia:
 \begin{important-equation}
   I=\sum_{i=1}^N m_ir_i^2\quad\text{($N$ discrete particles)}
-\end{equation}
+\end{important-equation}
 As the number of masses approaches infinity ($N\rightarrow\infty$), i.e.\ a
 continuous distribution of mass rotating about a pivot, the summation
 becomes an integral:
@@ -327,11 +320,10 @@ these can change with time.
     \begin{tikzpicture}
       \draw[mass] rectangle (10,.8);
       \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
-      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L};
+      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L$};
       \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
     \end{tikzpicture}
   \end{center}
-
   \textbf{Solution:}
 \end{example}
 
@@ -345,11 +337,10 @@ these can change with time.
     \begin{tikzpicture}
       \draw[mass] rectangle (10,.8);
       \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
-      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L};
+      \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L$};
       \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
     \end{tikzpicture}
   \end{center}
-
   \textbf{Solution:}
 \end{example}
 
@@ -375,6 +366,8 @@ rotating system.
 
 Now we can extend our knowledge of the laws of motion for translational motion
 to formulate the the laws of motion for rorational motion.
+
+
 
 \subsection{First Law}
 
@@ -639,12 +632,15 @@ you are comfortable with to solve for the answers.
 
 
 \section{Examples}
+
+
 \subsection{A Spinning Disk}
+
 Consider a uniform disk of radius $R$ and mass $M$ that is free to rotate about
-its centre of mass (Fig.~\ref{disk1}). To analyse its rotational
-motion, we first find its moment of inertia about the pivot from
-Fig.~\ref{moment-3d}. For a uniform disk, $I=\frac12MR^2$. Since the centre of
-mass is also the pivot, we only have to consider its rotational motion.
+its centre of mass (Fig.~\ref{disk1}). To analyse its rotational motion, we
+first find its moment of inertia about the pivot from Fig.~\ref{moment-3d}. For
+a uniform disk, $I=\frac12MR^2$. Since the centre of mass is also the pivot, we
+only have to consider its rotational motion.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -668,7 +664,6 @@ mass is also the pivot, we only have to consider its rotational motion.
   \label{disk1}
 \end{figure}
 
-%    \column{.7\textwidth}
 %    \only<2>{Speed at any point on this disk is proportional to its distance
 %      to the pivot:
 %
@@ -1096,3 +1091,5 @@ Note that $\omega_0$ is negative, since the rotation is clockwise. At some time
 $t$ there will be a point in time where $v=\omega r$. When this happens, the
 sphere stops slipping, and the problem returns to the no-slip case that was
 discussed in Section~\ref{no-slip-ball}.
+
+

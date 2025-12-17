@@ -28,24 +28,24 @@ to define different forms of energies.
 \section{Mechanical Work}
 \label{sec:mechwork}
 An infinitesimal amount of \textbf{mechanical work} $\dl W$ is done when a
-force $\mathbf F$ displaces an object by an infinitesimal amount
-$\dl\mathbf x$. If the force moves an object along the path $\mathcal C$, the
+force $\bm F$ displaces an object by an infinitesimal amount
+$\dl{\bm x}$. If the force moves an object along the path $\mathcal C$, the
 total work $W$ done by the force is defined by the integral:
 \begin{equation}
   \boxed{
-    W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\mathbf F(\mathbf x)\cdot\dl\mathbf x
+    W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm x)\cdot\dl{\bm x}
   }
   \label{work-definition}
 \end{equation}
 While both force and displacement are vectors, work is a scalar quantity. Work
-by $\mathbf F$ can be positive or negative depending on the dot product. In
+by $\bm F$ can be positive or negative depending on the dot product. In
 general, the amount of work done ($W$) depends on the path $\mathcal C$. %From
 %Eq.~(\ref{work-definition}), we recognize that
 No work is done if the force is perpendicular to displacement, (i.e.\
-$\mathbf F\cdot\dl\mathbf x=0$) which means that the force did not \emph{cause}
+$\bm F\cdot\dl{\bm x}=0$) which means that the force did not \emph{cause}
 the displacement, or if the object does not move, (i.e.\
-$\dl\mathbf x=\mathbf 0$), or if no force is applied during motion (i.e.\
-$\mathbf F=\mathbf 0$).
+$\dl{\bm x}=\bm 0$), or if no force is applied during motion (i.e.\
+$\bm F=\bm 0$).
 
 For motion confined to one direction along a one-dimensional coordinate
 system, Eq.~(\ref{work-definition}) reduces to\footnote{Note that direction
@@ -62,24 +62,24 @@ simplifies to just the dot product of two vectors\endnote{We must remember how
   to express the dot products. If you know the angles between the vectors,
   then:
   \begin{equation*}
-    \mathbf A\cdot\mathbf B= AB\cos\theta
+    \bm A\cdot\bm B= AB\cos\theta
   \end{equation*}
   And if you know the components of the vectors, then
   \begin{equation*}
-    \mathbf A\cdot\mathbf B= A_xB_x+A_yB_y+A_zB_z
+    \bm A\cdot\bm B= A_xB_x+A_yB_y+A_zB_z
   \end{equation*}
 }:
 \begin{equation}
   \boxed{
-    W = \mathbf F\cdot\Delta\mathbf x=F\Delta x\cos\theta
+    W = \bm F\cdot\Delta\bm x=F\Delta x\cos\theta
   }
   \label{eq:no-integration}
 \end{equation}
 where $\theta$ is the angle between the force and displacement vectors. We can
-also use the above equation if the force $\mathbf F$ is \emph{averaged} over
+also use the above equation if the force $\bm F$ is \emph{averaged} over
 the displacement, i.e.\
 \begin{equation}
-  \mathbf F=\mathbf F_\text{avg}=\frac{\int_{x_0}^{x_1} F(x)\dl x}{x_1-x_0}
+  \bm F=\bm F_\text{avg}=\frac{\int_{x_0}^{x_1} F(x)\dl x}{x_1-x_0}
 \end{equation}
 \begin{sidenote}
   We need a short discussion about what this \emph{average} is. In this case,
@@ -89,7 +89,7 @@ the displacement, i.e.\
   over a time interval, which is related to the change in the \emph{momentum}
   of an object, the force is averaged over \emph{time}:
   \begin{displaymath}
-    \overline{\mathbf F}=\frac{\int_{t_0}^{t_1} \mathbf F(t)\dl t}{t_1-t_0}
+    \overline{\bm F}=\frac{\int_{t_0}^{t_1} \bm F(t)\dl t}{t_1-t_0}
   \end{displaymath}
   (We purposely use different notation to distinguish different types of
   averaging.) Time averaging does not consider the actual motion of the
@@ -97,9 +97,9 @@ the displacement, i.e.\
   velocity and average acceleration in kinematics, when we describe the motion
   of a single object:
   \begin{displaymath}
-    \overline{\mathbf v}=\frac{\int_{t_0}^{t_1} \mathbf v(t)\dl t}{t_1-t_0}
+    \overline{\bm v}=\frac{\int_{t_0}^{t_1} \bm v(t)\dl t}{t_1-t_0}
     \quad\text{and}\quad
-    \overline{\mathbf a}=\frac{\int_{t_0}^{t_1} \mathbf a(t)\dl t}{t_1-t_0}
+    \overline{\bm a}=\frac{\int_{t_0}^{t_1} \bm a(t)\dl t}{t_1-t_0}
   \end{displaymath}
   Later in this chapter, we will also discuss the concept of average power,
   which uses a time averaging. However, there is still a third kind of
@@ -118,7 +118,7 @@ the displacement, i.e.\
   solving problems, it is usually very clear from the context. 
 \end{sidenote}
 
-At this moment, it is unclear what the force $\mathbf F$ is. Whereas we use the
+At this moment, it is unclear what the force $\bm F$ is. Whereas we use the
 \emph{net force} when calculating acceleration in dynamics problems, when
 calculating the work done by ``a force'', it could mean:
 \begin{enumerate}[leftmargin=12pt]
@@ -134,7 +134,7 @@ calculating the work done by ``a force'', it could mean:
   \begin{equation*}
     W_\text{net}
     = \sum_i W_i
-    =\int_{\mathcal C}\mathbf F_\text{net}(\mathbf x)\cdot\dl\mathbf x
+    =\int_{\mathcal C}\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
   \end{equation*}
   The net work allows us to study what is the overall conservation of energy
   to the entire object.
@@ -143,8 +143,8 @@ calculating the work done by ``a force'', it could mean:
 \begin{example}
   A worker pushes a heavy crate up a ramp with a varying applied force. The
   free-body diagram for this problem is shown below. Here, four forces act on
-  the crate: gravity $\mathbf F_g$, normal force $\mathbf F_n$, kinetic
-  friction $\mathbf f$, and applied force $\mathbf F_a(x)$, which is expressed
+  the crate: gravity $\bm F_g$, normal force $\bm F_n$, kinetic
+  friction $\bm f$, and applied force $\bm F_a(x)$, which is expressed
   as a function of the crate's displacement as it moves.
   \begin{center}
     \begin{tikzpicture}
@@ -155,25 +155,25 @@ calculating the work done by ``a force'', it could mean:
         \draw[thick,|->] (3.5,1.75)--+(2,0) node[right]{$\Delta x$};
         \draw[mass] (1.5,0) rectangle (3.5,1.5);
         \fill (2.5,.75) circle (.07);
-        \draw[vector] (2.5,.75)--+(1.5,0) node[right]{$\mathbf F_a(x)$};
-        \draw[vector] (2.5,.75)--+(0,1.5) node[above]{$\mathbf F_n$};
+        \draw[vector] (2.5,.75)--+(1.5,0) node[right]{$\bm F_a(x)$};
+        \draw[vector] (2.5,.75)--+(0,1.5) node[above]{$\bm F_n$};
         \draw[vector,rotate around={-25:(2.5,.75)}]
-        (2.5,.75)--+(0,-1.25) node[below]{$\mathbf F_g$};
-        \draw[vector] (2.5,.75)--+(-1,0) node[left]{$\mathbf f$};
+        (2.5,.75)--+(0,-1.25) node[below]{$\bm F_g$};
+        \draw[vector] (2.5,.75)--+(-1,0) node[left]{$\bm f$};
       \end{scope}
     \end{tikzpicture}
   \end{center}
   We can calculate the work done by each force:
   \begin{itemize}[leftmargin=12pt]
-  \item Work done by the normal force is zero, because $\mathbf F_n$ is
+  \item Work done by the normal force is zero, because $\bm F_n$ is
     perpendicular to the direction of motion:
     \begin{equation*}
-      W_n=\int\underbrace{\mathbf F_n\cdot\dl\mathbf x}_{=0}=0
+      W_n=\int\underbrace{\bm F_n\cdot\dl{\bm x}}_{=0}=0
     \end{equation*}
-  \item Work done by kinetic friction is negative, because $\mathbf f$ is in
+  \item Work done by kinetic friction is negative, because $\bm f$ is in
     the opposite direction to motion:
     \begin{equation*}
-      W_f=\int\mathbf f\cdot\dl\mathbf x=-\int f\dl x=-\mu_k F_n\Delta x<0
+      W_f=\int\bm f\cdot\dl{\bm x}=-\int f\dl x=-\mu_k F_n\Delta x<0
     \end{equation*}
   \item Work done by gravity is also negative, because the component of
     gravity along the direction of motion is in the opposite direction.
@@ -188,8 +188,8 @@ calculating the work done by ``a force'', it could mean:
   force:
   \begin{align*}
     W_\text{net} &=W_a+W_n+W_g +W_f\\
-    &=\int\left(\mathbf F_a+\mathbf F_n+\mathbf F_g+\mathbf F_f\right)
-    \cdot\dl\mathbf x =\int\mathbf F_\text{net}\cdot\dl\mathbf x
+    &=\int\left(\bm F_a+\bm F_n+\bm F_g+\bm F_f\right)
+    \cdot\dl{\bm x} =\int\bm F_\text{net}\cdot\dl{\bm x}
   \end{align*}
 \end{example}
 
@@ -204,13 +204,13 @@ difference is the dot product, which only \emph{slightly} increases the
 complexity of the problem from the 1D case:
 \begin{equation*}
   W_\text{net}
-  = \int\mathbf F_\text{net}(\mathbf x)\cdot\dl\mathbf x
-  = \cdots = m\int\mathbf v\cdot\dl\mathbf v
+  = \int\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
+  = \cdots = m\int\bm v\cdot\dl{\bm v}
 \end{equation*}
 The difference in the dot product is a lot easier to evaluate than you might
 think:
 \begin{align*}
-  m\int\mathbf v\cdot\dl\mathbf v
+  m\int\bm v\cdot\dl{\bm v}
   &=m\left(\int v_x\dl v_x + \int v_y\dl v_y + \int v_z\dl v_z\right)\\
   &=\left(\frac12mv_x^2+\frac12mv_y^2 + \frac12mv_z^2\right)
   =\frac12mv^2
@@ -293,7 +293,7 @@ over a distance of $\Delta x$, shown in Fig.~\ref{fig:falling1}.
     \draw[dashed] (-5,6)--+(10,0);
     \draw[dashed] (-5,3)--+(10,0);
     \draw[mass] (0,6) circle (.2) node[right=2]{$m$};
-    \draw[vector,red] (0,6)--+(0,-2) node[right]{$\mathbf F_g$};
+    \draw[vector,red] (0,6)--+(0,-2) node[right]{$\bm F_g$};
     \draw[vector] (-.5,6)--+(0,-3) node[midway,left]{$\Delta x$};
     \draw[vector,blue] (-1.7,1.05)--+(0,4.95) node[midway,left]{$h_0$};
     \draw[vector,blue] (-1,1)--+(0,2) node[midway,right]{$h_1$};
@@ -302,11 +302,11 @@ over a distance of $\Delta x$, shown in Fig.~\ref{fig:falling1}.
   \label{fig:falling1}
 \end{figure}
 
-When displacement $\Delta\mathbf x$ is small, acceleration due to gravity
-$\mathbf g$ can be considered to be constant, therefore
-$\mathbf F_g=m\mathbf g$ is a constant force. Work done by gravity can be
+When displacement $\Delta\bm x$ is small, acceleration due to gravity
+$\bm g$ can be considered to be constant, therefore
+$\bm F_g=m\bm g$ is a constant force. Work done by gravity can be
 calculated using Eq.~\ref{eq:no-integration}, and no integration is needed.
-Since both $\mathbf F_g$ and $\Delta\mathbf x$ are in the same direction, work
+Since both $\bm F_g$ and $\Delta\bm x$ are in the same direction, work
 done by gravity ($W_g$) is positive. From the work-energy theorem
 (Eq.~\ref{work-energy-theorem}), there is an increase in kinetic energy, and
 the object speeds up:
@@ -409,8 +409,8 @@ where $G=\SI{6.67e-11}{N.m^2/kg^2}$ is the \textbf{universal gravitational
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.65]
-    \draw[vector,red] (0,0)--(2,0) node[right]{$\mathbf F_g$};
-    \draw[vector,blue] (8,0)--(6,0) node[left]{$\mathbf F_g$};
+    \draw[vector,red] (0,0)--(2,0) node[right]{$\bm F_g$};
+    \draw[vector,blue] (8,0)--(6,0) node[left]{$\bm F_g$};
     \shade[balloon1] circle (.7) node[white]{$m_1$};
     \shade[balloon2] (8,0) circle (1) node[white]{$m_2$};
     \draw[dashed] (0,0)--(0,-1.5);
@@ -427,7 +427,7 @@ The expression for \textbf{gravitational potential energy} can be obtained
 from the law of universal gravitation using basic integral calculus:
 
 \begin{equation}
-  W_g = \int_{\mathbf r_1}^{\mathbf r_2}\mathbf F_g\cdot\dl\mathbf r
+  W_g = \int_{\bm r_1}^{\bm r_2}\bm F_g\cdot\dl{\bm r}
   = Gm_1m_2 \int_{r_1}^{r_2}\frac{\dl r}{r^2} = -\Delta U_g
 \end{equation}
 where we again define the gravitational potential energy stored between two
@@ -470,14 +470,14 @@ emerge for other forces.
 
 
 \subsection{Spring Force \& Elastic Potential Energy}
-The \textbf{spring force}, or \textbf{elastic force} $\mathbf F_e$ is the force
+The \textbf{spring force}, or \textbf{elastic force} $\bm F_e$ is the force
 that a compressed/stretched spring exerts on the object connected to it, shown
 in Fig.~\ref{hooke1}. An \emph{ideal} spring obeys \textbf{Hooke's law}, which
 states that the spring force is proportional to the amount of spring
-displacement $\mathbf x$, and acts in the opposition to the displacement:
+displacement $\bm x$, and acts in the opposition to the displacement:
 \begin{equation}
   \boxed{
-    \mathbf F_e=-k\mathbf x
+    \bm F_e=-k\bm x
   }
 \end{equation}
 The constant $k$ that relates the spring force and spring displacement is
@@ -497,9 +497,9 @@ of the spring, as well as the material that it is made of.
     \fill[pattern=north east lines] (-.2,0) rectangle (0,2);
     \draw[thick] (0,.0)--(0,2);
     \fill[red] (5.5,1) circle (.06);
-    \draw[vector,red] (5.5,1)--(4,1) node[above]{$\mathbf F_e$};
+    \draw[vector,red] (5.5,1)--(4,1) node[above]{$\bm F_e$};
     \draw[dashed] (3,0)--(3,2) node[above]{unstretched/equilibrium};
-    \draw[vector] (3,.3)--(5,.3) node[midway,below]{$\mathbf x$};
+    \draw[vector] (3,.3)--(5,.3) node[midway,below]{$\bm x$};
   \end{tikzpicture}
   \hspace{.2in}
   \begin{tikzpicture}
@@ -510,9 +510,9 @@ of the spring, as well as the material that it is made of.
     \draw[thick,decorate,
       decoration={aspect=.3,segment length=1.5mm, amplitude=2.5mm, coil}]
     (0,1)--(1.5,1);
-    \draw[vector] (3,.3)--(1.5,.3) node[midway,below]{$\mathbf x$};
+    \draw[vector] (3,.3)--(1.5,.3) node[midway,below]{$\bm x$};
     \fill[red] (2,1) circle (.06);
-    \draw[vector,red] (2,1)--(3,1) node[above]{$\mathbf F_e$};
+    \draw[vector,red] (2,1)--(3,1) node[above]{$\bm F_e$};
   \end{tikzpicture}
   \caption{Direction of spring force and direction of spring displacement.}
   \label{hooke1}
@@ -554,7 +554,7 @@ Section \ref{section:gravitationalPE}:
     \item Work by the spring force is \emph{path independent}: $W_e$ depends on
       the end points $x_0$ and $x_1$, but not \emph{how} the object moves from
       $x_0$ to $x_1$
-    \item Only work done by $\mathbf F_e$ can affect $U_e$
+    \item Only work done by $\bm F_e$ can affect $U_e$
     \end{itemize}
   \end{minipage}
 }
@@ -566,13 +566,13 @@ attractive or repulsive force between charged particles, given by
 \textbf{Coulomb's law}:
 \begin{equation}
   \boxed{
-    \mathbf F_q=\frac{kq_1q_2}{r^2}\hat{\mathbf r}
+    \bm F_q=\frac{kq_1q_2}{r^2}\hat{\bm r}
   }
 \end{equation}
 
 The integral is nearly identical to that for the gravitational force:
 \begin{equation}
-  W_q=\int\mathbf F_q\cdot\dl\mathbf r
+  W_q=\int\bm F_q\cdot\dl{\bm r}
   =kq_1q_2\int_{r_0}^{r_1}\frac{\dl r}{r^2}
     =-\frac{kq_1q_2} r\Big|^{r_2}_{r_1}=-\Delta U_q
 \end{equation}
@@ -595,7 +595,7 @@ Again, we see the same properties that we have observed
       potential energy
     \item $W_q$ depends on the end points $r_0$ and $r_1$, but not \emph{how}
       it went from $r_0\rightarrow r_1$
-    \item Only work done by $\mathbf F_q$ can affect $U_q$
+    \item Only work done by $\bm F_q$ can affect $U_q$
     \end{itemize}
   \end{minipage}
 }
@@ -605,10 +605,10 @@ Again, we see the same properties that we have observed
 
 These forces are called \textbf{conservative forces}
 \begin{itemize}[nosep]
-\item Gravitational force $\mathbf F_g$
-\item Spring force $\mathbf F_e$
-\item Electrostatic force $\mathbf F_q$
-\item Magnetic force $\mathbf F_m$
+\item Gravitational force $\bm F_g$
+\item Spring force $\bm F_e$
+\item Electrostatic force $\bm F_q$
+\item Magnetic force $\bm F_m$
 \item Nuclear forces
 \end{itemize}
 Because they shared these common properties:
@@ -625,11 +625,11 @@ Because they shared these common properties:
 
 
 
-By the fundamental theorem of calculus, any conservative forces $\mathbf F$
+By the fundamental theorem of calculus, any conservative forces $\bm F$
 must be the negative gradient of the potential energies:
 \begin{equation}
   \boxed{
-    \mathbf F=-\nabla U=-\diffp Ux\iii-\diffp Uy\jjj-\diffp Uz\kkk
+    \bm F=-\nabla U=-\diffp Ux\iii-\diffp Uy\jjj-\diffp Uz\kkk
   }
 \end{equation}
 In one-dimension, the gradient operator becomes just:
@@ -724,12 +724,12 @@ differs from conservative forces in that:
 We can illustrate the work done by a non-conservative force in general, by
 examining how work is done by static friction, using a standard multi-body
 problem studied in dynamics.\footnote{The focus of the dynamics study is often
-to calculate the maximum acceleration $\mathbf a_\text{max}$ of the blocks
+to calculate the maximum acceleration $\bm a_\text{max}$ of the blocks
 without them sliding against each other, and the maximum applied force
-$\mathbf F_\text{max}$ associated with that maximum acceleration.}
+$\bm F_\text{max}$ associated with that maximum acceleration.}
 
 Two blocks with masses $m_1$ and $m_2$, stacked vertically, move to the right
-without slipping by an external applied force $\mathbf F$ applied to $m_1$, as
+without slipping by an external applied force $\bm F$ applied to $m_1$, as
 shown in Fig.~\ref{stacked1}. The coefficient of static friction between the
 two blocks is $\mu_s$, but the contact between $m_1$ and the table is
 frictionless. The focus of \emph{this} example is to find the work done by the
@@ -741,7 +741,7 @@ forces between the blocks as the blocks accelerate.
     \draw[thick] (0,0)--(6,0);
     \draw[thick] (1,0) rectangle (4,1.2) node[midway]{$m_1$};
     \draw[thick] (1.7,1.2) rectangle (3.3,2) node[midway]{$m_2$};
-    \draw[vector] (4,.6)--+(1.5,0) node[right] {$\mathbf F$};
+    \draw[vector] (4,.6)--+(1.5,0) node[right] {$\bm F$};
     \draw[<-] (.95,.05) to[out=150,in=0] (0,.5) node[left]{frictionless};
     \draw[<-] (3.35,1.25) to[out=20, in=180] (4.5,1.8) node[right]{$\mu_s$};
   \end{tikzpicture}
@@ -752,34 +752,34 @@ forces between the blocks as the blocks accelerate.
 
 The free-body diagrams of the blocks are shown in Fig.~\ref{stacked-fbd}.
 (The forces highlighted in the same colour are action-reaction pairs.) The
-static friction between $m_1$ and $m_2$ is $\mathbf f$.
+static friction between $m_1$ and $m_2$ is $\bm f$.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \fill circle (.1);
-    \draw[vector] (0,0)--(0,-1) node[below]{$\mathbf F_{g2}$};
-    \draw[vector] (0,0)--(0, 1) node[above,fill=pink!30]{$\mathbf N_{12}$};
-    \draw[vector] (0,0)--(1.5,0) node[right,fill=yellow!30]{$\mathbf f$};
+    \draw[vector] (0,0)--(0,-1) node[below]{$\bm F_{g2}$};
+    \draw[vector] (0,0)--(0, 1) node[above,fill=pink!30]{$\bm N_{12}$};
+    \draw[vector] (0,0)--(1.5,0) node[right,fill=yellow!30]{$\bm f$};
 
     \fill (5,0) circle (.1);
-    \draw[vector] (4.97,0)--+(0,-1) node[below left]{$\mathbf F_{g1}$};
+    \draw[vector] (4.97,0)--+(0,-1) node[below left]{$\bm F_{g1}$};
     \draw[vector] (5.03,0)--+(0,-1)
-    node[below right,fill=pink!30]{$\mathbf N_{12}$};
-    \draw[vector] (5,0)--+(0,1) node[above]{$\mathbf N_1$};
-    \draw[vector] (5,0)--+(-1.5,0) node[left,fill=yellow!30]{$\mathbf f$};
-    \draw[vector] (5,0)--+(2,0) node[right]{$\mathbf F$};
+    node[below right,fill=pink!30]{$\bm N_{12}$};
+    \draw[vector] (5,0)--+(0,1) node[above]{$\bm N_1$};
+    \draw[vector] (5,0)--+(-1.5,0) node[left,fill=yellow!30]{$\bm f$};
+    \draw[vector] (5,0)--+(2,0) node[right]{$\bm F$};
   \end{tikzpicture}
   \caption{Free-body diagrams of the stacked masses.}
   \label{stacked-fbd}
 \end{figure}
 
 The top block $m_2$ accelerates to the right because there is static
-friction $\mathbf f$ at the interface with $m_1$. (Without friction, $m_2$
+friction $\bm f$ at the interface with $m_1$. (Without friction, $m_2$
 would just slide off $m_1$ when the force is applied.) Static friction is
 the \emph{only} force doing (positive) work on $m_2$. Normal force
-$\mathbf N_{12}$ and gravitational force $\mathbf F_{g2}$ are perpendicular to
+$\bm N_{12}$ and gravitational force $\bm F_{g2}$ are perpendicular to
 motion, and therefore, do not do any work.
-%, and the work done by $\mathbf f$ is
+%, and the work done by $\bm f$ is
 %\emph{positive}.
 As static friction pulls $m_2$ to the right, it accelerates and gains kinetic
 energy, consistent with the work-energy theorem
@@ -788,18 +788,18 @@ kinetic energy in $m_2$ as it moves from $x_0\longrightarrow x_1$ is
 \begin{equation*}
   \Delta K_2=\int_{x_0}^{x_1} f\dl x
 \end{equation*}
-Note that since we are not assuming whether applied force $\mathbf F$ is
+Note that since we are not assuming whether applied force $\bm F$ is
 constant, we cannot assume whether static friction is constant.
 
-On the bottom block $m_1$, as it moves to the right, applied force $\mathbf F$
-does positive work, while in this case, static friction $\mathbf f$ does
+On the bottom block $m_1$, as it moves to the right, applied force $\bm F$
+does positive work, while in this case, static friction $\bm f$ does
 \emph{negative} work. At a minimum, we conclude that energy is transferred
 from $m_1$ to $m_2$, but we can do a more thorough (although still very simple)
 analysis to find out how much.
 
 Without static friction
 %between $m_1$ and $m_2$,
-the net force on $m_1$ would have just been $\mathbf F$, and the change in
+the net force on $m_1$ would have just been $\bm F$, and the change in
 kinetic energy moving from $x_0\longrightarrow x_1$ to the right is simply
 \begin{equation*}
   \Delta K_1 = \int_{x_0}^{x_1} F\dl x\quad\quad\text{(no friction)}
@@ -836,9 +836,9 @@ height $h$ above Earth (shown in Fig.~\ref{fig:gas}).
     \draw[dashed] (-1,2.8)--+(4,0) node[right]{\scriptsize Unstretched};
     \draw[decoration={aspect=.4, segment length=5, amplitude=6, coil},
       decorate] (1,5)--(1,2.1) node[midway,right=4]{$k$};
-    \draw[vector] (.5,2.8)--(.5,2.1) node[midway,left]{$\mathbf x$};
+    \draw[vector] (.5,2.8)--(.5,2.1) node[midway,left]{$\bm x$};
     \draw[fill=gray!10] (-.1,-.1) rectangle (2.1,2.1);
-    \draw[vector] (2.5,2)--(2.5,0) node[midway,right]{$\mathbf v$};
+    \draw[vector] (2.5,2)--(2.5,0) node[midway,right]{$\bm v$};
     \draw[|<-] (-.5,1)--(-.5,-4) node[midway,left]{$h$};
     \end{scope}
     \foreach \i in {1,...,90} \fill[red] (rand+1,rand+1) circle (.05);
@@ -1024,8 +1024,8 @@ forms an isolated system with Earth.
   \begin{tikzpicture}[scale=.65]
     \draw[thick,fill=cyan!5] (7.75,0) arc (75:105:30);
     \draw[mass] (0,7) circle (.2) node[right=3]{$m$};
-    \draw[vector,red] (0,7)--+(0,-2) node[below=-2]{$\mathbf F_g$};
-    \draw[vector,red] (0,.5)--+(0,2) node[above=-2]{$\mathbf F_g$};
+    \draw[vector,red] (0,7)--+(0,-2) node[below=-2]{$\bm F_g$};
+    \draw[vector,red] (0,.5)--+(0,2) node[above=-2]{$\bm F_g$};
   \end{tikzpicture}
   \caption{Isolated system with a mass and Earth}
   \label{fig:earth}
@@ -1041,7 +1041,7 @@ potential energy ($U_g$) stored between the mass and Earth.
   poses no major conceptual issue. You are, of course, welcome to disagree.
 \end{sidenote}
 
-The only force that acts on the mass is the gravitational force $\mathbf F_g$,
+The only force that acts on the mass is the gravitational force $\bm F_g$,
 which, by the third law of motion, acts on \emph{both} the mass and Earth, and
 is therefore \emph{internal} to the system. Since there are no other external
 forces, this is an isolated system. As the object falls, the gravitational force
@@ -1054,7 +1054,7 @@ insignificant. We will therefore only focus on the motion of the mass}.
 
 Since gravity is a conservative force, the positive work done transforms
 gravitational potential energy into kinetic energy of the  mass by the same
-amount, and since $\mathbf F_g$ is an internal force, the change in the system's
+amount, and since $\bm F_g$ is an internal force, the change in the system's
 energy is zero.
 \begin{equation}
   \Delta K + \Delta U_g=0
@@ -1154,15 +1154,15 @@ object sliding down an arbitrarily-shaped ramp:
     to[out=0,in=170] (8,0) to[out=-10,in=180] (10,0);
     \draw[mass,rotate around={-60.5:(1,2.93)}] (1,2.93) rectangle +(.6,.6);
     \fill[red] (1.4,2.8) circle (.08);
-    \draw[vector,red] (1.4,2.8)--+(0,-1.5) node[left]{$\mathbf F_g$};
+    \draw[vector,red] (1.4,2.8)--+(0,-1.5) node[left]{$\bm F_g$};
     \draw[vector,red,rotate around={30:(1.4,2.8)}] (1.4,2.8)--+(1.4,0)
-    node[right]{$\mathbf F_n$};
+    node[right]{$\bm F_n$};
   \end{tikzpicture}
   \caption{A mass sliding along an arbitrary ramp is an isolated system.}
   \label{fig:ramp-system}
 \end{figure}
-Normal force $\mathbf F_n$ and gravity $\mathbf F_g$ act on the object, but
-only gravity does work ($\mathbf F_n$ is always perpendicular to motion). The
+Normal force $\bm F_n$ and gravity $\bm F_g$ act on the object, but
+only gravity does work ($\bm F_n$ is always perpendicular to motion). The
 sum of the kinetic energy of the mass ($K$) and the gravitational potential
 energy ($U_g$) stored between the mass and Earth is constant
 \begin{equation}
@@ -1186,9 +1186,9 @@ Fig.~\ref{fig:hspring-mass}.
     \fill[pattern=north east lines] (6.5,.5)--(6.5,.3)--(-.2,.3)
     --(-.2,2)--(0,2)--(0,.5)--cycle;
     \draw[very thick] (0,2)--(0,.5)--(6.5,.5);
-    \draw[vector,red] (5.5,1)--(5.5,0) node[below]{$\mathbf F_g$};
-    \draw[vector,red] (5.5,1)--(5.5,2) node[above]{$\mathbf F_n$};
-    \draw[vector,red] (5.5,1)--(4.5,1) node[above]{$\mathbf F_e$};
+    \draw[vector,red] (5.5,1)--(5.5,0) node[below]{$\bm F_g$};
+    \draw[vector,red] (5.5,1)--(5.5,2) node[above]{$\bm F_n$};
+    \draw[vector,red] (5.5,1)--(4.5,1) node[above]{$\bm F_e$};
     \fill[red] (5.5,1) circle (.06);
   \end{tikzpicture}
   \caption{A horizontal spring-mass system without friction or drag is a
@@ -1200,8 +1200,8 @@ horizontal spring-mass system is a closed system: it consists of the mass and
 the spring. (Earth is not part of the system.) Therefore the system's total
 mechanical energy consists of the kinetic energy of the mass ($K$) and the
 elastic potential energy stored in the spring ($U_e$). Several \emph{external}
-forces act on the system: the gravitational force ($\mathbf F_g$) and normal
-force ($\mathbf F_n$) which act on the mass. However, these forces do not do
+forces act on the system: the gravitational force ($\bm F_g$) and normal
+force ($\bm F_n$) which act on the mass. However, these forces do not do
 any work because they are orthogonal to the motion of the mass. Therefore
 there is no external work, and the total energy of the system is constant:
 \begin{equation}
@@ -1224,8 +1224,8 @@ massless spring, as shown in Fig.~\ref{fig:vspring-mass}.
         aspect=.5,segment length=7, amplitude=5,coil}] (1,5)--(1,2.5); 
     \fill[pattern=north east lines] (0,5) rectangle (2,5.2);
     \draw[very thick] (0,5)--(2,5);
-    \draw[vector,red] (1,2)--(1,1) node[right]{$\mathbf F_g$};
-    \draw[vector,red] (1,2)--(1,3) node[right]{$\mathbf F_e$};
+    \draw[vector,red] (1,2)--(1,1) node[right]{$\bm F_g$};
+    \draw[vector,red] (1,2)--(1,3) node[right]{$\bm F_e$};
     \fill[red] (1,2) circle (.05);
   \end{tikzpicture}
   \caption{A vertical spring-mass system without friction or drag is an
@@ -1237,8 +1237,8 @@ the spring and Earth, therefore, the total energy of the system includes the
 kinetic energy of the mass ($K$), the gravitational potential energy stored
 between the mass and Earth ($U_g$), and the elastic potential energy stored in
 the spring ($U_e$). Assuming that there are no friction, drag or other damping
-forces in the spring, the only forces are the spring force $\mathbf F_e$ and
-the gravitational force $\mathbf F_g$, both of which are \emph{internal} to the
+forces in the spring, the only forces are the spring force $\bm F_e$ and
+the gravitational force $\bm F_g$, both of which are \emph{internal} to the
 system. Therefore, there are no external forces, and the vertical spring-mass
 system is an isolated system. The total energy remains constant as the mass
 oscillates vertically.
@@ -1258,9 +1258,9 @@ In a simple pendulum, a mass is hung from a massless string from a fixed point,
 and is allowed to swing back and forth, as shown in
 Fig.~\ref{fig:pendulum-system}.
 %    \begin{itemize}
-%    \item Gravity ($m\mathbf g$), which is conservative, is the only force that
+%    \item Gravity ($m\bm g$), which is conservative, is the only force that
 %      does work
-%    \item Tension ($\mathbf F_T$), which is non-conservative, does not do work on the
+%    \item Tension ($\bm F_T$), which is non-conservative, does not do work on the
 %      pendulum because it is always perpendicular to the motion of the pendulum
 %      bob
 %    \end{itemize}
@@ -1272,9 +1272,9 @@ Fig.~\ref{fig:pendulum-system}.
     \begin{scope}[rotate=15]
       \draw[thick] (0,0)--(0,-5);
       \draw[mass] (0,-5) circle (.2) node[right=4]{$m$};
-      \draw[red,vector] (0,-5)--(0,-3.5) node[left]{$\mathbf F_T$};
+      \draw[red,vector] (0,-5)--(0,-3.5) node[left]{$\bm F_T$};
       \draw[red,vector,rotate around={-15:(0,-5)}] (0,-5)--(0,-6.3)
-      node[below]{$\mathbf F_g$};
+      node[below]{$\bm F_g$};
     \end{scope}
     \draw[dashed,thin] (0,0)--(0,-5);
     \draw[axes] (0,-2) arc (270:285:2) node[midway,below]{$\phi$};
@@ -1287,9 +1287,9 @@ total energy in the system include the kinetic energy of the mass ($K$), as
 well as the gravitational potential energy stored between the mass and Earth
 ($U_g$). Assuming that there are no friction, drag or other damping forces in
 the spring, there are only two forces act on the pendulum bob: the tension force
-$\mathbf F_T$, and the gravitational force $\mathbf F_g$. Gravitational force
+$\bm F_T$, and the gravitational force $\bm F_g$. Gravitational force
 is an internal force (because it acts on both the pendulum bob and Earth), but
-tension force is an \emph{external} force. However, since $\mathbf F_T$ is
+tension force is an \emph{external} force. However, since $\bm F_T$ is
 always perpendicular to the motion of the pendulum bob, it does not do any
 work, and the system is therefore a closed system. The total energy of the
 system is constant:
@@ -1433,10 +1433,10 @@ done.
 If a force is used to push an object at a constant velocity, the
 power produced by the force is:
 \begin{equation}
-  P=\diff Wt=\frac{\mathbf F\cdot\dl\mathbf x}{\dl t}
-  =\mathbf F\cdot\diff{\mathbf x}t
+  P=\diff Wt=\frac{\bm F\cdot\dl{\bm x}}{\dl t}
+  =\bm F\cdot\diff{\bm x}t
   \quad\rightarrow\quad
-  \boxed{P=\mathbf F\cdot\mathbf v}
+  \boxed{P=\bm F\cdot\bm v}
 \end{equation}
 Application: aerodynamics
 \begin{itemize}

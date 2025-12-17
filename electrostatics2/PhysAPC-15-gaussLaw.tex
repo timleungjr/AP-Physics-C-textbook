@@ -1,12 +1,12 @@
 \chapter{Gauss's Law}
 \label{chapter:gauss}
-%\begin{multicols}{2}
+
 \section{Flux}
 \textbf{Flux} is an important concept in many disciplines in physics. The
 flux of a vector quantity $\bm X$ is the amount of that quantity flowing
 through a surface. In integral form:
 \begin{equation}
-  \Phi=\int\bm X\cdot\dl\bm A
+  \Phi=\int\bm X\cdot\dl{\bm A}
   %\quad\text{or}\quad
   %\Phi=\int(\bm X\cdot\hat{\bm n})\dl A
 \end{equation}
@@ -36,14 +36,14 @@ function of time as well} $\bm v=\bm v(x,y,z)$, so instead of multiplying the
 velocity vector by the area $\bm A$, we must instead \emph{integrate} over the
 cross sectional area of the hose to compute the volumetric flow rate:
 \begin{equation*}
-  \Phi_\text{volume}=\int_{\mathcal S}\bm v\cdot\dl\bm A
+  \Phi_\text{volume}=\int_{\mathcal S}\bm v\cdot\dl{\bm A}
 \end{equation*}
-As before, the direction of $\dl\bm A$ is the outward normal from the surface.
+As before, the direction of $\dl{\bm A}$ is the outward normal from the surface.
 This volumetric flow rate can also be called the \emph{velocity flux}. If we
 are interested in the \emph{mass flow rate} instead, we can replace the
 velocity vector field with momentum, i.e.\ multiplying by the fluid density:
 \begin{equation*}
-  \Phi_\text{mass}=\int_{\mathcal S}(\rho\bm v)\cdot\dl\bm A
+  \Phi_\text{mass}=\int_{\mathcal S}(\rho\bm v)\cdot\dl{\bm A}
 \end{equation*}
 The mass flow rate is also called the \emph{momentum flux}. Flux through a
 surface can be of something physical, like the flow of water out of the mouth
@@ -51,11 +51,11 @@ of a hose, but it can also be \emph{any} vector field $\bm X=\bm X(x,y,z)$ that
 passes through a surface $\mathcal S$. In this chapter, we are interested in
 the flux of  the electric field, called the \textbf{electric flux}:
 \begin{equation}
-  \Phi_E=\int_\mathcal{S}\bm E\cdot\dl\bm A
+  \Phi_E=\int_\mathcal{S}\bm E\cdot\dl{\bm A}
 \end{equation}
 
 
-%The direction of the infinitesimal area $\dl\bm A$ is \textbf{outward normal}
+%The direction of the infinitesimal area $\dl{\bm A}$ is \textbf{outward normal}
 %to the surface.
 %\begin{center}
 %  \pic{.3}{electrostatics2/eflux}
@@ -76,7 +76,7 @@ $\mathcal S$ (think of the surface of a balloon), the total electric flux is
 given by:
 \begin{equation}
   \boxed{
-    \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl\bm A
+    \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}
     =\frac{Q_\text{encl}}{\epsilon_0}
   }
 \end{equation}    
@@ -192,15 +192,15 @@ However, regardless of the shape and size of the Gaussian surfaces, the total
 electric flux $\Phi_E$ out of $\mathcal S_1$ and $\mathcal S_2$ are the same:
 \begin{equation*}
   \Phi_E=
-  {\color{orange}\oint_{\mathcal S_1}\bm E\cdot\dl\bm A}=
-  {\color{violet}\oint_{\mathcal S_2}\bm E\cdot\dl\bm A}=
+  {\color{orange}\oint_{\mathcal S_1}\bm E\cdot\dl{\bm A}}=
+  {\color{violet}\oint_{\mathcal S_2}\bm E\cdot\dl{\bm A}}=
   \frac{Q_\text{encl}}{\epsilon_0}
 \end{equation*}
 
 It must be pointed out that using the Gauss's law in practice is not always
 straightforward: while the right-hand side of the equation
 ($q_\text{encl}/\epsilon_0$) is a simple expression, the integral on the left
-hand side ($\oint\bm E\cdot\dl\bm A$) can be extremely difficult and
+hand side ($\oint\bm E\cdot\dl{\bm A}$) can be extremely difficult and
 impractical to do. Therefore, in the practical use of Gauss's law, we seek
 configurations with high degrees of symmetry, where the integral can turn in to
 an algebraic expression.
@@ -234,7 +234,7 @@ Likewise, the outward normal direction $\hat{\bm n}$ of the Gaussian surface is
 also along $+\hat{\bm r}$. By symmetry, the integral on the left hand side
 reduces to a multiple:
 \begin{equation*}
-  \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl\bm A=EA=\frac q{\epsilon_0}
+  \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac q{\epsilon_0}
 \end{equation*}
 Since the surface area of a sphere is $A=4\pi r^2$, we find that the magnitude
 of the electric field to be:
@@ -281,7 +281,7 @@ surfaces concentric with the sphere, one inside and one outside the sphere.
 \textbf{Inside the shell ($r_i<R$):} There is no enclosed charge, therefore
 the electric field must be zero:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=\frac{q_\text{encl}}{\epsilon_0}=0
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}=0
   \quad\quad\longrightarrow\quad\quad E=0
 \end{equation*}
 \textbf{Outside the shell ($r_o>R$):} The entire spherical charge is inside the
@@ -291,7 +291,7 @@ surface, and with a direction in in the outwardly radial ($+\hat{\bm r}$)
 direction, which is also the outward normal direction of the Gaussian surface.
 Like the point charge, integration can be avoid:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=\frac Q{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\epsilon_0}
   \quad\quad\longrightarrow\quad\quad E=\frac Q{\epsilon_0A}
   =\frac1{4\pi\epsilon_0}\left[\frac Q{r^2}\right]
 \end{equation}
@@ -375,7 +375,7 @@ Gaussian surface, therefore integration can be avoided.
 %There is no enclosed charge, therefore
 %the electric field must be zero:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}
   \quad\quad\longrightarrow\quad\quad EA=\frac Q{\epsilon_0}\frac{r^3}{R^3}
 \end{equation*}
 Solving for $E$, we find that it is linear with the distance from the centre
@@ -392,7 +392,7 @@ surface, and with a direction in in the outwardly radial ($+\hat{\bm r}$)
 direction, which is also the outward normal direction of the Gaussian surface.
 Like the point charge, integration can be avoid:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=\frac Q{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\epsilon_0}
   \quad\quad\longrightarrow\quad\quad E=\frac Q{\epsilon_0A}
   =\frac1{4\pi\epsilon_0}\left[\frac Q{r^2}\right]
 \end{equation}
@@ -501,7 +501,7 @@ side. The total charge enclosed by the Gaussian surface is:
 \end{equation*}
 Substituting this into Gauss's law, and simplifying the terms:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=EA=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\epsilon_0}
   \quad\longrightarrow\quad
   E=\frac{q_\text{encl}}{\epsilon_0A}
   =\frac{\rho\pi r_i^2L}{\epsilon_0(2\pi r_iL)}
@@ -519,7 +519,7 @@ enclosed charge is therefore:
 \end{equation*}
 Substituting this into Gauss's law:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=EA=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\epsilon_0}
   \quad\longrightarrow\quad
   E=\frac{q_\text{encl}}{\epsilon_0A}
   =\frac{\rho\pi R^2L}{\epsilon_0(2\pi r_oL)}
@@ -548,7 +548,7 @@ distance from axis of the rod.
   
 Gauss's law simplifies to:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl\bm A=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}
   \;\rightarrow\;
   E(2A)=\frac{\sigma A}{\epsilon_0}
 \end{equation}
