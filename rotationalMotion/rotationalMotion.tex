@@ -1,4 +1,7 @@
 \chapter{Rotational Motion of Rigid Bodies}
+\label{chapter:rotMotion}
+
+
 Consider the uniform circular motion of an object with a (constant) angular
 velocity $\bm\omega$\footnote{Recall that if rotation is counterclockwise,
 $\bm\omega$ is \emph{out of the page}; if rotation is clockwise, $\bm\omega$ is
@@ -446,17 +449,15 @@ momentum ($\bm p=m\bm v$) and angular momentum ($\bm L=\bm r\times\bm p$) are
 constant.
 
 
-\fcolorbox{black}{yellow!5}{
-  \small
-  \begin{minipage}{.96\linewidth}
+\begin{example}
     \textbf{Example:} A skater extends her arms (both arms!), holding a
     \SI{2.0}{\kilo\gram} mass in each hand. She is rotating about a vertical
     axis at a given rate. She brings her arms inward toward her body in such a
     way that the distance of each mass from the axis changes from
     \SI{1.0}{\metre} to \SI{.50}\metre. Her rate of rotation (neglecting her
     own mass) will?
-  \end{minipage}
-}
+\end{example}
+
 
 \fcolorbox{black}{yellow!5}{
   \small
@@ -486,11 +487,9 @@ rotational motion: %, mechanical work is defined similarly as:
   =\int_{\theta_0}^{\theta_1} F (r\dl\theta)
 \end{equation}
 Noting that $\tau=rF$, rotational work becomes:
-\begin{equation}
-  \boxed{
-    W_r=\int_{\theta_0}^{\theta_1}\tau(\theta)\dl\theta
-  }
-\end{equation}
+\begin{important-equation}
+  W_r=\int_{\theta_0}^{\theta_1}\tau(\theta)\dl\theta
+\end{important-equation}
 
 \subsection{Rotational Kinetic Energy}
 \label{sec:rotKE}
@@ -505,16 +504,14 @@ We can apply the same process as in Sec.~\ref{sec:transKE} to find the
   =\frac12I\omega_1^2-\frac12I\omega_0^2=\Delta K_r
 \end{align}
 where $K_r$ is defined as:
-\begin{equation}
-  \boxed{K_r=\frac12I\omega^2}
-\end{equation}
-Not surprisingly, the work-energy theorem still applies to rotational motion,
-i.e.:
-\begin{equation}
-  \boxed{
-    W_r=\Delta K_r
-  }
-\end{equation}
+\begin{important-equation}
+  \text{Rotational kinetic energy:}\quad K_r=\frac12I\omega^2
+\end{important-equation}
+Not surprisingly, the work-energy principle still applies to rotational motion:
+Net rotational work on an object is equal to the change in kinetic energy.
+\begin{important-equation}
+  \text{Work-energy principle:}\quad W_r=\Delta K_r
+\end{important-equation}
 Just as the net/total translational work on an object changes its translational
 kinetic energy (Eq.~\ref{work-energy-theorem} in Chapter~\ref{chapter:energy}),
 the net rotational work on an object also changes its rotational kinetic energy.
