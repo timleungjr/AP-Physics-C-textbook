@@ -830,7 +830,7 @@
         circle,fill=ocre!25,
         font=\sffamily\bfseries,
         inner sep=3pt,outer sep=0pt]
-      at (-20pt,-10pt){\Huge\textcolor{ocre}{R}}; % Orange R in a circle
+      at (-20pt,-10pt){\Huge\textcolor{ocre}{!}}; % Orange R in a circle
     \end{tikzpicture}
     \advance\baselineskip -1pt% Reduce line spacing
 }{%
