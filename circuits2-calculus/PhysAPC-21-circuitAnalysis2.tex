@@ -135,56 +135,41 @@ of $Q(t)$:
   \frac QC+R\diff Qt=0
   \label{eq:RC1-diff}
 \end{equation}
-
-\fcolorbox{black}{pink!10}{
-  \small
-  \begin{minipage}{.97\linewidth}
-    \textbf{If you don't know how to solve Eq.~\ref{eq:RC1-diff}:}
-    This is a standard first-order ordinary differential equation with constant
-    coefficients. The standard solution is to first separate the variables
-    and then integrating both sides:
-    \begin{equation*}
-      \frac QC=-R\diff Qt
-      \quad\longrightarrow\quad
-      %\frac{\dl Q}Q = \frac{-\dl t}{RC}
-      %\quad\longrightarrow\quad
-      %which we can now integrate and ``exponentiate'':
-      %\begin{equation}
-      \int\frac{\dl Q}Q = \int\frac{-\dl t}{RC}
-      \quad\longrightarrow\quad
-      \ln Q=\frac{-t}{RC} + K
-      \quad\longrightarrow\quad
-      Q=e^Ke^{-t/RC}
-    \end{equation*}
-    We know that the initial charge across the capacitor is $Q_0$. Setting
-    $t=0$ and $Q=Q_0$ in the above equation, we find that the initial charge is
-    also the constant of integration $e^K$:
-    \begin{equation*}
-      e^K=Q_0
-    \end{equation*}
-    This gives the time-dependent solution:
-    \begin{equation*}
-      Q(t)=Q_0e^{-t/RC}
-    \end{equation*}
-  \end{minipage}
-}
-    
-The charge across the capacitor is an exponential decay function:
+%\textbf{If you don't know how to solve Eq.~\ref{eq:RC1-diff}:}
+This is a standard first-order ordinary differential equation with constant
+coefficients. The standard solution is to first separate the variables
+and then integrating both sides:
 \begin{equation*}
-  \boxed{
-    Q(t)=Q_0e^{-t/\tau}
-  }
+  \frac QC=-R\diff Qt
+  \quad\longrightarrow\quad
+  %\frac{\dl Q}Q = \frac{-\dl t}{RC}
+  %\quad\longrightarrow\quad
+  %which we can now integrate and ``exponentiate'':
+  %\begin{equation}
+  \int\frac{\dl Q}Q = \int\frac{-\dl t}{RC}
+  \quad\longrightarrow\quad
+  \ln Q=\frac{-t}{RC} + K
+  \quad\longrightarrow\quad
+  Q=e^Ke^{-t/RC}
 \end{equation*}
+We know that the initial charge across the capacitor is $Q_0$. Setting
+$t=0$ and $Q=Q_0$ in the above equation, we find that the initial charge is
+also the constant of integration $e^K$:
+\begin{equation*}
+  e^K=Q_0
+\end{equation*}
+This gives the time-dependent solution, which is an exponential decay function:
+\begin{important-equation}
+  Q(t)=Q_0e^{-t/\tau}
+\end{important-equation}
 %where $Q_0=Q_\text{tot}$ is the initial charge on the capacitor, and
 where $\tau=RC$ is called the \textbf{time constant}, with an SI unit of
 \emph{seconds}. It is the time it takes for the charge on the capacitor to
 decrease to $1/e$ of the original value. Taking the time
 derivative of $Q(t)$ gives us the current through the circuit:
-\begin{equation}
-  \boxed{
-    I(t)=-\diff Qt=I_0e^{-t/\tau}
-  }
-\end{equation}
+\begin{important-equation}
+  I(t)=-\diff Qt=I_0e^{-t/\tau}
+\end{important-equation}
 where the initial current at $t=0$ is given by $I_0=Q_\text{tot}/\tau=V_c/R$,
 in agreement with Ohm's law.
 
@@ -227,40 +212,27 @@ another first-order ordinary differential equation:
   \mathcal E-R\diff Qt-\frac QC=0
   \label{eq:RC2-diff}
 \end{equation}
-
-\fcolorbox{black}{pink!50}{
-  \small
-  \begin{minipage}{.97\linewidth}
-    \textbf{If you don't know how to solve Eq.~\ref{eq:RC2-diff}:}
-    Again, separating variables, and integrating, we get:
-    \begin{equation}
-      \int\frac{\dl Q}{C\mathcal E-Q}=\int\frac{\dl t}{RC}
-      \quad\rightarrow\quad-\ln(C\mathcal E-Q)=\frac t{RC}+K
-    \end{equation}
-    ``Exponentiating'' both sides, we have
-    \begin{equation}
-      C\mathcal E-Q=e^Ke^{-t/RC}
-    \end{equation}
-    To find the constant of integration $K$, we note that at $t=0$, the charge
-    across the capacitor is $0$, and we get
-    \begin{equation}
-      e^K=C\mathcal E=Q_\text{tot}
-    \end{equation}
-    which is the charge stored in the capacitor at the end. Substitute this back
-    into the equation:
-    \begin{equation}
-      \boxed{
-        Q(t)=Q_\text{tot}(1-e^{-t/RC})
-      }
-    \end{equation}
-  \end{minipage}
-}
-
-Solving the differential equation, we find that the charge stored in the
-capacitor is given by the exponential decay equation:
+%\textbf{If you don't know how to solve Eq.~\ref{eq:RC2-diff}:}
+Again, separating variables, and integrating, we get:
 \begin{equation}
-  \boxed{Q(t)=Q_\text{tot}(1-e^{-t/\tau})}
+  \int\frac{\dl Q}{C\mathcal E-Q}=\int\frac{\dl t}{RC}
+  \quad\rightarrow\quad-\ln(C\mathcal E-Q)=\frac t{RC}+K
 \end{equation}
+``Exponentiating'' both sides, we have
+\begin{equation}
+  C\mathcal E-Q=e^Ke^{-t/RC}
+\end{equation}
+To find the constant of integration $K$, we note that at $t=0$, the charge
+across the capacitor is $0$, and we get
+\begin{equation*}
+  e^K=C\mathcal E=Q_\text{tot}
+\end{equation*}
+which is the charge stored in the capacitor at the end. Substitute this back
+into the equation,  we find that the charge stored in the
+capacitor is given by the exponential decay equation:
+\begin{important-equation}
+  Q(t)=Q_\text{tot}(1-e^{-t/\tau})
+\end{important-equation}
 where $Q_\text{tot}$ is the final total charge across the capacitor
 plates\footnote{At the expense of sounding like a broken record, let's again
 remember that one plate will have a charge of $+Q_\text{tot}$ while the other
@@ -268,9 +240,9 @@ plate will have a charge of $-Q_\text{tot}$.}. The time constant $\tau=RC$ for
 charging a capacitor is the same as when the capacitor is discharging.
 Differentiating with time, we find the current through the circuit; it is
 identical to the equation for discharge:
-\begin{equation}
-  \boxed{I(t)=\diff Qt=I_0e^{-t/\tau}}
-\end{equation}
+\begin{important-equation}
+  I(t)=\diff Qt=I_0e^{-t/\tau}
+\end{important-equation}
 where the initial current is given by $I_0=Q_\text{tot}/\tau=\mathcal E/R$.
 This makes sense because $V_C(0)=0$, and all of the energy must be
 dissipated through the resistor. Similarly, $I_\infty=0$.
