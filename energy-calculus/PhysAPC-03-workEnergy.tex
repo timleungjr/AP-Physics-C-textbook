@@ -31,12 +31,10 @@ An infinitesimal amount of \textbf{mechanical work} $\dl W$ is done when a
 force $\bm F$ displaces an object by an infinitesimal amount
 $\dl{\bm x}$. If the force moves an object along the path $\mathcal C$, the
 total work $W$ done by the force is defined by the integral:
-\begin{equation}
-  \boxed{
-    W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm x)\cdot\dl{\bm x}
-  }
+\begin{important-equation}
+  W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm x)\cdot\dl{\bm x}
   \label{work-definition}
-\end{equation}
+\end{important-equation}
 While both force and displacement are vectors, work is a scalar quantity. Work
 by $\bm F$ can be positive or negative depending on the dot product. In
 general, the amount of work done ($W$) depends on the path $\mathcal C$. %From
@@ -52,11 +50,9 @@ system, Eq.~(\ref{work-definition}) reduces to\footnote{Note that direction
 still matters for $F$ and $x$, even in 1D, in that there is still a positive
 and negative direction (if $F$ and $\dl x$ are in the same direction, then
 $W>0$; and if $F$ and $\dl x$ are in opposite direction, then $W<0$).}:
-\begin{equation}
-  \boxed{
-    W=\int_{x_0}^{x_1} F(x)\dl x
-  }
-\end{equation}
+\begin{important-equation}
+  W=\int_{x_0}^{x_1} F(x)\dl x
+\end{important-equation}
 For a constant force that moves an object along a straight path, the integral
 simplifies to just the dot product of two vectors\endnote{We must remember how
   to express the dot products. If you know the angles between the vectors,
@@ -81,31 +77,34 @@ the displacement, i.e.\
 \begin{equation}
   \bm F=\bm F_\text{avg}=\frac{\int_{x_0}^{x_1} F(x)\dl x}{x_1-x_0}
 \end{equation}
-\begin{sidenote}
-  We need a short discussion about what this \emph{average} is. In this case,
-  the force is averaged over the \emph{displacement} that the object travels.
-  We are not concerned about how long it takes for the object to move. In
-  contrast, when computing the \emph{impulse} generated from an average force
-  over a time interval, which is related to the change in the \emph{momentum}
-  of an object, the force is averaged over \emph{time}:
+\begin{remark}
+  At this time, we need a short discussion about what this \emph{average} is.
+  In this case, the force is averaged over the \emph{displacement} that the
+  object travels. This is called a \emph{spatial average}. We are not concerned
+  about how long it takes for the object to move. In contrast, when computing
+  the \emph{impulse} generated from an average force over a \emph{time}
+  interval, which is related to the change in the \emph{momentum} of an object,
+  the force is averaged over \emph{time}. This is called a \emph{time average}:
   \begin{displaymath}
     \overline{\bm F}=\frac{\int_{t_0}^{t_1} \bm F(t)\dl t}{t_1-t_0}
   \end{displaymath}
-  (We purposely use different notation to distinguish different types of
-  averaging.) Time averaging does not consider the actual motion of the
-  object. This time averaging is also how we get the expressions for average
-  velocity and average acceleration in kinematics, when we describe the motion
-  of a single object:
+  Here, we purposely use different notation to distinguish different types of
+  averaging. Time averaging does not consider the actual motion of the object.
+  This time averaging is also how we get the expressions for average velocity
+  and average acceleration in Chapter~\ref{chapter:kinematics}, when we
+  describe the motion of a single object:
   \begin{displaymath}
     \overline{\bm v}=\frac{\int_{t_0}^{t_1} \bm v(t)\dl t}{t_1-t_0}
     \quad\text{and}\quad
     \overline{\bm a}=\frac{\int_{t_0}^{t_1} \bm a(t)\dl t}{t_1-t_0}
   \end{displaymath}
   Later in this chapter, we will also discuss the concept of average power,
-  which uses a time averaging. However, there is still a third kind of
-  averaging that we will touch on in this chapter. In thermodynamics of gases,
-  when we calculate the average speed and kinetic energies of many gas
-  molecules, the average is the arithmetic mean:
+  which uses a time averaging.
+
+  However, there is still a third kind of averaging that we will briefly touch
+  on in this chapter. In the thermodynamics of gases, when we calculate the
+  average speed and kinetic energies of many gas molecules, the average is the
+  arithmetic mean of all the speeds:
   \begin{displaymath}
     \langle v\rangle = \frac{\sum v_i}N
   \end{displaymath}
@@ -116,7 +115,7 @@ the displacement, i.e.\
   This type of averaging is called an \textbf{ensemble average}. While it is
   crucial to know the difference between different types of averaging, when
   solving problems, it is usually very clear from the context. 
-\end{sidenote}
+\end{remark}
 
 At this moment, it is unclear what the force $\bm F$ is. Whereas we use the
 \emph{net force} when calculating acceleration in dynamics problems, when
@@ -199,24 +198,6 @@ calculating the work done by ``a force'', it could mean:
 \label{sec:transKE}
 When a net force acts on an object (with constant mass) to accelerate it, work
 is done, For motion in one dimension, the total/net work done is given by:
-\footnote{When you do this problem ``properly'' in 2D or 3D, the only
-difference is the dot product, which only \emph{slightly} increases the
-complexity of the problem from the 1D case:
-\begin{equation*}
-  W_\text{net}
-  = \int\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
-  = \cdots = m\int\bm v\cdot\dl{\bm v}
-\end{equation*}
-The difference in the dot product is a lot easier to evaluate than you might
-think:
-\begin{align*}
-  m\int\bm v\cdot\dl{\bm v}
-  &=m\left(\int v_x\dl v_x + \int v_y\dl v_y + \int v_z\dl v_z\right)\\
-  &=\left(\frac12mv_x^2+\frac12mv_y^2 + \frac12mv_z^2\right)
-  =\frac12mv^2
-\end{align*}
-where $v^2=v_x^2+v_y^2+v_z^2$. This is, of course, the same result that we
-got from the one-dimensional case.}
 \begin{equation}
   W_\text{net}
   =\int_{x_0}^{x_1}F_\text{net}(x)\dl x
@@ -237,31 +218,81 @@ $v_1=v(x_1)$. Evaluating this integral, we have:
   =\frac12mv_1^2-\frac12mv_0^2
   =\Delta K
 \end{equation*}
-where $K$ is defined as the \textbf{kinetic energy}\footnote{This is more
-specifically called the \emph{translational} kinetic energy, and it should be
-distinguished from the \emph{rotational kinetic energy} which is used when an
-object is rotating about a pivot.}:
-\begin{equation}
+where $K$ is defined as the \textbf{kinetic energy}:
+\begin{important-equation}
   K=\frac12mv^2
   \label{eq:KE-definition}
-\end{equation}
+\end{important-equation}
+\begin{remark}
+  $K$ is more specifically called the \textbf{translational kinetic energy},
+  and must be distinguished from the \textbf{rotational kinetic energy} which
+  is used when an object is rotating about a pivot. The topic of rotational
+  motion and rotational kinetic energy is discussed in detail in
+  Chapter~\ref{chapter:rotMotion}.
+\end{remark}
 The definition of kinetic energy came from this integration: when the net force
 on an object is doing work, that work is equal to the change in
 \emph{something}, and we \emph{define} that quantity as the kinetic energy.
-This is known as the \textbf{work-energy theorem}\footnote{Also known as the
-\textbf{work-energy principle}, and \textbf{work-energy relationship}}:
-\begin{equation}
-  \boxed{
-    W_\text{net}=\Delta K
-  }
+This is known as the \textbf{work-energy principle}:
+%\footnote{Also known as the
+%\textbf{work-energy principle}, and \textbf{work-energy relationship}}:
+\begin{important-equation}
+  W_\text{net}=\Delta K
   \label{work-energy-theorem}
-\end{equation}
+\end{important-equation}
 When multiple forces act on an object, \emph{positive} net work will
-\emph{increase} the kinetic energy of the object, while \emph{negative} net
-work will decreases kinetic energy. Eq.~\ref{work-energy-theorem} applies
-regardless of \emph{what} the net force is comprised of. Very importantly, the
-work-energy theorem turns a potentially difficult integration problem
-(integrating $W_\text{net}$) into a simple algebraic expression ($\Delta K$).
+\emph{increase} the kinetic energy of the object by the same amount, while
+\emph{negative} net work will decreases kinetic energy by the same amount.
+Eq.~\ref{work-energy-theorem} applies regardless of \emph{what} the net force
+is comprised of.
+
+\textbf{Crucially, the work-energy principle turns a generally difficult vector
+integration problem (integrating $W_\text{net}$ on the left hand side) into a
+simple scalar algebraic expression ($\Delta K$ on the right hand side). As we
+will see later in the chapter, this change from a vector calculus problem to a
+scalar algebra problem has profound implications in our ability to solve
+motion problems quickly.}
+\begin{remark}
+  When you integrate the net work done ``properly'' in two or three dimensions,
+  the only difference is the dot product, which only \emph{slightly} increases
+  the complexity of the problem compared to the 1D case:
+  \begin{equation*}
+    W_\text{net}
+    = \int\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
+    = \cdots = m\int_{\bm v_0}^{\bm v_1}\bm v\cdot\dl{\bm v}
+  \end{equation*}
+  The dot product is a lot easier to evaluate than you might think (albeit it
+  is more tedious):
+  \begin{align*}
+    m\int\bm v\cdot\dl{\bm v}
+    &=m\left(
+    \int_{v_{x0}}^{v_{x1}} v_x\dl v_x +
+    \int_{v_{y0}}^{v_{y1}} v_y\dl v_y +
+    \int_{v_{z0}}^{v_{z1}} v_z\dl v_z\right)\\
+    &=\left(\frac12mv_{x1}^2+\frac12mv_{y1}^2 + \frac12mv_{z1}^2\right)-
+    \left(\frac12mv_{x0}^2+\frac12mv_{y0}^2 + \frac12mv_{z0}^2\right)
+  \end{align*}
+  Noting that $v^2=v_x^2+v_y^2+v_z^2$, the result of this integrating is the same
+  as in the one-dimensional case:
+  \begin{displaymath}
+    W_\text{net}=\frac12mv_1^2-\frac12mv_0^2=\Delta K
+  \end{displaymath}
+\end{remark}
+Even though we are able to equate the net work done on an object to the change
+in kinetic energy in 1D, 2D and 3D cases, it should be noted that
+\begin{itemize}
+\item In a one-dimensional coordinate system, the net force on an object
+  would always be either along the direction of motion, or opposite to
+  motion. Therefore net force would \emph{always} do work, and there would
+  always be a change in energy.
+\item In two or higher dimensions, the net force can be perpendicular to
+  motion. Therefore the presence of a net force does \emph{not} mean that the
+  net force is doing work. A good example is in circular motion
+  (Chapter~\ref{chapter:circ-motion}), where the net force towards the centre of
+  the circular path, called the centripetal force, can never do any work.
+\end{itemize}
+
+
 \begin{example}
   A net force $F=4x$ (in newtons) acts on an object of mass \SI2{\kilo\gram} as
   it moves along the $x$-axis from $x=1$ to $x=\SI5\metre$. Given that the
@@ -270,6 +301,8 @@ work-energy theorem turns a potentially difficult integration problem
   \item Calculate the net work
   \item What is the final speed of the object?
   \end{enumerate}
+
+  \textbf{Solution:} Will be available when I am ready to write it out.
 \end{example}
 
 
@@ -282,8 +315,11 @@ Unlike kinetic energy, forms of energy that can be stored are called
 \subsection{Gravitational Potential Energy}
 \label{section:gravitationalPE}
 
-Consider an object that is dropped (free-falling) under the force of gravity
-over a distance of $\Delta x$, shown in Fig.~\ref{fig:falling1}.
+Consider an object that is moving (free-falling) under the force of gravity,
+%near the surface of Earth,
+over a distance of $\Delta x$, as shown in Fig.~\ref{fig:falling1}. We have
+chosen a free fall because our goal is to isolate the work done by
+gravitational force alone, without worrying about any other forces.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.6]
@@ -300,22 +336,31 @@ over a distance of $\Delta x$, shown in Fig.~\ref{fig:falling1}.
   \caption{Gravitational force doing positive work on a free-falling object.}
   \label{fig:falling1}
 \end{figure}
-
 When displacement $\Delta\bm x$ is small, acceleration due to gravity
 $\bm g$ can be considered to be constant, therefore
 $\bm F_g=m\bm g$ is a constant force. Work done by gravity can be
-calculated using Eq.~\ref{eq:no-integration}, and no integration is needed.
-Since both $\bm F_g$ and $\Delta\bm x$ are in the same direction, work
-done by gravity ($W_g$) is positive. From the work-energy theorem
-(Eq.~\ref{work-energy-theorem}), there is an increase in kinetic energy, and
-the object speeds up:
+calculated using Eq.~\ref{eq:no-integration}, and no integration is needed. If
+the object falls downwards, i.e.\ both $\bm F_g$ and $\Delta\bm x$ are
+downwards, work done by gravitational force ($W_g$) is positive. Since
+gravitational force \emph{is} the net force, work by gravity is the net work
+($W_g=W_\text{net}$). From the work-energy principle
+(Eq.~\ref{work-energy-theorem}), there is an increase in kinetic energy
+\emph{by the same amount as work}, and the object speeds up:
 \begin{equation*}
-  W_g=mg\Delta x>0 \quad\longrightarrow\quad \Delta K > 0
+  W_g=W_\text{net}=mg\Delta x>0 \quad\longrightarrow\quad \Delta K = W_g > 0
+\end{equation*}
+Conversely, if the object moves upwards, i.e.\ $\bm F_g$ and $\Delta\bm x$ are
+in the opposite direction, then work done by gravitational force is negative.
+There would now be a decrease in kinetic energy
+\emph{by the same amount as work}, and the object slows down.
+\begin{equation*}
+  W_g=W_\text{net}=mg\Delta x<0 \quad\longrightarrow\quad \Delta K = W_g < 0
 \end{equation*}
 This is consistent with our understanding of kinematics and dynamics. But the
 work done by gravitational force can also be expressed in terms of the change
-in height. Using ground as the reference level (i.e.\ $h=0$), the work done by
-gravity can be written as:
+in height. Using the ground as the reference level (i.e.\ $h=0$), we can
+express the displacement $\Delta x$ in terms of the initial height $h_0$ and
+final height $h_1$. The work done by gravity can therefore be written as:
 \begin{equation*}
   W_g = mg(h_0-h_1)
 \end{equation*}
@@ -334,38 +379,54 @@ where $U_g$ is defined as the \textbf{gravitational potential energy}:
 Since the choice of the reference level (where we define $h=0$) is arbitrary,
 we are more interested in the \emph{change} in gravitational potential energy,
 which is related to the work done by gravity:
-\begin{equation}
-  \boxed{
-    W_g=-\Delta U_g
-  }\quad\text{where}\quad
-  \boxed{
-    \Delta U_g=mg\Delta h
-  }
+\begin{important-equation}
+  W_g=-\Delta U_g
+  \quad\text{where}\quad
+  \Delta U_g=mg\Delta h
   \label{work-potential-energy}
-\end{equation}
+\end{important-equation}
 In Eq.~\ref{work-potential-energy}, we note some special relationships between
 the work done by gravity ($W_g$) and the change in the gravitational potential
 energy ($U_g$):
 
-\fcolorbox{black}{yellow!10}{
-  \begin{minipage}{.95\textwidth}
-    \begin{itemize}[nosep,leftmargin=10pt]
-    \item \emph{Positive} work by gravity \emph{decreases} gravitational
-      potential energy, while
-    \item \emph{Negative} work by gravity \emph{increases} gravitational
-      potential energy
-    \item Work by gravity is \emph{path independent}: $W_g$ depends on the end
-      points $h_0$ and $h_1$, but not \emph{how} it goes from
-      $h_0\rightarrow h_1$
-    \item Only work done by gravity can affect $U_g$
-    \end{itemize}
-  \end{minipage}
-}
+\begin{definition}
+  \begin{itemize}[leftmargin=10pt]
+  \item When work done by gravity \emph{positive}, (i.e.\ $W_g>0$), there is a
+    \emph{decrease} in gravitational potential energy (i.e.\ $U_g<0$) by the
+    same amount.
+  \item When work done by gravity is \emph{negative}, (i.e.\ $W_g<0$), there is
+    a \emph{increase} in gravitational potential energy (i.e.\ $U_g>0$) by the
+    same amount
+  \item Positive work by gravity transforms gravitational potential energy into
+    kinetic energy; negative work by gravity transforms kinetic energy into
+    gravitational potential energy
+  \item Work by the gravitational force is \emph{path independent}: $W_g$
+    depends on the end points $h_0$ and $h_1$, but not \emph{how} the object
+    moves from $h_0$ to $h_1$
+  \item Only work done by gravitational force $\bm F_g$ can affect
+    gravitational potential energy $U_g$
+  \end{itemize}
+\end{definition}
+If the displacement $\Delta\bm x$ is sufficiently large that we can no longer
+treat $\bm g$ as a constant, we will have to use the law of universal
+gravitation:
+\begin{equation*}
+  F_g=\frac{Gm_1m_2}{r^2}
+\end{equation*}
+In this case, the general expression for gravitational potential energy can be
+obtained by integrating the law of universal gravitation, giving us the
+equation:
+\begin{equation*}
+  U_g=-\frac{Gm_1m_2}r
+\end{equation*}
+The topic of gravity is discussed further in Chapter~\ref{chapter:gravity}.
 
-As you can see in the example in Fig.~\ref{path-independence}, the work done by
-gravity is the same in all cases. That is not to say that there are no other
-forces acting on the object; we have merely isolated the work done by the
-gravitational force alone.
+
+\subsubsection{Path Independence}
+As we can see in Fig.~\ref{path-independence}, the work done by gravity is the
+same in all cases. That is not to say that there are no other forces acting on
+the object; we have merely isolated the work done by the gravitational force
+alone.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -397,89 +458,29 @@ gravitational force alone.
   \label{path-independence}
 \end{figure}
 
-\textbf{Gravity} is the mutually attractive force between
-massive objects. The magnitude of gravitational force between two
-\textbf{point masses} is proportional to their masses ($m_1$, $m_2$), and
-inversely proportional to the square of the distance ($r$) between them:
-\begin{equation}
-  \boxed{F_g=\frac{Gm_1m_2}{r^2}}
-\end{equation}
-where $G=\SI{6.67e-11}{N.m^2/kg^2}$ is the \textbf{universal gravitational
-  constant}
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}[scale=.65]
-    \draw[vector,red] (0,0)--(2,0) node[right]{$\bm F_g$};
-    \draw[vector,blue] (8,0)--(6,0) node[left]{$\bm F_g$};
-    \shade[balloon1] circle (.7) node[white]{$m_1$};
-    \shade[balloon2] (8,0) circle (1) node[white]{$m_2$};
-    \draw[dashed] (0,0)--(0,-1.5);
-    \draw[dashed] (8,0)--(8,-1.5);
-    \draw[<->,thick] (0,-1.3)--(8,-1.3) node[midway,fill=white]{$r$};
-  \end{tikzpicture}
-  \caption{Gravity is a mutual attraction between massive objects}
-\end{figure}
+%As we look at work done by other forces, we will begin to see the same pattern
+%emerge for other forces.
 
-
-
-
-The expression for \textbf{gravitational potential energy} can be obtained
-from the law of universal gravitation using basic integral calculus:
-
-\begin{equation}
-  W_g = \int_{\bm r_1}^{\bm r_2}\bm F_g\cdot\dl{\bm r}
-  = Gm_1m_2 \int_{r_1}^{r_2}\frac{\dl r}{r^2} = -\Delta U_g
-\end{equation}
-where we again define the gravitational potential energy stored between two
-point masses $m_1$ and $m_2$:
-\begin{equation}
-  \boxed{U_g=-\frac{Gm_1m_2}r}
-\end{equation}
-$U_g$ is the work required to move two objects from $r$ to $\infty$. $U_g=0$ at
-$r=\infty$ and \emph{decrease} as $r$ decreases
-
-
-
-
-%\begin{frame}{Gravitational Potential Energy}
-%  Since $g$ is not a constant, we use an equation consistent with the law of
-%  universal gravity to obtain the general expression for
-%  \textbf{gravitational potential energy} stored between a system of two
-%  masses:
-%  
-%  \eq{-.05in}{
-%    \boxed{U_g=-\frac{Gm_1m_2}r}
-%  }
-%  \begin{center}
-%    \begin{tabular}{l|c|c}
-%      \rowcolor{pink}
-%      \textbf{Quantity} & \textbf{Symbol} & \textbf{SI Unit} \\ \hline
-%      Gravitational potential energy & $U_g$ & \si\joule \\
-%      Point masses & $m_1$, $m_2$ & \si{\kilo\gram} \\
-%      Distance between centres of mass & $r$ & \si\metre \\
-%      Universal gravitational constant & $G$ & \si{N.m^2/kg^2}
-%    \end{tabular}
-%  \end{center}
-%  The ``reference level'' is chosen at infinity (i.e.\ $U_g=0$ at $r=\infty$)
-%  and \emph{decrease} as $r$ decreases
-%\end{frame}
-
-As we look at work done by other forces, we will begin to see the same pattern
-emerge for other forces.
-
-
+Before we leave the topic of gravitational potential energy, there are a few
+more details that we probably want to address.
+\begin{remark}
+  By the third law of motion, just as an object is free falling under the
+  gravitational force from Earth, the object also exerts an equal and opposite
+  reaction force on Earth. However, since the mass of Earth is much higher,
+  this minuscule force would not cause any measurable acceleration, therefore
+  there is nearly no work done on Earth. Action and reaction forces may be
+  equal and opposite, but the work that they do are rarely the same.
+\end{remark}
 
 \subsection{Spring Force \& Elastic Potential Energy}
-The \textbf{spring force}, or \textbf{elastic force} $\bm F_e$ is the force
+The \textbf{spring force}, or \textbf{elastic force} $\bm F_e$, is the force
 that a compressed/stretched spring exerts on the object connected to it, shown
 in Fig.~\ref{hooke1}. An \emph{ideal} spring obeys \textbf{Hooke's law}, which
 states that the spring force is proportional to the amount of spring
 displacement $\bm x$, and acts in the opposition to the displacement:
-\begin{equation}
-  \boxed{
-    \bm F_e=-k\bm x
-  }
-\end{equation}
+\begin{equation*}
+  \bm F_e=-k\bm x
+\end{equation*}
 The constant $k$ that relates the spring force and spring displacement is
 called the \textbf{spring constant}\footnote{The spring constant is also called
 the \textbf{force constant}, \textbf{Hooke's constant}, and in many engineering
@@ -526,38 +527,31 @@ the spring force on the object is:
   \label{eq:spring-pot1}
 \end{equation}
 where $U_e$ is now defined as the \textbf{elastic potential energy}:
-\begin{equation}
-  \boxed{
-    U_e=\frac12kx^2
-  }
-\end{equation}
+\begin{important-equation}
+  U_e=\frac12kx^2
+\end{important-equation}
 Crucially, the work done by the spring force is related to the elastic
 potential energy by:
-\begin{equation}
-  \boxed{
-    W_e=-\Delta U_e
-  }
-\end{equation}
+\begin{important-equation}
+  W_e=-\Delta U_e
+\end{important-equation}
 The integration in Eq.~\ref{eq:spring-pot1} shows the same properties as in
 the work done by gravitational force that was previously shown in
 Section \ref{section:gravitationalPE}:
-
-\fcolorbox{black}{yellow!10}{
-  \begin{minipage}{.97\textwidth}
-    \begin{itemize}[itemsep=3pt,leftmargin=12pt]%[nosep]%,leftmargin=10pt]
-    \item When work done by the spring force is \emph{positive}, (i.e.\
-      $W_e>0$), there is a \emph{decrease} in spring potential energy
-      (i.e.\ $U_e<0$) by the same amount, while
-    \item When work done by the spring force is \emph{negative}, (i.e.\
-      $W_e<0$), there is a \emph{increase} in spring potential energy
-      (i.e.\ $U_e>0$) by the same amount
-    \item Work by the spring force is \emph{path independent}: $W_e$ depends on
-      the end points $x_0$ and $x_1$, but not \emph{how} the object moves from
-      $x_0$ to $x_1$
-    \item Only work done by $\bm F_e$ can affect $U_e$
-    \end{itemize}
-  \end{minipage}
-}
+\begin{definition}
+  \begin{itemize}[leftmargin=10pt]
+  \item When work done by the spring force is \emph{positive}, (i.e.\
+    $W_e>0$), there is a \emph{decrease} in spring potential energy
+    (i.e.\ $U_e<0$) by the same amount, while
+  \item When work done by the spring force is \emph{negative}, (i.e.\
+    $W_e<0$), there is an \emph{increase} in spring potential energy
+    (i.e.\ $U_e>0$) by the same amount
+  \item Work by the spring force is \emph{path independent}: $W_e$ depends on
+    the end points $x_0$ and $x_1$, but not \emph{how} the object moves from
+    $x_0$ to $x_1$
+  \item Only work done by $\bm F_e$ can affect $U_e$
+  \end{itemize}
+\end{definition}
 
 
 \subsection{Electrostatic Force \& Electric Potential Energy}
@@ -579,26 +573,21 @@ The integral is nearly identical to that for the gravitational force:
 where $U_q$ is the \textbf{electric potential energy} that is stored between
 the two point charges, defined as:
 \begin{equation}
-  \boxed{
-    U_q = \frac{kq_1q_2}r
-  }
+  U_q = \frac{kq_1q_2}r
 \end{equation}
 
 Again, we see the same properties that we have observed 
-
-\fcolorbox{black}{yellow!10}{
-  \begin{minipage}{\textwidth}
-    \begin{itemize}[nosep,leftmargin=10pt]
-    \item\emph{Positive} work by the electric force \emph{decreases} electric
-      potential energy, while
-    \item\emph{Negative} work by the electric force \emph{increases} electric
-      potential energy
-    \item $W_q$ depends on the end points $r_0$ and $r_1$, but not \emph{how}
-      it went from $r_0\rightarrow r_1$
-    \item Only work done by $\bm F_q$ can affect $U_q$
-    \end{itemize}
-  \end{minipage}
-}
+\begin{definition}
+  \begin{itemize}[leftmargin=10pt]
+  \item\emph{Positive} work by the electric force \emph{decreases} electric
+    potential energy, while
+  \item\emph{Negative} work by the electric force \emph{increases} electric
+    potential energy
+  \item $W_q$ depends on the end points $r_0$ and $r_1$, but not \emph{how}
+    it went from $r_0\rightarrow r_1$
+  \item Only work done by $\bm F_q$ can affect $U_q$
+  \end{itemize}
+\end{definition}
 
 
 \section{Conservative Forces}
@@ -612,6 +601,22 @@ These forces are called \textbf{conservative forces}
 \item Nuclear forces
 \end{itemize}
 Because they shared these common properties:
+\begin{definition}
+  \begin{itemize}[leftmargin=10pt]
+  \item When work done by a conservative force is \emph{positive}, there is a
+    \emph{decrease} in the related potential energy by the same amount.
+  \item When work done by a conservative force is \emph{negative}, there is
+    an \emph{increase} in the related potential energy by the same amount
+  \item Positive work by a conservative force transforms the related potential
+    energy into kinetic energy; negative work by a conservative force
+    transforms kinetic energy into the related potential energy
+  \item Work by the a conservative force is always path independent
+  \item Only work done by a conservative force $\bm F_g$ can affect its related
+    potential energy $U_g$
+  \end{itemize}
+\end{definition}
+
+
 \begin{itemize}[nosep]
 \item The work done by these forces relate to a change of a potential energy
   \begin{itemize}[nosep]
@@ -622,34 +627,27 @@ Because they shared these common properties:
   it depends only on end points, but not \emph{how} it gets from one end point
   to the other
 \end{itemize}
-
-
-
 By the fundamental theorem of calculus, any conservative forces $\bm F$
 must be the negative gradient of the potential energies:
-\begin{equation}
-  \boxed{
-    \bm F=-\nabla U=-\diffp Ux\iii-\diffp Uy\jjj-\diffp Uz\kkk
-  }
-\end{equation}
+\begin{important-equation}
+  \bm F=-\nabla U=-\diffp Ux\iii-\diffp Uy\jjj-\diffp Uz\kkk
+\end{important-equation}
 In one-dimension, the gradient operator becomes just:
-\begin{equation}
-  \boxed{
-    F=-\diff Ux
-  }
-\end{equation}
+\begin{important-equation}
+  F=-\diff Ux
+\end{important-equation}
 The direction of a conservative force \emph{always} decreases the potential
 energy. (Pay attention to the negative sign. Students often forget it.)
 
 
 
-\section{Energy Diagrams}
+\subsection{Energy Diagrams}
 A plot of potential energy ($U$) vs.\ position ($x$) for a conservative force
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.8]
+  \begin{tikzpicture}[scale=.7]
     \draw[axes] (0,0)--(10,0) node[right]{$x$};
-    \draw[axes] (0,0)--(0,5) node[right]{$U(x)$};
+    \draw[axes] (0,0)--(0,5) node[above]{$U(x)$};
     \draw[very thick] (.2,4.5) to[out=-70,in=180](1.5,2.5)
     to[out=0,in=180] (2.5,1)
     --(5.5,1) node[midway,below]{\scriptsize Neutral equilibrium}
@@ -784,7 +782,7 @@ motion, and therefore, do not do any work.
 As static friction pulls $m_2$ to the right, it accelerates and gains kinetic
 energy, consistent with the work-energy theorem
 (Eq.~\ref{work-energy-theorem}), and kinematics and dynamics. The change in
-kinetic energy in $m_2$ as it moves from $x_0\longrightarrow x_1$ is
+kinetic energy in $m_2$ as it moves from $x_0\to x_1$ is
 \begin{equation*}
   \Delta K_2=\int_{x_0}^{x_1} f\dl x
 \end{equation*}
@@ -797,10 +795,8 @@ does positive work, while in this case, static friction $\bm f$ does
 from $m_1$ to $m_2$, but we can do a more thorough (although still very simple)
 analysis to find out how much.
 
-Without static friction
-%between $m_1$ and $m_2$,
-the net force on $m_1$ would have just been $\bm F$, and the change in
-kinetic energy moving from $x_0\longrightarrow x_1$ to the right is simply
+Without static friction, the net force on $m_1$ would have just been $\bm F$,
+and the change in kinetic energy moving from $x_0\to x_1$ to the right is simply
 \begin{equation*}
   \Delta K_1 = \int_{x_0}^{x_1} F\dl x\quad\quad\text{(no friction)}
 \end{equation*}
@@ -808,7 +804,7 @@ However, with static friction present, the gain in kinetic energy is reduced:
 \begin{equation*}
   \Delta K_1 = \int_{x_0}^{x_1} F_\text{net}\dl x =
   \int_{x_0}^{x_1} (F-f)\dl x = \int_{x_0}^{x_1} F\dl x -
-  \underbrace{\int_{x_0}^{x_1} f\dl x}_{\Delta K_2}
+  \underbracket[1pt]{\int_{x_0}^{x_1} f\dl x}_{\Delta K_2}
 \end{equation*}
 Work done by static friction reduced the kinetic energy of $m_1$ by the same
 amount that is gained by $m_2$. We therefore conclude that work done by
@@ -823,13 +819,16 @@ friction transfers kinetic energy from one block to another.
 
 
 
-\section{Internal/Thermal Energy}
+\section{Thermal Energy}
+Aside from the kinetic energy and potential energies, there is a third category
+of energy called the thermal energy.
+
 Consider a container of gas of mass $M$ that oscillates vertically from the
-ceiling by a spring with stiffness $k$. The container moves at speed $v$ at a
-height $h$ above Earth (shown in Fig.~\ref{fig:gas}).
+ceiling by a massless spring with stiffness $k$. The container moves at speed
+$v$ at a height $h$ above Earth, shown in Fig.~\ref{fig:gas}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.75]
+  \begin{tikzpicture}[scale=.7]
     \begin{scope}[thick]
       \draw (-1,5)--(3,5);
       \draw (-1,-4)--(3,-4) node[right]{\scriptsize$h=0$};
@@ -843,9 +842,9 @@ height $h$ above Earth (shown in Fig.~\ref{fig:gas}).
     \end{scope}
     \foreach \i in {1,...,90} \fill[red] (rand+1,rand+1) circle (.05);
   \end{tikzpicture}
-  \caption{A container of gas, suspended vertically, and moving above Earth,
-    has kinetic energy, gravitational potential energy, elastic potential
-    energy, as well as internal energies}
+  \caption{A container of gas, suspended vertically, and moving above Earth}
+  %has kinetic energy, gravitational potential energy, elastic potential
+  %energy, as well as internal energies}
   \label{fig:gas}
 \end{figure}
 During this oscillation, the container has a bulk kinetic energy of
@@ -869,34 +868,36 @@ called the \textbf{internal energy} $E_\text{int}$, or \textbf{thermal energy}.
 Internal energy of a system of molecules is the sum of all their kinetic and
 potential energies at the microscopic level:
 \begin{equation}
-  \boxed{
-    E_\text{int}=K_\text{micro} + U_\text{micro}
-  }
+  E_\text{int}=K_\text{micro} + U_\text{micro}
 \end{equation}
 As the name suggests, $E_\text{int}$ is proportional to molecules'
-\textbf{absolute temperature}, measured in \emph{kelvin}.
-%\endnote{For those who are keen to know, for a
-%monatomic or ideal gas, the internal energy comes entirely from the kinetic
-%energy from the 3 degrees to translational freedom, and is given by
-%\begin{equation*}
-%  E_\text{int}=\dfrac32Nk_bT
-%\end{equation*}
-%where $N$ is the number of molecules, $k_b$ is the Boltzmann's constant. For a
-%diatomic gas, there are 3 degrees of translational freedom, and 2 degrees of
-%rotational freedom, and the internal energy is given by:
-%\begin{equation*}
-%  E_\text{int}\approx\dfrac52NkT
-%\end{equation*}
-%For solids, there are 3 degrees of translational freedom, and 3 degrees of
-%degrees of vibrational freedom, and therefore the internal energy is:
-%\begin{equation*}
-%  E_\text{int}\approx3Nk_bT
-%\end{equation*}
-%}
-Discussions on thermal/internal energy and the behaviour of gases and solids
+\textbf{absolute temperature}, measured in \emph{kelvin}. Discussions on
+thermal/internal energy and the behaviour of gases and solids
 are part of a much larger discipline within physics called
-\textbf{thermodynamics}, but it is outside the scope of this chapter.
-
+\textbf{thermodynamics}, but it is outside the scope of this book. %chapter.
+\begin{remark}
+  For those who are keen to know, for a monatomic ideal gas, the internal
+  energy comes entirely from the kinetic energy from the translational motion
+  of the molecules, %from the 3 degrees to translational freedom, and
+  given by:
+  \begin{equation*}
+    E_\text{int}=\dfrac32Nk_bT
+  \end{equation*}
+  where $N$ is the number of molecules, $k_b$ is the Boltzmann's constant. For a
+  diatomic gas, %there are 3 degrees of translational freedom, and 2 degrees of
+  %rotational freedom, and the
+  internal energy is given by:
+  \begin{equation*}
+    E_\text{int}\approx\dfrac52Nk_bT
+  \end{equation*}
+  For solids with a perfect lattice-crystalline structure, like those seen in
+  metals, %there are 3 degrees of translational freedom, and 3 degrees of
+  degrees of vibrational freedom, and therefore the
+  internal energy is:
+  \begin{equation*}
+    E_\text{int}\approx3Nk_bT
+  \end{equation*}
+\end{remark}
 
 
 \chapter{Law of Conservation of Energy}
@@ -1016,9 +1017,9 @@ further simplifies to
 
 
 \subsection{Gravity: Free Fall}
-Assuming that there are no friction and drag (i.e.: air resistance, see
-Section~\ref{sec:drag}), a free-falling object (shown in Fig.~\ref{fig:earth})
-forms an isolated system with Earth. 
+Assuming that there are no friction,and drag (i.e.: air resistance, see
+Section~\ref{sec:drag}) or other damping forces, a free-falling object (shown
+in Fig.~\ref{fig:earth}) forms an isolated system with Earth. 
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.65]
@@ -1033,13 +1034,13 @@ forms an isolated system with Earth.
 This system consists of only Earth and the mass $m$, and therefore the energy
 of the system is the kinetic energy of the mass ($K$) and the gravitational
 potential energy ($U_g$) stored between the mass and Earth.
-\begin{sidenote}
+\begin{remark}
   $U_g$ is often described as ``the gravitational potential energy of the
   object''. Strictly speaking, this is incorrect; this is a topic that will be
   studied in more detail in Chapter~\ref{chapter:gravity}. However, this will
   not affect how the calculations is done, and in the opinion of the author,
   poses no major conceptual issue. You are, of course, welcome to disagree.
-\end{sidenote}
+\end{remark}
 
 The only force that acts on the mass is the gravitational force $\bm F_g$,
 which, by the third law of motion, acts on \emph{both} the mass and Earth, and
@@ -1053,7 +1054,7 @@ insignificant. We will therefore only focus on the motion of the mass}.
 %force that does work is gravity, and it is \emph{internal} to the system.
 
 Since gravity is a conservative force, the positive work done transforms
-gravitational potential energy into kinetic energy of the  mass by the same
+gravitational potential energy into kinetic energy of the mass by the same
 amount, and since $\bm F_g$ is an internal force, the change in the system's
 energy is zero.
 \begin{equation}
@@ -1061,56 +1062,52 @@ energy is zero.
 \end{equation}
 In practice, we can use the following equation for problem solving:
 \begin{equation}
-  \underbracket[1.3pt]{K+U_g}_\text{initial state}
-  =\underbracket[1.3pt]{K'+U_g'}_\text{final state}
+  \underbracket[1pt]{K+U_g}_\text{initial state}
+  =\underbracket[1pt]{K'+U_g'}_\text{final state}
 \end{equation}
 
 \begin{example}
-  \textbf{Question:} A ball is thrown upwards with an initial speed of
-  \SI5{\metre\per\second} from the third-floor balcony of an apartment
-  building, \SI{10}{\metre} above the ground. If friction and air resistance
-  can be ignored, with what speed would it hit the ground?
+  A ball is thrown direction \emph{upwards} with an initial speed $v$ from the
+  third-floor balcony of an apartment building, at a height $h$ above the
+  ground. If friction and drag can be ignored, with what speed $v'$ would it
+  hit the ground?
   
-  \vspace{.1in}\textbf{Solution:} This is a simple problem that any beginner
-  physics student would have solved in kinematics, but we will solve using
-  conservation of energy instead.
-  Since there is no friction and drag, the
-  total mechanical energy is conserved between when the ball is thrown, and the
-  moment just before it hits the ground:
+  \textbf{Solution:} This is a simple problem that any beginner physics student
+  can solve using kinematics, but we will solve it using conservation of
+  energy instead. Since there is no friction and drag, the total mechanical
+  energy is conserved between when the ball is thrown, and the moment just
+  before it hits the ground. Setting $h=0$ at ground level, the gravitational
+  potential is zero ($U_g=mgh=0$) just before the ball hits the ground:
   \begin{displaymath}
-    \underbracket[1.3pt]{K + U_g}_\text{thrown} =
-    \underbracket[1.3pt]{K' + U_g'}_\text{just before hitting the ground}
+    \underbracket[1pt]{K + U_g}_\text{thrown} =
+    \underbracket[1pt]{K' + \cancelto{0}{U_g'}}_\text{hitting the ground}
   \end{displaymath}
-  Setting $h=0$ at ground level (our reference level), and substituting the
-  expressions for $K$ and $U_g$ the above equattion, we have
+  Substituting the expressions for $K$ and $U_g$, we have:
   \begin{displaymath}
     \frac12 mv^2 + mgh = \frac12 mv'^2
   \end{displaymath}
-  Cancelling mass terms, then solving for $v'$ and substituting numerical
-  values, we have:
+  Cancelling mass terms, then solving for $v'$, we have:
   \begin{displaymath}
-    v'= \sqrt{v^2+2gh}=\sqrt{5^2+2\cdot9.8\cdot10}=
+    v'= \sqrt{v^2+2gh}
   \end{displaymath}
-  The above equation is, of course, identical to the one-dimensional kinematic
-  equation (as one should expect!). But there are some differences:
-  \begin{itemize}[itemsep=4pt,leftmargin=12pt]
-  \item This is a scalar problem. We actually don't know explicitly the
-    direction of the ball when it hits the ground (although it is plainly
-    obvious)
-  \item We don't know how long it took to hit the ground.
-  \item All we know is the condition at the end points.
+  Our answer is, of course, identical to the 1D kinematic equation (as one
+  should expect!), but with some subtle differences:
+  \begin{itemize}[leftmargin=10pt]
+  \item This is a scalar problem, so we didn't bother to define a positive
+    direction, we we would have to do when solving a vector problem. We
+    actually don't know explicitly the direction of the ball when it hits the
+    ground (although it is plainly obvious that it falls downwards).
+  \item We cannot find out how long it took to hit the ground.
+  \item All we know is the speeds at the end points.
   \end{itemize}
   %What is remarkable about this example is that even though the derivation
   %of the energy conservation is complex, the application is simple algebra.
 \end{example}
-
+ Let's try something \emph{slightly} more difficult for a bit more insight.
 \begin{example}
-  Let's try something \emph{slightly} more difficult for a bit more insight.
-
-  \vspace{4pt}\textbf{Question:} A ball is thrown with an upward angle of
-  \SI{60}{\degree} with an initial speed of \SI5{\metre\per\second} from the
-  same third-floor balcony, \SI{10}{\metre} above the ground. If friction and
-  air resistance can be ignored, with what speed would it hit the ground?
+  A ball is thrown with an upward angle of $\theta$ with an initial speed of
+  $v$ from the same third-floor balcony, a height $h$ above the ground. If
+  friction and drag can be ignored, with what speed would it hit the ground?
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-1,0)--(0,0)--(0,-2)--(4,-2);
@@ -1120,33 +1117,38 @@ In practice, we can use the following equation for problem solving:
   %This highlights the difference between solving
   %a problem by kinematics vs.\ solving it by conservation of energy.
   Again, since there is no friction and drag, the total energy is conserved
-  between when the ball is thrown ($K+U_g$), and just before it hits the ground
-  ($K'+U_g'$):
+  between when the ball is thrown, and just before it hits the ground.
   \begin{displaymath}
-    K + U_g = K' + U_g'
+    \underbracket[1pt]{K + U_g}_\text{thrown} =
+    \underbracket[1pt]{K' + \cancelto{0}{U_g'}}_\text{hitting the ground}
   \end{displaymath}
   Setting $h=0$ at ground level and substituting the expressions for $K$ and
-  $U_g$ into the above equation, as we did in the previous example:
+  $U_g$ into the above equation, as we did in the previous example, we have:
   \begin{displaymath}
     \frac12 mv^2 + mgh = \frac12 mv'^2
   \end{displaymath}
-  Again, cancelling mass terms, then solving for $v'$ and finally substituting
+  Again, cancelling mass terms, then solving for $v'$:
   numerical values:
   \begin{displaymath}
-    v'= \sqrt{v^2+2gh}=\sqrt{5^2+2\cdot9.8\cdot10}=
+    v'= \sqrt{v^2+2gh}
   \end{displaymath}
-  This is of course the same answer as the previous example. When we solve this
-  problem using 2D kinematics, we would have to split the problem into
-  horizontal and vertical motion. We would have to find the vertical velocity
-  when the ball hits the ground, then combine with the horizontal velocity
-  to find the \emph{speed}. Using conservation of energy allows us to solve a
-  scalar problem instead of a vector problem, but\ldots
+  This is, of course, the exact same answer as the previous example. Previously,
+  solving this problem using 2D kinematics would have required us to split the
+  problem into horizontal ($x$) and vertical ($y$) directions. We would have
+  to find the vertical velocity when the ball hits the ground, then combine
+  with the horizontal velocity to find the \emph{speed}. Using conservation of
+  energy allows us to solve a scalar problem instead of a vector problem
+  allowed us to solve this problem is a fraction of the time, and without
+  worrying about whether we have used the correct vector directions.
 \end{example}
-Talk about why we don't include thermal energy in the examples.
+%Talk about why we don't include thermal energy in the examples.
+
+
 
 \subsection{Gravity: Arbitrary Ramp}
-Assuming that there is no friction or drag, energy is also conserved for an
-object sliding down an arbitrarily-shaped ramp:
+
+Assuming that there is no friction, drag or other damping forces present,
+energy is also conserved for an object sliding down an arbitrarily-shaped ramp:
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
