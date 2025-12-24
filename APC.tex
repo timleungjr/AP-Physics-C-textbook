@@ -66,8 +66,12 @@
 \tikzstyle{function}=[very thick,red]
 \tikzstyle{mass}=[thick,fill=cyan!25]
 \tikzstyle{every node}=[font=\footnotesize]%scriptsize]
+
 \tikzstyle{balloon1}=[ball color=red]
 \tikzstyle{balloon2}=[ball color=blue]
+
+\tikzstyle{poscharge}=[ball color=blue!50!gray]
+\tikzstyle{negcharge}=[ball color=red]
 
 \sisetup{
   inter-unit-product=\cdot,
@@ -132,47 +136,6 @@
   #1
 }
 
-%\newtcolorbox{common-question}[1][]{
-%  enhanced,
-%  breakable,
-%  skin=enhancedlast jigsaw,
-%  attach boxed title to top left={xshift=-4mm,yshift=-.5mm},
-%  fonttitle=\bfseries\sffamily,
-%  colbacktitle=green!60!black,
-%  colframe=green!60!black,
-%  interior style={
-%    color=green!5
-%    %top color=blue!10,
-%    %bottom color=red!10
-%  },
-%  boxed title style={
-%    empty,
-%    arc=0pt,
-%    outer arc=0pt,
-%    boxrule=0pt
-%  },
-%  underlay boxed title={
-%    \fill[green!60!black] 
-%      (title.north west) -- 
-%      (title.north east) -- 
-%      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) -- 
-%      ([xshift=4mm,yshift=0.5mm]frame.north east) -- 
-%      +(0mm,-1mm) -- 
-%      (title.south west) -- cycle;
-%    \fill[green!45] 
-%      ([yshift=-0.5mm]frame.north west) -- 
-%      +(-0.4,0) -- 
-%      +(0,-0.3) -- cycle;
-%    \fill[green!45] 
-%      ([yshift=-0.5mm]frame.north east) -- 
-%      +(0,-.3) -- +(.4,0) -- cycle; 
-%  },
-%  title={Common Question},
-%  #1
-%}
-
-
-
 
 % Book information for PDF metadata, remove/comment this block if not required 
 \hypersetup{
@@ -185,11 +148,19 @@
 
 \addbibresource{sample.bib} % Bibliography file
 
-\definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for highlighting throughout the book
+% Define the color used for highlighting throughout the book:
+\definecolor{ocre}{RGB}{243, 102, 25}
 
-\chapterimage{orange1.jpg} % Chapter heading image
-\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
+% Chapter heading image:
+\chapterimage{orange1.jpg}
+
+% Default whitespace from the top of the page to the chapter title on chapter
+% pages:
+\chapterspaceabove{5cm}
+
+% Default amount of vertical whitespace from the top margin to the start of
+% the text on chapter pages:
+\chapterspacebelow{5.5cm}
 
 %-----------------------------------------------------------------------------
 
@@ -258,6 +229,7 @@
 %-----------------------------------------------------------------------------
 
 \part{Mechanics}
+\label{part:mechanics}
 
 \input{kinematics-calculus/PhysAPC-01b-kinematicsHandout}
 \input{kinematics-calculus/PhysAPC-01c-motionGraphs}
@@ -270,8 +242,12 @@
 \input{centreOfMass/CM}
 \input{circularMotion/PhysAPC-06-circMotion}
 \input{rotationalMotion/rotationalMotion}
+
+\chapterimage{harmonicMotion/buying-compression-springs1765131102}
 \input{harmonicMotion/harmonicMotion}
-\input{harmonicMotion/harmonicMotion-practice-questions}
+%\input{harmonicMotion/harmonicMotion-practice-questions}
+
+\chapterimage{universalGravitation/54371346378-f762763e96-o}
 \input{universalGravitation/univGravity}
 
 \part{Electricity and Magnetism}
