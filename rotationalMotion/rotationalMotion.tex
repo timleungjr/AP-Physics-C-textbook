@@ -380,18 +380,27 @@ This does \emph{not} mean that the object has no translational motion; it just
 means that the object's translational state is not changing, i.e.\ momentum is
 constant in time, or $\dot{\bm p}=0$. For an object with constant mass $m$,
 this means that the acceleration at the centre of mass is zero, i.e.\
-$\bm a_\text{cm}=\bm 0$, and therefore $\bm v=\text{constant}$.
+$\bm a_\text{cm}=\bm 0$, and therefore $\bm v_\text{cm}=\text{constant}$.
 
 Likewise, an object is in \textbf{rotational equilibrium} when the net
 \emph{torque} acting on it is zero:
-\begin{equation}
-  \bm\tau_\text{net}=\bm0
-\end{equation}
+\begin{important-equation}
+  \bm\tau_\text{net}=\bm0\quad\text{rotational equalibrium}
+\end{important-equation}
 This does \emph{not} mean that the object has no rotational motion; it just
 means that the object's rotational state is not changing, i.e.\ angular
-momentum does not change with time, or $\dot{\bm L}=0$. For constant moment
-of inertia $I$, this means that $\bm\alpha=\bm 0$, and
+momentum does not change with time, or $\dot{\bm L}=0$. For an object with
+constant moment of inertia $I$, this means that $\bm\alpha=\bm 0$, and
 $\bm\omega=\text{constant}$.
+
+\begin{example}
+  A skater extends her arms (both arms!), holding a \SI{2.0}{\kilo\gram} mass
+  in each hand. She is rotating about a vertical axis at a given rate. She
+  brings her arms inward toward her body in such a way that the distance of
+  each mass from the axis changes from \SI{1.0}{\metre} to \SI{.50}\metre. Her
+  rate of rotation (neglecting her own mass) will?
+\end{example}
+
 
 
 
@@ -447,65 +456,82 @@ Eq.~\ref{eq:2nd-law-rotational} reduces to:
 
 
 
-
-\subsection{But there is no rotational motion, is there?}
+\section{Angular Momentum in Rectilinear Motion}
+%\subsection{But there is no rotational motion, is there?}
 
 Even when there is no apparent rotational motion, it does not necessarily mean
 that angular momentum is zero. In the example shown in
-Figure~\ref{fig:straight-line-angular-momentum}, a mass $m$ travels along a
-straight path at constant velocity (uniform motion), but the angular momentum
-around point $P$ is not zero.
+Fig.~\ref{fig:straight-line-angular-momentum}, a mass $m$ travels along a
+straight line at constant velocity (uniform motion).
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
-    \draw[dashed] (-5,0)--(5,0);
-    \draw[vector,red] (-5,0)--(-3,0) node[below]{$\bm v$};
-    \shade[ball color=red] (-5,0) circle (.2) node[above=3]{$m$};
+    \draw[dashed] (-6,0)--(5,0);
+    \draw[vector,red] (-5,0)--+(1.5,0) node[above]{$\bm v$};
+    \draw[vector,red,dotted,rotate around={66.4:(-5,0)}]
+    (-5,0)--+(.6,0) node[above]{$v_\perp=v\sin\theta$};
+    \draw[mass] (-5,0) circle (.2) node{$m$} node[above=4]{1};
     \draw[vector,blue] (0,-2)--(-5,0)
-    node[midway,below,rotate=-atan{2/5}]{$\bm r_1$};
-    
-    \shade[ball color=red] circle (.2) node[above=3]{$m$};
-    \draw[vector,red] (.2,0)--(2,0) node[right]{$\bm v$};
+    node[midway,below,rotate=-atan{2/5}]{$\bm r_1$}
+    node[pos=.78,above,black]{$\theta$};
+
+    \draw[vector,red] (0,0)--+(1.5,0) node[above]{$\bm v$};
+    \draw[mass] circle (.2) node{$m$} node[above=4]{2};
     \draw[vector,blue] (0,-2)--(0,0) node[midway,left]{$\bm r_2$};
+
+    \draw[vector,red] (3,0)--+(1.5,0) node[above]{$\bm v$};
+    \draw[mass] (3,0) circle (.2) node{$m$} node[above=4]{3};
+    \draw[vector,blue] (0,-2)--(3,0)
+    node[midway,below,rotate=atan{2/4}]{$\bm r_3$}
+    node[pos=.77,above,black]{$\phi$};
+    \draw[vector,red,dotted,rotate around={-acos(2/3):(3,0)}]
+    (3,0)--+(1,0) node[below]{$v_\perp=v\sin\phi$};
     
-    \shade[ball color=red] (4,0) circle (.2) node[above=3]{$m$};
-    \draw[vector,red] (4.2,0)--(6,0) node[right]{$\bm v$};
-    \draw[vector,blue] (0,-2)--(4,0)
-    node[midway,below,rotate=atan{2/4}]{$\bm r_3$};
-    
-    \fill (0,-2) circle (.05) node[below]{$P$};
+    \fill (0,-2) circle (.05) node[below]{P};
   \end{tikzpicture}
   \caption{Angular momentum of an object travelling in uniform motion}
   \label{fig:straight-line-angular-momentum}
 \end{figure}
-Since there is no force and no torque acting on the object, both translational
-momentum ($\bm p=m\bm v$) and angular momentum ($\bm L=\bm r\times\bm p$) are
-constant.
+The angular momentum around (arbitrarily chosen) point $P$, however, is not
+zero. At position 1, since $\bm v_\perp\neq 0$, there is clearly a clockwise
+angular momentum about point P, with a magnitude of:
+\begin{equation*}
+  L_1=r_1mv_\perp=r_1mv\sin\theta
+\end{equation*}
+As the object moves to position 2, the clockwise angular momentum about point P
+is very easy to calculate. But since $r_2=r_1\sin\theta$, we conclude that
+angular momentum at position 2 is the same as at position 1:
+\begin{equation*}
+  L_2={\color{red}r_2}mv={\color{red}(r_1\sin\theta)}mv=L_1
+\end{equation*}
+Not surprisingly, we can apply the same logic to find the angular momentum at
+position 3:
+\begin{equation*}
+  L_3=r_3mv_\perp=r_3mv\sin\phi
+\end{equation*}
+Again, relating $r_3$ to $r_2$, and from $r_2$ to $r_1$, we again see that the
+angular momentum about point P has not changed:
+\begin{equation*}
+  L_3=r_3mv\sin\phi
+  =\left[\frac{r_2}{\cancel{\sin\phi}}\right]mv\cancel{\sin\phi}
+  =(r_1\sin\theta)mv=L_1
+\end{equation*}
+An object is uniform motion is not subjected to any net force, therefore there
+cannot be a net torque on the object about \emph{any} point. We must conclude
+that both translational momentum ($\bm p=m\bm v$) and angular momentum
+($\bm L=\bm r\times\bm p$) are constant in uniform motion.
 
 
 \begin{example}
-    \textbf{Example:} A skater extends her arms (both arms!), holding a
-    \SI{2.0}{\kilo\gram} mass in each hand. She is rotating about a vertical
-    axis at a given rate. She brings her arms inward toward her body in such a
-    way that the distance of each mass from the axis changes from
-    \SI{1.0}{\metre} to \SI{.50}\metre. Her rate of rotation (neglecting her
-    own mass) will?
+  A \SI{1.0}{\kilo\gram} mass swings in a vertical circle
+  after having been released from a horizontal position with zero initial
+  velocity. The mass is attached to a massless rigid rod of length
+  \SI{1.5}\metre. What is the angular momentum of the mass, when it is in its
+  lowest position?
 \end{example}
 
 
-\fcolorbox{black}{yellow!5}{
-  \small
-  \begin{minipage}{.96\linewidth}
-    \textbf{Example:} A \SI{1.0}{\kilo\gram} mass swings in a vertical circle
-    after having been released from a horizontal position with zero initial
-    velocity. The mass is attached to a massless rigid rod of length
-    \SI{1.5}\metre. What is the angular momentum of the mass, when it is in its
-    lowest position?
-  \end{minipage}
-}
-
-
-\subsection{Conservation of Angular Momentum in a Collision}
+\section{Conservation of Angular Momentum in a Collision}
 
 In a collision between two objects, not only is translational momentum
 conserved, angular momentum must be conserved as well.
@@ -514,22 +540,33 @@ conserved, angular momentum must be conserved as well.
 \section{Work \& Energy in Rotational Motion}
 We now turn our attention to the work and energy of objects that are rotating.
 
+
+
 \subsection{Rotational Work}
-For translational motion, mechanical work in a one-dimensional coordinate
-system is defined as:
+
+As we have seen in Chapter~\ref{chapter:energy}, for translational motion,
+mechanical work in a one-dimensional coordinate system is defined as:
 \begin{equation*}
   W_t=\int_{x_0}^{x_1}F(x)\dl x
 \end{equation*}
-Using the above definition, we can also calculate mechanical work for
-rotational motion: %, mechanical work is defined similarly as:
+If the resulting motion is a rotation, then we can rewrite the object's
+displacement as $\dl x=r\dl\theta$. Then we can calculate the rotational work
+done by the force:
 \begin{equation}
   W_r=\int_{x_0}^{x_1} F\dl x
-  =\int_{\theta_0}^{\theta_1} F (r\dl\theta)
+  =\int_{\theta_0}^{\theta_1} \underbracket[1pt]{F (r}_\tau\dl\theta)
 \end{equation}
 Noting that $\tau=rF$, rotational work becomes:
 \begin{important-equation}
   W_r=\int_{\theta_0}^{\theta_1}\tau(\theta)\dl\theta
 \end{important-equation}
+Just as we did with translational work, we must distinguish between
+\begin{itemize}
+\item\textbf{rotational work done by a specific torque} acting on the object,
+  and
+\item\textbf{the total rotational work done on an object},
+\end{itemize}
+
 
 \subsection{Rotational Kinetic Energy}
 \label{sec:rotKE}
@@ -550,10 +587,11 @@ where $K_r$ is defined as:
 Not surprisingly, the work-energy principle still applies to rotational motion:
 Net rotational work on an object is equal to the change in kinetic energy.
 \begin{important-equation}
-  \text{Work-energy principle:}\quad W_r=\Delta K_r
+  \text{Work-energy principle:}\quad W_{r,\text{net}}=\Delta K_r
 \end{important-equation}
 Just as the net/total translational work on an object changes its translational
-kinetic energy (Eq.~\ref{work-energy-theorem} in Chapter~\ref{chapter:energy}),
+kinetic energy (Eq.~\ref{work-energy-theorem}),
+%in Chapter~\ref{chapter:energy}),
 the net rotational work on an object also changes its rotational kinetic energy.
 %To find the kinetic energy of a rotating system of particles (discrete number
 %of particles, or continuous mass distribution), we sum the kinetic energies of

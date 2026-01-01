@@ -7,21 +7,39 @@ While \textbf{kinematics} describes the motion of any object mathematically,
 
 \section{Laws of Motion}
 
-The first law of motion, as stated in \emph{Principia}, says that:
-\begin{center}
-  \fcolorbox{black}{cyan!10}{
-    \begin{minipage}{.74\textwidth}
-      \textbf{Law \#1: An object will remain in its state of rest or uniform
-        motion, until a net external force is applied to it.}\footnote{Lex I:
-      Corpus omne perseverare in statu suo quiescendi vel movendi uniformiter
-      in directum, nisi quatenus a viribus impressis cogitur statum illum
-      mutare.}
-    \end{minipage}
-  }
-\end{center}
-This called, called the \emph{law of equilibrium}, states that when the sum
-of all the forces acting on an object is balanced, the velocity of the object
-will not change.
+\subsection{First Law of Motion}
+
+The first law of motion, called the \emph{law of equilibrium}, describes what
+happens when there are no forces act on an object:
+
+\begin{definition}
+  \textbf{First Law:} An object will remain in its state of rest or uniform
+    motion, until a net external force is applied to it.\footnote{Lex I:
+  Corpus omne perseverare in statu suo quiescendi vel movendi uniformiter
+  in directum, nisi quatenus a viribus impressis cogitur statum illum
+  mutare.}
+\end{definition}
+The first law, called the \emph{law of inertia}, states that when the sum
+of all the forces acting on an object is balanced, In other words, the three
+equations below are equivalent:
+\begin{important-equation}
+  \bm F_\text{net}=\sum\bm F=\bm 0
+  \quad\longleftrightarrow\quad
+  \bm v=\text{constant}
+  \quad\longleftrightarrow\quad
+  \bm a=\bm 0
+\end{important-equation}
+
+What is not stated explicitly by Newton is that the first law of motion is only
+valid when the mass of the object is constant. In other words, the first law of
+motion, as stated above, will \emph{not} work for:
+\begin{itemize}[itemsep=3pt]
+\item A rocket expelling spent fuel as it is launched towards space
+\item A train car collecting grain though its open top
+\end{itemize}
+In Chapter~\ref{chapter:momentum}, we will modify the first law of motion
+to include objects with changing mass. In Chapter~\ref{chapter:cm}, we will
+examine the law's relationship to an object's centre of mass.
 
 When the net force on an object is zero ($\sum\bm F=\bm 0$) then the
 object is in a \emph{state of translational equilibrium}. Equilibrium can be
@@ -32,11 +50,7 @@ either:
 \item\textbf{static equilibrium}, when the object is not moving relative to the
   observer
 \end{itemize}
-%\begin{itemize}
-%\item Uniform motion means constant velocity; an object ``at rest'' is also
-%  in uniform motion with $\bm v=\bm 0$
-%\item As long as an object moves in uniform motion, it must be that
-%  
+
 %\item Common examples:
 %  \begin{itemize}
 %  \item A hockey puck sliding on very smooth ice has gravity and normal
@@ -50,17 +64,18 @@ either:
 
 %\subsubsection{Aristotle: The Wrong Interpretation}
 Prior to Galileo, the understanding of motion came primarily from Greek
-philosopher Aristotle, who said that any body in motion will come its
-natural state: at rest. Aristotle's idea ``makes sense'' from everyday
-experience. For example: slide a book across a table, it will eventually stop.
-However, Galileo pointed out that Aristotle's philosophy is ambiguous: absolute
-rest cannot be determined because all motion is relative.
+philosopher Aristotle, who said that any body in motion will come its natural
+state: at rest. Aristotle's idea ``makes sense'' from everyday experience. For
+example: slide a book across a table, it will eventually stop. However, Galileo
+pointed out that Aristotle's philosophy is ambiguous: absolute rest cannot be
+determined because all motion is relative.
 
 \textbf{Absolute rest cannot be determined:} Objects that are stationary in one
-coordinate system can be moving relative to another (see \emph{relative motion}
-from last class). A cup of water, shown in Fig.~\ref{fig:cup}, is on the tray
-table on an airplane in flight. The cup is stationary relative to the
-passengers, but moving relative to anyone outside watching the airplane fly by.
+coordinate system can be moving relative to another (see
+Section~\ref{sec:relative-motio}). A cup of water, shown in Fig.~\ref{fig:cup},
+is on the tray table on an airplane in flight. The cup is stationary relative
+to the passengers, but moving relative to anyone outside watching the airplane
+fly by.
 \begin{figure}[ht]
   \centering
   \pic{.4}{dynamics-calculus/coffeecup}
@@ -87,69 +102,113 @@ information about whether I am at rest on in uniform motion
 
 \subsection{Second Law of Motion}
 \label{sec:2nd-law-of-motion}
-\begin{center}
-  \fcolorbox{black}{cyan!10}{
-    \begin{minipage}{.7\textwidth}
-      \textbf{Law \#2: The acceleration of an object is proportional to,
-        and along the direction of, the net external force.}\footnote{Lex II:
-      Mutationem motus proportionalem esse vi motrici impressae, et fieri
-      secundum lineam rectam qua vis illa imprimitur.}
-    \end{minipage}
-  }
-\end{center}
-Like the first law, the second law of motion as descrribed by Newton is also a
-``special case'' that assumes a constant mass. We can summarize the first two
-laws into one of the most recognizable equation:
+
+The secon law of motion addresses what happens when the forces acting on an
+object is not balance, i.e.\ when the net force is not zero.
+
+\begin{definition}
+  \textbf{Second Law:} The acceleration of an object is proportional to, and
+  along the direction of, the net external force.\footnote{Lex II: Mutationem
+  motus proportionalem esse vi motrici impressae, et fieri secundum lineam
+  rectam qua vis illa imprimitur.}
+\end{definition}
+The second law states that the acceleration of an object is the direct result
+of the imbalance of forces, and that the relationship is \emph{linear} (i.e.\
+when the net force is double, the acceleration also doubles). The first two
+laws of motion can be summarized by perhaps one of the most important and
+recognizable equations in physics:
 \begin{important-equation}
-  \bm F_\text{net}(t)=\sum\bm F=m\bm a(t)
+  \bm F_\text{net}=m\bm a
 \end{important-equation}
-For non-constant mass, net force is the rate of change of momentum $\bm p$.
+The \emph{proportionality} between the net force and the acceleration of the
+object is its mass. In fact, mass is defined as the ratio between the magnitude
+of the net force acting on an object and the magnitude of the resultant
+acceleration:
+\begin{important-equation}
+  m=\frac{|\bm F_\text{net}|}{|\bm a|}
+\end{important-equation}
+As such, mass is an intrinsic property of an object, and the same net force on
+the object will \emph{always} result in the same acceleration, regardless of
+what the net force is composed of, and whether the object is on Earth, on the
+Moon, or in deep space.
+
+Both the first and second laws of moton, as stated by Newton, require that the
+mass of the object be constant. For non-constant mass, net force is the rate of
+change of momentum $\bm p$.
 \begin{equation*}
   \bm F_\text{net}(t)=\diff{\bm p}t
 \end{equation*}
-The topic of momentum will be studied in more depth in
+The topic of momentum will be studied in detail in
 Chapter~\ref{chapter:momentum}.
+%Like the first law, the second law of motion as descrribed by Newton is also a
+%``special case'' that assumes a constant mass. We can summarize the first two
+%laws into one of the most recognizable equation:
+%\begin{important-equation}
+%  \bm F_\text{net}(t)=\sum\bm F=m\bm a(t)
+%\end{important-equation}
+
+%
+%
+%\subsection{Defining Mass}
+%What is \textbf{mass} then? It is
+%\begin{itemize}
+%\item the property of an object that relates its acceleration to the force
+%  applied to it. Literally, it means:
+%  \begin{equation}
+%    m\equiv\frac{F_\text{net}}a
+%  \end{equation}
+%\item Intrinsic to the object itself
+%\item This is explicitly referred to as the object's \textbf{inertial mass}
+%\end{itemize}
 
 
-\subsection{Defining Mass}
-What is \textbf{mass} then? It is
-\begin{itemize}
-\item the property of an object that relates its acceleration to the force
-  applied to it. Literally, it means:
-  \begin{equation}
-    m\equiv\frac{F_\text{net}}a
-  \end{equation}
-\item Intrinsic to the object itself
-\item This is explicitly referred to as the object's \textbf{inertial mass}
-\end{itemize}
 
 
-
-
-\section{Third Law of Motion}
+\subsection{Third Law of Motion}
 \label{sec:3rd-law}
+The third law of motion deals with the interaction between objects when forces
+are created, and how objects apply forces on each other:
+\begin{definition}
+  \textbf{Third Law:} To every action there is always opposite and equal
+  reaction; the mutual actions of two bodies upon each other are always
+  equal, and directed to contrary parts.
+\end{definition}
+Mathematically, we can write that the force object $A$ exerts on bbject $B$
+($\bm F_{AB}$, the action force) is equal in magnitude but opposite in
+direction to the force that object $B$ exerts on object $A$ ($\bm F_{BA}$, the
+reaction force).
+\begin{important-equation}
+  \bm F_\text{AB} = -\bm F_\text{BA}
+  \label{eq:third-law}
+\end{important-equation}
+The negative sign in Eq.~\ref{eq:third-law} indicates that the forces are in
+opposite direction. It must be noted that
+\textbf{the action and reaction forces must act on \emph{different} objects}.
 
-\begin{center}
-  \fbox{
-    \begin{minipage}{.9\textwidth}
-      \textbf{Law \#3: For every action there is always an opposite and
-        equal reaction; the mutual actions of two objects on each other are
-        always equal, and directed to the other object.}
-    \end{minipage}
-  }
-\end{center}
-
-Whenever object (B) exerts any force on object (A), (A) will immediately
-exert a reaction force on (B) that is equal in magnitude but opposite in
-direction:
-\begin{equation}
-  \boxed{\bm F_\text{AB} = -\bm F_\text{BA}}
-\end{equation}
-\begin{itemize}
-\item The action and reaction forces act on different objects!
-\item Third law is an application of the first law. Action/reaction forces
-  are \emph{internal} forces to the system of objects.
-\end{itemize}
+The implication of the third law of motion is that forces are always created in
+pairs: it is impossible for one object to exert a force on another without also
+simultaneously being acted on by the other object. In
+Chapter~\ref{chapter:energy}, we will show that the third law of motion is
+crucial in formulating (and understanding) the law of conservation of energy.
+In Chapters~\ref{chapter:momentum} and ~\ref{chapter:cm}, we will show that the
+third law of motion is, in fact, an application of the first law of motion,
+and its relationship to the concept of momentum and centre of mass.
+%\begin{definition}
+%  \textbf{Third Law:} For every action there is always an opposite and equal
+%  reaction; the mutual actions of two objects on each other are always equal,
+%  and directed to the other object.
+%\end{definition}
+%Whenever object (B) exerts any force on object (A), (A) will immediately
+%exert a reaction force on (B) that is equal in magnitude but opposite in
+%direction:
+%\begin{equation}
+%  \boxed{\bm F_\text{AB} = -\bm F_\text{BA}}
+%\end{equation}
+%\begin{itemize}
+%\item The action and reaction forces act on different objects!
+%\item Third law is an application of the first law. Action/reaction forces
+%  are \emph{internal} forces to the system of objects.
+%\end{itemize}
 
 
 
@@ -406,12 +465,11 @@ along a road because the weight of the car deforms the tires.
 
 \subsection{Drag}
 \label{sec:drag}
+
 When an object moves through a fluid (most gases and liquids), it experiences
 a fluid resistance force called \textbf{drag} $\bm F_D$. It is defined as:
 \begin{equation}
-  \boxed{
     F_D=\frac12\rho v_\infty^2C_DA
-  }
 \end{equation}
 Unlike kinetic friction, drag force scales with the square of the speed of the
 object relative to the fluid that it is moving in:

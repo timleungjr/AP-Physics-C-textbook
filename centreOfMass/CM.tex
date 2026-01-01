@@ -15,72 +15,79 @@ Finding an object's centre of mass is important, because
 
 \section{Finding the Centre of Mass}
 
-
-%\begin{frame}{Start with a Definition}
 The \textbf{centre of mass} (``CM'') is the \emph{weighted average of the
 masses in a system.} The ``system'' may be:
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}
 \item A collection of individual particles
 \item A continuous distribution of mass with constant density. In this case,
-  CM is also the geometric centre (\textbf{centroid}) of the object
+  CM is also the geometric centre (called the \textbf{centroid}) of the object
 \item A continuous distribution of mass with varying density
 \item If the masses are inside a \emph{uniform} gravitational field, then the
   CM is also its \textbf{centre of gravity} (``CG'')
 \end{itemize}
 
-
-
-\subsection{Simple Example}
-Two equal masses $m$ along the $x$-axis, located at $x_1$ and $x_2$. Where is
-the centre of mass of the system?
+Let's begin with two point equal masses $m$ along the $x$-axis, located at
+$x_1$ and $x_2$, as shown in Fig.~\ref{fig:2-equal-masses}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=.95]
     \draw[axes] (-1,0)--(8,0) node[right]{$x$};
-    \draw[mass] (2,0) circle (.2) node{$m$};
-    \draw[mass] (6,0) circle (.2) node{$m$};
-    \draw[thick] (0,.85)--(0,-.45) node[below]{$O$};
-    \fill (4,0) circle (.05) node[above]{cm};
-    \begin{scope}[very thick,->|]
-      \draw (0,.35)--(2,.35) node[pos=0,left]{$x_1$};
-      \draw (0,.75)--(6,.75) node[pos=0,left]{$x_2$};
-      \draw[violet] (0,-.3)--(4,-.3) node[pos=0,left]{$x_\text{cm}$};
-    \end{scope}
+    \draw[mass] (2,0) circle (.18) node{$m$} node[above=5]{$x=x_1$};
+    \draw[mass] (6,0) circle (.18) node{$m$} node[above=5]{$x=x_2$};
+    \draw[thick] (0,.15)--+(0,-.3) node[below]{$O$};
+    \fill (4,0) circle (.05) node[above]{cm}
+     node[below=5]{$x=x_\text{cm}$};
   \end{tikzpicture}
+  \caption{Two equal masses along the $x$-axis.}
+  \label{fig:2-equal-masses}
 \end{figure}
-The centre of mass is at the half-way point between the masses:
-\begin{equation}
+Even for someone without much experience in mathematics and physics, we should
+be able to at least correctly \emph{guess} that the centre of mass is at the
+half-way point between the masses, i.e.\ arithmetic average of the position of
+the two masses:
+\begin{equation*}
   x_\text{cm}=\frac{x_1+x_2}2
-  \quad\quad\text{or}\quad\quad
+\end{equation*}
+We can imagine the $x$-axis as a literal rod, and that the masses are stuck on
+this rod. The point where the masses can be balanced is, of course, at the mid
+point. The equation above can also be rewritten as a weighted average, although
+this form is still rather unremarkable:
+\begin{equation*}
   x_\text{cm}=\frac{mx_1+mx_2}{2m}
-\end{equation}
+\end{equation*}
+The mass $m$ of each point mass is the ``weight'' of the sum (pardon me for the
+language here), and the denominator is now $2m$ which is the total mass of the
+system.
 
-
-\subsection{Slightly More Challenging}
-What if one of the masses are increased to $2m$? This is still not a difficult
-problem; you can still \emph{guess} the right answer without knowing the
-equation for centre of mass. 
+What if one of the masses are increased to $2m$, as shown in
+Fig~\ref{fig:unequal-masses}. This is still not a difficult problem; you can
+still \emph{guess} the right answer without knowing much about physics or
+mathematics, or the equation for centre of mass. 
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \draw[axes] (-4,0)--(4,0) node[right]{$x$};
-    \draw[mass] (-2.5,0) circle (.3) node{$m$};
-    \draw[mass] (2.5,0) circle (.42) node{$2m$};
+    \draw[mass] (-2.5,0) circle (.18) node{$m$} node[above=5]{$x=x_1$};
+    \draw[mass] (2.5,0) circle (.25) node{$2m$} node[above=5]{$x=x_2$};
     \fill (5/6,0) circle (.05) node[below]{cm};
   \end{tikzpicture}
+  \caption{Centre of mass of two unequal mass}
+  \label{fig:unequal-masses}
 \end{figure}
-The answer is still simple. The centre of mass is no longer half way between
-the two masses, but now $\frac13$ the total distance from the larger masses.
-We can show using a weighted average:
-\begin{equation}
+The centre of mass is no longer half way between the two masses, but now
+$\frac13$ the total distance from the larger masses. We can show this using the
+weighted average that we used before
+\begin{equation*}
   x_\text{cm}=\frac{mx_1+(2m)x_2}{m+2m}
+\end{equation*}
+Generalizing this equation for $N$ number of masses along the $x$ axis, we
+have:
+\begin{equation}
+  x_\text{cm}=\frac{\sum_{i=1}^Nm_ix_i}{\sum_{i=1}^N m_i}
 \end{equation}
-
-
-
-\subsection{Many Point Masses}
-The weighted average concept can now be applied to cases when there are masses
-in two or more dimensions:
+The weighted average concept can now be extended to cases when there are
+multiple masses in two or more dimensions, as shown in
+Fig~\ref{2d-many-masses}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -92,21 +99,22 @@ in two or more dimensions:
     \draw[mass] (0,.3) circle (.2) node{$m_4$};
     \draw[mass] (2,-1) circle (.25) node{$m_5$};
   \end{tikzpicture}
+  \caption{Centre of mass of many objects in 2D}
+  \label{2d-many-masses}
 \end{figure}
-
 The centre of mass is defined for discrete number of masses with the weighted
 average:
-\begin{equation}
-  \boxed{
-    \bm r_\text{cm}=\frac{\sum \bm r_i m_i}{\sum m_i}
-  }
-\end{equation}
-The centre of mass would be a function of time, i.e.\ $\bm r=\bm r(t)$ if any
-of the masses are in motion. We can break $\bm r$ into its components:
+\begin{important-equation}
+  \bm r_\text{cm}=\frac{\sum \bm r_i m_i}{\sum m_i}
+  \label{eq:cm-summation}
+\end{important-equation}
+The centre of mass would be a function of time, i.e.\
+$\bm r_\text{cm}=\bm r_\text{cm}(t)$ if any of the masses are in motion. We can
+break $\bm r$ into its components:
 \begin{equation*}
-  x_\text{cm}(t)=\frac{\sum x_i(t) m_i}{\sum m_i}\quad\quad
-  y_\text{cm}(t)=\frac{\sum y_i(t) m_i}{\sum m_i}\quad\quad
-  z_\text{cm}(t)=\frac{\sum z_i(t) m_i}{\sum m_i}
+  x_\text{cm}=\frac{\sum m_ix_i}{\sum m_i}\quad\quad
+  y_\text{cm}=\frac{\sum m_iy_i}{\sum m_i}\quad\quad
+  z_\text{cm}=\frac{\sum m_iz_i}{\sum m_i}
 \end{equation*}
 
 
@@ -123,58 +131,130 @@ of the masses are in motion. We can break $\bm r$ into its components:
 
 
 \subsection{Continuous Mass Distribution}
+
 When the number of masses approaches infinity, this becomes a continuous
-distribution of mass. Taking the limit of masses $N\rightarrow\infty$ gives
-the integral form of our equation:
+distribution of mass. Taking the limit of masses $N\rightarrow\infty$, the
+summation in Eq.~\ref{eq:cm-summation} becomes an integral:
+\begin{important-equation}
+  \bm r_\text{cm}=\frac{\int\bm r\dl m}{\int\dl m}
+  \label{eq:cm-integral}
+\end{important-equation}
+The infinitesimal mass $\dl m$ is calculated based on the type of the problem
+that we are solving. For one-dimensional problems, we can relate $\dl m$ to the
+\textbf{linear mass density} ($\gamma$), which has a unit of
+\emph{kilograms per metre} (\si{\kilo\gram\per\metre}):
 \begin{equation}
-  \boxed{\bm x_\text{cm}=\frac{\int\bm x\dl m}{\int\dl m}}
+  \gamma(x) = \diff mx\quad\rightarrow\quad \dl m =\gamma(x)\dl x
 \end{equation}
-What is the infinitesimal mass $\dl m$ then?
-
-Linear mass density (for 1D problems)
+For an object with uniform density, $\gamma=M/L$ is a constant. For
+two-dimensional problem, the \textbf{surface mass density} ($\sigma$) is mass
+per area of the material, which has a unit of \emph{kilograms per metre squared}
+(\si{\kilo\gram\per\metre\squared}):
 \begin{equation}
-  \gamma = \diff mL\quad\rightarrow\quad \dl m =\gamma\dl L
+  \sigma(x,y)=\diff mA\quad\rightarrow\quad \dl m =\sigma(x,y)\dl A
 \end{equation}
-Surface mass density (for 2D problems)
+In Cartesian space with an orthogonal $x$ and $y$ axes, $\dl A=\dl x\dl y$.
+Finally, for three-dimensional problem, \textbf{volume density}, or just
+\textbf{density} ($\rho$), is just defined as the mass per unit volume, with a
+unit of \emph{kilograms per metre cubed} (\si{\kilo\gram\per\metre\cubed}):
 \begin{equation}
-  \sigma=\diff mA\quad\rightarrow\quad \dl m =\sigma\dl A
+  \rho(x,y,z)=\diff mV\quad\rightarrow\quad \dl m =\rho(x,y,z)\dl V
 \end{equation}
-Volume density (for 3D problems)
-\begin{equation}
-  \rho=\diff mV\quad\rightarrow\quad \dl m =\rho\dl V
-\end{equation}
-The densities do not have to be constant
+The densities do not have to be constant.
+
+Let's start with a trivial example, that you definitely already know the
+answer to.
+\begin{example}
+  A uniform thin rod of length $L$ with mass $M$ lies along the $x$-axis with
+  the left edge located at $x=0$. What is the $x$ coordinate of its centre of
+  mass?
+  \begin{center}
+    \begin{tikzpicture}[thick]
+      \draw[axes] (0,0)--(8.5,0) node[right]{$x$};
+      \draw (0,0)--+(0,-.3) node[below]{$O$};
+      \draw (8,0)--+(0,-.3) node[below]{$L$};
+      \draw[mass] (0,0) rectangle (8,.2);
+    \end{tikzpicture}
+  \end{center}
+  \textbf{Solution:} Most students with common sense should know that the
+  answer would be $x_\text{cm}=L/2$, but we would nevertheless use
+  Eq.~\ref{eq:cm-integral} to confirm that. The integral will from $x=0$ to
+  $x=L$, with a constant linear mass density of $\gamma=M/L$:
+  \begin{equation*}
+    x_\text{cm}=\frac{\int_0^Lx\dl m}M=\frac{\int_0^Lx\gamma\dl x}M=
+    \frac{\gamma}M\int_0^Lx\dl x=\frac{\gamma}M\frac{L^2}2=\boxed{\frac L2}
+  \end{equation*}
+\end{example}
+We will continue with a similar, but slightly more difficult case:
+\begin{example}
+  A thin rod of length $L$ lies along the $x$-axis with the left edge located
+  at $x=0$. The rod's linear mass density varies linearly along the $x$-axis:
+  $\gamma=ax$ What is the $x$ coordinate of its centre of mass?
+  \begin{center}
+    \begin{tikzpicture}[thick]
+      \draw[axes] (0,0)--(8.5,0) node[right]{$x$};
+      \draw (0,0)--+(0,-.3) node[below]{$O$};
+      \draw (8,0)--+(0,-.3) node[below]{$L$};
+      \shade[left color=white,right color=cyan!50] rectangle (8,.2);
+      \draw rectangle (8,.2);
+    \end{tikzpicture}
+  \end{center}
+  \textbf{Solution:} Like the previous example, we will integrate from $x=0$ to
+  $x=L$, but since we have non-constant linear mass density, we also have to
+  integrate to find the total mass in the denominator:
+  \begin{equation*}
+    x_\text{cm}
+    =\frac{\int_0^Lx\dl m}{\int_0^L\dl m}
+    =\frac{\int_0^Lx(\gamma\dl x)}{\int_0^L(\gamma\dl x)}
+    =\frac{\int_0^Lax^2\dl x}{\int_0^L(ax\dl x)}
+    =\frac{\frac{\cancel{a}L^3}3}{\frac{\cancel{a}L^2}2}
+    =\boxed{\frac 23L}
+  \end{equation*}
+  On first glance, you may think that this is just a math problem, but think
+  about what object would have a mass distribution that varies linearly! In
+  fact, what we are solving for is the centroid of a triangle:
+  \begin{center}
+    \vspace{-.2in}
+    \begin{tikzpicture}
+      \draw[axes] (0,0)--(8.5,0) node[right]{$x$};
+      \draw[axes] (0,-.5)--(0,.5) node[above]{$y$};
+      \draw[mass] (0,0)--(8,.3)--(8,-.3)--cycle;
+      \draw[thick] (5.33,0) circle (.15);
+      \fill (5.48,0) arc (0:90:.15)--(5.33,0);
+      \fill (5.18,0) arc (180:270:.15)--(5.33,0);
+    \end{tikzpicture}
+  \end{center}
+  \vspace{-.2in}which is $1/3$ the height of the triangle from the base, or in
+  this case, a distance of $2L/3$ from the top of the triangle.
+\end{example}
 
 
+\begin{example}
+  A triangular plate is placed in a Cartesian coordinate system with two of its
+  edges along the $x$ and $y$-axis. The length of the edges along the axes are
+  $a$ and $b$ respectively. Assuming that the surface area density $\sigma$ is
+  uniform, determine the coordinate of its centre of mass.
+  \begin{center}
+    \begin{tikzpicture}[scale=.8]
+      \draw[axes] (0,0)--(4,0) node[right]{$x$};
+      \draw[axes] (0,0)--(0,5) node[above]{$y$};
+      \draw[fill=lightgray] (0,0)--(3,0) node[midway,below]{$a$}
+      --(0,4)--cycle node[midway,left]{$b$};
 
-%\begin{frame}{An Example with Integrals}
-%  \begin{columns}
-%    \column{.65\textwidth}
-%    \textbf{Example:} A triangular plate is placed in a Cartesian coordinate
-%    system with two of its edges along the $x$ and $y$-axis. The length of the
-%    edges along the axes are $a$ and $b$ respectively. Assuming that the
-%    surface area density $\sigma$ is uniform, determine the coordinate of its
-%    centre of mass.
-%
-%    \column{.35\textwidth}
-%    \begin{tikzpicture}[scale=.8]
-%      \draw[axes] (0,0)--(4,0) node[right]{$x$};
-%      \draw[axes] (0,0)--(0,5) node[above]{$y$};
-%      \draw[fill=lightgray] (0,0)--(3,0) node[midway,below]{$a$}
-%      --(0,4)--cycle node[midway,left]{$b$};
-%      \uncover<2->{
-%        \draw[fill=red] (1,0)--(1.2,0)--(1.2,2.4)--(1,2.67)
-%        node[midway,right]{$\dl m=y\dl x$}--cycle;
-%      }
-%    \end{tikzpicture}
-%  \end{columns}
+      \draw[fill=red] (1,0)--(1.2,0)--(1.2,2.4)--(1,2.67)
+      node[midway,right]{$\dl m=y\dl x$}--cycle;
+    \end{tikzpicture}
+  \end{center}
+\end{example}
 
 
+\subsection{Centroid}
 
-\section{Centroid}
-For an object with a uniform mass distribution (i.e.\ constant density), the
-centre of mass is also its geometric centre, called the \textbf{centroid}.
-Some 2D examples are shown in the figure.
+For an object with a uniform mass distribution (i.e.\ constant density, either
+$\gamma$, $\sigma$ or $\rho$), the centre of mass is also its geometric centre,
+called the \textbf{centroid}. Some 2D examples are shown in
+Fig.~\ref{fig:centroids}. Generally, integration for these two-dimensional
+shapes is straightforward, but often tedious.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.3\textwidth}
@@ -264,81 +344,92 @@ Some 2D examples are shown in the figure.
     \end{tikzpicture}
     \caption{Quarter-Circular Area}
   \end{subfigure}
-  \caption{Centroids of some 2D shapes}
-  \label{tabl:centroids}
+  \caption{Centroid of some 2D shapes}
+  \label{fig:centroids}
 \end{figure}
-
-%\subsection{Centroid}
-%For an object with a uniform mass distribution (i.e.\ constant density), the
-%centre of mass is also its geometric centre, called the \textbf{centroid}.
-%The locations of centroids can be found in most physics and math textbooks.
-%\begin{table}[ht]
-%  \centering
-%  \pic{.8}{centreOfMass/eng130C9_11}
-%  \caption{Centroids of common two-dimensional shapes.}
-%  
-%\end{table}
-
 
 
 \subsection{Compound Shapes}
 \label{sec:compound-shape}
-For compound shapes, the centre of mass is the weighted average of the centre
-of mass of each component. For example, for the T-beam below:
+
+For compound shapes, integration or summation may be difficult, even for simple
+shapes like the cross section of a T-beam shown in
+Fig~\ref{fig:compound-shape}. In such a case, the centre of mass is the
+weighted average of the centres of mass of each component. For the T-beam, we
+can separate the beam into the horizontal and the vertical parts, and evaluate
+the centres of mass of each part, shown as $\bm r_1$ and $\bm r_2$ in
+Fig.~\ref{fig:cm-of-each-part}, then find the weighted average of these masses.
+
+
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.7]
-    \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
-    \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
-    \draw[blue!70!black,mass] (0,4)--(4,4)--(4,3)--(2.5,3)
-    --(2.5,0)--(1.5,0)--(1.5,3)--(0,3)--(0,4);
-  \end{tikzpicture}
-  \hspace{.1in}
-  \begin{tikzpicture}[scale=.7]
-    \draw[lightgray,fill=gray!20,thick] (0,4)--(4,4)--(4,3)--(2.5,3)--(2.5,0)
-    --(1.5,0)--(1.5,3)--(0,3)--(0,4);
-    \draw[lightgray,dotted,thick] (1.5,3)--(2.5,3);
-    \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
-    \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
-    \fill[blue!70!black] (2,3.5) circle (.08) node[right]{$\bm x_1$};
-    \fill[blue!70!black] (2,1.5) circle (.08) node[right]{$\bm x_2$};
-  \end{tikzpicture}
-  \hspace{.1in}
-  \begin{tikzpicture}[scale=.7]
-    \draw[lightgray,thick] (0,4)--(4,4)--(4,3)--(2.5,3)
-    --(2.5,0)--(1.5,0)--(1.5,3)--(0,3)--(0,4);
-    \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
-    \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
-    \fill[blue!30] (2,3.5) circle (.08) node[right]{$\bm x_1$};
-    \fill[blue!30] (2,1.5) circle (.08) node[right]{$\bm x_2$};
-    \fill[red!70!black] (2,2.64) circle (.08) node[right]{$\bm x_\text{cm}$};
-  \end{tikzpicture}
+  \begin{subfigure}{.3\textwidth}
+    \begin{tikzpicture}[scale=.7]
+      \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
+      \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
+      \draw[mass] (0,4)--(4,4)--(4,3)--(2.5,3)
+      --(2.5,0)--(1.5,0)--(1.5,3)--(0,3)--(0,4);
+      \draw (0,4) rectangle (4,3) node[midway]{$m_1$};
+      \node at (2,1.5) {$m_2$};
+    \end{tikzpicture}
+    \caption{A compound shape}
+    \label{fig:compound-shape}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \begin{tikzpicture}[scale=.7]
+      \draw[lightgray,fill=gray!20,thick] (0,4)--(4,4)--(4,3)--(2.5,3)--(2.5,0)
+      --(1.5,0)--(1.5,3)--(0,3)--(0,4);
+      \draw[lightgray,dotted,thick] (1.5,3)--(2.5,3);
+      \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
+      \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
+      \fill[blue!70!black] (2,3.5) circle (.08)
+      node[left]{$m_1$}
+      node[right]{$\bm r_1$};
+      \fill[blue!70!black] (2,1.5) circle (.08)
+      node[left]{$m_2$}
+      node[right]{$\bm r_2$};
+    \end{tikzpicture}
+    \caption{Treating each part as a point mass}
+    \label{fig:cm-of-each-part}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \begin{tikzpicture}[scale=.7]
+      \draw[lightgray,thick] (0,4)--(4,4)--(4,3)--(2.5,3)
+      --(2.5,0)--(1.5,0)--(1.5,3)--(0,3)--(0,4);
+      \draw[axes] (0,0)--(4.5,0) node[right]{$x$};
+      \draw[axes] (0,0)--(0,4.5) node[left]{$y$};
+      \fill[blue!30] (2,3.5) circle (.08) node[right]{$\bm r_1$};
+      \fill[blue!30] (2,1.5) circle (.08) node[right]{$\bm r_2$};
+      \fill[red!70!black] (2,2.64) circle (.08) node[right]{$\bm r_\text{cm}$};
+    \end{tikzpicture}
+  \end{subfigure}
+  \caption{Finding the centre of mass of a compound shape}
+  \label{fig:compound-shape-cm}
 \end{figure}
 
+
+%\begin{frame}{A Difficult Example to Try at Home}
+%  Not typically an AP problem, this example shows how we can use integral to
+%  find the centre of mass for something very complicated.
+%  \begin{columns}
+%    \column{.6\textwidth}
+%    \textbf{Example 3:} Find the $x$-coordinate of the centre of mass in the
+%    shape bound by the two functions shown on the right.
 %
-%
-%%\begin{frame}{A Difficult Example to Try at Home}
-%%  Not typically an AP problem, this example shows how we can use integral to
-%%  find the centre of mass for something very complicated.
-%%  \begin{columns}
-%%    \column{.6\textwidth}
-%%    \textbf{Example 3:} Find the $x$-coordinate of the centre of mass in the
-%%    shape bound by the two functions shown on the right.
-%%
-%%    \column{.4\textwidth}
-%%    \begin{tikzpicture}[scale=3]
-%%      \draw[->](0,0)--(1.25,0) node[right]{ $x$};
-%%      \draw[->](0,0)--(0,1.25) node[above]{ $y$};
-%%      \draw[fill=green!40]
-%%      plot[smooth,samples=40,domain=0:1] (\x,{\x*\x*\x})--
-%%      plot[smooth,samples=40,domain=1:0] (\x,{\x^(.5)});
-%%      
-%%      \draw[red!70,thick]  plot[smooth,samples=40,domain=0:1] (\x,{\x*\x*\x});
-%%      \draw[blue!70,thick] plot[smooth,samples=40,domain=0:1] (\x,{\x^(.5)});
-%%      \node at (.4,.85){\textcolor{blue!70}{ $y=\sqrt{x}$}};
-%%      \node at (.9,.3){\textcolor{red!70}{ $y=x^3$}};
-%%    \end{tikzpicture}
-%%  \end{columns}
+%    \column{.4\textwidth}
+%    \begin{tikzpicture}[scale=3]
+%      \draw[->](0,0)--(1.25,0) node[right]{ $x$};
+%      \draw[->](0,0)--(0,1.25) node[above]{ $y$};
+%      \draw[fill=green!40]
+%      plot[smooth,samples=40,domain=0:1] (\x,{\x*\x*\x})--
+%      plot[smooth,samples=40,domain=1:0] (\x,{\x^(.5)});
+%      
+%      \draw[red!70,thick]  plot[smooth,samples=40,domain=0:1] (\x,{\x*\x*\x});
+%      \draw[blue!70,thick] plot[smooth,samples=40,domain=0:1] (\x,{\x^(.5)});
+%      \node at (.4,.85){\textcolor{blue!70}{ $y=\sqrt{x}$}};
+%      \node at (.9,.3){\textcolor{red!70}{ $y=x^3$}};
+%    \end{tikzpicture}
+%  \end{columns}
 
 
 \subsection{Symmetric Configurations}
@@ -402,40 +493,49 @@ This is how we would think of it:
   {\sigma\pi r^2-\sigma\pi\left(r/2\right)^2}
   =\frac{-r}6
 \end{equation*}
-%
-%
-%
+
+
+
+
 \section{Momentum and Centre of Mass}
-Take time derivative of the equation for $\bm x_\text{cm}$ to get the
-velocity at the centre of mass:
+
+If the components of this system of masses is in motion, the position of the
+centre of mass will also evolve in time as well. We can find out the velocity
+of the centre of mass by taking the time derivative of $\bm r_\text{cm}$:
 \begin{equation}
-  \bm v_\text{cm}=\diff{\bm x_\text{cm}}t
-  =\frac1m\diff{}t\left(\int\bm x\dl m\right)
-  =\frac1m\int\diff{\bm x}t\dl m
+  \bm v_\text{cm}=\diff{\bm r_\text{cm}}t
+  =\frac1m\diff{}t\left(\int\bm r\dl m\right)
+  =\frac1m\int\diff{\bm r}t\dl m
   =\frac{\int\bm v\dl m}m
 \end{equation}
-Or, in the form that is familiar, the velocity of the CM is the weighted sum of
-the velocities of the distribution of mass:
-\begin{equation}
+Or, in a form that is similar to Eq.~\ref{eq:cm-integral}, the velocity of the
+centre of mass is the weighted sum/integral of the velocities of the distribution of
+mass:
+\begin{important-equation}
+  \bm v_\text{cm} = \frac{\sum_{i=1}^N\bm m_iv_i}m
+  \quad\text{or}\quad
   \bm v_\text{cm} = \frac{\int\bm v\dl m}m
-\end{equation}
-We can also rearrange the equation for the velocity of the centre of mass to
-relate it to momentum, because the term $\int\bm v\dl m$ is the net momentum
-of the mass distribution $p_\text{net}$:
+\end{important-equation}
+where $m$ is the total mass of the system. We can also rearrange the equation
+for the velocity of the centre of mass to relate it to momentum, because the
+term $\int\bm v\dl m$ is the net momentum of the mass distribution
+$\bm p_\text{net}$:
 \begin{equation}
   \bm v_\text{cm} = \frac{\int\bm v\dl m}m
   \quad\longrightarrow\quad
   \bm p_\text{net}=m\bm v_\text{cm}
+  \label{eq:mv-cm}
 \end{equation}
-During a collision, there is no change in the net momentum\footnote{Because
-there are are no external forces}, the centre of mass will continue to move
-at the same velocity before/after the collision, as if the collision never
-occurred.
-
-During a collision\footnote{As we have studied in conservation of momentum in
-Physics 12 and in our previous class}, there are no external forces,
-therefore the velocity of the CM remains constant. Consider this 1D inelastic
-collision in between two masses:
+During a collision, there is no change in the net momentum,
+%\footnote{Because
+%there are are no external forces},
+the centre of mass will continue to move at the same velocity before/after the
+collision, as if the collision never occurred.
+%During a collision
+%\footnote{As we have studied in conservation of momentum in
+%Physics 12 and in our previous class}, there are no external forces,
+%therefore the velocity of the CM remains constant.
+Consider this 1D inelastic collision in between two masses:
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.8,thick]
@@ -490,30 +590,85 @@ collision in between two masses:
 
 
 \section{Acceleration of the Centre of Mass}
-The rate of change of the net momentum\footnote{i.e\ applying the 2nd law of
-motion to this distribution of masses}:
+
+Take time derivative of the equation for $\bm v_\text{cm}$ gives us the
+acceleration of the centre of mass:
 \begin{equation}
-  \diff{\bm p_\text{net}}t =
-  \diff{}t (m\bm v_\text{cm})
+  \bm a_\text{cm}=\diff{\bm v_\text{cm}}t
+  =\frac1m\diff{}t\left(\int\bm v\dl m\right)
+  =\frac1m\int\diff{\bm v}t\dl m
+  =\frac{\int\bm a\dl m}m
 \end{equation}
-If the system mass is constant, then this equation reduces to:
-\begin{equation}
-  \diff{\bm p_\text{net}}t
-  =m\diff{\bm v_\text{cm}}t
+where $m$ is the total mass. We can, of course, write this in a form that is
+similar to Eq.~\ref{eq:cm-integral}, the acceleration of the centre of mass is
+the weighted sum/integral of the accelerations of discrete number of masses, or
+a distribution of mass:
+\begin{important-equation}
+  \bm a_\text{cm} = \frac{\sum_{i=1}^N\bm m_ia_i}m
+  \quad\text{or}\quad
+  \bm a_\text{cm} = \frac{\int\bm a\dl m}m
+\end{important-equation}
+We can now follow the same procedure, and multiply both sides by the total mass
+$m$:
+\begin{equation*}
+  m\bm a_\text{cm}=\sum_{i=1}^Nm_i\bm a_i
+  \quad\text{or}\quad
+  m\bm a_\text{cm}=\int\bm a\dl m
+\end{equation*}
+On the right hand side, each term in the summation (or integral if it is a
+continuous distribution of mass) is the net force on the individual mass $m_i$,
+so the right hand side is just the net force on the system:
+\begin{equation*}
+  m_i\bm a_i=\bm F_i
   \quad\longrightarrow\quad
-  \boxed{
-    \bm F_\text{net}=m\bm a_\text{cm}
-  }
+  \sum_{i=1}^Nm_i\bm a_i=\sum_{i=1}^N\bm F_i=\bm F_\text{net}
+\end{equation*}
+In other words, the net force on an entire system of objects is the total mass
+of the system times the acceleration at the centre of mass, which is the
+second law of motion:
+\begin{equation}
+  \bm F_\text{net}=m\bm a_\text{cm}
 \end{equation}
 We can see that when a net force is applied to an object (or a system of
-objects), the object's (or the system's)  acceleration is evaluated at the
-CM.
-%  \vspace{.3in}
-%
-%
-%
-%%\begin{frame}{What This All Means}
-%%  \begin{itemize}
-%%  \item Newton was right all along by treating all objects as point masses
-%%    located at the CM
-%%  \end{itemize}
+objects), the object's (or the system's)  acceleration is evaluated at its
+centre of mass. We can also get this same conclusion by taking a time
+derivative of Eq.~\ref{eq:mv-cm}, i.e\ applying the 2nd law of motion to a
+discrete/continuous distribution of mass. Since the system mass is constant,
+this equation reduces to:
+\begin{equation*}
+  \diff{\bm p_\text{net}}t =
+  \diff{}t (m\bm v_\text{cm})
+  =m\diff{\bm v_\text{cm}}t
+  \quad\longrightarrow\quad
+  \bm F_\text{net}=m\bm a_\text{cm}
+\end{equation*}
+
+
+\section{First and Second Laws of Motion}
+%  \begin{itemize}
+%  \item Newton was right all along by treating all objects as point masses
+%    located at the CM
+%  \end{itemize}
+
+\begin{definition}
+  \textbf{First Law:} An object will remain in its state of rest or uniform
+    motion, until a net external force is applied to it.
+\end{definition}
+The first law, called the \emph{law of inertia}, states that when the sum
+of all the forces acting on an object, or a system of objects is balanced,
+now there are \emph{four} equations that are equivalent:
+\begin{important-equation}
+  \bm F_\text{net}=\bm 0
+  \quad\leftrightarrow\quad
+  \bm p_\text{net}=\text{constant}
+  \quad\leftrightarrow\quad
+  \bm v_\text{cm}=\text{constant}
+  \quad\leftrightarrow\quad
+  \bm a_\text{cm}=\bm 0
+\end{important-equation}
+
+
+
+\begin{important-equation}
+  \bm F_\text{net}=\diff{\bm p_\text{net}}t=m\bm a_\text{cm}
+\end{important-equation}
