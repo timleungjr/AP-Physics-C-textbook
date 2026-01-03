@@ -576,7 +576,8 @@
 %	THEOREM STYLES
 %-----------------------------------------------------------------------------
 
-\usepackage{amsmath, amsfonts, amssymb, amsthm}
+%\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{amsmath,amsthm}
 \usepackage[charter]{mathdesign}
 % For math equations, theorems, symbols, etc
 

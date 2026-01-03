@@ -72,7 +72,7 @@ determined because all motion is relative.
 
 \textbf{Absolute rest cannot be determined:} Objects that are stationary in one
 coordinate system can be moving relative to another (see
-Section~\ref{sec:relative-motio}). A cup of water, shown in Fig.~\ref{fig:cup},
+Section~\ref{sec:relative-motion}). A cup of water, shown in Fig.~\ref{fig:cup},
 is on the tray table on an airplane in flight. The cup is stationary relative
 to the passengers, but moving relative to anyone outside watching the airplane
 fly by.
@@ -263,46 +263,187 @@ Gravity is the force of attraction between all objects with mass
 
 
 
-
 \subsection{Normal Force}
+
+When two objects are in contact each other, they exert a force on each other at
+the interface. This contact force is called the \textbf{normal force}
+$\bm F_n$. This force is called a \emph{normal} force because the direction of
+$\bm F_n$ is \emph{always} perpendicular to the interface. $\bm F_n$ always
+points \emph{away} from the contact surface, and it always exists as an
+action-reaction pair of forces, as required by the third law of motion.
+Fig.~\ref{fig:normal-force1} shows a normal force acting on the mass that sits
+on a table. By the third law of motion, there is another normal force that is
+equal in magnitude and opposite in direction, acting on the table.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \draw[thick] (-1,0)--(2.5,0);
     \draw[mass] rectangle (1.5,1);
-    \fill (.75,.5) circle (2pt);
-    \draw[vector] (.75,.5)--(.75,-.5) node[below]{$\bm F_g$};
-    \draw[vector] (.75,.5)--(.75,1.5) node[above]{$\bm F_n$};
+    \draw[ultra thick,red!80!black] (0,0)--(1.5,0);
+    \draw[vector,red!80!black] (.75,.5)--+(0,1) node[right]{$\bm F_n$};
+    \fill[red!80!black] (.75,.5) circle (.07);
   \end{tikzpicture}
+  \caption{A normal force acting at the interface betwen the block and the
+    table.}
+  \label{fig:normal-force1}
 \end{figure}
 
-\begin{itemize}
-\item A force a surface exerts on another object that it is in contact with
-\item Always \textbf{perpendicular} to the contact surface
-\item\textbf{Special case:} When an object is on a horizontal surface
-  with no additional applied force, the magnitude of the normal force is
-  equal to the magnitude of the weight of the object, i.e.\ $N=mg$
-\end{itemize}
-The normal force remains perpendicular to the support surface even when it is
-at an angle:
+The normal force remains perpendicular to the interface even when it is on
+an ramp or incline, as shown in Fig.~\ref{fig:normal-force-ramp}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.9]
-    \draw[thick] (0,0)--(5,0);
-    \draw[axes] (1.7,0) arc (0:30:1.7) node[pos=.6,right] {$\theta$};
-    \begin{scope}[rotate=30]
-      \draw[thick] (0,0)--(5,0);
-      \draw[mass] (2,0) rectangle (4,1.5);
-      \draw[vector,rotate around={-30:(3,.75)}]
-      (3,.75)--(3,-1) node[right]{$\bm F_g$};
-      \draw[vector,red] (3,.75)--(3,2.25) node[left=-1]{$\bm F_N$};
-      \fill (3,.75) circle (.06);
-    \end{scope}
+  \begin{tikzpicture}[rotate=30,scale=.8]
+    \draw[thick] (1,0)--(5,0);
+    \draw[mass] (2,0) rectangle +(2,1.5);
+    \draw[ultra thick,red!80!black] (2,0)--+(2,0);
+    \draw[vectors,red!80!black] (3,.75)--+(0,1.5) node[left]{$\bm F_n$};
+    \fill[red!80!black] (3,.75) circle (.06);
   \end{tikzpicture}
+  \caption{Normal force for objects on an incline remains normal to the
+    surface}
+  \label{fig:normal-force-ramp}
 \end{figure}
-\textbf{Important note:} It is not always clear what the magnitude of the
-normal force is. Finding the magnitude of the normal force is part of the
-analysis process.
+It is \emph{very} important to remember that it is not always clear what the
+\emph{magnitude} of the normal force is. Finding the magnitude of $\bm F_n$ is
+part of the problem-solving process.
+
+%\begin{frame}{Normal Forces with Multiple Contact Surfaces}
+An object can be in contact with multiple objects, and therefore there may be
+multiple normal forces. In the example shown in
+Fig.~\ref{fig:many-normal-forces}, masses $m_1$, $m_2$ and $m_3$ are all in
+contact with each other, while $m_1$ and $m_2$ are also contacting the bottom
+surface; each interface has a normal force.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[thick]
+    \draw (0,0)--(5,0);
+    \draw[fill=cyan!10] (2,0) rectangle +(2,1.5) node[midway]{$m_1$};
+    \draw[fill=yellow!10] (1,0) rectangle +(1,1) node[midway]{$m_2$};
+    \draw[fill=magenta!10] (2,1.5) rectangle +(1.5,1) node[midway]{$m_3$};
+  \end{tikzpicture}
+  \caption{Many objects will have many normal forces}
+  \label{fig:many-normal-forces}
+\end{figure}
+
+
+
+%\begin{frame}{Normal Forces with Multiple Contact Surfaces}
+In Fig.~\ref{fig:normal-force-on-m1}, we see that mass $m_1$ is only in contact
+with $m_3$, therefore there is one normal force $\bm F_{n_{31}}$, acting at the
+interface between $m_3$ and $m_1$. At this time, we know the \emph{direction}
+of $\bm F_{n_{13}}$, but not its \emph{magnitude}, which depends on the motion
+of these masses. Finding the magnitude will be part of the analysis process.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{tikzpicture}[thick,scale=.8]
+      \draw (0,0)--(5,0);
+      \draw[fill=gray!10] (2,0) rectangle +(2,1.5) node[midway]{$m_3$};
+      \draw[fill=gray!10] (1,0) rectangle +(1,1) node[midway]{$m_2$};
+      \draw[fill=magenta!10] (2,1.5) rectangle +(1.5,1);
+      \draw[ultra thick] (2,1.5)--+(1.5,0);
+      \draw[vector] (2.75,2)--+(0,1.3) node[pos=1.15]{$\bm F_{n_{31}}$};
+      \fill (2.75,2) circle (.06);
+    \end{tikzpicture}
+    \caption{Normal force acting on $m_1$ at the interface with $m_3$}
+    \label{fig:normal-force-on-m1}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{tikzpicture}[thick,scale=.8]
+      \draw (0,0)--(5,0);
+      \draw[fill=gray!10] (2,0) rectangle +(2,1.5) node[midway]{$m_3$};
+      \draw[fill=yellow!10] (1,0) rectangle +(1,1);
+      \draw[fill=gray!10] (2,1.5) rectangle +(1.5,1) node[midway]{$m_1$};
+      \draw[ultra thick] (1,0)--+(1,0);
+      \draw[vectors] (1.5,.5)--+(0,1.5) node[left]{$\bm F_{n_2}$};
+      \draw[ultra thick] (2,0)--+(0,1);
+      \draw[vectors] (1.5,.5)--+(-1.5,0) node[left]{$\bm F_{n_{32}}$};
+      \fill (1.5,.5) circle (.07);
+    \end{tikzpicture}
+    \caption{Normal forces acting on $m_2$ at the interface with $m_3$ and
+      the bottom surface}
+    \label{fig:normal-force-on-m2}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{tikzpicture}[thick,scale=.8]
+      \draw (0,0)--(5,0);
+      \draw[fill=cyan!10] (2,0) rectangle +(2,1.5);
+      \draw[fill=gray!10] (1,0) rectangle +(1,1) node[midway]{$m_2$};
+      \draw[fill=gray!10] (2,1.5) rectangle +(1.5,1) node[midway]{$m_1$};
+      \draw[ultra thick] (2,1.5)--+(1.5,0);
+      \draw[vectors] (3,.75)--+(0,-1.5) node[left]{$\bm F_{n_{13}}$};
+      \draw[ultra thick] (2,0)--+(0,1);
+      \draw[vectors] (3,.75)--+(1.5,0) node[right]{$\bm F_{n_{23}}$};
+      \draw[ultra thick] (2,0)--+(2,0);
+      \draw[vectors] (3,.75)--+(0,1.5) node[right]{$\bm F_{n_3}$};
+      \fill (3,.75) circle (.07);
+    \end{tikzpicture}
+    \caption{Normal forces on $m_3$}
+    \label{fig:normal-force-on-m3}
+  \end{subfigure}  
+\end{figure}
+
+In Fig.~\ref{fig:normal-force-on-m2}, mass $m_2$ is in contact with both the
+bottom surface as well as with $m_3$, therefore there are \emph{two} normal
+forces. Again, we know the \emph{directions} of $\bm F_{n_{12}}$ and
+$\bm F_{n_2}$, but not their \emph{magnitudes}.
+
+In Fig.~\ref{fig:normal-force-on-m3}, mass $m_3$ is in contact with $m_2$ and
+$m_3$, as well as with the bottom surface. Therefore there are \emph{three}
+normal forces. Once again, we know the direction of  $\bm F_{n_{31}}$,
+$\bm F_{n_{21}}$ and $\bm F_{n_3}$, but not their \emph{magnitudes}.
+%  \item $\bm N_{21}$ and $\bm N_{12}$ (which acts on $m_2$) is an
+%    action-reaction pair of forces with equal magnitude and opposite direction
+%    (3rd law of motion), and
+%  \item $\bm N_{31}$ and $\bm N_{13}$ (which acts on $m_3$) is also an
+%    action-reaction pair
+%  \end{itemize}
+%\end{frame}
+
+
+
+%\subsection{Normal Force}
+%\begin{figure}[ht]
+%  \centering
+%  \begin{tikzpicture}
+%    \draw[thick] (-1,0)--(2.5,0);
+%    \draw[mass] rectangle (1.5,1);
+%    \fill (.75,.5) circle (2pt);
+%    \draw[vector] (.75,.5)--(.75,-.5) node[below]{$\bm F_g$};
+%    \draw[vector] (.75,.5)--(.75,1.5) node[above]{$\bm F_n$};
+%  \end{tikzpicture}
+%\end{figure}
+%
+%\begin{itemize}
+%\item A force a surface exerts on another object that it is in contact with
+%\item Always \textbf{perpendicular} to the contact surface
+%\item\textbf{Special case:} When an object is on a horizontal surface
+%  with no additional applied force, the magnitude of the normal force is
+%  equal to the magnitude of the weight of the object, i.e.\ $N=mg$
+%\end{itemize}
+%The normal force remains perpendicular to the support surface even when it is
+%at an angle:
+%\begin{figure}[ht]
+%  \centering
+%  \begin{tikzpicture}[scale=.9]
+%    \draw[thick] (0,0)--(5,0);
+%    \draw[axes] (1.7,0) arc (0:30:1.7) node[pos=.6,right] {$\theta$};
+%    \begin{scope}[rotate=30]
+%      \draw[thick] (0,0)--(5,0);
+%      \draw[mass] (2,0) rectangle (4,1.5);
+%      \draw[vector,rotate around={-30:(3,.75)}]
+%      (3,.75)--(3,-1) node[right]{$\bm F_g$};
+%      \draw[vector,red] (3,.75)--(3,2.25) node[left=-1]{$\bm F_N$};
+%      \fill (3,.75) circle (.06);
+%    \end{scope}
+%  \end{tikzpicture}
+%\end{figure}
+%\textbf{Important note:} It is not always clear what the magnitude of the
+%normal force is. Finding the magnitude of the normal force is part of the
+%analysis process.
 
 
 
@@ -468,9 +609,9 @@ along a road because the weight of the car deforms the tires.
 
 When an object moves through a fluid (most gases and liquids), it experiences
 a fluid resistance force called \textbf{drag} $\bm F_D$. It is defined as:
-\begin{equation}
+\begin{important-equation}
     F_D=\frac12\rho v_\infty^2C_DA
-\end{equation}
+\end{important-equation}
 Unlike kinetic friction, drag force scales with the square of the speed of the
 object relative to the fluid that it is moving in:
 \begin{figure}[ht]
@@ -595,50 +736,65 @@ that can be stretched, e.g.\ a rope that is being pulled
 
 
 \subsection{Spring Force}
-The spring force $\bm F_s$ is the force that a compressed/stretched spring
-exerts on the object connected to it.  An \emph{ideal} spring obeys Hooke's
-law:
-\begin{equation}
-  \boxed{\bm F_s=-k\bm x}
-\end{equation}
+The spring force $\bm F_e$ is the force that a compressed/stretched spring
+exerts on the object connected to it. An \emph{ideal} spring obeys Hooke's law:
+\begin{important-equation}
+  \bm F_e=-k\bm x
+\end{important-equation}
 The spring force acts in the opposite direction to the spring's displacement,
-and is proportional to the amount of compression/stretching.
+and is proportional to the amount of compression/stretching of the spring
+$\bm x$. The proportionality constant $k$ is called the
+\textbf{spring constant} (or \textbf{force constant}, or
+\textbf{Hooke's constant}, or in many engineering textbooks, the
+\textbf{spring rate}), with an SI unit of \emph{newton per metre}
+(\si{\newton\per\metre}).
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}
-    \draw[mass] (5,.5) rectangle (6,1.5);
-    \draw[thick,
-      decoration={aspect=.6,segment length=5mm, amplitude=2.5mm, coil},
-      decorate] (0,1)--(5,1);
-    \fill[pattern=north east lines] (-.2,0) rectangle (0,2);
-    \draw[thick] (0,.0)--(0,2);
-    \fill[red] (5.5,1) circle (.06);
-    \draw[vector,red] (5.5,1)--(4,1) node[above]{$\bm F_s$};
-    \draw[dashed] (3,0)--(3,2) node[above]{\scriptsize Equilibrium position};
-    \draw[vector] (3,.3)--(5,.3) node[midway,below]{$\bm x$};
-  \end{tikzpicture}
-  \hspace{.2in}
-  \begin{tikzpicture}
-    \draw[thick,gray!40,fill=gray!20] (5,.5) rectangle (6,1.5);
-    \draw[thick,gray!20,
-      decoration={aspect=.6,segment length=5mm, amplitude=2.5mm, coil},
-      decorate] (0,1)--(5,1);
-    \fill[pattern=north east lines](-.2,0) rectangle (0,2);
-    \draw[thick](0,.0)--(0,2);
-    \fill[gray!30] (5.5,1) circle (.06);
-    \draw[vector,gray!30] (5.5,1)--(4,1) node[above]{$\bm F_s$};
-    \draw[dashed](3,0)--(3,2);
-    \draw[vector,gray!30](3,.3)--(5,.3)node[midway,below]{$\bm x$};
-    \draw[mass] (1.5,.5) rectangle (2.5,1.5);
-    \draw[thick,
-      decoration={aspect=.3,segment length=1.5mm, amplitude=2.5mm, coil},
-      decorate] (0,1)--(1.5,1);
-    \draw[vector] (3,.3)--(1.5,.3) node[midway,below]{$\bm x$};
-    \fill[red] (2,1) circle (.06);
-    \draw[vector,red] (2,1)--(3,1) node[above]{$\bm F_s$};
-  \end{tikzpicture}
+  \begin{subfigure}{.47\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \draw[mass] (5,.5) rectangle (6,1.5);
+      \draw[thick,
+        decoration={aspect=.6,segment length=5mm, amplitude=2.5mm, coil},
+        decorate] (0,1)--(5,1);
+      \fill[pattern=north east lines] (-.2,0) rectangle (0,2);
+      \draw[thick] (0,.0)--(0,2);
+      \fill[red] (5.5,1) circle (.06);
+      \draw[vector,red] (5.5,1)--(4,1) node[above]{$\bm F_e$};
+      \draw[dashed] (3,0)--(3,2) node[above]{unstretched position};
+      \draw[vector] (3,.3)--(5,.3) node[midway,below]{$\bm x$};
+    \end{tikzpicture}
+    \caption{A spring in extension}
+  \end{subfigure}
+  \begin{subfigure}{.47\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \draw[thick,gray!40,fill=gray!20] (5,.5) rectangle (6,1.5);
+      \draw[thick,gray!20,
+        decoration={aspect=.6,segment length=5mm, amplitude=2.5mm, coil},
+        decorate] (0,1)--(5,1);
+      \fill[pattern=north east lines](-.2,0) rectangle (0,2);
+      \draw[thick](0,.0)--(0,2);
+      \fill[gray!30] (5.5,1) circle (.06);
+      \draw[vector,gray!30] (5.5,1)--(4,1) node[above]{$\bm F_e$};
+      \draw[dashed](3,0)--(3,2)  node[above]{unstretched position};
+      \draw[vector,gray!30](3,.3)--(5,.3)node[midway,below]{$\bm x$};
+      \draw[mass] (1.5,.5) rectangle (2.5,1.5);
+      \draw[thick,
+        decoration={aspect=.3,segment length=1.5mm, amplitude=2.5mm, coil},
+        decorate] (0,1)--(1.5,1);
+      \draw[vector] (3,.3)--(1.5,.3) node[midway,below]{$\bm x$};
+      \fill[red] (2,1) circle (.06);
+      \draw[vector,red] (2,1)--(3,1) node[above]{$\bm F_e$};
+    \end{tikzpicture}
+    \caption{A spring in compression}
+  \end{subfigure}
 \end{figure}
 
+The spring force is called a \emph{restoring force} because it always points
+towards the unstretched position. This restoring nature of the force why the
+spring force causes the mass to vibrate. This further discussed in
+Chapter~\ref{chapter:harmonic-motion}, on harmonic motion.
 
 
 \section{Free-Body Diagrams}

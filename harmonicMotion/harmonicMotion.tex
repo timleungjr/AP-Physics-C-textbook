@@ -803,7 +803,7 @@ tangential acceleration about the pivot:
 
 
 
-\subsection{The meaning of $\omega$}
+\subsection{The meaning of Angular Frequency}
 
 The meaning of the ``angular frequency'' term $\omega$ for the simple pendulum
 is a bit more abstract than in the spring-mass case. Since we are using a
@@ -928,6 +928,9 @@ of \emph{that} circular motion.
   \end{equation*}
 \end{remark}
 
+
+
+
 \section{Damped Oscillator}
 
 In reality, there are friction, or drag, or other damping forces present in the
@@ -1041,8 +1044,8 @@ where $c_1$ and $c_2$ are determined by initial conditions. If a mass is
 released at amplitude $A_0$ from rest (i.e.\ $x(0)=A_0$, $\dot x(0)=0$), then
 Eq.~\ref{eq:critically-damped-solution} becomes:
 \begin{equation}
-  x(t)=\left[A_0+\frac{A_0}2t\right]e^{\frac{b_ct}{2m}}
-  \label{eq:critically-damped-solution}
+  x(t)=\left[A_0+\frac{\lambda}A_0\right]e^{-\lambda t}
+  \label{eq:critically-damped-solution-2}
 \end{equation}
 \begin{remark}
   The solution in Eq.~\ref{eq:critically-damped-solution} are really two
@@ -1081,43 +1084,45 @@ in the graph shown in Fig.~\ref{fig:damping-effects}.
     \begin{axis}[
         width=4.5in,
         height=3in,
-        xmin=0,xmax=1.4,
+        xmin=0,xmax=1.6,
         xlabel={Time ($t$) [\si\second]},
-        %xtick={0,1,2,3}, %xticklabels={0,$\omega$,$2\omega$,$3\omega$},
-        ymin=-1.05,
-        ymax=1.5,
-        ylabel={Relative Amplitude ($\dfrac x{A_0}$)},
-        ytick={-1,-.5,0,.5,1},
-        grid=both
+        %xlabel style={anchor=west,at={(current axis.east)}},
+        %xtick={0,1,2,3},
+        %xticklabels={0,$\omega$,$2\omega$,$3\omega$},
+        ymin=-1,
+        ymax=1.05,
+        ylabel={Relative Amplitude},
+        %ytick={-1,-.5,0,.5,1},
+        grid=both,
+        %axis lines=middle
       ]
       \addplot[
-        color=gray,
         samples=200,
-        domain=0:2,
-        thin]{cos(deg(10*x))}; % have to convert from radian to degree
-      \addlegendentry{Undamped ($b=0$)}
+        domain=0:1.6,
+        thick]{1.005*exp(-x)*cos(deg(sqrt(99)*x)-5.74)};
+      %\addlegendentry{Underdamped ($b=0.1b_c$)}
       \addplot[
         samples=200,
-        domain=0:1.4,
-        thick]{exp(-x)*cos(deg(sqrt(99)*x))};
-      \addlegendentry{Underdamped ($b=b_c/10$)}
+        domain=0:1.6,
+        thick,dash dot]{1.048*exp(-3*x)*cos(deg(sqrt(91)*x)-17.46)};
+      %\addlegendentry{Underdamped ($b=0.3b_c$)}
       \addplot[
         samples=200,
-        domain=0:1.4,
-        thick,dash dot]{exp(-5*x)*cos(deg(sqrt(75)*x))};
-      \addlegendentry{Underdamped ($b=b_c/2$)}
+        domain=0:1.6,
+        thick,dashed]{1.154*exp(-5*x)*cos(deg(sqrt(75)*x)-30)};
+      %\addlegendentry{Underdamped ($b=0.5b_c$)}
       \addplot[
         color=red,
-        samples=50,
-        domain=0:1.4,
-        thick]{(1+2*x)*exp(-10*x)};
-      \addlegendentry{Critically damped ($b=b_c$)}
+        samples=100,
+        domain=0:1.6,
+        thick]{(1+10*x)*exp(-10*x)};
+      %\addlegendentry{Critically damped ($b=b_c$)}
       \addplot[
         color=pink,
-        samples=50,
-        domain=0:1.4,
-        thick]{exp(-4*x)};
-      \addlegendentry{Over damped ($b=2b_c$)}
+        samples=100,
+        domain=0:1.6,
+        thick]{1.077*exp(-2.679*x)-0.077*exp(-37.32*x};
+      %\addlegendentry{Over damped ($b=2b_c$)}
     \end{axis}
     %\node[right,gray] at (5.9,1){\scriptsize Undamped};
     %\node[right] at (1.8,1){\scriptsize$b=\dfrac{b_c}{10}$};
@@ -1129,6 +1134,7 @@ in the graph shown in Fig.~\ref{fig:damping-effects}.
   \caption{Effects of damping constant $b$ on an oscillator}
   \label{fig:damping-effects}
 \end{figure}
+
 This example represents
 a spring-mass system with a spring constant of $k=\SI{100}{\newton\per\metre}$
 and a mass of $m=\SI1{\kilo\gram}$. For simplicity, we use an amplitude of
