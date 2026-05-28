@@ -49,10 +49,11 @@ the graphs in Chapter~\ref{chapter:harmonic-motion}.
 \end{figure}
 
 \subsubsection*{Under-Damped Oscillator}
-For the under-damped oscillator with $b<\sqrt{4mk}$, the solution $x(t)$ has
-both an exponential decay term and a sinusoidal (oscillatory) term:
+For the under-damped oscillator with damping constant $b<\sqrt{4mk}$, the
+solution $x(t)$ has both an exponential decay term and a sinusoidal
+(oscillatory) term:
 \begin{equation}
-  x(t)= a e^{-\lambda t}\cos(\omega' t+\theta_0)
+  x(t)= ae^{-\lambda t}\cos(\omega't+\theta_0)
   \label{eq:appendix-damped-position}
 \end{equation}
 where, from Eq.~\ref{damping1}:
@@ -65,12 +66,12 @@ Fig.~\ref{fig:damping-effects-appendix}), we plotted the solutions $x(t)$ with
 various damping factors $b$. In every case, motion starts at amplitude
 (i.e.\ $x(0)=A_0$) from rest (i.e.\ $v(0)=\dot x(0)=0$). For simple harmonic
 oscillators ($b=0$), we can just use  a cosine function, and setting $a=A_0$
-and $\theta_0=0$. However, for the damped oscillator, as the exponential term
+and $\theta_0=0$. However, for the damped oscillator, the exponential term
 in Eq.~\ref{eq:appendix-damped-position} does not have a zero slope at $t=0$,
-the phase constant must be nonzero. Instead, we have to apply both initial
-position and velocity to find $a$ and $\theta_0$. Starting with the initial
-position, we can substitute $t=0$ into Eq.~\ref{eq:appendix-damped-position}
-to get $a$:
+therefore the phase constant must be nonzero. Instead, we have to apply both
+initial position and velocity to find $a$ and $\theta_0$. Starting with the
+initial position, we can substitute $t=0$ into
+Eq.~\ref{eq:appendix-damped-position} to get $a$:
 \begin{equation}
   x(0)= a \cancel{e^{-\lambda t}}\cos(\cancel{\omega't}+\theta_0)=A_0
   \quad\quad\longrightarrow\quad\quad
@@ -84,8 +85,8 @@ the simple harmonic oscillator:
 \begin{equation}
   v(t)=\diff xt
   = -ae^{-\lambda t}\left[
-    \lambda\cos(\omega' t+\theta_0)
-    +\omega'\sin(\omega' t+\theta_0)
+    \lambda\cos(\omega't+\theta_0)
+    +\omega'\sin(\omega't+\theta_0)
     \right]
   \label{eq:appendix-damped-velocity}
 \end{equation}
@@ -116,7 +117,7 @@ $k=\SI{100}{\newton\per\metre}$, a mass of $m=\SI1{\kilo\gram}$ and initial
 amplitude $A_0=1$. The undamped natural frequency is
 $\omega=\sqrt{k/m}=\SI{10}{rad\per\second}$. In
 Table~\ref{tabl:damping-parameters}, we use these values to calculate $\lambda$,
-$\omega'$ and $\theta_0$ which are then substtituted back into
+$\omega'$ and $\theta_0$ which are then substituted back into
 Eq.~\ref{eq:underdamped-final} and plotted in
 Fig.~\ref{fig:damping-effects-appendix}.
 \begin{table}[ht]
@@ -158,28 +159,33 @@ Fig.~\ref{fig:damping-effects-appendix}.
 
 
 
-\subsubsection*{Critically Damped}
+\subsubsection*{Critically-Damped Motion}
 At critical damping, where $b=b_c=\sqrt{4mk}$, our solution is in the form:
 \begin{equation}
-  x(t)=(c_1+c_2t)e^{-\lambda t}
+  x(t)=(c_1+c_2t)e^{-\lambda_ct}
 \end{equation}
-Again, with $\lambda$ defined the same way. Again, we want to find the solution
-$x(t)$ with motion starting at amplitude ($x(0)=A_0$) from rest (i.e.\
-$v(0)=\dot x(0)=0$). Substituting $x(0)=0$ into the above euqation, we can
-easily find that 
+where $\lambda_c$ is related to the critical damping factor $b_c$:
+\begin{equation*}
+  \lambda_c=\frac{b_c}{2m}
+\end{equation*}
+Again, we want to find the solution $x(t)$ with motion starting at amplitude
+($x(0)=A_0$) from rest (i.e.\ $v(0)=\dot x(0)=0$). Substituting $x(0)=0$ into
+the above equation, we can easily find that 
 \begin{equation}
-  x(0)=(c_1+\cancel{c_2t})\cancel{e^{-\lambda t}}=A_0
+  x(0)=(c_1+\cancelto{0}{c_2t})\cancelto{1}{e^{-\lambda_ct}}=A_0
   \quad\to\quad
   c_1=A_0
 \end{equation}
 Again, we take the derivative of $x$ with respect to time, and using product
-rule and chain rule, we find the velocity profile ($v(t)$) to be:
+rule and chain rule, we find the velocity ($v(t)$) to be:
 \begin{equation}
-  v(t)=\diff xt=-(c_2\lambda t +c_1\lambda -c_2)e^{-\lambda t}
+  v(t)=\diff xt=-(c_2\lambda_ct +c_1\lambda_c-c_2)e^{-\lambda_ct}
 \end{equation}
 putting in initial conditions
 \begin{equation}
-  v(0)=-(\cancel{c_2\lambda t} +c_1\lambda -c_2)\cancel{e^{-\lambda t}}=0
+  v(0)
+  =-(\cancelto{0}{c_2\lambda_ct} +c_1\lambda_c-c_2)\cancelto{1}{e^{-\lambda_ct}}
+  =0
 \end{equation}
 which leads us to the equation:
 \begin{equation}
@@ -230,7 +236,7 @@ where
 We can easily verify that both roots $r_1$ and $r_2$ are real and negative.
 With initial condition $x(0)=A_0$, we have
 \begin{equation}
-  x(0)=c_1\cancel{e^{r_1t}}+c_2\cancel{e^{r_2t}}=0
+  x(0)=c_1\cancelto{1}{e^{r_1t}}+c_2\cancelto{1}{e^{r_2t}}=0
   \quad\quad\longrightarrow\quad\quad
   c_1+c_2=A_0
 \end{equation}

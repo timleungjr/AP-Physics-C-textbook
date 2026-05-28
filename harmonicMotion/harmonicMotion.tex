@@ -2,16 +2,18 @@
 \label{chapter:harmonic-motion}
 
 
-In Chapter~\ref{chapter:energy}, we studied several oscillatory systems using
-the law of conservation of energy, shown in ~\ref{fig:shm-systems}. Using the
-energy conservation appoach allows us to solve motion problems quickly, but it
-is also clear that the method does not tell us \emph{why} or \emph{how} the
-systems oscillate.
+In Chapter~\ref{chapter:energy}, we examined several oscillatory systems using
+the law of conservation of energy, shown in ~\ref{fig:shm-systems}. In that
+discussion, we noted that when there is no friction, drag, or other damping
+forces, we have an isolated system where the total mechanical energy is
+constant. Using energy conservation approach allows us to solve motion problems
+of these systems quickly, but it is also clear that the method does not tell us
+\emph{why} or \emph{how} the systems oscillate.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.3\textwidth}
     \centering
-    \begin{tikzpicture}[scale=.85]
+    \begin{tikzpicture}
       \draw[mass] (3,.5) rectangle +(1,1);
       \draw[thick,
         decoration={aspect=.3,segment length=6, amplitude=2.5mm, coil},
@@ -61,11 +63,14 @@ systems oscillate.
   \caption{Common examples of harmonic oscillators}
   \label{fig:shm-systems}
 \end{figure}
-Instead, we must go back to the dynamics (i.e.\ using free-body diagrams and
-second law of motion) of such a system, and then solving for the kinematic
-properties: position $x$, velocity $v$ and acceleration $a$. Such a system is
-called a \textbf{harmonic oscillator}, and the resulting oscillatory motion is
-called a \textbf{harmonic motion}.
+Instead, to get the full picture of the motion of these systems, we must return
+to the dynamics (i.e.\ using free-body diagrams and second law of motion) of
+such a system, and then solving for the kinematic properties: position $x$,
+velocity $v$ and acceleration $a$. Such a system is called a
+\textbf{harmonic oscillator}, and the resulting oscillatory motion is called a
+\textbf{harmonic motion}\footnote{This type of periodic motion is also
+known as \textbf{oscillatory motion}, \textbf{oscillations},
+\textbf{vibrations}.}.
 
 
 %In Chapter~\ref{chapter:dynamics}, we showed that Hooke's law for ideal springs
@@ -103,11 +108,15 @@ called a \textbf{harmonic motion}.
 
 \section{Horizontal Spring-Mass System}
 
-We begin by considering the forces acting on a mass connected horizontally to a
-spring without friction, drag, and other damping forces, as shown in
+In an ideal horizontal-spring mass system, a mass sits on a horizontal surface
+without friction or drag, and is connected horizontally to an ideal spring. The
+mass is free to move horizontally. This is shown in
+%We begin by considering the forces acting on a mass connected horizontally to
+%a spring without friction, drag, and other damping forces, as shown in
 Fig.~\ref{fig:horizontal-spring-mass1}. Three forces act on the mass:
 gravitational force $\bm F_g=m\bm g$, normal force $\bm F_n$ at the bottom
-surface, and spring force $\bm F_s$ from the stretched/compressed spring.
+interface between the mass and the surface, and spring force $\bm F_s$ from the
+stretched/compressed spring.
 \begin{figure}[hbt]
   \centering
   \begin{tikzpicture}
@@ -132,59 +141,84 @@ surface, and spring force $\bm F_s$ from the stretched/compressed spring.
 
 Since there is no vertical motion, $\sum\bm F_\text{vertical}=0$, $\bm F_g$ and
 $\bm F_n$ cancel out. The net force is due only to spring force
-$\bm F_e=-k\bm x$ in the horizontal direction. This is true when the spring is
-in compression, as well as in extension. (It should be obvious that the
-spring in Fig.~\ref{fig:horizontal-spring-mass1} is in extension.) The spring
-force is called a \emph{restoring force} because $\bm F_e$ always points
-towards the equilibrium position.
+$\bm F_e=-k\bm x$ in the horizontal direction. This is true regardless of
+whether the spring is in compression or in extension. (It should be obvious
+that the spring in Fig.~\ref{fig:horizontal-spring-mass1} is in extension.) The
+spring force $\bm F_e$ is called a \emph{restoring force} because is always
+points towards the equilibrium position.
 
 Applying second law of motion ($\bm F_\text{net}=m\bm a$) in the horizontal
 direction, we can equate the spring force to the mass's horizontal acceleration
 ($a=\diff[2] xt$):
-\begin{important-equation}
+\begin{equation}
   -kx =m\diff[2]xt
   %\underbrace{-kx}_{=F_\text{net}=F_s} =m\diff[2]xt
+  \label{eq:ode0}
+\end{equation}
+In many math textbooks, Eq.~\ref{eq:ode1} would be written in standard form:
+\begin{important-equation}
+  \diff[2]xt + \frac kmx=0
   \label{eq:ode1}
 \end{important-equation}
-Eq.~\ref{eq:ode1} is a
-\emph{second-order ordinary differential equation with constant
-coefficients}\footnote{In many math textbooks, Eq.~\ref{eq:ode1} would be
-written in standard form:
-\begin{equation*}
-  \diff[2]xt + \frac kmx=0
-\end{equation*}
-} which is a standard problem in calculus. If you are inexperienced in this
-type of question, we are looking for a function $x(t)$. When we compare the
-left- and right-hand side of Eq.~\ref{eq:ode1}, we would concclude that $x(t)$
-must be a function with a second time derivative $\diff[2]xt$ that looks like
-$x$, but with a negative sign. The only two functions that can satisfy this
-requirement are the sinusoidal functions: $\sin(t)$ and $\cos(t)$, which means
-that the motion along the horizontal direction \emph{must} be periodic. We
-start with the general form:
+
+Eq.~\ref{eq:ode1} is a \emph{second-order ordinary differential equation with
+constant coefficients}
+which is a standard problem in calculus. If you are inexperienced in this
+type of question, we are looking for the position as a function of time, i.e.\
+$x(t)$. When we compare the left- and right-hand side of Eq.~\ref{eq:ode0}, we
+can conclude that $x(t)$ must be a function with a second time derivative
+$\diff[2]xt$ that \emph{looks like} $x(t)$, but with a negative sign, and some
+parameters that relate to the spring constant $k$ and mass $m$. There are only
+two functions that can satisfy this requirement: the sinusoidal functions
+$\sin(t)$ and $\cos(t)$. This means that the motion along the horizontal
+direction \emph{must} be periodic. We start with the general form:
 \begin{important-equation}
-  x(t)=A\cos(\omega t+\theta_0)
+  \quad x(t)=A\cos(\omega t+\theta_0)
   \label{eq:gen-form}
 \end{important-equation}
 where $A$ is the amplitude of the oscillation, $\omega$ is the angular
-frequency of the motion, called \textbf{natural frequency}, and $\theta_0$ is a
-phase constant based on initial condition. We will use the cosine function here
-for simplicity. Motion in the form of Eq.~\ref{eq:gen-form} is called the
-\textbf{simple harmonic motion}\footnote{This type of periodic motion is also
-known as \textbf{oscillatory motion}, \textbf{oscillations},
-\textbf{vibrations}.}, and such a system is called a
+frequency of the motion, called the \textbf{natural frequency}, and $\theta_0$
+is a phase constant based on initial condition. For the remainder of the
+analysis, we will use the cosine function for simplicity. Motion in the form of
+Eq.~\ref{eq:gen-form} is called the \textbf{simple harmonic motion}
+(\textbf{SHM}), and such a system is called a
 \textbf{simple harmonic oscillator}.
-\newpage
+
+Taking the time derivative of Eq.~\ref{eq:gen-form} give us the velocity $v(t)$
+of the mass:
+\begin{important-equation}
+  v(t)=\diff xt=-A\omega\sin(\omega t+\theta_0)
+\end{important-equation}
+And the second derivative of $x(t)$ gives us acceleration $a(t)$:
+\begin{important-equation}
+  a(t)=\diff[2] xt=-A\omega^2\cos(\omega t+\theta_0) %=-\omega^2x
+  \label{eq:shm-acceleration}
+\end{important-equation}
+When we compare \ref{eq:shm-acceleration} with \ref{eq:gen-form}, we can very
+quickly note that acceleration is related to position $x(t)$ by a constant
+$-\omega^2$:
+\begin{equation}
+  a(t)=-\omega^2x(t)
+  %\label{eq:shm-acceleration}
+\end{equation}
+Substituting expressions of $x(t)$ and $a(t)$ back into Eq.~\ref{eq:ode1}, we
+find that the differential equationb is satisfied if the natural frequency $\omega$ is related to
+the spring constant $k$ and mass $m$ by:
+\begin{important-equation}
+  \omega=\sqrt{\frac km}
+\end{important-equation}
 
 \begin{remark}
-  In calculus classes, you should be taught that the solution to any ordinary
-  differential equation is the linear combination of \emph{all} possible
-  solutions. Since both sine and cosine functions are possible solutions to
-  Eq.~\ref{eq:ode1}, our solution must be in the form
+  In calculus classes, you should definitely be taught that the solution to
+  \emph{any} ordinary differential equation is the linear combination of
+  \emph{all} possible solutions. Since both sine and cosine functions can be
+  possible solutions to Eq.~\ref{eq:ode1}, the actual solution must be in the
+  form
   \begin{equation*}
     x(t)=c_1\cos(\omega t)+c_2\sin(\omega t)
   \end{equation*}
-  where $c_1$ and $c_2$ are coefficients based on initial conditions $x(0)$
-  and $v(0)$. Trigonometric identities can be used to show that
+  where $c_1$ and $c_2$ are coefficients based on initial position and velocity
+  $x(0)$ and $v(0)$. We can use a trigonometric identity to show that
   Eq.~\ref{eq:gen-form} is identical to the form of solution above:
   \begin{align*}
     x(t)&=A\cos(\omega t+\theta_0)\\
@@ -193,50 +227,27 @@ known as \textbf{oscillatory motion}, \textbf{oscillations},
     +\underbracket[1pt]{A\sin(\theta_0)}_{c_2}\sin(\omega t)
   \end{align*}
   From an even broader discussions on mathematics, which is not part of the
-  discussion here,
-  %the solution to any differential equati is a \emph{linear combination} of
-  %all the possible solutions.
-  all the possible solutions are, in fact, functions that are \emph{orthogonal}
-  to each other. Two functions $f(x)$ and $g(x)$ are orthogonal when
+  physics discussion here---so we will be very brief here---all the possible
+  solutions to the ordinary differential equation are, in fact, functions that
+  are \emph{orthogonal} to each other. Two functions $f(x)$ and $g(x)$ are
+  orthogonal when
   \begin{equation*}
     \int_{-\infty}^\infty f(x)g(x)\dl x=0 
   \end{equation*}
   Much like the basis vectors defining a vector space (for example $\iii$,
   $\jjj$ and $\kkk$ directions representing the $x$, $y$ and $z$ axes) are
   orthogonal, and any vector can be represented as a linear combination of the
-  basis vectors, the orthogonal functions are treated as basis vectors
-  %(much like the $x$ axis is orthogonal to the $y$ axis)
-  and the solution is a vector in this \emph{functional} space.
+  basis vectors, the orthogonal functions are treated as basis vectors and the
+  solution is a vector in this \emph{functional} space.
 \end{remark}
-
-
-
-Taking the time derivative of Eq.~\ref{eq:gen-form} give us the velocity of
-the mass:
-\begin{important-equation}
-  v(t)=\diff xt=-A\omega\sin(\omega t+\theta_0)
-\end{important-equation}
-And the second derivative gives us acceleration:
-\begin{important-equation}
-  a(t)=\diff[2] xt=-A\omega^2\cos(\omega t+\theta_0)=-\omega^2x
-\end{important-equation}
-We note that the expression of acceleration is related to position $x(t)$ by
-the constant $-\omega^2$. Substituting expressions of $x(t)$ and $a(t)$ back
-into Eq.~\ref{eq:ode1}, we find that the ODE is satisfied if the natural
-frequency $\omega$ is related to the spring constant and mass by:
-\begin{important-equation}
-  \omega=\sqrt{\frac km}
-\end{important-equation}
-
-
 
 \textbf{When should we use cosine, and when should be use sine?} Both functions
 can be solutions to Eq.~\ref{eq:ode1}, so choosing the ``best'' function is
 down to the initial condition (i.e.\ when motion begins at $t=0$). In general,
 we prefer a function such that we don't need a phase constant, i.e.\
 $\theta_0=0$. If oscillation begins at amplitude $x=A$, shown in
-Fig.~\ref{fig:start-from-A}, the $\cos$ function is preferred. If the spring is
-initially compressed to $x=-A$, we can use the $-\cos$ function instead.
+Fig.~\ref{fig:start-from-A}, the cosine function is preferred. If the spring is
+initially compressed to $x=-A$, we can use the negative cosine function instead.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.45\textwidth}
@@ -284,19 +295,19 @@ acceleration:
   a(t)&=-A\omega^2\sin(\omega t)
 \end{align*}
 Mathematically, the two functions only differ by a phase constant of
-$\frac{\pi}2$.
-%\end{remark}
+$\frac{\pi}2$. In practice, it is entirely possible that a simple harmonic
+oscillator can have initial conditions where $x(0)\neq 0$ abd $v(0)\neq 0$.
 
-%The angular frequency for the simple harmonic oscillator is called the
-%\textbf{natural frequency}.
-The frequency ($f$), i.e.\ the number of oscillations per second, measured in
-\emph{hertz} (\si\hertz) of a simple harmonic oscillator is related to the
-angular frequency $\omega$ by:
+Since the motion of a simple harmonic oscillator is strictly periodic, the
+frequency ($f$), i.e.\ the number of oscillations per second, measured in
+\emph{hertz} (\si\hertz) of its motion is related to the angular frequency
+$\omega$ by:
 \begin{important-equation}
   f=\frac\omega{2\pi}=\frac1{2\pi}\sqrt{\frac km}
 \end{important-equation}
-Depending on context or application, the term ``natural frequency'' may refer
-to either $\omega$ or $f$.
+We shold note that depending on context or application, the term ``natural
+frequency'' may refer to either $\omega$ or $f$. Usually it is easy to know
+from the context of the book or journal, or even verbal discussion.
 
 The period ($T$, measured in seconds) is the reciprocal of the frequency, given
 by:
@@ -313,31 +324,33 @@ period ($T$) are all independent of amplitude $A$.
 %      v(t)&=-A\omega_0\sin(\omega_0 t-\theta_0)\\
 %      a(t)&=-A\omega_0^2\cos(\omega_0 t-\theta_0)=-\omega_0^2x
 %    \end{align*}
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}[yscale=.5]
-    \draw[axes] (0,-2)--(0,2) node[left]{$x$};
-    \draw[axes] (-1,0)--(8,0) node[right]{$t$};
-    \draw[very thick,smooth,samples=80,domain=0:7.5]
-    plot(\x,{1.5*cos(90*\x)});
-      
-    \draw[axes] (0,-7)--(0,-3)  node[left]{$v$};
-    \draw[axes] (-1,-5)--(8,-5) node[right]{$t$};
-    \draw[very thick,smooth,samples=80,domain=0:7.5]
-    plot(\x,{-1.5*sin(90*\x)-5});
-      
-    \draw[axes] (0,-12)--(0,-8)  node[left]{$a$};
-    \draw[axes] (-1,-10)--(8,-10) node[right]{$t$};
-    \draw[very thick,smooth,samples=80,domain=0:7.5]
-    plot(\x,{-1.5*cos(90*\x)-10});
-  \end{tikzpicture}
-\end{figure}
+%\begin{figure}[ht]
+%  \centering
+%  \begin{tikzpicture}[yscale=.5]
+%    \draw[axes] (0,-2)--(0,2) node[left]{$x$};
+%    \draw[axes] (-1,0)--(8,0) node[right]{$t$};
+%    \draw[very thick,smooth,samples=80,domain=0:7.5]
+%    plot(\x,{1.5*cos(90*\x)});
+%      
+%    \draw[axes] (0,-7)--(0,-3)  node[left]{$v$};
+%    \draw[axes] (-1,-5)--(8,-5) node[right]{$t$};
+%    \draw[very thick,smooth,samples=80,domain=0:7.5]
+%    plot(\x,{-1.5*sin(90*\x)-5});
+%      
+%    \draw[axes] (0,-12)--(0,-8)  node[left]{$a$};
+%    \draw[axes] (-1,-10)--(8,-10) node[right]{$t$};
+%    \draw[very thick,smooth,samples=80,domain=0:7.5]
+%    plot(\x,{-1.5*cos(90*\x)-10});
+%  \end{tikzpicture}
+%\end{figure}
 
 \begin{remark}
-  \textbf{Is $\omega$ the same angular velocity term from circular motion?}
-  Yes, it most certainly is. Consider an object moving in uniform circular
-  motion about the origin of the $xy$ plane with angular velocity $\omega$.
-  In such a case, the angular position of the object would be described by
+  \textbf{We keep referring to the natural frequency of the simple harmonic
+    motion as its ``angular frequency''. Is $\omega$ the same angular velocity
+    term from circular motion?} Yes, it most certainly is! Consider an object
+  moving in uniform circular motion about the origin of the $xy$ plane with
+  angular velocity $\omega$. Here, the angular position of the object would be
+  described by
   \begin{equation*}
     \theta(t)=\omega t+\theta_0
   \end{equation*}
@@ -348,9 +361,9 @@ period ($T$) are all independent of amplitude $A$.
     y(t) &=r\sin(\theta)=r\sin(\omega t+\theta_0)
   \end{align*}
   Both of $x(t)$ and $y(t)$ are in the same form as Eq.~\ref{eq:ode1}. In
-  essence, the simple harmonic motion is the projection of a uniform circular
-  motion onto an axis. The ``radius'' of the circular motion is the amplitude
-  $A$ of the simple harmonic motion. 
+  essence, a simple harmonic motion is the \emph{projection} of a uniform
+  circular motion onto an axis. The ``radius'' of the circular motion is the
+  amplitude $A$ of the simple harmonic motion. 
   \begin{center}
     \begin{tikzpicture}[scale=.7]
       \draw[axes] (-3,0)--(3,0) node[right]{$x$};
@@ -370,10 +383,10 @@ period ($T$) are all independent of amplitude $A$.
 
 
 \begin{remark}
-  Another function that we can try as a solution to Eq.~\ref{eq:ode1} is the
-  exponential function $x=e^t$, where its derivatives are related to the
-  function itself. Again, we start with a general form and take the first two
-  time derivatives:
+  \textbf{Are sine and cosine functions our only options?} Another function
+  that we can try as a solution to Eq.~\ref{eq:ode1} is the exponential
+  function $x=e^t$, where its derivatives are related to the function itself.
+  Again, we start with a general form and take the first two time derivatives:
   \begin{equation*}
     x(t)=Ae^{\omega t}\quad\longrightarrow\quad
     \diff xt=A\omega e^{\omega t}\quad\longrightarrow\quad
@@ -406,7 +419,7 @@ As the mass oscillates, the kinetic energy of the mass is
 \begin{equation}
   K=\frac12mv^2=\frac12m\left[-A\omega\sin(\omega t)\right]^2
 \end{equation}
-Multiplying out the terms and substutiting for $\omega^2=\frac km$, we have:
+Multiplying out the terms and substituting for $\omega^2=\frac km$, we have:
 \begin{important-equation}
   K=\frac12kA^2\sin^2(\omega t)
 \end{important-equation}
@@ -420,7 +433,7 @@ which gives us:
   U_e=\frac12kA^2\cos^2(\omega t)
 \end{important-equation}
 The total energy of the system, which is just the sum of the kinetic and
-elastic potential energies, is not suprsingly:
+elastic potential energies, is not surprisingly:
 \begin{important-equation}
   E_\text{total}=K+U_e
   =\frac12kA^2\left[\sin^2(\omega t)+\cos^2(\omega t)\right]=\frac12kA^2
@@ -460,12 +473,14 @@ We can plot the functions over time:
   \end{tikzpicture}
 \end{figure}
 \section{Vertical Spring-Mass System}
-
-For vertical spring-mass systems, shown in
-Fig.~\ref{fig:vertical-spring-mass}), we must also consider the gravitational
-force $\bm F_g=m\bm g$ which acts along the direction of motion. In this case,
-the presence of gravity shifts the equilibrium position to a distance $B$ away
-from the unstretched position of the spring.
+In a vertical spring-mass systems, shown in Fig.~\ref{fig:vertical-spring-mass},
+a mass is suspended vertically from a fixed point by an ideal
+spring. Again, we assume that there is no friction, no drag or other damping
+forces in the system. The difference between a horizontal and vertical system is
+that here, we must also consider the gravitational force $\bm F_g=m\bm g$ which
+acts along the direction of motion. The presence of gravity also shifts the
+equilibrium position downwards by a distance $B$ from the unstretched length
+of the spring.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=1.3]
@@ -489,14 +504,22 @@ from the unstretched position of the spring.
   \caption{A vertical spring-mass system with no friction and damping force}
   \label{fig:vertical-spring-mass}
 \end{figure}
-Using the downward direction as the
-positive direction of motion, the second law of motion becomes:
+
+Using the downward direction as the positive direction of motion, the second
+law of motion becomes:
 \begin{equation}
   mg-kx=m\diff[2]xt
   %\label{eq:ode2}
 \end{equation}
-Since $F_g$ is constant, the only change is the addition of a constant $B$
-in the expression of $x(t)$:
+Or, written standard form:
+\begin{important-equation}
+  \diff[2]xt+\frac kmx-g=0
+  \label{eq:ode-vertical}
+\end{important-equation}
+The only notable difference between \ref{eq:ode-vertical} and \ref{eq:ode1} is
+the presence of the gravitational force $\bm F_g=m\bm g$. But $F_g$ is
+constant, the only change in the position function $x(t)$ compared to the
+horizontal system is the addition of a constant $B$:
 \begin{equation}
   x(t) = A\cos(\omega t+\theta_0) + B\\
   \label{eq:ode1a}
@@ -522,13 +545,13 @@ in the expression of $x(t)$:
 %      \end{scope}
 %    \end{tikzpicture}
 
-The constant $B$ is the shift of the equilibrium position from the unstretched
-position. It is found by equating $F_s=F_g$ and solving for the spring extension
-at $x=B$:
+where the constant $B$ is the shift of the equilibrium position from the
+unstretched position, described above. We can easily find $B$ equating
+$F_e=F_g$ and solving for the spring extension at $x=B$:
 \begin{equation}
   B=\frac{mg}k
 \end{equation}
-%is found by substituting $x$ and $\ddot x$ into the ODE. It is the stretch
+%is found by substituting $x$ and $\ddot x$ into the differential equationb. It is the stretch
 %of the spring due to its own weight:
 Since $B$ is a constant, velocity and acceleration as functions of time are
 unchanged from the horizontal spring-mass case:
@@ -634,7 +657,7 @@ Substitute $F_t$ into the second law of motion, and cancelling $m$:
   \quad\rightarrow\quad
   -g\sin\theta=\ell\diff[2]{\theta}t
 \end{equation}
-Solving this ODE is very difficult because of the $\sin\theta$ term. However,
+Solving this differential equationb is very difficult because of the $\sin\theta$ term. However,
 we can simplify the problem by using the Taylor series expansion of the sine
 function:
 \begin{equation*}
@@ -646,7 +669,7 @@ where
 \begin{equation*}
   \sin\theta\approx\theta
 \end{equation*}
-and the ODE reduces to the same form as the horizontal spring-mass system that
+and the differential equationb reduces to the same form as the horizontal spring-mass system that
 we have studied in Eq.~\ref{eq:ode1}:
 \begin{equation}
   -\frac g\ell\theta = \diff[2]{\theta}t
@@ -721,7 +744,7 @@ The natural frequency of the oscillation $\omega$ is given by:
   in the answer. When we plot the difference between $y=\sin\theta$, and our
   approximation $y=\theta$, we can see that both functions agree well near
   $\theta=0$. However, $\sin\theta$ levels off towards $\theta=\frac\pi2$ and
-  the linear function (obviously) does not. We can calceulate the percentage
+  the linear function (obviously) does not. We can calculate the percentage
   error:
   \begin{equation*}
     \text{\% Error}=\frac{\theta-\sin\theta}{\sin\theta}\times\SI{100}\percent
@@ -853,13 +876,14 @@ $x$-axis, as shown in Fig.~\ref{fig:abstract-omega}.
     \draw[dashed] (-1.2,-6)--+(0,2.5);
     
     \draw[thick,|<->|] (-1.48,-6.4)--(1.47,-6.4)
-    node[midway,below, text width=60]{
+    node[midway,below,text width=60,align=center]{
       \scriptsize Harmonic motion along the $x$-axis\par};
   \end{tikzpicture}
-  \caption{The meaning of the angular freqency term in pendulum motion}
+  \caption{The meaning of the angular frequency term in pendulum motion}
   \label{fig:abstract-omega}
 \end{figure}
-Since the pendulum deflects through a small angle, we can desribe its motion as:
+Since the pendulum deflects through a small angle, we can describe its motion
+as:
 \begin{align*}
   x(t) &=\ell\sin\left(\theta(t)\right)\approx\ell\theta(t)\\
   &=\ell\theta_\text{max}\cos(\omega_0 t)
@@ -933,9 +957,11 @@ of \emph{that} circular motion.
 
 \section{Damped Oscillator}
 
-In reality, there are friction, or drag, or other damping forces present in the
-spring-mass system, represented schematically by the shock absorber, as shown
-in Fig.~\ref{fig:damping1}.
+In reality, there are friction, drag, or other damping forces present in the
+spring-mass system, taking energy away from the system. We can represent the
+energy dissipation in a horizontal spring-mass sytem schematically by the shock
+absorber, as shown in Fig.~\ref{fig:damping1}. The shock absorber exerts a
+``damping force'' $\bm F_D$ on the mass.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -945,7 +971,7 @@ in Fig.~\ref{fig:damping1}.
     \fill[gray,pattern=north east lines] (-.2,2)--(-.2,.3)--(6.7,.3)--(6.7,2)
     --(6.5,2)--(6.5,.5)--(0,.5)--(0,2)--cycle;
     \draw[gray,thick] (0,2)--(0,.5)--(6.5,.5)--(6.5,2);
-    \draw[axes] (7.25,1)--(8,1) node[right]{$x$};
+    \draw[axes] (7.25,1)--(8,1) node[right]{$+$};
     \fill[blue!20!white] (5,.8) rectangle (6,1.2);
     \draw[very thick] (4,1)--(5,1);
     \draw[very thick] (5,.8)--(5,1.2);
@@ -962,51 +988,60 @@ in Fig.~\ref{fig:damping1}.
   \caption{A horizontal spring-mass system with a damping force}
   \label{fig:damping1}
 \end{figure}
-
-The ``damping force'' is typically related to velocity, but acting the opposite
-direction:
+This damping force is typically related to velocity, but acting the opposite
+direction the motion of the mass, and we can write it in general form as:
 \begin{equation}
   F_D=-bv^n
 \end{equation}
 where $b$ is a positive constant called the \textbf{damping factor}. For
-kinetic friction, which acts in opposite direction to motion, but does not
-depend on velocty, we can use $n=0$; for a shock absorber, $n=1$, while
-aerodynamic drag, $n=2$, as we have seen in Chapter~\ref{chapter:dynamics}.
-
-For the purpose of our analysis, we will use $n=1$ to approximate a mixture of
-these effects. Whether this is actually accurate will depends on specific
-problems.
+kinetic friction, which does not depend on velocity, we can use $n=0$; for
+viscous damping in a practical shock absorber, $n\approx 1$, while for
+aerodynamic drag, $n=2$, as seen in Chapter~\ref{chapter:dynamics}. For the
+purpose of our analysis, we will use $n=1$ to \emph{approximate} the
+combined effects of these three forces. Of course, whether this is actually
+accurate will depends on specific problems.
 %Of course our choice of using $n=1$ will not be entirely correct
 %for every problem, but it is \emph{sufficiently} accurate for a wide range of
 %situations.}
-With the addition of the damping force, the differential equation for the
-%\textbf{damped oscillator}
-is obtained again by applying second law of motion, but this time with the
-additional term from the damping force, highlighted in red:
-\begin{align*}
-  \sum F = {\color{blue}F_s} + {\color{red}F_D} &= m{\color{orange}a}\\
-  -{\color{blue}kx}-{\color{red}b\diff xt} &= m{\color{orange}\diff[2]xt}
-\end{align*}
+
+With the addition of the damping force, the differential equation is obtained
+again by applying second law of motion, but this time with the additional term
+from the damping force, highlighted in red:
+\begin{equation*}
+  \sum F = {\color{blue}F_s} + {\color{red}F_D} = m{\color{orange}a}
+  \quad\longrightarrow\quad
+  -{\color{blue}kx}-{\color{red}b\diff xt} = m{\color{orange}\diff[2]xt}
+\end{equation*}
 The equation can be arranged into standard form:
-\begin{equation}  
+\begin{important-equation}  
   \diff[2]xt+\frac bm\diff xt+\frac kmx=0
   \label{eq:ode2}
-\end{equation}
+\end{important-equation}
 The solution to Eq.~\ref{eq:ode2} is still relatively straightforward, although
-not as simple as the simple harmonic oscillator. For small values of $b$, our
+not as simple as the simple harmonic oscillator.
+
+
+
+\subsection{Underdamped Oscillator}
+For small values of $b$, our
 solution has both an exponential decay term and a sinusoidal (oscillatory) term:
 \begin{important-equation}
   x(t)=
-  \underbracket[1pt]{A_0 e^{-\frac b{2m}t}}_\text{amplitude $A(t)$}
+  \underbracket[1pt]{Ae^{-\lambda t}}_\text{amplitude}
   \cos(\omega t+\theta_0)
   \quad\text{(damped oscillator)}
   \label{eq:damped-solution}
 \end{important-equation}
-where $A_0$ is the initial amplitude. Like the simple harmonic oscillator,
-$A_0$, $\theta_0$, and whether to use a sine or cosine function, are based on
-initial conditions. The motion of the mass is called a
-\textbf{damped harmonic motion}, and such a system is called a
-\textbf{damped harmonic oscillator}.
+where
+\begin{displaymath}
+  \lambda=\frac b{2m}
+\end{displaymath}
+We can see in Appendix~\ref{appendix:harmonic-motion} how the coefficient $A$
+is related to the  initial amplitude. Like the simple
+harmonic oscillator, $A$, $\theta_0$, and whether to use a sine or cosine
+function, are based on initial position $x(0)$ and initial velocity $v(0)$. The
+motion of the mass is called a \textbf{damped harmonic motion}, and such a
+system is called a \textbf{damped harmonic oscillator}.
 
 Unlike the simple harmonic oscillator, the motion of the damped oscillator is
 \emph{quasi}-periodic because the oscillation pattern is not perfectly
@@ -1015,69 +1050,91 @@ this frequency should be properly called a ``quasi-frequency''.} $\omega'$ for
 the damped oscillator is shifted from the undamped case $\omega$ based on the
 damping factor $b$:
 \begin{important-equation}
-  \omega'=\sqrt{\omega^2-\left(\frac b{2m}\right)^2}
+  \omega'=\sqrt{\omega^2-\lambda^2}
   \quad\text{where}\quad
   \omega=\sqrt{\frac km}
+  \quad\text{and}\quad
+  \lambda=\frac b{2m}
   \label{damping1}
 \end{important-equation}
 Note that $\omega'<\omega$ (natural frequency decreases) because of the
 damping factor $b$.
 
-\textbf{Critical damping} occurs when the damped natural frequency $\omega'$ is
-zero, which we can calculate by setting $\omega'=0$ in Eq.~\ref{damping1}, and
-solving for the resulting damping constant, which is called the \textbf{critical
-  damping constant} $b_c$:
+
+
+\subsection{Critical Damping}
+
+As the damping factor $b$ increases, the damped natural frequency $\omega'$
+continues to decrease until it reaches \textbf{critical damping}, when
+$\omega'=0$
+%zero, which we can calculate by setting $\omega'=0$ in Eq.~\ref{damping1}, and
+%solving for the resulting damping constant, which is called the 
 \begin{equation*}
-  \sqrt{\omega^2-\left(\frac{b_c}{2m}\right)^2}=0
+  \omega'=\sqrt{\omega^2-\lambda_c^2}=0
+  \quad\text{where}\quad
+  \lambda_c=\frac{b_c}{2m}
 \end{equation*}
-Solving for $b_c$, we have:
+We can solve for the \textbf{critical damping factor} $b_c$ when critical
+damping occurs:
 \begin{important-equation}
-  b_c=2m\omega=2\sqrt{km}
+  b_c=2m\omega=\sqrt{4mk}
 \end{important-equation}
 At critical damping, the solution to Eq.~\ref{eq:ode2} for the position of the
-mass $x(t)$ is
-\begin{equation}
-  x(t)=(c_1+c_2t)e^{\frac{b_ct}{2m}}
+mass $x(t)$ no longer has any sinusoidal terms, but is instead a linear
+combination of two exponential decay functions related to $\lambda_c$:
+\begin{important-equation}
+  x(t)=(c_1+c_2t)e^{\lambda_ct}
+  \quad\text{(critically damped motion)}
   \label{eq:critically-damped-solution}
-\end{equation}
-where $c_1$ and $c_2$ are determined by initial conditions. If a mass is
-released at amplitude $A_0$ from rest (i.e.\ $x(0)=A_0$, $\dot x(0)=0$), then
-Eq.~\ref{eq:critically-damped-solution} becomes:
-\begin{equation}
-  x(t)=\left[A_0+\frac{\lambda}A_0\right]e^{-\lambda t}
+\end{important-equation}
+where $c_1$ and $c_2$ are determined by initial position and velocity. If a
+mass is released at amplitude $A_0$ from rest (i.e.\ $x(0)=A_0$,
+$\dot x(0)=0$), then Eq.~\ref{eq:critically-damped-solution} becomes:
+\begin{equation*}
+  x(t)=A_0\left[1+\lambda_ct\right]e^{-\lambda_ct}
   \label{eq:critically-damped-solution-2}
-\end{equation}
+\end{equation*}
+The derivation of the solution is shown in
+Appendix~\ref{appendix:harmonic-motion}.
 \begin{remark}
-  The solution in Eq.~\ref{eq:critically-damped-solution} are really two
-  linearly independent solutions:
+  The solution to the critically-damped motion in
+  Eq.~\ref{eq:critically-damped-solution} are really two linearly independent
+  solutions:
   \begin{align*}
-    x_1(t) &= c_1e^{\frac{b_ct}{2m}} \\
-    x_2(t) &= c_2te^{\frac{b_ct}{2m}}
+    x_1(t) &= c_1e^{\lambda_ct} \\
+    x_2(t) &= c_2te^{\lambda_ct}
   \end{align*}
   We should not be surprised that both solutions are also orthogonal functions.
 \end{remark}
 A critically damped system returns to its equilibrium position in the shortest
-time with \emph{no} oscillation.
-\textbf{EXPAND ON THIS SECTION: Critical or near-critical damping is desired
-in many engineering designs (e.g.\ shock absorbers on car suspensions).}
+time with \emph{no} oscillation. Critical or near-critical damping is desired
+in many engineering designs (e.g.\ shock absorbers on car suspensions).
 
-When $b>b_c$, the system becomes \textbf{over-damped}. In such a case, the
-solution Eq.~\ref{eq:ode2} is the linear combination of two exponential decay
-functions:
-\begin{equation}
+
+
+\subsection{Overdamped System}
+
+When $b>b_c$, the motion of the mass is primarily driven by the damping force
+instead of the spring force. The system now becomes \textbf{over-damped}. In
+such a case, the solution Eq.~\ref{eq:ode2} is the linear combination of two
+very slow exponential decay functions without oscillation:
+\begin{important-equation}
   x(t)=c_1e^{r_1t}+c_2e^{r_2t}
-  \quad\text{where}\quad
-  r_1=\frac{-b+\sqrt{b^2-4mk}}{2m}\quad
-  r_1=\frac{-b-\sqrt{b^2-4mk}}{2m}\quad
+  \quad\text{(Over-damped motion)}
   \label{eq:over-damped-solution}
-\end{equation}
+\end{important-equation}
+where
+\begin{equation*}
+  r_1=\frac{-b+\sqrt{b^2-4mk}}{2m}\quad
+  r_2=\frac{-b-\sqrt{b^2-4mk}}{2m}\quad
+\end{equation*}
 Once again, the constants $c_1$ and $c_2$ are based on initial position and
-velocity of the mass. In an over-damped system, the motion of the mass is
-dominiated by the damping force instead of the spring force, and the resulting
-motion is a very slow exponential decay without oscillation.
-
-The effects of the damping constant on a harmonic oscillator is illustrated
-in the graph shown in Fig.~\ref{fig:damping-effects}.
+velocity of the mass.
+%In an over-damped system, the motion of the mass is
+%dominated by the damping force instead of the spring force, and the resulting
+%motion is a very slow exponential decay without oscillation.
+The effects of the damping constant on a harmonic oscillator is illustrated in
+the graph shown in Fig.~\ref{fig:damping-effects}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -1085,71 +1142,71 @@ in the graph shown in Fig.~\ref{fig:damping-effects}.
         width=4.5in,
         height=3in,
         xmin=0,xmax=1.6,
+        ymin=-0.8,ymax=1.5,
         xlabel={Time ($t$) [\si\second]},
         %xlabel style={anchor=west,at={(current axis.east)}},
         %xtick={0,1,2,3},
         %xticklabels={0,$\omega$,$2\omega$,$3\omega$},
-        ymin=-1,
-        ymax=1.05,
         ylabel={Relative Amplitude},
-        %ytick={-1,-.5,0,.5,1},
+        ytick={-.5,0,.5,1,1.5},
         grid=both,
         %axis lines=middle
       ]
       \addplot[
         samples=200,
         domain=0:1.6,
+        blue,
         thick]{1.005*exp(-x)*cos(deg(sqrt(99)*x)-5.74)};
-      %\addlegendentry{Underdamped ($b=0.1b_c$)}
+      \addlegendentry{Underdamped ($b=0.1b_c$)}
       \addplot[
         samples=200,
         domain=0:1.6,
-        thick,dash dot]{1.048*exp(-3*x)*cos(deg(sqrt(91)*x)-17.46)};
-      %\addlegendentry{Underdamped ($b=0.3b_c$)}
+        blue!50,
+        thick]{1.048*exp(-3*x)*cos(deg(sqrt(91)*x)-17.46)};
+      \addlegendentry{Underdamped ($b=0.3b_c$)}
       \addplot[
         samples=200,
         domain=0:1.6,
-        thick,dashed]{1.154*exp(-5*x)*cos(deg(sqrt(75)*x)-30)};
-      %\addlegendentry{Underdamped ($b=0.5b_c$)}
+        color=blue!30,
+        thick]{1.154*exp(-5*x)*cos(deg(sqrt(75)*x)-30)};
+      \addlegendentry{Underdamped ($b=0.5b_c$)}
       \addplot[
-        color=red,
+        red,
         samples=100,
         domain=0:1.6,
         thick]{(1+10*x)*exp(-10*x)};
-      %\addlegendentry{Critically damped ($b=b_c$)}
+      \addlegendentry{Critically damped ($b=b_c$)}
       \addplot[
-        color=pink,
+        color=violet,
         samples=100,
         domain=0:1.6,
         thick]{1.077*exp(-2.679*x)-0.077*exp(-37.32*x};
-      %\addlegendentry{Over damped ($b=2b_c$)}
+      \addlegendentry{Over damped ($b=2b_c$)}
     \end{axis}
-    %\node[right,gray] at (5.9,1){\scriptsize Undamped};
-    %\node[right] at (1.8,1){\scriptsize$b=\dfrac{b_c}{10}$};
-    %\node[right] at (1.5,2.7){\scriptsize$b=\dfrac{b_c}2$};
-    %\node[right,red, text width=2cm,align=center] at (.7,4.3){\scriptsize
-    %  Critically\\damped};
-    %\node[right,pink] at (.8,5.5){\scriptsize Overdamped};
   \end{tikzpicture}
   \caption{Effects of damping constant $b$ on an oscillator}
   \label{fig:damping-effects}
 \end{figure}
 
-This example represents
-a spring-mass system with a spring constant of $k=\SI{100}{\newton\per\metre}$
-and a mass of $m=\SI1{\kilo\gram}$. For simplicity, we use an amplitude of
-$A_0=1$. The undamped case (gray line) will have a natural frequency of
+This example is a hypothetical horizontal spring-mass system with a spring
+constant of $k=\SI{100}{\newton\per\metre}$ and a mass of $m=\SI1{\kilo\gram}$.
+For simplicity, we use an initial amplitude of $A_0=1$ (hence the graph is
+labelled \emph{relative} ampliude).
+
+The simple harmonic oscillator has a natural frequency of
 $\omega=\sqrt{k/m}=\SI{10}{rad\per\second}$. In a ``light-damped'' system with
-a damping factor that is $1/10$ of critical damping, i.e.\ $b=\frac{b_c}{10}$,
-the system would clearly oscillate, but each time with decreasing amplitude.
-The natural frequencuy $\omega'$ of this damped system is only decreases
-slightly, from 10 to $\sqrt{99}=\SI{9.95}{rad\per\second}$, which is only a
-\SI{.50}{\percent} decrease. As we increase the damping factor to $1/2$ of
-critical, i.e.\ $b=\frac{b_c}2$, the system would only oscillate once before
-the oscillation becomes inperceptable. Even now, the damped natural frequency
-is still only $\sqrt{75}=\SI{8.66}{rad\per\second}$ which is only a
-\SI{13.4}{\percent} decrease. Depending on the tolerance for a design, the
-damping for this case would already be considered to be ``near critical''.
+a damping factor $b=0.1b_c$ ($1/10$ of critical damping), the system would
+clearly oscillate, but after each period, the amplitude decreases. The damped
+natural frequency $\omega'$ of this damped system is only decreases slightly,
+from 10 to $\sqrt{99}=\SI{9.95}{rad\per\second}$, which is only a
+\SI{.50}{\percent} decrease.
+
+As we increase the damping factor to $b=0.5b_c$ ($1/2$ of critical), the system
+would only oscillate once before the oscillation becomes imperceptible. Even
+now, the damped natural frequency is still only
+$\sqrt{75}=\SI{8.66}{rad\per\second}$ which is only a \SI{13.4}{\percent}
+decrease. Depending on the tolerance for a design, the damping for this case
+would already be considered to be ``near critical''.
 
 
 
@@ -1160,11 +1217,11 @@ a rate of:
   P=\diff Et=\bm F_D\cdot\bm v=-bv^2
 \end{equation}
 As velocity relate to energy by: $(v_{av})^2=E/m$, power dissipation is a
-first-order linear ODE:
+first-order linear differential equationb:
 \begin{equation}
   \diff Et=-\frac bmE
 \end{equation}
-The solution to the ODE shows the total amount of energy decreases
+The solution to the differential equationb shows the total amount of energy decreases
 exponentially with time:
 \begin{equation}
   E(t)=E_0e^{-\frac bmt} %=E_0e^{-\frac{t}{\tau}}
@@ -1177,15 +1234,16 @@ exponentially with time:
 
 To keep a damped system going, energy must be added into the system. That means
 that positive external work must be done to the system. To ensure that this is
-the case, we subject the system to an external forcing function $F_a(t)$ (the
-``external applied force'' shown in Fig.~\ref{fig:driven1}) along the direction
-of motion that is harmonic with time, with a driving frequency of $\omega_a$:
+the case, we subject the system to an external forcing function
+$\bm F_\text{ext}(t)$ (the ``external applied force'' shown in
+Fig.~\ref{fig:driven1}) along the direction of motion that is harmonic with
+time, with a driving frequency of $\omega_\text{ext}$:
 \begin{equation}
-  F_a=F\cos(\omega_at)
+  F_\text{ext}=F\cos(\omega_\text{ext}t)
 \end{equation}
-In general, the driving frequency $\omega_a$ is unrelated to the undamped
-natural frequency $\omega$ or the damped quasi-frequency $\omega'$, i.e.\
-we assume that $\omega_a\neq\omega\neq\omega'$.
+In general, the driving frequency $\omega_\text{ext}$ is unrelated to the
+undamped natural frequency $\omega$ or the damped quasi-frequency $\omega'$,
+i.e.\ we assume that $\omega_\text{ext}\neq\omega\neq\omega'$.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=1.3]
@@ -1204,7 +1262,7 @@ we assume that $\omega_a\neq\omega\neq\omega'$.
       \draw (3.5,1)--(3.5,0) node[right]{$\bm F_g$};
       \draw (3.5,1)--(3.5,2) node[right]{$\bm F_n$};
       \draw (3.5,1)--(2.5,1) node[above]{$\bm F_s$};
-      \draw (3.5,.95)--(2,.95) node[below]{$\bm F_a$};
+      \draw (3.5,.95)--(2,.95) node[below]{$\bm F_\text{ext}$};
       \draw (3.5,1)--(4.5,1) node[below]{$\bm F_D$};
     \end{scope}
     \fill[red] (3.5,1) circle (.075);
@@ -1218,68 +1276,70 @@ applying the second law of motion:
 \begin{equation}
   \sum F=
   \underbracket[1pt]{-kx}_{F_s}\underbracket[1pt]{-bv}_{F_D}+
-  \underbracket[1pt]{F\cos(\omega_at)}_{F_a}=ma
+  \underbracket[1pt]{F\cos(\omega_\text{ext}t)}_{F_\text{ext}}=ma
 \end{equation}
-In standard form, the ODE is written as:
-\begin{equation}
-  m\diff[2]xt + b\diff xt+kx=F\cos(\omega_a t)
+In standard form, the differential equationb is written as:
+\begin{important-equation}
+  m\diff[2]xt + b\diff xt+kx=F\cos(\omega_\text{ext}t)
   \label{eq:ode3}
-\end{equation}
-The ODE is similarly to the damped harmonic oscillator: the only difference
+\end{important-equation}
+The differential equation is similarly to the damped harmonic oscillator: the only difference
 between Eq.~\ref{eq:ode2} and Eq.~\ref{eq:ode3} is the additional forcing
-function term on the right-hand side. This is a much more difficult problem in
-calculus, but nevertheless still a standard problem that is usually taught in a
-dedicated differential equation course in university.
-
+function term on the right-hand side. This is a \emph{much} more difficult
+problem in calculus, but nevertheless still a standard problem that is usually
+taught in a dedicated differential equation course in university.
 The solution to Eq.~\ref{eq:ode3} contains two parts:
-\begin{itemize}
-\item A \textbf{transient solution} that is obtained by setting $F_a=0$.
+\begin{itemize}[itemsep=8pt]
+\item A \textbf{transient solution} that is obtained by setting $F_\text{ext}=0$.
   Essentially this is the solution damped harmonic oscillator case, and the
-  solution is either an underdamped, critically-damped, or over-damped motion.
-  %Eq.~\ref{eq:ode2}, and the solution is already given in
-  %Eq.~\ref{eq:damped-solution}.
-  The transient solution depends on the initial condition, and regardless of
-  the damping factor $b$, the solution will become negligible over time.
-\item A \textbf{steady-state solution} which does not depend on the initial
-  condition, only on the forcing function $\bm F_a$. Solving for the
-  steady-state solution will be left as a difficult calculus exercise.
-  This is the solution that we will focus on.
+  solution is either an under-damped, critically-damped, or over-damped motion.
+  The transient solution depends on the initial position and velocity, but
+  regardless of the damping factor $b$, the solution will become negligible
+  over time.
+  
+\item A \textbf{steady-state solution} that does not depend on the initial
+  condition, \emph{only} on the forcing function $\bm F_\text{ext}$. Solving for
+  the steady-state solution will be left as a difficult calculus exercise.
+  We will instead focus on the solution.
 \end{itemize}
 The steady-state solution to the driven oscillator is a harmonic motion at the
-driving frequency $\omega_a$ of the external force:
+driving frequency $\omega_\text{ext}$ of the external force:
 \begin{important-equation}
-  x(t)=A\cos(\omega_a t+\theta)
+  x(t)=A\cos(\omega_\text{ext}t+\theta)
+  \quad\text{(driven oscillator)}S
   \label{eq:gen-solution3}
 \end{important-equation}
 %(For those who are interested, Appendix X shows how the steady-state solution
 %is derived.)
-The amplitude of the oscillation $A$ depends on the natural frequency of the
-undamped simple harmonic oscillator $\omega$ (which is a constant), and the
-driving frequency $\omega_a$ of the forcing function:
+The amplitude of the driven oscillation $A$ depends on both the natural
+frequency of the simple harmonic oscillator $\omega$ (which is a constant), and
+the driving frequency $\omega_\text{ext}$ of the forcing function:
 \begin{important-equation}
-  A=\frac F{\sqrt{m^2(\omega^2-\omega_a^2)^2+b^2\omega_a^2}}
+  A=\frac F{\sqrt{m^2(\omega^2-\omega_\text{ext}^2)^2+b^2\omega_\text{ext}^2}}
   \label{eq:amplitude1}
 \end{important-equation}
 In other words, the amplitude of the driven oscillator is a function of the
-driving frequency, i.e.\ $A=A(\omega_a)$.
+driving frequency, i.e.\ $A=A(\omega_\text{ext})$.
 %And the phase contant is given by:
 %\begin{equation}
-%  \tan\theta_0=\frac{b\omega_a}{m(\omega^2-\omega_a^2)}
+%  \tan\theta_0=\frac{b\omega_\ext{ext}}{m(\omega^2-\omega_a^2)}
 %\end{equation}
-Maximum amplitude $A=A_\text{max}$ occurs when $\diff A{\omega'}=0$, which is a
-bit difficult and messy to solve. Instead, we can accomplish the same goal by
-minimizing the  denominator in Eq.~\ref{eq:amplitude1}, i.e.\ taking the
-derivative of the demominator only with respect to external frequency
-$\omega_a$, and setting the derivative to 0:
+Maximum amplitude $A=A_\text{max}$ occurs when $\diff A{\omega_\text{ext}}=0$,
+which is a bit difficult and messy to solve. Instead, we can accomplish the
+same goal by minimizing the  denominator in Eq.~\ref{eq:amplitude1}, i.e.\
+taking the derivative of the denominator only with respect to external
+frequency $\omega_\text{ext}$, and setting the derivative to 0:
 \begin{equation*}
-  \diff{}{\omega_a}\left[m^2(\omega^2-\omega_a^2)^2+b^2\omega_a^2\right]=0
+  \diff{}{\omega_\text{ext}}
+  \left[m^2(\omega^2-\omega_\text{ext}\text{ext}^2)^2+b^2\omega_\text{ext}^2\right]
+  =0
 \end{equation*}
-Taking the derivative and solving for $\omega_a$, we find that maximum
+Taking the derivative and solving for $\omega_\text{ext}$, we find that maximum
 amplitude $A_\text{max}$ occurs when the driving frequency is
-\emph{approximately} equal to the natural frequency of the damped system:
+\emph{approximately} equal to the damped natural frequency:
 %i.e.\ $\omega_a\approx\omega'$.
 \begin{important-equation}
-  \omega_a=\sqrt{\omega^2-\frac{b^2}{2m^2}}\approx\omega'
+  \omega_\text{ext}=\sqrt{\omega^2-\frac{b^2}{2m^2}}\approx\omega'
 \end{important-equation}
 Note that the terms inside the square root is \emph{not} the same as in
 Eq.~\ref{damping1}!
@@ -1287,16 +1347,16 @@ Eq.~\ref{damping1}!
 %maximum amplitude occurs at a frequency that is very close to (albeit slightly
 %different from) 
 
-We can plot the amplitude response to different driving frequencies $\omega_a$
-(i.e.\ plotting amplitude $A$ as a function of $\omega_a$), as shown in
-Fig.~\ref{fig:amp-response}.
+We can plot the amplitude response to different driving frequencies
+$\omega_\text{ext}$ (i.e.\ plotting amplitude $A$ as a function of
+$\omega_\text{ext}$), as shown in Fig.~\ref{fig:amp-response}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
         width=3.3in,
-        xmin=0,xmax=3, xlabel=Driving Frequency ($\omega_a$),
-        xtick={0,1,2,3}, xticklabels={0,$\omega$,$2\omega$,$3\omega$},
+        xmin=0,xmax=3, xlabel=Driving Frequency ($\omega_\text{ext}$),
+        xtick={0,1,2,3}, xticklabels={0,$\omega_0$,$2\omega_0$,$3\omega_0$},
         ymin=0,ymax=6, ylabel=Relative Amplitude ($A$),
         ytick={0,1,2,3,4,5,6}
       ]
@@ -1305,62 +1365,63 @@ Fig.~\ref{fig:amp-response}.
         samples=50,
         domain=0:3,
         very thick]{1/sqrt((1-x^2)^2+x^2)};
-      \addlegendentry{$\frac b{2m}=\frac12\omega$}
+      \addlegendentry{$\frac b{2m}=\frac12\omega_0$}
       \addplot[
         color=red!50,
         samples=80,
         domain=0:3,
         very thick]{1/sqrt((1-x^2)^2+x^2/4)};
-      \addlegendentry{$\frac b{2m}=\frac14\omega$}
+      \addlegendentry{$\frac b{2m}=\frac14\omega_0$}
       \addplot[
         color=red!75,
         samples=250,
         domain=0:3,
         very thick]{1/sqrt((1-x^2)^2+x^2/16)};
-      \addlegendentry{$\frac b{2m}=\frac18\omega$}
+      \addlegendentry{$\frac b{2m}=\frac18\omega_0$}
       \addplot[
         color=red,
         samples=400,
         domain=0:3,
         very thick]{1/sqrt((1-x^2)^2+x^2/32)};
-      \addlegendentry{$\frac b{2m}=\frac1{16}\omega$}
+      \addlegendentry{$\frac b{2m}=\frac1{16}\omega_0$}
     \end{axis}
   \end{tikzpicture}
-  \caption{Amplitude response to the driving frequency $\omega_a$.}
+  \caption{Amplitude response to the driving frequency $\omega_\text{ext}$.}
   \label{fig:amp-response}
 \end{figure}
 It shows that, for a lightly-damped system (i.e.\ damping factor $b$ much
 smaller than critical), amplitude response is greatest when
-$\omega_a\approx\omega'\approx\omega$, and that lower the damping factor $b$,
-the higher and narrower the peak is. But as the damping factor increases, and
-the damping force begin to dominate, the maximum amplitude will occur at lower
-and lower frequencies. Once the driven oscillator has reached its maximum
-amplitude for that driving frequency, the power delivered to the system by the
-forcing function will be equal to the power dissipated by the damping force(s).
+$\omega_\text{ext}\approx\omega'\approx\omega$, and that lower the damping
+factor $b$, the higher and narrower the peak is. But as the damping factor
+increases, and the damping force begin to dominate, the maximum amplitude will
+occur at lower and lower frequencies. Once the driven oscillator has reached
+its maximum amplitude for that driving frequency, the power delivered to the
+system by the forcing function will be equal to the power dissipated by the
+damping force(s).
 
 The phase constant $\theta$ in Eq.\ref{eq:gen-solution3} also depends on the
-driving frequency $\omega_a$.
+driving frequency $\omega_\text{ext}$.
 \begin{important-equation}
-  \tan\theta=\frac{b\omega_a}{m(\omega^2-\omega_a^2)}
+  \tan\theta=\frac{b\omega_\text{ext}}{m(\omega^2-\omega_\text{ext}^2)}
   \label{eq:forced-oscillator-phase-shift}
 \end{important-equation}
-When $\omega_a=\omega$ is substituted into the phase shift expression, the
-right-hand side becomes undefined. From this, we obtain a phase shift of
+When $\omega_\text{ext}=\omega$ is substituted into the phase shift expression,
+the right-hand side becomes undefined. From this, we obtain a phase shift of
 $\theta=\pi/2$. Taking derivative of $x(t)$ for velocity $v(t)$, and
 substituting $\theta=\pi/2$:
 \begin{equation}
   v(t)=\dot x
-  =-A\omega_a\sin(\omega_a t-\frac{\pi}2)
-  =A\omega_a\cos(\omega_a t)
+  =-A\omega_\text{ext}\sin(\omega_\text{ext}t-\frac{\pi}2)
+  =A\omega_\text{ext}\cos(\omega_\text{ext}t)
 \end{equation}
 At resonance, the object is always moving in the same direction as the
 driving force:
 \begin{align*}
-  v(t)&=A\omega_a\cos(\omega_a t)\\
-  F_a(t)&=F\cos(\omega_a t)
+  v(t)&=A\omega_\text{ext}\cos(\omega_\text{ext}t)\\
+  F_\text{ext}(t)&=F\cos(\omega_\text{ext}t)
 \end{align*}
-This also makes sense from a work-energy perspective, because now the
-external force is doing positive work to the system.
+This also makes sense from a work-energy perspective, because now the external
+force is doing positive work to the system.
 
 %\textbf{Resonance} is caused by in-phase excitation near the natural
 %frequency. This means that the frequency of the driving force is

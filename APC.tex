@@ -180,16 +180,16 @@
 %-----------------------------------------------------------------------------
 
 \titlepage % Output the title page
-	{\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
-	{ % Title(s) and author(s)
-		\centering\sffamily % Font styling
-		{\Huge\bfseries AP Physics C Made Easy\par} % Book title
-		\vspace{16pt} % Vertical whitespace
-		{\LARGE With Some Calulus\par} % Subtitle
-		\vspace{24pt} % Vertical whitespace
-		{\huge\bfseries Timothy M.\ Leung\par} % Author name
-	}
-
+    {\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+    { % Title(s) and author(s)
+      \centering\sffamily % Font styling
+	  {\Huge\bfseries AP Physics C Made Easy\par} % Book title
+	  \vspace{16pt} % Vertical whitespace
+		 {\LARGE With Some Calulus\par} % Subtitle
+		 \vspace{24pt} % Vertical whitespace
+		        {\huge\bfseries Timothy M.\ Leung\par} % Author name
+    }
+    
 %-----------------------------------------------------------------------------
 %	COPYRIGHT PAGE
 %-----------------------------------------------------------------------------
@@ -204,9 +204,17 @@
 
 \noindent \textsc{\href{https://www.latextemplates.com/template/legrand-orange-book}{book-website.com}}\\ % URL
 
-\noindent Licensed under the Creative Commons Attribution-NonCommercial 4.0 License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{https://creativecommons.org/licenses/by-nc-sa/4.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 4.0
+License (the ``License''). You may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+\url{https://creativecommons.org/licenses/by-nc-sa/4.0}. Unless required by
+applicable law or agreed to in writing, software distributed under the License
+is distributed on an \textsc{``as is'' basis, without warranties or conditions
+  of any kind}, either express or implied. See the License for the specific
+language governing permissions and limitations under the License.\\
+% License information, replace this with your own license (if any)
 
-\noindent \textit{First Draft, December 2025} % Printing/edition date
+\noindent\textit{First Draft, December 2025} % Printing/edition date
 
 
 
@@ -231,8 +239,10 @@
 %	PART I: Mechanics
 %-----------------------------------------------------------------------------
 
-%PART\part{Mechanics}
-%PART\label{part:mechanics}
+%\part{Mechanics}
+%\label{part:mechanics}
+
+\part{Dynamics}
 
 \input{kinematics-calculus/PhysAPC-01b-kinematicsHandout}
 \input{kinematics-calculus/PhysAPC-01c-motionGraphs}
@@ -247,6 +257,11 @@
 
 \chapterimage{orange1.jpg}
 \input{centreOfMass/CM}
+
+
+
+\part{Periodic Motion}
+
 \input{circularMotion/PhysAPC-06-circMotion}
 \input{rotationalMotion/rotationalMotion}
 
@@ -254,19 +269,29 @@
 \input{harmonicMotion/harmonicMotion}
 %\input{harmonicMotion/harmonicMotion-practice-questions}
 
+
+\part{Gravity}
+
 \chapterimage{universalGravitation/54371346378-f762763e96-o}
 \input{universalGravitation/univGravity}
 
-%TEMP\part{Electricity and Magnetism}
-%TEMP
-%TEMP\input{electrostatics/PhysAPC-14-Electrostatics}
-%TEMP\input{electrostatics2/PhysAPC-15-gaussLaw}
-%TEMP\input{capacitors-calculus/PhysAPC-16-Capacitors}
-%TEMP\input{magnetism/PhysAPC-17-magnetism1}
-%TEMP\input{magnetism2/PhysAPC-18-faradaysLaw}
-%TEMP%\input{../magnetism3/PhysAPC-19-faradaysLawAsymmetry}
-%TEMP\input{circuits1-calculus/PhysAPC-20-Circuits}
-%TEMP\input{circuits2-calculus/PhysAPC-21-circuitAnalysis2}
+%\part{Electricity and Magnetism}
+
+\part{Electrostatics}
+
+\input{electrostatics/PhysAPC-14-Electrostatics}
+\input{electrostatics2/PhysAPC-15-gaussLaw}
+\input{capacitors-calculus/PhysAPC-16-Capacitors}
+
+\part{Magnetism}
+  
+\input{magnetism/PhysAPC-17-magnetism1}
+\input{magnetism2/PhysAPC-18-faradaysLaw}
+%\input{../magnetism3/PhysAPC-19-faradaysLawAsymmetry}
+
+\part{Circuit Analysis}
+\input{circuits1-calculus/PhysAPC-20-Circuits}
+\input{circuits2-calculus/PhysAPC-21-circuitAnalysis2}
 
 
 
@@ -279,9 +304,6 @@
 %%-----------------------------------------------------------------------------
 %
 %\chapterimage{orange2.jpg} % Chapter heading image
-%\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
-%\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
-%
 %%------------------------------------------------
 %
 %\chapter{Sectioning Examples}
@@ -353,28 +375,13 @@
 %	\item Second numbered item
 %	\item Third numbered item
 %\end{enumerate}
-%
-%\subsection{Bullet Point List}\index{Lists!Bullet Points}
-%
-%\begin{itemize}
-%	\item First bullet point item
-%	\begin{itemize}
-%		\item First indented bullet point item
-%		\item Second indented bullet point item
-%		\begin{itemize}
-%			\item First second-level indented bullet point item
-%		\end{itemize}
-%	\end{itemize}
-%	\item Second bullet point item
-%	\item Third bullet point item
-%\end{itemize}
-%
+
 %\subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
 %
 %\begin{description}
-%	\item[Name] Description
-%	\item[Word] Definition
-%	\item[Comment] Elaboration
+%\item[Name] Description
+%\item[Word] Definition
+%\item[Comment] Elaboration
 %\end{description}
 %
 %%------------------------------------------------
@@ -545,9 +552,6 @@
 %%-----------------------------------------------------------------------------
 %
 %\chapterimage{orange3.jpg} % Chapter heading image
-%\chapterspaceabove{6.25cm} % Whitespace from the top of the page to the chapter title on chapter pages
-%\chapterspacebelow{7.5cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
-%
 %%------------------------------------------------
 %
 %\chapter{Presenting Information and Results with a Long Chapter Title}
@@ -651,12 +655,14 @@
 %	APPENDICES
 %-----------------------------------------------------------------------------
 
-\chapterimage{orange2.jpg} % Chapter heading image
-%\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
-%\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+%\chapterimage{} % Chapter heading image
+%\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
+%\chapterspacebelow{2cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
 %
-\begin{appendices}
+\chapterimage{orange2} % Chapter heading image
 
+\begin{appendices}
+  
   % Change the chapter name to Appendix, i.e. "Appendix A: Title", instead of
   % "Chapter A: Title" in the headers
   \renewcommand{\chaptername}{Appendix}

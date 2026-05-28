@@ -15,14 +15,16 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 %	CLASS CONFIGURATION
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{LegrandOrangeBook}[2022/01/26 The Legrand Orange Book Class v3.0]
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}} % Pass through any options to the base class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+% Pass through any options to the base class
+
 \ProcessOptions\relax % Process given options
 
 \LoadClass{book} % Load the base class
@@ -34,17 +36,23 @@
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Images/}} % Specifies the directory where pictures are stored
 
-\usepackage{float} % Allows more precisely positioning floats e.g. \begin{figure}[H]
+\usepackage{float}
+% Allows more precisely positioning floats e.g. \begin{figure}[H]
 
-\usepackage[usenames, svgnames, table]{xcolor} % Required for defining and using custom colors
+\usepackage[usenames, svgnames, table]{xcolor}
+% Required for defining and using custom colors
 
-\usepackage{calc} % For simpler calculations - used for spacing the index letter headings correctly
+\usepackage{calc}
+% For simpler calculations; used for spacing the index letter headings correctly
 
-\usepackage{changepage} % Required for temporarily indenting text blocks
+\usepackage{changepage}
+% Required for temporarily indenting text blocks
 
-\usepackage[toc]{appendix} % Required for the appendices chapters
+\usepackage[toc]{appendix}
+% Required for the appendices chapters
 
-\usepackage{etoolbox} % Required for conditional logic and easily changing commands
+\usepackage{etoolbox}
+% Required for conditional logic and easily changing commands
 
 %-----------------------------------------------------------------------------
 %	MARGINS
@@ -55,9 +63,10 @@
 \geometry{
   paperheight=9.25in,
   paperwidth=7.25in,
+  %letterpaper,
   top=2cm, %3cm, % Top margin
   bottom=2cm,%2.5cm, % Bottom margin
-  inner=2.2cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
+  inner=1.5cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
   outer=1.5cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
   headsep=10pt, % Space from the top margin to the baseline of the header
   headheight=0.5cm, % Header height
@@ -91,8 +100,13 @@
 
 \renewcommand{\headrulewidth}{0.5pt} % Top horizontal rule thickness
 
-\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.~#1}{}} % Redefine the styling of the current chapter name in the header
-\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection~#1}{}} % Redefine the styling of the current section name in the header
+\renewcommand{\chaptermark}[1]{
+  \markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.~#1}{}
+} % Redefine the styling of the current chapter name in the header
+
+\renewcommand{\sectionmark}[1]{
+  \markright{\sffamily\normalsize\thesection~#1}{}
+} % Redefine the styling of the current section name in the header
 
 \fancyhf{} % Clear default headers and footers
 
@@ -136,12 +150,14 @@
       anchor=north west,
       inner sep=0pt,
       xshift=\Gm@lmargin,
-      yshift=-\Gm@tmargin] at (current page.north west) {\fontsize{220pt}{220pt}\selectfont\sffamily\bfseries\textcolor{ocre!40}{#1}}; % Part number
+      yshift=-\Gm@tmargin] at (current page.north west) {
+      \fontsize{220pt}{220pt}\selectfont\sffamily\bfseries\textcolor{ocre!40}{#1}}; % Part number
     \node[
       anchor=north east,
       inner sep=0pt,
       xshift=-\Gm@rmargin,
-      yshift=-\Gm@tmargin] at (current page.north east) {\fontsize{30pt}{30pt}\selectfont\sffamily\bfseries\textcolor{white}{\strut #2}}; % Part title
+      yshift=-\Gm@tmargin] at (current page.north east) {
+      \fontsize{30pt}{30pt}\selectfont\sffamily\bfseries\textcolor{white}{\strut #2}}; % Part title
     \node[
       anchor=south east,
       inner sep=0pt,
@@ -188,7 +204,8 @@
       \node[
 	anchor=north west, % Anchor point on the image
 	inner sep=0pt, % Inner padding
-      ] at (current page.north west) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+      ] at (current page.north west) {
+        \includegraphics[width=\paperwidth]{\thechapterimage}};
     }
     % Box with the chapter title
     \draw[anchor=west] (current page.north west) node [
@@ -238,7 +255,8 @@
     {\section} % Section type being modified
     [block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
     {\bfseries\sffamily\Large} % Format of the whole section
-    {\llap{\textcolor{ocre}{\thesection}\hspace{1em}}#1} % Format of the section label
+    %{\llap{\textcolor{ocre}{\thesection}\hspace{1em}}#1} % Format of the section label
+    {\textcolor{ocre}{\thesection}\hspace{1em}#1}
     {0cm} % Space between the title and label
     {} % Code before the label
     [] % Code after the label
@@ -259,8 +277,9 @@
 \titleformat
     {\subsection} % Section type being modified
     [block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
-    {\bfseries\sffamily\large} % Format of the whole section
-    {\llap{\textcolor{ocre}{\thesubsection}\hspace{1em}}#1} % Format of the section label
+    {\bfseries\sffamily\large} % Format of the whole sectio
+    %{\llap{\textcolor{ocre}{\thesubsection}\hspace{1em}}#1} % Format of the section label
+    {\textcolor{ocre}{\thesubsection}\hspace{1em}#1}
     {0cm} % Space between the title and label
     {} % Code before the label
     [] % Code after the label
@@ -282,7 +301,8 @@
     {\subsubsection} % Section type being modified
     [block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
     {\bfseries\sffamily} % Format of the whole section
-    {\llap{{\thesubsubsection}\hspace{1em}}#1} % Format of the section label
+    %{\llap{{\thesubsubsection}\hspace{1em}}#1} % Format of the section label
+    {{\thesubsubsection}\hspace{1em}#1}
     {0cm} % Space between the title and label
     {} % Code before the label
     [] % Code after the label

@@ -63,16 +63,22 @@ $y$ and $z$ axes respectively.
 Once the coordinate system has been established, we can describe where any
 object is. \textbf{Position} is a vector describing the location of an object
 in a coordinate system. In the IJK notation, position of an object is
-expressed by its $x$, $y$ and $z$ components. If the object is in motion, then
-the position vector is a function of time $t$.
-\begin{equation*}
+expressed by its $x$, $y$ and $z$ components. An example is shown in
+Fig.~\ref{fig:position}. If the object is in motion, then the position vector,
+and all the components, are all functions of time $t$:
+\begin{important-equation}
   \bm r(t)=
-  \underbrace{x(t)\iii}_{\bm x(t)} +
-  \underbrace{y(t)\jjj}_{\bm y(t)} +
-  \underbrace{z(t)\kkk}_{\bm z(t)}
-\end{equation*}
-An example is shown in Fig.~\ref{fig:position}. The SI unit for position is a
-\emph{metre} (\si{\metre}).
+  \underbracket[1pt]{x(t)\iii}_{\bm x(t)} +
+  \underbracket[1pt]{y(t)\jjj}_{\bm y(t)} +
+  \underbracket[1pt]{z(t)\kkk}_{\bm z(t)}
+\end{important-equation}
+Position $\bm r(t)$ is a function of time because an object can only be at one
+place at any time. The function is also continuous, in that an object cannot
+teleport to another point in space. Likewise, $\bm r(t)$ must also be
+continuously differentiable because it cannot have infinite or undefined
+acceleration.
+
+The SI unit for position is a \emph{metre} (\si{\metre}).
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.6]
@@ -94,12 +100,12 @@ An example is shown in Fig.~\ref{fig:position}. The SI unit for position is a
 
 
 When an object moves, the \textbf{displacement} is the change in position from
-the initial position ($\bm r_o$) to the current position ($\bm r(t)$) within
-the same coordinate system. Since the current position is a function of time,
-so is displacement:
-\begin{equation}
+the initial position ($\bm r_0$) to the current position ($\bm r(t)$) within
+the same coordinate system. Since the current position is a continuous and
+continuously differentiable function of time, so is displacement:
+\begin{important-equation}
   \Delta\bm r(t)=\bm r(t)-\bm r_0
-\end{equation}
+\end{important-equation}
 A two-dimensional case is illustrated graphcin Fig.~\ref{fig:displacement}.
 \begin{figure}[ht]
   \centering
@@ -115,12 +121,12 @@ A two-dimensional case is illustrated graphcin Fig.~\ref{fig:displacement}.
 \end{figure}
 In the cartesian coordinate system, the $x$, $y$ and $z$ axes are linearly
 indepedent, displacement can be expressed by its components:
-\begin{equation}
-  \Delta\bm r(t)=%\Delta\bm r_x(t)-\bm r_i
-  \underbrace{\left(x(t)-x_i\right)}_{\Delta r_x}\iii +
-  \underbrace{\left(y(t)-y_i\right)}_{\Delta r_y}\jjj +
-  \underbrace{\left(z(t)-z_i\right)}_{\Delta r_z}\kkk
-\end{equation}
+\begin{important-equation}
+  \Delta\bm r(t)=
+  \underbracket[1pt]{\left(x(t)-x_0\right)}_{\Delta r_x}\iii +
+  \underbracket[1pt]{\left(y(t)-y_0\right)}_{\Delta r_y}\jjj +
+  \underbracket[1pt]{\left(z(t)-z_0\right)}_{\Delta r_z}\kkk
+\end{important-equation}
 %The use of IJK notation makes vector addition and subtraction less prone to
 %errors.
 Like position, the SI unit for displacement is also a \emph{metre}. Note that
@@ -145,19 +151,24 @@ a scalar, it is not necessarily the same as distance:
 \subsection{Velocity}
 
 \textbf{Velocity} is a quantity used to describe how \emph{fast} an object is
-moving. If position $\bm r(t)$ is differentiable in time $t$, then its
-\textbf{instantaneous velocity} $\bm v(t)$ at any time $t$ can be found at any
-time $t$ by differentiating $\bm r$ with respect to $t$. The SI unit for
-velocity is \emph{metres per second} (\si{\metre\per\second}):
+moving. Since position $\bm r(t)$ is differentiable in time $t$, then the
+objectd \textbf{instantaneous velocity} $\bm v(t)$ at any time $t$ can be found
+by differentiating $\bm r$ with respect to $t$. The SI unit for velocity is
+\emph{metres per second} (\si{\metre\per\second}):
 \begin{important-equation}
-  \bm v(t)= \diff{\bm r(t)}t
+  \bm v(t)= \diff{\bm r}t
 \end{important-equation}
-Since position $\bm r(t)$ has $x(t)$, $y(t)$ and $z(t)$ components along the
+Velocity is a function of time because any object can only travel at one
+velocity at any given time; velocity is also a \emph{continuous} function of
+time because an object cannot have infinite or undefined acceleration. However,
+$\bm v(t)$ does not have to be continuously differentiable.
+
+As position $\bm r(t)$ has $x(t)$, $y(t)$ and $z(t)$ components along the
 (linearly independent) $\iii$, $\jjj$ and $\kkk$ directions, we can
 independently take the time derivative in every direction to obtain the
 velocity components $v_x$, $v_y$ and $v_z$ in those directions:
 \begin{equation}
-  \bm v(t)= \diff{\bm r}t=
+  \bm v(t)=
   \diff xt\iii + \diff yt\jjj + \diff zy\kkk =
   v_x\iii + v_y\jjj + v_z\kkk
 \end{equation}
@@ -194,9 +205,9 @@ The \textbf{average velocity} ($\overline{\bm v}$)
 %\emph{ensemble averages}, e.g.\ the average speeds of many particles, we use
 %the notation $\langle v\rangle$.}
 of an object is the displacement $\Delta\bm r$ over a finite time interval
-$\Delta t$:
+$\Delta t$ (the interval starts at $t_0$ and ends at the current time $t$):
 \begin{important-equation}
-  \overline{\bm v}(t)= \frac{\Delta\bm r(t)}{\Delta t}
+  \overline{\bm v}(t)= \frac{\Delta\bm v(t)}{\Delta t}
   =\frac{\int_{t_0}^t \bm r(t)dt}{t-t_0}
 \end{important-equation}
 Since displacement is a function of time, average velocity is also a function
@@ -253,14 +264,19 @@ speed is not the magnitude of the average velocity.}
 
 \subsection{Acceleration}
 
-In the same way that velocity is the rate of change in position with respect
-to time, \textbf{instantaneous acceleration} $\bm a(t)$ is the rate of change
-in velocity with respect to time, and the second time derivative of position.
+%In the same way that velocity is the rate of change in position with respect
+%to time,
+If velocity is a differentiable in time (or at least differentiable in some
+intervals of time), then \textbf{instantaneous acceleration} $\bm a(t)$ is the
+time rate of change of velocity, and the second time derivative of position.
 The SI unit for acceleration is \emph{metres per second squared}
 (\si{\metre\per\second\squared}):
 \begin{important-equation}
-  \bm a(t)= \diff{\bm v(t)}t=\diff[2]{\bm r(t)}t
+  \bm a(t)= \diff{\bm v}t=\diff[2]{\bm r}t
 \end{important-equation}
+From the second law of motion (see Chapter~\ref{chapter:dynamics}), since
+acceleration comes from the net force, which does not have to be continuous,
+acceleration does not have to be continous function in time.
 %Although in grades 11 and 12 physics courses, students deal almost exclusively
 %with constant ccceleration, in AP Physics, it must be understood that
 %acceleration can also vary with time, and that calculus must be used in many
@@ -273,13 +289,13 @@ The SI unit for acceleration is \emph{metres per second squared}
 Again, by the fundamental theorem of calculus, instantaneous velocity
 $\bm v(t)$ is the time integral of instantaneous acceleration $\bm a(t)$:
 \begin{important-equation}
-  \bm v(t)=\int\bm a(t)\dl t+\bm v_0 =
+  \bm v(t)=\int\bm a(t)\dl t+\mathcal V
 %  \left(
 %  \int a_x\iii +
 %  \int a_y\jjj +
 %  \int a_z\kkk \right)\dl t +\bm v_0
 \end{important-equation}
-where $\bm v_0$ is the constant of integration based on initial velocity at
+where $\mathcal V$ is the constant of integration based on initial velocity at
 $t=0$ (it does \emph{not} mean that $\bm v_0$ is the initial velocity!)
 
 
@@ -397,22 +413,18 @@ therefore rarely used.
 
 \subsection{Kinematic Equations for Constant Acceleration}
 
-Although kinematic problems in often require calculus,
-%\footnote{Unlike
-%your AP Calculus exams, the differentiation/integration in AP Physics will be
-%fairly straightforward},
-basic kinematic equations for \emph{constant} acceleration are still a very
-powerful tool. For constant acceleration $\bm a$, velocity can be obtained by
-integrating in time:
+Although kinematic problems often require calculus, kinematic equations for
+\emph{constant} acceleration are still a very powerful tool. For constant
+acceleration $\bm a$, velocity can be obtained by integrating in time:
 \begin{equation}
-  \bm v(t)=\int\bm a\dl t\quad\rightarrow\quad
+  \bm v(t)=\int\bm a\dl t\quad\to\quad
   \boxed{\bm v(t)=\bm v_0+\bm at}
   \label{eq:big5-1}
 \end{equation}
 where $\bm v_0$ is the initial velocity at $t=0$. Integrating again for the
 position vector:
 \begin{equation}
-  \bm r(t)=\int \bm v\dl t\quad\rightarrow\quad
+  \bm r(t)=\int \bm v\dl t\quad\to\quad
   \boxed{\bm r(t)=\bm r_0+\bm v_0t+\frac12 \bm at^2}
   \label{eq:big5-2}
 \end{equation}
