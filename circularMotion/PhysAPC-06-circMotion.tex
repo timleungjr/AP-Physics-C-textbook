@@ -365,7 +365,7 @@ Analogous to the relation between velocity $\bm v$ and acceleration $\bm a$,
 the time derivative of angular velocity $\omega(t)$ is
 \textbf{angular acceleration}:
 \begin{important-equation}
-  \alpha=\diff{\omega}t=\diff[2]{\theta}t
+  \alpha(t)=\diff{\omega}t=\diff[2]{\theta}t
 \end{important-equation}
 The unit for angular acceleration is \emph{radian per second squared}
 (\si{\radian\per\second\squared}). The sign convention for $\alpha$ is the same
@@ -373,7 +373,7 @@ as for $\theta$ and $\omega$. Similar to the relationship between velocity and
 angular velocity, \textbf{tangential acceleration} $a_t$ along the direction of
 motion is related to angular acceleration $\alpha$ by the radius $r$:
 \begin{equation}
-  a_t(t)=\diff vt=r\diff{\omega}t=r\alpha
+  a_t(t)=\diff vt=r\diff{\omega}t=r\alpha(t)
 \end{equation}
 For \emph{uniform} circular motion, $\omega$ is constant, $\alpha=0$, and
 therefore $a_t=0$.
@@ -600,12 +600,10 @@ centre of the circular path (i.e.\ the inwards radial direction
 $-\hat{\bm r}$), giving us the equation for centripetal acceleration, which can
 be expressed using the speed $v$ or the angular speed $\omega=v/r$ of the
 object:
-\begin{equation}
-  \boxed{
-    \bm a_c=-\frac{v^2}r\hat{\bm r}=-\omega^2r\hat{\bm r}
-  }
+\begin{important-equation}
+  \bm a_c=-\frac{v^2}r\hat{\bm r}=-\omega^2r\hat{\bm r}
   \label{eq:centripetal-acceleration}
-\end{equation}
+\end{important-equation}
 
 
 
@@ -635,9 +633,9 @@ acceleration (Fig.~\ref{fig:circular-motion-accelerations}):
   to the circle, along the angular direction $\hat{\bm\theta}$.
 \end{itemize}
 The total acceleration is the vector sum of both components:
-\begin{equation}
+\begin{important-equation}
   \bm a = \bm a_c+\bm a_t
-\end{equation}
+\end{important-equation}
 
 
 \subsection{Period \& Frequency}
