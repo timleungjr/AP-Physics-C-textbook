@@ -10,12 +10,12 @@ document, we aim to approach this topic from a logical perspective that
 combines knowledge in kinematics as well as dynamics.
 
 We start with some definition at are (unfortunately) not very useful:
-\begin{itemize}[nosep]
+\begin{itemize}[itemsep=6pt]
 \item \textbf{Energy} is the ability to do work.
 \item \textbf{Work} is the mechanism in which energy is transformed.
 \end{itemize}
 At a minimum, these definitions at least tell two things:
-\begin{itemize}
+\begin{itemize}[itemsep=6pt]
 \item The concepts of work and energy cannot be separated: Defining work
   without leading to energy is rather pointless; defining energy without first
   referring to work makes no sense.
@@ -29,20 +29,20 @@ to define different forms of energies.
 \label{sec:mechwork}
 An infinitesimal amount of \textbf{mechanical work} $\dl W$ is done when a
 force $\bm F$ displaces an object by an infinitesimal amount
-$\dl{\bm x}$. If the force moves an object along the path $\mathcal C$, the
+$\dl{\bm r}$. If the force moves an object along the path $\mathcal C$, the
 total work $W$ done by the force is defined by the integral:
 \begin{important-equation}
-  W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm x)\cdot\dl{\bm x}
+  W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm r)\cdot\dl{\bm r}
   \label{work-definition}
 \end{important-equation}
 While both force and displacement are vectors, work is a scalar quantity. Work
 by $\bm F$ can be positive or negative depending on the dot product. In
-general, the amount of work done ($W$) depends on the path $\mathcal C$. %From
-%Eq.~(\ref{work-definition}), we recognize that
+general, the amount of work done depends on the path $\mathcal C$.
+%From Eq.~(\ref{work-definition}), we recognize that
 No work is done if the force is perpendicular to displacement, (i.e.\
-$\bm F\cdot\dl{\bm x}=0$) which means that the force did not \emph{cause}
+$\bm F\cdot\dl{\bm r}=0$) which means that the force did not \emph{cause}
 the displacement, or if the object does not move, (i.e.\
-$\dl{\bm x}=\bm 0$), or if no force is applied during motion (i.e.\
+$\dl{\bm r}=\bm 0$), or if no force is applied during motion (i.e.\
 $\bm F=\bm 0$).
 
 For motion confined to one direction along a one-dimensional coordinate
@@ -65,12 +65,10 @@ simplifies to just the dot product of two vectors\endnote{We must remember how
     \bm A\cdot\bm B= A_xB_x+A_yB_y+A_zB_z
   \end{equation*}
 }:
-\begin{equation}
-  \boxed{
-    W = \bm F\cdot\Delta\bm x=F\Delta x\cos\theta
-  }
+\begin{important-equation}
+  W = \bm F\cdot\Delta\bm r=F\Delta r\cos\theta
   \label{eq:no-integration}
-\end{equation}
+\end{important-equation}
 where $\theta$ is the angle between the force and displacement vectors. We can
 also use the above equation if the force $\bm F$ is \emph{averaged} over
 the displacement, i.e.\
@@ -110,17 +108,17 @@ the displacement, i.e.\
   \end{displaymath}
   And if the speeds are given in a probability density function $f(v)$,
   \begin{displaymath}
-    \langle v\rangle = \int_0^\infty vf(v)f\dl v
+    \langle v\rangle = \int_0^\infty vf(v)\dl v
   \end{displaymath}
   This type of averaging is called an \textbf{ensemble average}. While it is
   crucial to know the difference between different types of averaging, when
   solving problems, it is usually very clear from the context. 
 \end{remark}
 
-At this moment, it is unclear what the force $\bm F$ is. Whereas we use the
-\emph{net force} when calculating acceleration in dynamics problems, when
-calculating the work done by ``a force'', it could mean:
-\begin{enumerate}[leftmargin=12pt]
+At this moment, we have not specified what the force $\bm F$ is. Whereas we
+always use the \emph{net force} when calculating acceleration in dynamics
+problems, when calculating the work done by ``a force'', it could mean:
+\begin{enumerate}[itemsep=6pt]
 \item\textbf{Work done by a \emph{specific} force.} As you have no doubt seen
   in dynamics problems, there are usually multiple forces acting on an object.
   We can calculate, based on the motion of the object, how much work is done by
@@ -133,7 +131,7 @@ calculating the work done by ``a force'', it could mean:
   \begin{equation*}
     W_\text{net}
     = \sum_i W_i
-    =\int_{\mathcal C}\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
+    =\int_{\mathcal C}\bm F_\text{net}(\bm r)\cdot\dl{\bm r}
   \end{equation*}
   The net work allows us to study what is the overall conservation of energy
   to the entire object.
@@ -142,7 +140,7 @@ calculating the work done by ``a force'', it could mean:
 \begin{example}
   A worker pushes a heavy crate up a ramp with a varying applied force. The
   free-body diagram for this problem is shown below. Here, four forces act on
-  the crate: gravity $\bm F_g$, normal force $\bm F_n$, kinetic
+  the crate: gravitational force $\bm F_g$, normal force $\bm F_n$, kinetic
   friction $\bm f$, and applied force $\bm F_a(x)$, which is expressed
   as a function of the crate's displacement as it moves.
   \begin{center}
@@ -167,16 +165,15 @@ calculating the work done by ``a force'', it could mean:
   \item Work done by the normal force is zero, because $\bm F_n$ is
     perpendicular to the direction of motion:
     \begin{equation*}
-      W_n=\int\underbrace{\bm F_n\cdot\dl{\bm x}}_{=0}=0
+      W_n=\int\underbracket[1pt]{\bm F_n\cdot\dl{\bm r}}_{=0}=0
     \end{equation*}
   \item Work done by kinetic friction is negative, because $\bm f$ is in
     the opposite direction to motion:
     \begin{equation*}
-      W_f=\int\bm f\cdot\dl{\bm x}=-\int f\dl x=-\mu_k F_n\Delta x<0
+      W_f=\int\bm f\cdot\dl{\bm r}=-\int f\dl r=-\mu_k F_n\Delta x<0
     \end{equation*}
   \item Work done by gravity is also negative, because the component of
     gravity along the direction of motion is in the opposite direction.
-    (This is badly written!!)
   \item The work done by the applied force is positive, because applied force
     is in the same direction as motion.
     \begin{equation*}
@@ -187,17 +184,20 @@ calculating the work done by ``a force'', it could mean:
   force:
   \begin{align*}
     W_\text{net} &=W_a+W_n+W_g +W_f\\
-    &=\int\left(\bm F_a+\bm F_n+\bm F_g+\bm F_f\right)
-    \cdot\dl{\bm x} =\int\bm F_\text{net}\cdot\dl{\bm x}
+    &=\int\underbracket[1pt]{
+      \left(\bm F_a+\bm F_n+\bm F_g+\bm F_f\right)
+    }_{\bm F_\text{net}}\cdot\dl{\bm r} =\int\bm F_\text{net}\cdot\dl{\bm r}
   \end{align*}
 \end{example}
 
 
 
-\section{Kinetic Energy}
+\section{Definition of Kinetic Energy}
 \label{sec:transKE}
-When a net force acts on an object (with constant mass) to accelerate it, work
-is done, For motion in one dimension, the total/net work done is given by:
+When a net force acts on an object (with constant mass) to accelerate it, we
+can calculate the consequence of the work done by the net force. For motion in
+one direction along a one-dimensional coordinate system, the total/net work
+done is given by:
 \begin{equation}
   W_\text{net}
   =\int_{x_0}^{x_1}F_\text{net}(x)\dl x
@@ -218,7 +218,7 @@ $v_1=v(x_1)$. Evaluating this integral, we have:
   =\frac12mv_1^2-\frac12mv_0^2
   =\Delta K
 \end{equation*}
-where $K$ is defined as the \textbf{kinetic energy}:
+where $K$ is defined as the object's \textbf{kinetic energy}:
 \begin{important-equation}
   K=\frac12mv^2
   \label{eq:KE-definition}
@@ -234,8 +234,6 @@ The definition of kinetic energy came from this integration: when the net force
 on an object is doing work, that work is equal to the change in
 \emph{something}, and we \emph{define} that quantity as the kinetic energy.
 This is known as the \textbf{work-energy principle}:
-%\footnote{Also known as the
-%\textbf{work-energy principle}, and \textbf{work-energy relationship}}:
 \begin{important-equation}
   W_\text{net}=\Delta K
   \label{work-energy-theorem}
@@ -258,7 +256,7 @@ motion problems quickly.}
   the complexity of the problem compared to the 1D case:
   \begin{equation*}
     W_\text{net}
-    = \int\bm F_\text{net}(\bm x)\cdot\dl{\bm x}
+    = \int\bm F_\text{net}(\bm r)\cdot\dl{\bm r}
     = \cdots = m\int_{\bm v_0}^{\bm v_1}\bm v\cdot\dl{\bm v}
   \end{equation*}
   The dot product is a lot easier to evaluate than you might think (albeit it
@@ -285,29 +283,41 @@ motion problems quickly.}
 \end{remark}
 Even though we are able to equate the net work done on an object to the change
 in kinetic energy in 1D, 2D and 3D cases, it should be noted that
-\begin{itemize}
+\begin{itemize}[itemsep=6pt]
 \item In a one-dimensional coordinate system, the net force on an object
   would always be either along the direction of motion, or opposite to
   motion. Therefore net force would \emph{always} do work, and there would
   always be a change in energy.
 \item In two or higher dimensions, the net force can be perpendicular to
   motion. Therefore the presence of a net force does \emph{not} mean that the
-  net force is doing work. A good example is in circular motion
+  net force is necessarily doing work. A good example is in circular motion
   (Chapter~\ref{chapter:circ-motion}), where the net force towards the centre of
   the circular path, called the centripetal force, can never do any work.
 \end{itemize}
 
 
 \begin{example}
-  A net force $F=4x$ (in newtons) acts on an object of mass \SI2{\kilo\gram} as
-  it moves along the $x$-axis from $x=1$ to $x=\SI5\metre$. Given that the
-  object is at rest at $x=1$,
-  \begin{enumerate}%[(a)]
-  \item Calculate the net work
-  \item What is the final speed of the object?
-  \end{enumerate}
+  A net force $F(x)=4x$ where $F$ is measured in newtons, and $x$ is measured in
+  metres, acts on an object of mass \SI2{\kilo\gram} as it moves along the
+  $x$-axis from $x=1$ to $x=\SI5\metre$. Given that the object is initially at
+  rest at $x=1$, What is the net work done on this object? And what is its
+  final speed?
 
-  \textbf{Solution:} Will be available when I am ready to write it out.
+  \textbf{Solution:} Since the net force is not constant, we have to
+  integrate from $x_\text{init}$ to $x_\text{final}$ to calculate the work done:
+  \begin{displaymath}
+    W_\text{net}=
+    \int F_\text{net}(x)\dl x=
+    \int_1^5 4x\dl x= 4\left[\frac{x^2}2\right]^5_1=\boxed{\SI{48}\joule}
+  \end{displaymath}
+  From the work-energy principle, the net work done is equal to the change in
+  the object's kinetic energy, therefore:
+  \begin{displaymath}
+    W_\text{net}=\Delta K=K_\text{final}=\frac12mv_\text{final}^2
+    \quad\longrightarrow\quad
+    v_\text{final}^2=\sqrt{\frac{2W_\text{net}}m}=
+    \sqrt{\frac{2(48)}2}=\boxed{\SI{6.9}{\metre\per\second}}
+  \end{displaymath}
 \end{example}
 
 
@@ -320,82 +330,112 @@ Unlike kinetic energy, forms of energy that can be stored are called
 \subsection{Gravitational Potential Energy}
 \label{section:gravitationalPE}
 
-Consider an object that is moving (free-falling) under the force of gravity,
-%near the surface of Earth,
-over a distance of $\Delta x$, as shown in Fig.~\ref{fig:falling1}. We have
-chosen a free fall because our goal is to isolate the work done by
-gravitational force alone, without worrying about any other forces.
+Consider an object that is moving (free-falling) under the gravitational force,
+through a displacement of $\Delta\bm r$, as shown in Figure~\ref{fig:falling1}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.6]
-    \draw[thick,fill=gray!10] (7.75,0) arc (75:105:30);
-    \draw[dashed] (-5,1.05)--+(10,0);
-    \draw[dashed] (-5,6)--+(10,0);
-    \draw[dashed] (-5,3)--+(10,0);
-    \draw[mass] (0,6) circle (.2) node[right=2]{$m$};
+    \draw[thick] (-4,0)--+(6,0) node[midway,below]{\small Earth}
+    node[right]{$h=0$};
+    
+    \draw[dashed] (-4,6)--+(6,0);
+    \draw[dashed] (-4,3)--+(6,0);
+    
+    \draw[mass] (0,6) circle (.2) node[above=3]{$m$};
     \draw[vector,red] (0,6)--+(0,-2) node[right]{$\bm F_g$};
-    \draw[vector] (-.5,6)--+(0,-3) node[midway,left]{$\Delta x$};
-    \draw[vector,blue] (-1.7,1.05)--+(0,4.95) node[midway,left]{$h_0$};
-    \draw[vector,blue] (-1,1)--+(0,2) node[midway,right]{$h_1$};
+    \draw[vector] (-.5,6)--+(0,-3) node[midway,left]{$\Delta\bm r$};
+    \draw[vector,blue] (-1.7,0)--+(0,6) node[midway,left]{$h_\text{init}$};
+    \draw[vector,blue] (-1,0)--+(0,3) node[midway,right]{$h_\text{final}$};
   \end{tikzpicture}
   \caption{Gravitational force doing positive work on a free-falling object.}
   \label{fig:falling1}
 \end{figure}
-When displacement $\Delta\bm x$ is small, acceleration due to gravity
-$\bm g$ can be considered to be constant, therefore
-$\bm F_g=m\bm g$ is a constant force. Work done by gravity can be
-calculated using Eq.~\ref{eq:no-integration}, and no integration is needed. If
-the object falls downwards, i.e.\ both $\bm F_g$ and $\Delta\bm x$ are
-downwards, work done by gravitational force ($W_g$) is positive. Since
-gravitational force \emph{is} the net force, work by gravity is the net work
-($W_g=W_\text{net}$). From the work-energy principle
-(Eq.~\ref{work-energy-theorem}), there is an increase in kinetic energy
-\emph{by the same amount as work}, and the object speeds up:
+\begin{remark}
+  Figure~\ref{fig:falling1} shows an object that is falling downwards, however,
+  we a free-falling object can also be moving upwards or sideways, as long as
+  gravitational force is the only force acting on it, i.e.\
+  $\bm F_g=\bm F_\text{net}$.
+\end{remark}
+We have specifically chosen a free fall because we want to isolate the work
+done by gravitational force alone, without worrying about any other forces.
+Since gravitational force is the net force, the work done by gravity is also
+the net work on the object as well, i.e.\ $W_\text{gravity}=W_\text{net}$.
+
+If displacement $\Delta\bm r$ is small, acceleration due to gravity $\bm g$ can
+be considered to be constant, therefore $\bm F_g=m\bm g$ is a constant force.
+Work done by gravity can be calculated withiout integration.
+%using Eq.~\ref{eq:no-integration}
+
+If the object falls downwards,
+%i.e.\ both $\bm F_g$ and $\Delta\bm x$ are downwards,
+work done by gravitational force ($W_g$) is positive.
+%Since
+%gravitational force \emph{is} the net force, work by gravity is the net work
+%($W_g=W_\text{net}$).
+From the work-energy principle (Eq.~\ref{work-energy-theorem}), there must be
+an increase in kinetic energy \emph{by the same amount as work}, and the object
+speeds up:
 \begin{equation*}
-  W_g=W_\text{net}=mg\Delta x>0 \quad\longrightarrow\quad \Delta K = W_g > 0
+  W_\text{gravity}=W_\text{net}=mg\Delta r>0
+  \quad\longrightarrow\quad
+  \Delta K = W_\text{gravity} > 0
 \end{equation*}
-Conversely, if the object moves upwards, i.e.\ $\bm F_g$ and $\Delta\bm x$ are
-in the opposite direction, then work done by gravitational force is negative.
+Conversely, if the object moves upwards, i.e.\ $\bm F_g$ and $\Delta\bm r$ are
+in opposite direction, then work done by gravitational force is negative.
 There would now be a decrease in kinetic energy
 \emph{by the same amount as work}, and the object slows down.
 \begin{equation*}
-  W_g=W_\text{net}=mg\Delta x<0 \quad\longrightarrow\quad \Delta K = W_g < 0
+  W_\text{gravity}=W_\text{net}=mg\Delta x<0
+  \quad\longrightarrow\quad
+  \Delta K = W_\text{gravity} < 0
 \end{equation*}
-This is consistent with our understanding of kinematics and dynamics. But the
-work done by gravitational force can also be expressed in terms of the change
-in height. Using the ground as the reference level (i.e.\ $h=0$), we can
-express the displacement $\Delta x$ in terms of the initial height $h_0$ and
-final height $h_1$. The work done by gravity can therefore be written as:
+The change in kinetic energy must be, of course, consistent with our
+understanding of kinematics and dynamics, since the expression for kinetic
+energy was derived from the second law of motion and kinematic equations.
+
+The work done by gravitational force can also be expressed in terms of the
+change in height. Using the ground as the \textbf{reference} (i.e.\ $h=0$), we
+can express the displacement $\Delta r$ in terms of the initial height
+$h_\text{init}$ and final height $h_\text{final}$. The work done by gravity can
+therefore be written as:
 \begin{equation*}
-  W_g = mg(h_0-h_1)
+  W_\text{gravity}= mg(h_0-h_1)
 \end{equation*}
 We can further modify this equation:
 \begin{align}
-  W_g &= mg(h_0-h_1)\nonumber\\
+  W_\text{gravity} &= mg(h_0-h_1)\nonumber\\
   & = -mg(h_1-h_0)\nonumber\\
   & = -(mgh_1-mgh_0)\nonumber\\
-  W_g &= -\Delta U_g
+  W_\text{gravity} &= -\Delta U_g
 \end{align}
 where $U_g$ is defined as the \textbf{gravitational potential energy}:
 \begin{important-equation}
   U_g=mgh
   \label{eq:easy-Ug}
 \end{important-equation}
-Since the choice of the reference level (where we define $h=0$) is arbitrary,
-we are more interested in the \emph{change} in gravitational potential energy,
-which is related to the work done by gravity:
+In defining gravitational potential energy, we have explicitly used the
+\emph{ground} as our reference (where we define $h=0$). But it should be noted
+that \textbf{the choice of the reference is arbitrary}; whichever simplifies
+the problem solving process can be used as the reference, as long as the
+reference is consistent throughout the problem-solving process. The choice of
+the reference does not pose any mathematical issues because we are more
+interested in the \emph{change} in gravitational potential energy, which is
+related to the work done by gravity:
 \begin{important-equation}
-  W_g=-\Delta U_g
+  W_\text{gravity} =-\Delta U_g
   \quad\text{where}\quad
   \Delta U_g=mg\Delta h
   \label{work-potential-energy}
 \end{important-equation}
-In Eq.~\ref{work-potential-energy}, we note some special relationships between
-the work done by gravity ($W_g$) and the change in the gravitational potential
-energy ($U_g$):
+
+
+
+In Equation~\ref{work-potential-energy}, we note some special relationships
+between the work done by gravity ($W_g$) and the change in the gravitational
+potential energy ($U_g$):
 
 \begin{definition}
-  \begin{itemize}
+  \begin{itemize}[itemsep=6pt]
   \item When work done by gravity \emph{positive}, (i.e.\ $W_g>0$), there is a
     \emph{decrease} in gravitational potential energy (i.e.\ $U_g<0$) by the
     same amount.
@@ -413,7 +453,7 @@ energy ($U_g$):
   \end{itemize}
 \end{definition}
 
-If the displacement $\Delta\bm x$ is sufficiently large that we can no longer
+If the displacement $\Delta\bm r$ is sufficiently large that we can no longer
 treat $\bm g$ as a constant, we will have to use the law of universal
 gravitation:
 \begin{equation*}
@@ -483,11 +523,13 @@ more details that we probably want to address.
 
 
 \subsection{Spring Force \& Elastic Potential Energy}
-The \textbf{spring force}, or \textbf{elastic force} $\bm F_e$, is the force
-that a compressed/stretched spring exerts on the object connected to it, shown
-in Fig.~\ref{hooke1}. An \emph{ideal} spring obeys \textbf{Hooke's law}, which
-states that the spring force is proportional to the amount of spring
-displacement $\bm x$, and acts in the opposition to the displacement:
+The \textbf{spring force}, or \textbf{elastic force} $\bm F_\text{elastic}$, is
+the force that a compressed/stretched spring exerts on the object connected to
+it, shown in Figure~\ref{hooke1}. As we have already seen in
+Chapter~\ref{chapter:dynamics}, an \emph{ideal} spring obeys
+\textbf{Hooke's law}, which states that the spring force is proportional to the
+amount of spring displacement $\bm x$, and acts in the opposition to the
+displacement vector:
 \begin{equation*}
   \bm F_e=-k\bm x
 \end{equation*}
@@ -508,7 +550,7 @@ of the spring, as well as the material that it is made of.
     \fill[pattern=north east lines] (-.2,0) rectangle (0,2);
     \draw[thick] (0,.0)--(0,2);
     \fill[red] (5.5,1) circle (.06);
-    \draw[vector,red] (5.5,1)--(4,1) node[above]{$\bm F_e$};
+    \draw[vector,red] (5.5,1)--(4,1) node[above]{$\bm F_\text{elastic}$};
     \draw[dashed] (3,0)--(3,2) node[above]{unstretched/equilibrium};
     \draw[vector] (3,.3)--(5,.3) node[midway,below]{$\bm x$};
   \end{tikzpicture}
@@ -523,7 +565,7 @@ of the spring, as well as the material that it is made of.
     (0,1)--(1.5,1);
     \draw[vector] (3,.3)--(1.5,.3) node[midway,below]{$\bm x$};
     \fill[red] (2,1) circle (.06);
-    \draw[vector,red] (2,1)--(3,1) node[above]{$\bm F_e$};
+    \draw[vector,red] (2,1)--(3,1) node[above]{$\bm F_\text{elastic}$};
   \end{tikzpicture}
   \caption{Direction of spring force and direction of spring displacement.}
   \label{hooke1}
@@ -532,7 +574,7 @@ of the spring, as well as the material that it is made of.
 As the spring force moves an object connected to the spring, the work done by
 the spring force on the object is:
 \begin{equation}
-  W_e=\int_{x_0}^{x_1}F_e\dl x =-k\int_{x_0}^{x_1} x\dl x
+  W_\text{elastic}=\int_{x_0}^{x_1}F_\text{elastic}\dl x =-k\int_{x_0}^{x_1} x\dl x
   =-\frac12kx^2\Big|^{x_1}_{x_0}=-\Delta U_e
   \label{eq:spring-pot1}
 \end{equation}
@@ -543,13 +585,13 @@ where $U_e$ is now defined as the \textbf{elastic potential energy}:
 Crucially, the work done by the spring force is related to the elastic
 potential energy by:
 \begin{important-equation}
-  W_e=-\Delta U_e
+  W_\text{elastic}=-\Delta U_e
 \end{important-equation}
-The integration in Eq.~\ref{eq:spring-pot1} shows the same properties as in
+The integration in Equation~\ref{eq:spring-pot1} shows the same properties as in
 the work done by gravitational force that was previously shown in
-Sec.~\ref{section:gravitationalPE}:
+Section~\ref{section:gravitationalPE}:
 \begin{definition}
-  \begin{itemize}
+  \begin{itemize}[itemsep=6pt]
   \item When work done by the spring force is \emph{positive}, (i.e.\
     $W_e>0$), there is a \emph{decrease} in spring potential energy
     (i.e.\ $U_e<0$) by the same amount, while
