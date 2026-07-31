@@ -3,8 +3,7 @@
 
 The \textbf{circular motion} (Fig.~\ref{fig:circ-motion1}) is the simplest form
 of curvilinear motions, an object of mass $m$ moves in a circular path about a
-fixed center.
-
+fixed centre.
 Like we did in Chapters~\ref{chapter:kinematics} and \ref{chapter:dynamics},
 we will begin studying the circular motion, first be defining the coordinate
 system, and then to the kinematic quantities, and then onto dynamics.
@@ -13,6 +12,7 @@ system, and then to the kinematic quantities, and then onto dynamics.
 
 
 \section{Polar Coordinate System}
+
 In the majority of types of two-dimensional motion discussed in earlier
 chapters, it is usually best to describe an object's position using the
 Cartesian coordinate system, i.e.\ using the $x$ and $y$ coordinates as
@@ -26,14 +26,14 @@ described by:
 \begin{equation}
   \bm r(t)=r(t)\hat{\bm r} + \theta(t)\hat{\bm\theta}
 \end{equation}
-where $r(t)$ is distance from the origin, and $\theta(t)$ is the standard angle,
-measured counterclockwise from the $x$ axis. Some examples of curvilinear
-motion are shown in Fig.~\ref{fig:curvilinear-motions}.
-sfor a\begin{figure}[ht]
+where $r(t)=|\bm r(t)|$ is distance from the origin, and $\theta(t)$ is the
+standard angle, measured counter clockwise from the $x$ axis. Some examples of
+curvilinear motion are shown in Fig.~\ref{fig:curvilinear-motions}.
+\begin{figure}[ht]
   \centering
   \begin{subfigure}{.4\linewidth}
     \centering
-    \begin{tikzpicture}[scale=1.2]
+    \begin{tikzpicture}
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
       \draw[function] circle (1.5);
@@ -43,7 +43,7 @@ sfor a\begin{figure}[ht]
   \end{subfigure}
   \begin{subfigure}{.4\linewidth}
     \centering
-    \begin{tikzpicture}[scale=1.2]
+    \begin{tikzpicture}
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
       \draw[function,rotate=30] ellipse (1.8 and 1);
@@ -52,7 +52,7 @@ sfor a\begin{figure}[ht]
   \end{subfigure}  
   \begin{subfigure}{.4\linewidth}
     \centering
-    \begin{tikzpicture}[scale=1.2]
+    \begin{tikzpicture}
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
       \draw[function,domain={-1.7:1.7}] plot (\x,{.5*(\x*\x)-.3});
@@ -61,7 +61,7 @@ sfor a\begin{figure}[ht]
   \end{subfigure}
   \begin{subfigure}{.4\linewidth}
     \centering
-    \begin{tikzpicture}[scale=1.2]
+    \begin{tikzpicture}
       \draw[axes] (-2,0)--(2,0) node[right]{$x$};
       \draw[axes] (0,-2)--(0,2) node[above]{$y$};
       \draw[domain=45:1000,samples=500,function]
@@ -72,9 +72,8 @@ sfor a\begin{figure}[ht]
   \caption{Examples of curvilinear motion in two dimensions}
   \label{fig:curvilinear-motions}
 \end{figure}
-
 Like the Cartesian system, the polar coordinate system is also right-handed;
-basics vectors $\hat{\bm r}$ (``radial direction'') and $\hat{\bm\theta}$
+basis vectors $\hat{\bm r}$ (``outward radial direction'') and $\hat{\bm\theta}$
 (``angular direction'') point in the directions shown in
 Fig.~\ref{fig:basis-vecs},
 \begin{figure}[ht]
@@ -99,8 +98,8 @@ Fig.~\ref{fig:basis-vecs},
 and rotate as the object moves. It is clear from basic geometry that Cartesian
 and polar coordinates are related by:
 \begin{align*}
-  x(t)&=r(t)\cos\left(\theta(t)\right)\\
-  y(t)&=r(t)\sin\left(\theta(t)\right)
+  x &=r \cos(\theta)\\
+  y &=r \sin(\theta)
 \end{align*}
 
 
@@ -143,7 +142,7 @@ The magnitude is $\theta(t)$ and the direction is $\hat{\bm\theta}$.}:
 The unit for angular position is a \emph{radian} (rad).
 
 If motion is confined to the $xy$-plane, then $\theta$ is the standard angle:
-$\theta$ is positive when measured counterclockwise from the $x$-axis, and
+$\theta$ is positive when measured counter clockwise from the $x$-axis, and
 negative when it is measured clockwise. In the example shown in
 Fig.~\ref{fig:angular-position},
 \begin{figure}[ht]
@@ -285,7 +284,7 @@ position, is indefinite, and the integral for angular displacement is definite.
   \Delta\theta(t)=\int_{t_0}^t\omega(t)\dl t
 \end{important-equation}
 Again, if motion is confined to the $xy$-plane, then $\omega$ is positive when
-the object moves in the counterclockwise direction, and negative when it moves
+the object moves in the counter clockwise direction, and negative when it moves
 clockwise (Fig.~\ref{fig:omega-plus-minus}).
 \begin{figure}[ht]
   \centering
@@ -335,12 +334,12 @@ $v(t)=|\bm v(t)|$ and the angular speed $|\omega|$:
 
 The velocity of the object in circular motion is more properly related to
 the angular velocity using this vector cross product:
-\begin{equation}
+\begin{important-equation}
   \bm v=\bm\omega\times\bm r
-\end{equation}
-$\bm\omega$ is out of the page if motion is counterclockwise, and into the page
+\end{important-equation}
+$\bm\omega$ is out of the page if motion is counter clockwise, and into the page
 if motion is clockwise. Visualizing $\bm\omega$ takes practice, but this vector
-notation is mathematically rigorous and consistent
+notation is mathematically rigorous and consistent.
   
 
 
@@ -479,7 +478,7 @@ called the \textbf{centripetal acceleration} $\bm a_c$.
 %  }
 %\end{equation}
 
-Consider an object in uniform circular motion in the counterclockwise
+Consider an object in uniform circular motion in the counter clockwise
 direction with constant radius $r$ and constant speed $v$ (i.e.\ constant
 angular speed $\omega=v/r$), as shown in
 Fig.~\ref{fig:v-in-uniform-circ-motion}. At initial time $t_0$, the position
@@ -505,7 +504,7 @@ position and velocity are now $\bm r_1=\bm r(t_1)$ and $\bm v_1=\bm v(t_1)$.
     \end{scope}
     \draw[<-,thick] (0,1) arc (90:30:1) node[pos=.6,above]{$\Delta\theta$};
   \end{tikzpicture}
-  \caption{An object in counter-clockwise uniform circular motion}
+  \caption{An object in counter clockwise uniform circular motion}
   \label{fig:v-in-uniform-circ-motion}
 \end{figure}
 
@@ -860,7 +859,7 @@ angles. The Milton Velodrome in Canada (Fig.~\ref{fig:milton-velodrome}) has a
 bank angle of \ang{41}, and a turn radius of 21 m at the base of the
 track\footnote{To give some context, the entire velodrome is only
 \SI{250}{\metre} long. In international competitions,
-cyclists routinely exceed \SI{80}{\kilo\metre\per\hour} around the corners.}
+cyclists routinely exceed \SI{80}{\kilo\metre\per\hour} around the corners.}.
 And if you think that these angles are not extreme enough, there is also the
 Wall of Death, which has a near \ang{90} angle (Fig.~\ref{fig:wall-of-death}).
 Riding a motorcycle on this track is best left to trained professionals.
