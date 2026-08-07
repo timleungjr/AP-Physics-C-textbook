@@ -983,8 +983,11 @@ Afterwards, we can use the equation for centripetal force to find other forces.
 
 \subsection{Simple Pendulum}
 A simple pendulum, shown in Fig.~\ref{fig:simple-pendulum-again}, is an example
-of a circular motion problem. In Section~\ref{sec:simple-pendulum-energy}, we
-have already established how energy is conserved in a simple pendulum system.
+of a circular motion problem: even though the pendulum (usually) never
+completes a full circular of motion, its path does form a segment of a circle.
+In Section~\ref{sec:simple-pendulum-energy}, we have already established that,
+in the absense of any friction, drag or other damping forces, total mechanical
+energy is conserved.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.8]
@@ -1008,7 +1011,7 @@ have already established how energy is conserved in a simple pendulum system.
 In this system, which is defined as the pendulum bob and Earth, there are two
 two forces act on the pendulum: weight $\bm F_g$, and tension $\bm F_T$. As
 the pendulum swings, $\bm F_T$ is always $\perp$ to motion, therefore it
-doesn't do any mechanical work. The only work is done by $\bm F_g$ as the
+does not do any mechanical work. The only work is done by $\bm F_g$ as the
 pendulum changes height. Since gravity is an internal force, the total energy
 of the system is constant, or:
 \begin{equation*}
@@ -1016,32 +1019,20 @@ of the system is constant, or:
 \end{equation*}
 However, only using conservation of energy does not immediately allow us to
 find the tension force on the pendulum, nor the acceleration of the pendulum
-bob. We must therefore use equations for circular motion to find the forces:
-%\item Speed of the pendulum at any height is found using conservation
-%  of energy
-%  \begin{itemize}
-%  \item 
-%  \item Work is done by gravity (a conservative force) alone
-%  \end{itemize}
-%\item Tangential and centripetal accelerations are based on the net force
-%  along the angular and radial directions
-%\end{itemize}
-  
-\textbf{At the top of the swing}, when the pendulum is deflected by an angle
-$\theta$, shown in Fig.~\ref{fig:top-swing}, velocity $v$ is zero by
-definition.
-\begin{figure}[ht]
+bob. We must therefore use equations for circular motion to find the forces.
+
+\begin{figure}[b]
   \centering
   \begin{tikzpicture}[scale=.75]
     \fill[pattern=north east lines] (-1,0) rectangle (1,0.2);
     \draw[very thick] (-1,0)--(1,0);
     \begin{scope}[rotate=45]
-      \draw[thick] (0,0)--(0,-5);
+      \draw[thick] (0,0)--(0,-5) node[midway,right=3]{$\ell$};
       \shade[ball color=red] (0,-5) circle (.2) node[right=2.5]{$m$};
       \begin{scope}[vector,red]
-        \draw[dotted] (0,-5)--(-1.1,-5)node[left]{$F_g\sin\theta$};
+        \draw[dotted] (0,-5)--(-1.1,-5)node[left]{$F_g\sin\theta_\text{max}$};
         \draw[dotted] (0,-5)--(0,-6.1)
-        node[right,fill=yellow!20]{$F_g\cos\theta$};
+        node[right,fill=yellow!20]{$F_g\cos\theta_\text{max}$};
         \draw (0,-5)--(0,-3.9) node[left,fill=yellow!20]{$\bm F_T$};
         \draw[rotate around={-45:(0,-5)}] (0,-5)--(0,-6.5)
         node[below]{$\bm F_g$};
@@ -1049,21 +1040,30 @@ definition.
     \end{scope}
     \draw[dashed] (0,0)--(0,-5);
     \draw[dashed] (3.54,-3.54) arc (315:225:5);
-    \draw[axes] (0,-2) arc (270:315:2) node[midway,below]{$\theta$};
+    \draw[axes] (0,-2) arc (270:315:2) node[midway,below]{$\theta_\text{max}$};
   \end{tikzpicture}
   \caption{Forces at the top of the swing of a simple pendulum}
   \label{fig:top-swing}
 \end{figure}
-From Eq.~\ref{eq:centripetal-acceleration}, we know that centripetal
-acceleration must also be zero:
+\textbf{At the top of the swing}, when the pendulum is deflected by an angle
+$\theta=\theta_\text{max}$, shown in Fig.~\ref{fig:top-swing}, velocity is zero
+by definition ($v=0$). From Eq.~\ref{eq:centripetal-acceleration}, we know that
+centripetal acceleration
+%and centripetal force
+must also be zero:
 \begin{equation}
-  a_c=\frac{v^2}r=0
+  a_c=\frac{v^2}\ell=0 %\quad\text{and}\quad F_c=ma_c=0
 \end{equation}
-Therefore the net force along the radial direction $\hat{\bm r}$ is zero. The
-tension force $F_T$ can be calculated:
+Therefore the net force along the radial direction ($\hat{\bm r}$), i.e\ the
+centripetal force $F_c$, must be zero. We can use that to calculate the tension
+force $F_T$:
 \begin{equation}
-  F_T=F_g\cos\theta=mg\cos\theta
+  F_T=F_g\cos\theta_\text{max}=mg\cos\theta_\text{max}
 \end{equation}
+This tension force must be the \emph{minimum} value because the cosine term
+decreases as $\theta$ increases. As the pendulum moves towards the bottom the
+swing, velocity will increase, therefore centripetal acceleration and
+centripetal force will both increase.
 %    \begin{tikzpicture}[scale=.75]
 %      \fill[pattern=north east lines] (-1,0) rectangle (1,0.2);
 %      \draw[very thick] (-1,0)--(1,0);
@@ -1083,18 +1083,20 @@ tension force $F_T$ can be calculated:
 %      \draw[dashed] (3.54,-3.54) arc (315:225:5);
 %      \draw[axes] (0,-2) arc (270:315:2) node[midway,below]{$\theta$};
 %    \end{tikzpicture}
-In the tangential direction $\hat{\bm\theta}$, there is still a tangential
-component of gravity: $F_t=F_g\sin\theta=mg\sin\theta$, therefore, there is a
+In the tangential direction ($\hat{\bm\theta}$), there is still a tangential
+component of gravity with a magnitude of
+$F_t=F_g\sin\theta_\text{max}=mg\sin\theta_\text{max}$, therefore, there is a
 tangential acceleration with a magnitude of:
 \begin{equation}
-  a_t=\frac{F_t}m=g\sin\theta
+  a_t=\frac{F_t}m=g\sin\theta_\text{max}
 \end{equation}
 This is the same acceleration as an object sliding down a frictionless ramp at
-an angle of $\theta$.
+an angle of $\theta_\text{max}$. As the pendulum returns to the bottom of the
+swing, tangential acceleration will decrease to zero.
 
-\textbf{At the bottom of the swing}, where $\theta=0$, as shown in
-Fig.~\ref{fig:bottom-swing}, the velocity is at its maximum value,
-\begin{figure}[ht]
+At the bottom of the swing, where $\theta=0$, as shown in
+Fig.~\ref{fig:bottom-swing},
+\begin{figure}[t]
   \centering
   \begin{tikzpicture}[scale=.8]
     \fill[pattern=north east lines] (-1,0) rectangle (1,.2);
@@ -1108,20 +1110,30 @@ Fig.~\ref{fig:bottom-swing}, the velocity is at its maximum value,
   \caption{A simple pendulum at the bottom of its swing}
   \label{fig:bottom-swing}
 \end{figure}
-therefore centripetal acceleration is at maximum value because:
+we have already shown from the law of conservation of energy that the velocity
+must be at its maximum value\footnote{We have not shown the work leading to
+this final expression; this is already done in Chapter~\ref{chapter:energy}}:
 \begin{equation}
-    a_c=\frac{v^2}r
+  v=\sqrt{2g\ell(1-\cos\theta_\text{max})}
 \end{equation}
-At the lowest point, tension is the highest:
-\begin{equation}
-  F_T=F_g+F_c=m\left(g+\frac{v^2}r\right)
-\end{equation}
+therefore centripetal acceleration and centripetal force are at maximum
+magnitude:
+\begin{align*}
+  a_c &=\frac{v^2}\ell=2g(1-\cos\theta_\text{max})\\
+  F_c &= ma_c=2mg(1-\cos\theta_\text{max})
+\end{align*}
+Using the second law of motion along the radial direction, we can show that, at
+the lowest point, tension must be at the highest:
+\begin{align*}
+  F_T &= F_g+F_c\\
+  &= mg+2mg(1-\cos\theta_\text{max})\\
+  &= mg(3-2\cos\theta_\text{max})
+\end{align*}
 There is no tangential acceleration because there are forces in the angular
 direction:
-\begin{equation}
-  a_t=0
-\end{equation}  
-
+\begin{equation*}
+  F_t=0\quad\longrightarrow\quad a_t=0
+\end{equation*}
 
 
 

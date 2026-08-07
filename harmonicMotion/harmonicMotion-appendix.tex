@@ -17,7 +17,6 @@ spring-mass system:
   m\ddot x+b\dot x+kx=0
   \label{eq:general-ode}
 \end{equation}
-%If the problem is a simple harmonic oscillator, we would expect $b=0$.
 The kinematics and dynamics of this problem has already been discussed quite
 extensively in Chapter~\ref{chapter:harmonic-motion}. Here, we are interested in
 the mathematics of how we arrived at all the solutions discussed in that
@@ -42,8 +41,8 @@ the equation:
 \begin{equation}
   (mr^2+br+k)e^{rt}=0
 \end{equation}
-Since $e^{rt}$ must always be nonzero, we are actually solving for the roots of
-the \textbf{characteristic equation}:
+Since $e^{rt}$ is always nonzero, we are actually solving for the roots of the
+\textbf{characteristic equation}:
 \begin{equation}
   mr^2+br+k=0
 \end{equation}
@@ -57,7 +56,7 @@ We can see from the square root term in the above equation that:
 \item When the system has no damping ($b=0$), the roots are entirely imaginary.
   This corresponds to the simple harmonic oscillator.
 \item When the system is lightly damped ($b<\sqrt{4mk}$), the
-  roots are complex. This corresponds to the damped harmonic oscillator.
+  roots are complex. This corresponds to the under-damped harmonic oscillator.
 \item When the system is critically damped, ($b=\sqrt{4mk}$), there is only one
   repeating root. There is no longer a complex part, and the motion is an
   exponential decay.
@@ -68,6 +67,7 @@ We can see from the square root term in the above equation that:
 
 
 \section{Simple Harmonic Oscillator}
+
 For the simple harmonic oscillator with no damping ($b=0$), the two roots of the
 characteristic equation are related to the angular frequency of the oscillation:
 \begin{equation*}
@@ -75,18 +75,20 @@ characteristic equation are related to the angular frequency of the oscillation:
   =\pm i\underbracket[1pt]{\sqrt{\frac km}}_\omega
 \end{equation*}
 We have two distinct solutions based on the two imaginary roots to the
-characteristic equation:
-\begin{align*}
-  x_1(t) &= e^{i\omega t}=\cos(\omega t)+i\sin(\omega t)\\
-  x_2(t) &= e^{-i\omega t}=\cos(\omega t)-i\sin(\omega t)
-\end{align*}
+characteristic equation. Applying Euler's identity, we can express these
+solutions as sine and cosine functions:
+\begin{align}
+  x_1(t) &= e^{i\omega t}=\cos(\omega t)+i\sin(\omega t) \label{eq:imaginary1}\\
+  x_2(t) &= e^{-i\omega t}=\cos(\omega t)-i\sin(\omega t) \label{eq:imaginary2}
+\end{align}
 As is the case for any differential equations, the actual physical motion for
 $x(t)$ is the \emph{linear combination} all the possibe solutions to the ODE,
 i.e.:
 \begin{equation*}
   x(t)=ax_1(t)+bx_2(t)
 \end{equation*}
-But the two solutions in their current form are awkward to work with, so
+But Eqs.~\ref{eq:imaginary1} and \ref{eq:imaginary2}, in their current form,
+are awkward to work with, so
 instead, we define two intermediate functions $u(t)$ and $v(t)$ as the sum and
 difference of the $x_1$ and $x_2$ so that we can separate sine and cosine terms:
 \begin{align*}
@@ -101,15 +103,13 @@ functions $u$ and $v$, i.e.:
 \end{equation}
 where $c_1$ and $c_2$ are constants subject to initial position $x(0)$ and
 velocity $\dot x(0)$. As we have already seen in
-Chapter~\ref{chapter:harmonic-motion}, this solution can also be written in
-the more practical form:
+Chapter~\ref{chapter:harmonic-motion}, this solution can also be conveniently
+written in the more practical form:
 \begin{important-equation}
-  x(t)=A\cos(\omega t+\theta_0)\quad\text{where}\quad \omega=\frac km
+  x(t)=A\cos(\omega t+\theta_0)\quad\text{where}\quad \omega=\sqrt{\frac km}
 \end{important-equation}
 In this form, it is amplitude $A$ and phase constants $\theta_0$ that are
-subject to initial position and velocity. The physics and some of the
-mathematics have already been discussed in
-Chapter~\ref{chapter:harmonic-motion}.
+subject to initial position and velocity. The physics of which have already been discussed in Chapter~\ref{chapter:harmonic-motion}.
 
 
 
@@ -126,16 +126,18 @@ are two distinct \emph{complex} roots to the characteristic equation:
     \underbracket[1pt]{\frac km}_{\omega^2} -
     \underbracket[1pt]{\frac{b^2}{4m^2}}_{\lambda^2}
   }
-  = \lambda\pm i\underbracket[1pt]{\sqrt{\omega^2-\lambda^2}}_{\omega'}
+  =-\lambda\pm i\underbracket[1pt]{\sqrt{\omega^2-\lambda^2}}_{\omega'}
 \end{equation*}
-Again, this leads to two distinct solutions:
+Again, this leads to two distinct solutions. This time, the solutions have
+both exponential decaying and oscillatory components:
 \begin{align*}
   x_1(t) &= e^{(-\lambda+i\omega')t}=e^{-\lambda t}[\cos(\omega't)+i\sin(\omega't)]\\
   x_2(t) &= e^{(-\lambda-i\omega')t}=e^{-\lambda t}[\cos(\omega't)-i\sin(\omega't)]
 \end{align*}
-where $\omega'=\sqrt{\omega^2-\lambda^2}$. Again, we define two intermediate
-functions $u(t)$ and $v(t)$ as the sum and difference of the solutions, to
-separate the sine and cosine terms:
+where $\omega'=\sqrt{\omega^2-\lambda^2}$ is the quasi-frequency of the
+damped oscillator. Again, we define two intermediate functions $u(t)$ and
+$v(t)$ as the sum and difference of the solutions, to separate the sine and
+cosine terms:
 \begin{align*}
   u(t)=x_1(t)+x_2(t) &=2e^{-\lambda t}\cos(\omega't)\\
   v(t)=x_1(t)-x_2(t) &=2ie^{-\lambda t}\sin(\omega't)
@@ -158,12 +160,13 @@ the same solution that we derived in Chapter~\ref{chapter:harmonic-motion}:
   \omega'=\sqrt{\omega^2-\lambda^2}
   \label{eq:appendix-damped-position}
 \end{important-equation}
-where $A$ and $\theta_0$ are subject to initial conditions. For the
-under-damped oscillator with damping constant $b<\sqrt{4mk}$, the motioon
-$x(t)$ has both an exponential decay term and a sinusoidal (oscillatory) term.
+The amplitude and phase constant terms $A$ and $\theta_0$ are subject to
+initial conditions. For the under-damped oscillator with damping constant
+$b<\sqrt{4mk}$, the motioon $x(t)$ has both an exponential decay term and a
+sinusoidal (oscillatory) term.
 
-In Figure~\ref{fig:damping-effects-appendix}, we plotted the solutions $x(t)$ with
-various damping factors $b$.
+In Figure~\ref{fig:damping-effects-appendix}, we plotted the solutions $x(t)$
+with various damping factors $b$.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -321,20 +324,19 @@ and the under-damped harmonic oscillator, and we will see later in the
 over-damped motion, that there should be \emph{two} solutions to the
 characteristic equation. Finding the second solution is not as intuitive, but
 we note that any solution can be multiplied by a constant. We can extend this
-further to \emph{assume} that we may generalize this further to include
+further to \emph{assume} that we can generalize this further to include
 functions, i.e.\ the second solution \emph{may} be in the form of:
 \begin{equation*}
-  x_2=c_2(t)e^{-\lambda_ct}
+  x_2(t)=u(t)e^{-\lambda_ct}
 \end{equation*}
-where $c_2(t)$ is a function to be determined, giving us a solution in the form
+where $u(t)$ is a function to be determined, giving us a solution in the form
 of:
 \begin{equation*}
   x(t)=\left[c_1+u(t)\right]e^{-\lambda_ct}
 \end{equation*}
 So now all we have to do is to substitute this solution back into the original
 ODE and see what (if any) functions $u(t)$ will satisfy the equation.
-
-
+\textbf{THIS PART IS NOT BEEN WRITTEN YET\ldots}
 
 Finally we find that this function is
 \begin{equation*}
@@ -350,7 +352,7 @@ the form of:
   \lambda_c=\frac{b_c}{2m}\quad\text{and}\quad
   b_c=\sqrt{4mk}
 \end{important-equation}
-
+where $c_1$ and $c_2$ are based on initial conditions.
 
 \begin{figure}[ht]
   \centering

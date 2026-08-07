@@ -16,8 +16,8 @@ a fuller understanding using calculus.
 
 \section{Cartesian Coordinate System}
 Before we even dive into describing motion, we need to have a framework for
-describing. For rectilinear moiton, the preferred coordinate system is the
-\emph{cartesian} system, shown in Fig.~\ref{fig:cartesian}\footnote{For
+describing. For rectilinear motion, the preferred coordinate system is the
+\emph{Cartesian} system, shown in Fig.~\ref{fig:cartesian}\footnote{For
 \emph{circular} and general curvilinear motions, we will use the \emph{polar
 coordinate system} in 2D, or \emph{cylindrical coordinate system} or
 \emph{spherical coordinate system} in 3D}. The origin of the coordinate system
@@ -57,6 +57,8 @@ $y$ and $z$ axes respectively.
   \label{fig:cartesian}
 \end{figure}
 
+
+
 \section{Kinematic Quantities}
 
 \subsection{Position, Displacement and Distance}
@@ -76,9 +78,7 @@ Position $\bm r(t)$ is a function of time because an object can only be at one
 place at any time. The function is also continuous, in that an object cannot
 teleport to another point in space. Likewise, $\bm r(t)$ must also be
 continuously differentiable because it cannot have infinite or undefined
-acceleration.
-
-The SI unit for position is a \emph{metre} (\si{\metre}).
+acceleration. The SI unit for position is a \emph{metre} (\si\metre).
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.6]
@@ -90,23 +90,24 @@ The SI unit for position is a \emph{metre} (\si{\metre}).
     %    \draw[thick,dash dot,<->] (4,1)..controls (6,5) and (5,7)..(2,6)
     %    node[midway,right]{$s$};
   \end{tikzpicture}
-  \caption{Position vector of an object inside a 2D cartesian coordinate
+  \caption{Position vector of an object inside a 2D Cartesian coordinate
     system. The vectors $\bm x$ and $\bm y$ are the $x$ and $y$ components of
-    $\bm r$ respestively.}
+    $\bm r$ respectively.}
   %, displacement and distance in a Cartesian coordinate
   %  system.}
   \label{fig:position}
 \end{figure}
 
 
-When an object moves, the \textbf{displacement} is the change in position from
-the initial position ($\bm r_0$) to the current position ($\bm r(t)$) within
-the same coordinate system. Since the current position is a continuous and
+When an object moves, \textbf{displacement} is the change in position from the
+initial position ($\bm r_0$) to the current position ($\bm r(t)$) within the
+same coordinate system. Since the current position is a continuous and
 continuously differentiable function of time, so is displacement:
 \begin{important-equation}
   \Delta\bm r(t)=\bm r(t)-\bm r_0
 \end{important-equation}
-A two-dimensional case is illustrated graphcin Fig.~\ref{fig:displacement}.
+A two-dimensional case is illustrated graphically in
+Fig.~\ref{fig:displacement}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.6]
@@ -119,13 +120,13 @@ A two-dimensional case is illustrated graphcin Fig.~\ref{fig:displacement}.
   \caption{Displacement vector}
   \label{fig:displacement}
 \end{figure}
-In the cartesian coordinate system, the $x$, $y$ and $z$ axes are linearly
-indepedent, displacement can be expressed by its components:
+In the Cartesian coordinate system, the $x$, $y$ and $z$ axes are linearly
+independent, displacement can be expressed by its components:
 \begin{important-equation}
   \Delta\bm r(t)=
-  \underbracket[1pt]{\left(x(t)-x_0\right)}_{\Delta r_x}\iii +
-  \underbracket[1pt]{\left(y(t)-y_0\right)}_{\Delta r_y}\jjj +
-  \underbracket[1pt]{\left(z(t)-z_0\right)}_{\Delta r_z}\kkk
+  \underbracket[1pt]{\left(x(t)-x_0\right)}_{\Delta x(t)}\iii +
+  \underbracket[1pt]{\left(y(t)-y_0\right)}_{\Delta y(t)}\jjj +
+  \underbracket[1pt]{\left(z(t)-z_0\right)}_{\Delta z(t)}\kkk
 \end{important-equation}
 %The use of IJK notation makes vector addition and subtraction less prone to
 %errors.
@@ -152,7 +153,7 @@ a scalar, it is not necessarily the same as distance:
 
 \textbf{Velocity} is a quantity used to describe how \emph{fast} an object is
 moving. Since position $\bm r(t)$ is differentiable in time $t$, then the
-objectd \textbf{instantaneous velocity} $\bm v(t)$ at any time $t$ can be found
+object \textbf{instantaneous velocity} $\bm v(t)$ at any time $t$ can be found
 by differentiating $\bm r$ with respect to $t$. The SI unit for velocity is
 \emph{metres per second} (\si{\metre\per\second}):
 \begin{important-equation}
@@ -174,7 +175,9 @@ velocity components $v_x$, $v_y$ and $v_z$ in those directions:
 \end{equation}
 By the fundamental theorem of calculus, if instantaneous velocity $\bm v(t)$
 is the time derivative of position $\bm r(t)$, then $\bm r(t)$ and displacement
-$\Delta\bm r(t)$ are both time integrals of $\bm v(t)$:
+$\Delta\bm r(t)$ are both time integrals of $\bm v(t)$. Position is from an
+indefinite integral, while displacement is a definite integral from initial
+time $t_0$ to current time $t$:
 \begin{important-equation}
   \bm r(t)=\int\bm v(t)\dl t + \mathcal R
   \quad\text{and}\quad
@@ -207,8 +210,8 @@ The \textbf{average velocity} ($\overline{\bm v}$)
 of an object is the displacement $\Delta\bm r$ over a finite time interval
 $\Delta t$ (the interval starts at $t_0$ and ends at the current time $t$):
 \begin{important-equation}
-  \overline{\bm v}(t)= \frac{\Delta\bm v(t)}{\Delta t}
-  =\frac{\int_{t_0}^t \bm r(t)dt}{t-t_0}
+  \overline{\bm v}(t)= \frac{\Delta\bm r(t)}{\Delta t}
+  =\frac{\int_{t_0}^t \bm v(t)dt}{t-t_0}
 \end{important-equation}
 Since displacement is a function of time, average velocity is also a function
 of time. Like instantaneous velocity, we can find the $x$, $y$ and $z$
@@ -276,7 +279,7 @@ The SI unit for acceleration is \emph{metres per second squared}
 \end{important-equation}
 From the second law of motion (see Chapter~\ref{chapter:dynamics}), since
 acceleration comes from the net force, which does not have to be continuous,
-acceleration does not have to be continous function in time.
+acceleration does not have to be continuous function in time.
 %Although in grades 11 and 12 physics courses, students deal almost exclusively
 %with constant ccceleration, in AP Physics, it must be understood that
 %acceleration can also vary with time, and that calculus must be used in many
@@ -317,7 +320,7 @@ equation:
 \end{equation*}
 The solution will likely require numerical integration.
 
-\textbf{Spring force} is proportional to displacement\footnote{By Hookes's law
+\textbf{Spring force} is proportional to displacement\footnote{By Hooke's law
 $\bm F_s=-k\bm x$, where $k$ is the spring constant that describes the
 stiffness of the spring}, and therefore acceleration is expressed as:
 \begin{equation*}
@@ -348,7 +351,7 @@ $a(t)$ can also easily be obtained by integrating and differentiating.
 for lift and drag forces are $L=\dfrac12\rho v^2C_LA_\text{ref}$ and
 $D=\dfrac12\rho v^2C_DA_\text{ref}$ respectively, where $\rho$ is the density
 of the fluid, $A_\text{ref}$ is the reference area, $C_L$ is the lift
-coeffcient and $C_D$ is the drag coefficient}, which are proportional
+coefficient and $C_D$ is the drag coefficient}, which are proportional
 to the square of the velocity, leading to an expression for acceleration 
 \begin{equation*}
   a(v)=-kv^2\quad\text{or}\quad \diff vt=-kv^2
