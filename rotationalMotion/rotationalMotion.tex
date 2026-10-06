@@ -192,30 +192,30 @@ e.g.\ force on the head of a screwdriver. For rotational motion, we only care
 about the torque. In most cases, we are not concenred with exactly how the
 force generates the torque, only that a torque is generated.
 
-\begin{example}
+\begin{example}[Net Torque]
   Find the net torque on point C.
   \begin{center}
-    \begin{tikzpicture}[scale=1.75]
+    \begin{tikzpicture}[scale=2]
       \begin{scope}[thick]
         \fill[blue!40,draw=black] (-1.65,-.12) rectangle (1.65,.12);
-        \draw[<->] (-1.5,-.27)--(1.5,-.27) node[midway,fill=yellow!5]{3.0 m};
-        \draw[<->] (-1.5,.27)--(0,.27) node[midway,fill=yellow!5]{1.5 m};
+        \draw[<->] (-1.5,-.27)--(1.5,-.27) node[midway,below]{3.0 m};
+        \draw[<->] (-1.5,.27)--(0,.27) node[midway,above]{1.5 m};
         \draw[dashed] (-2.2,0)--(2.2,0);
         \draw[dashed] (0,0)--(0,.5);
       \end{scope}
       \begin{scope}[orange,vector]
-        \draw[rotate=-45] (0,0)--(0,1.5) node[right]{\SI{30}\newton};
+        \draw[rotate=-45] (0,0)--(0,1.5) node[pos=1.1]{\SI{30}\newton};
         \draw[rotate around={30:(-1.5,0)}] (-1.5,0)--(-2.5,0)
         node[left]{\SI{20}\newton};
         \draw[rotate around={-30:(1.5,0)}] (1.5,0)--(2.2,0)
         node[right]{\SI{10}\newton};
       \end{scope}
-      \draw[axes] (0,.4) arc(90:45:.4) node[pos=.7,above]{\ang{45}};
-      \draw[axes] (-1.9,0) arc(180:210:.4) node[midway,left]{\ang{30}};
-      \draw[axes] (1.9,0) arc(0:-30:.4) node[midway,right]{\ang{30}};
-      \fill (-1.5,0) circle(.1) node[white]{\textbf{A}};
-      \fill circle(.1) node[white]{\textbf{B}};
-      \fill (1.5,0) circle (.1) node[white]{\textbf{C}};
+      \draw[axes] (0,.4) arc (90:45:.4) node[pos=.7,above]{\ang{45}};
+      \draw[axes] (-1.9,0) arc (180:210:.4) node[midway,left]{\ang{30}};
+      \draw[axes] (1.9,0) arc (0:-30:.4) node[midway,right]{\ang{30}};
+      \fill (-1.5,0) circle (.1) node[white]{\sffamily\textbf{A}};
+      \fill circle(.1) node[white]{\sffamily\textbf{B}};
+      \fill (1.5,0) circle (.1) node[white]{\sffamily\textbf{C}};
     \end{tikzpicture}
   \end{center}
   \textbf{Solution:}
@@ -318,15 +318,14 @@ these can change with time.
   \end{enumerate}
   \begin{center}
     \begin{tikzpicture}
-      \draw[mass] rectangle (10,.8);
-      \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
+      \draw[mass] rectangle (10,.4);
+      \fill (0,.2) circle (.07) node[above]{\scriptsize pivot};
       \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L$};
-      \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
+      \fill (5,.2) circle (.05) node[above]{\scriptsize cm};
     \end{tikzpicture}
   \end{center}
   \textbf{Solution:}
 \end{example}
-
 
 \begin{example}
   A slender rod with a density that varies linearly ($\gamma=\alpha x$) with
@@ -335,10 +334,10 @@ these can change with time.
   inertia about its pivot?
   \begin{center}
     \begin{tikzpicture}
-      \draw[mass] rectangle (10,.8);
-      \fill (0,.4) circle (.07) node[above]{\scriptsize pivot};
+      \draw[mass] rectangle (10,.4);
+      \fill (0,.2) circle (.07) node[above]{\scriptsize pivot};
       \draw[thick,|<->|] (0,1)--(10,1) node[midway,above]{$L$};
-      \fill (0,.4) circle (.05) node[above]{\scriptsize cm};
+      %\fill (0,.2) circle (.05) node[above]{\scriptsize cm};
     \end{tikzpicture}
   \end{center}
   \textbf{Solution:}
@@ -369,10 +368,10 @@ to formulate the the laws of motion for rorational motion.
 
 
 
-\subsection{First Law}
+\subsection{First Law of Motion}
 
-An object is in \textbf{translational equilibrium} when the net force acting on
-it is zero:
+As we have seen in Chapter~\ref{chapter:dynamics}, an object is in
+translational equilibrium when the net force acting on it is zero:
 \begin{equation*}
   \bm F_\text{net}=\bm 0
 \end{equation*}
@@ -404,7 +403,7 @@ $\bm\omega=\text{constant}$.
 
 
 
-\subsection{Second Law}
+\subsection{Second Law of Motion}
 Applying the general form of the second law of motion
 (Eq.~\ref{eq:2nd-law-general-form} in Chapter~\ref{chapter:momentum}) that
 relates the net force to the change in linear momentum, we find that net torque
@@ -441,7 +440,7 @@ centre of mass:
 
 Likewise, the second law of motion for rotational motion is similar, but with
 torque $\bm\tau$ replacing force $\bm F$, and angular momentum $\bm L$
-replacing linear momentum $\bm p$:
+replacing translational momentum $\bm p$:
 \begin{important-equation}
   \bm\tau_\text{net}(t)=\diff{\bm L}t
   \label{eq:2nd-law-rotational}
@@ -517,8 +516,8 @@ angular momentum about point P has not changed:
   =(r_1\sin\theta)mv=L_1
 \end{equation*}
 An object is uniform motion is not subjected to any net force, therefore there
-cannot be a net torque on the object about \emph{any} point. We must conclude
-that both translational momentum ($\bm p=m\bm v$) and angular momentum
+cannot be a net torque on the object about \emph{any} point either. We must
+conclude that both translational momentum ($\bm p=m\bm v$) and angular momentum
 ($\bm L=\bm r\times\bm p$) are constant in uniform motion.
 
 
@@ -531,14 +530,15 @@ that both translational momentum ($\bm p=m\bm v$) and angular momentum
 \end{example}
 
 
-\section{Conservation of Angular Momentum in a Collision}
-
-In a collision between two objects, not only is translational momentum
-conserved, angular momentum must be conserved as well.
+%\section{Conservation of Angular Momentum in a Collision}
+%
+%In a collision between two objects, not only is translational momentum
+%conserved, angular momentum must be conserved as well.
 
 
 \section{Work \& Energy in Rotational Motion}
-We now turn our attention to the work and energy of objects that are rotating.
+We now turn our attention to the mechanical work and energy of objects that are
+rotating.
 
 
 
@@ -547,18 +547,18 @@ We now turn our attention to the work and energy of objects that are rotating.
 As we have seen in Chapter~\ref{chapter:energy}, for translational motion,
 mechanical work in a one-dimensional coordinate system is defined as:
 \begin{equation*}
-  W_t=\int_{x_0}^{x_1}F(x)\dl x
+  W_\text{trans}=\int_{x_0}^{x_1}F(x)\dl x
 \end{equation*}
 If the resulting motion is a rotation, then we can rewrite the object's
 displacement as $\dl x=r\dl\theta$. Then we can calculate the rotational work
 done by the force:
 \begin{equation}
-  W_r=\int_{x_0}^{x_1} F\dl x
+  W_\text{rot}=\int_{x_0}^{x_1} F\dl x
   =\int_{\theta_0}^{\theta_1} \underbracket[1pt]{F (r}_\tau\dl\theta)
 \end{equation}
 Noting that $\tau=rF$, rotational work becomes:
 \begin{important-equation}
-  W_r=\int_{\theta_0}^{\theta_1}\tau(\theta)\dl\theta
+  W_\text{rot}=\int_{\theta_0}^{\theta_1}\tau(\theta)\dl\theta
 \end{important-equation}
 Just as we did with translational work, we must distinguish between
 \begin{itemize}
@@ -571,73 +571,171 @@ Just as we did with translational work, we must distinguish between
 \subsection{Rotational Kinetic Energy}
 \label{sec:rotKE}
 We can apply the same process as in Sec.~\ref{sec:transKE} to find the
-\textbf{rotational kinetic energy} $K_r$:
+\textbf{rotational kinetic energy} $K_\text{rot}$:
 \begin{align}
-  W_{r,\text{net}}&=\int_{\theta_0}^{\theta_1}\tau_\text{net}\dl\theta
+  W_{\text{rot},\text{net}}&=\int_{\theta_0}^{\theta_1}\tau_\text{net}\dl\theta
   =\int I\alpha\dl\theta
   =I\int \diff{\omega}t\dl\theta
   =I\int \diff{\theta}t\dl\omega\nonumber\\
   & =I\int_{\omega_0}^{\omega_1} \omega\dl\omega
-  =\frac12I\omega_1^2-\frac12I\omega_0^2=\Delta K_r
+  =\frac12I\omega_1^2-\frac12I\omega_0^2=\Delta K_\text{rot}
 \end{align}
-where $K_r$ is defined as:
+where $K_\text{rot}$ is defined as:
 \begin{important-equation}
-  \text{Rotational kinetic energy:}\quad K_r=\frac12I\omega^2
+  \text{Rotational kinetic energy:}\quad K_\text{rot}=\frac12I\omega^2
 \end{important-equation}
 Not surprisingly, the work-energy principle still applies to rotational motion:
-Net rotational work on an object is equal to the change in kinetic energy.
+the net rotational work on an object is equal to the change in kinetic energy.
 \begin{important-equation}
-  \text{Work-energy principle:}\quad W_{r,\text{net}}=\Delta K_r
+  \text{Work-energy principle:}\quad W_{\text{rot},\text{net}}=\Delta K_\text{rot}
 \end{important-equation}
 Just as the net/total translational work on an object changes its translational
-kinetic energy (Eq.~\ref{work-energy-theorem}),
-%in Chapter~\ref{chapter:energy}),
-the net rotational work on an object also changes its rotational kinetic energy.
+kinetic energy (Eq.~\ref{work-energy-theorem}), the net rotational work on an
+object also changes its rotational kinetic energy.
 %To find the kinetic energy of a rotating system of particles (discrete number
 %of particles, or continuous mass distribution), we sum the kinetic energies of
 %the individual particles:
 %\begin{equation}
-%  K_r=\sum_i\frac12m_iv_i^2=\sum\frac12m_i(r_i\omega)^2
+%  K_\text{rot}=\sum_i\frac12m_iv_i^2=\sum\frac12m_i(r_i\omega)^2
 %  =\frac12\left(\sum_i m_ir_i^2\right)\omega^2
 %\end{equation}
 %It's no surprise that rotational kinetic energy is given by:
 
 \subsection{Total Kinetic Energy of a Rotating System}
-The total kinetic energy of a rotating system is the sum of its translational
-and rotational kinetic energies at its center of mass:
-\begin{equation}
-  \boxed{K=K_t+K_r=\frac12mv_\text{cm}^2+\frac12I_\text{cm}\omega^2}
-\end{equation}
+Therefore, the total kinetic energy of a rotating system is the sum of its
+translational and rotational kinetic energies at its centre of mass:
+\begin{important-equation}
+  K=K_\text{trans}+K_\text{rot}=\frac12mv_\text{cm}^2+\frac12I_\text{cm}\omega^2
+\end{important-equation}
 In this case, $I_\text{cm}$ is calculated at the centre of mass. For simple
 problems, we only need to compute rotational kinetic energy at the pivot:
-\begin{equation}
-  \boxed{K=\frac12I_\text{p}\omega^2}
-\end{equation}
+\begin{important-equation}
+  K=\frac12I_\text{p}\omega^2
+\end{important-equation}
 In this case, the $I_\text{p}$ is calculated at the pivot.
-%  \textbf{IMPORTANT:} $I_\text{cm}\neq I_\text{p}$
 
 
 
-\section{Problem Solving with Both Rotational and Translational Motion}
+%\section{Problem Solving with Both Rotational and Translational Motion}
+
+
+
+\begin{example}[A Spinning Disk]
+  Consider a uniform disk of radius $R$ and mass $M$ that is free to rotate
+  about its centre of mass, as shown below. To analyse its rotational motion, we
+  first find its moment of inertia about the pivot.
+  %from Fig.~\ref{disk1}.
+  For a uniform disk, $I=\frac12MR^2$. Since the centre of mass is also the
+  pivot, we only have to consider its rotational motion.
+  \begin{center}
+    \begin{tikzpicture}[scale=.9]
+      \draw[mass] circle (2);
+      \draw[thick] circle (.13);
+      \fill (0,0)--(.13,0) arc (0:90:.13) node[above=-2]{pivot}--(0,0);
+      \fill (0,0)--(-.13,0) arc (180:270:.13)--(0,0);
+      %    \draw[axes,rotate=-30] (1,0) arc (0:60:1) node[above]{$\omega$, $\alpha$};
+      \draw[axes,rotate=40] (0,0)--(-2,0) node[midway,right=2]{$R$};
+%    \node at (0,-2.5) {Mass $M$};
+%    \node at (0,-3.3) {
+%    \only<2>{
+%      \begin{scope}[violet]
+%        \draw[thick,dash dot] (0,-.13)--(0,-2);
+%        \foreach \y in {-.4,-.8,...,-2.1} \draw[vector] (0,\y)--(-.8*\y,\y);
+%        \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%      \end{scope}
+    %    }
+    \end{tikzpicture}
+  \end{center}
+  %\caption{A disk spinning in the counter-clockwise direction}
+  %\label{disk1}
+  %\end{figure}
+
+%    \only<2>{Speed at any point on this disk is proportional to its distance
+%      to the pivot:
+%
+%      \eq{-.1in}{
+%        v=\omega r \quad\text{for}\quad 0\leq r\leq R
+%      }
+%    }
+%    \only<3>{When it is spinning, it has an angular momentum of
+%
+%      \eq{-.1in}{
+%        L = I\omega
+%      }
+%
+%      and a rotational kinetic energy:
+%      
+%      \eq{-.1in}{
+%        K_\text{rot}= \frac12I\omega^2
+%      }
+%    }
+%    
+%    \item Any angular acceleration that it may have will be due to the net
+%      torque at the pivot/CM:
+%      \begin{displaymath}
+%        \tau_\text{net}=\frac{\Delta L}{\Delta t}=I\alpha
+%      \end{displaymath}
+%    \end{itemize}
+
+\end{example}
+
+Let's analyze another problem where the centre of mass is not the centre of
+the rotation.
+\begin{example}[A Rotating Rod]
+  A uniform rod has a length $L$ and a mass $M$.
+  \begin{center}
+    \begin{tikzpicture}[scale=.9]
+      \draw[mass] (-.15,0) rectangle (.15,-5);
+      \draw[thick] (0,-2.5) circle(.13);
+      \fill (0,-2.5)--(.13,-2.5) node[right=-1]{cm} arc (0:90:.13)--(0,-2.5);
+      \fill (0,-2.5)--(-.13,-2.5) arc (180:270:.13)--(0,-2.5);
+      \fill circle (.07) node[above=0]{pivot};
+      \draw[axes,rotate=-90] (.7,0) arc (0:180:.7)
+      node[left]{$\omega$, $\alpha$};
+      \draw[thick,|<->|] (-.5,0)--(-.5,-5) node[midway,left]{$L$};
+%      \node at (0,-2.5) {Mass $M$};
+%      \node at (0,-3.3) {$I=\dfrac12MR^2$};
+%      \only<2>{
+%        \begin{scope}[violet]
+%          \draw[thick,dash dot] (0,-.13)--(0,-2);
+%          \foreach \y in {-.4,-.8,...,-2.1}\draw[vector] (0,\y)--(-.8*\y,\y);
+%          \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%        \end{scope}
+    %      }
+    \end{tikzpicture}
+  \end{center}
+  %\caption{A rod rotating about a pivot that is not at the centre of mass}
+  %\label{rod1}
+\end{example}
+
+
+
+\input{rotationalMotion/rotationalMotion-problems1}
+
+
+
+\chapter{Dynamics of Rotational Motion}
+\label{chapter:rot-motion-dynamics}
 
 Generally, when solving for rotational problems like the ones described in the
-previous
-sections, it is imperative to carefully draw a free-body diagram to account for
-all the forces and torques acting on an object, as we have done in the previous
-examples. A few things to keep in mind:
-\begin{itemize}[nosep]
+previous sections, it is imperative to carefully draw a free-body diagram to
+account for all the forces and torques acting on an object, as we have done in
+the previous examples. A few things to keep in mind:
+\begin{itemize}[itemsep=6pt]
 \item The direction of friction force is not always obvious.
 \item The magnitude of any static friction force cannot be assumed to be at
   maximum.
 \item If the object is to change its rotational state, there must be a net
   torque causing it.
 \end{itemize}
-Once the free-body diagram is
-complete, we can breaks down the \emph{forces} into $\iii$, $\jjj$ and $\kkk$
-components. We have now a set of three equations from the second law of motion:
-\begin{equation*}
-  \sum F_x=ma_x\quad\quad \sum F_y=ma_y\quad\quad \sum F_z=ma_z
-\end{equation*}
+Once the free-body diagram is complete, we can breaks down the \emph{forces}
+into $\iii$, $\jjj$ and $\kkk$ components. We have now a set of three equations
+from the second law of motion:
+\begin{align*}
+  \sum F_x=ma_x\\
+  \sum F_y=ma_y\\
+  \sum F_z=ma_z
+\end{align*}
 It is likely that only \emph{one} direction will have acceleration.\footnote{In
   fact, whenever possible, it is a good practice to orient the Cartesian
   coordinate system such that acceleration only occurs in one direction.} In
@@ -669,19 +767,21 @@ you are comfortable with to solve for the answers.
 
 
 
-%\section{Examples}
+\section{Rolling Problems}
 
+%The case of a rolling sphere is a standard example of combining the dynamics of
+%translational and rotational motions of a rigid body. Here, we present two
+%examples of a non-slip (i.e.\ pure rolling) motion, and one example with
+%slippage.
 
-\subsection{A Spinning Disk}
-
-Consider a uniform disk of radius $R$ and mass $M$ that is free to rotate about
-its centre of mass (Fig.~\ref{disk1}). To analyse its rotational motion, we
-first find its moment of inertia about the pivot from Fig.~\ref{disk1}. For a
-uniform disk, $I=\frac12MR^2$. Since the centre of mass is also the pivot, we
-only have to consider its rotational motion.
+A rolling problem is one example of dynamics problem that contains both
+translational and rotational motions. Consider a bicycle wheel that is rolling
+along the road without slipping, we can separate the rotational motion from
+its translational motion, as shown in Figure~\ref{fig:trans-and-rot}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
+<<<<<<< HEAD
     \draw[mass] circle (2);
     \draw[thick] circle (.13);
     \fill (0,0)--(.13,0) arc (0:90:.13) node[above=-2]{pivot}--(0,0);
@@ -776,6 +876,8 @@ motion, as shown in Fig.~\ref{fig:trans-and-rot}.
       \fill (\x,0) circle (1);
       \fill[white] (\x,0) circle (.8);
       \fill (\x,0) circle (.1);
+      \foreach\theta in {0,30,...,359}
+      \draw[thick,rotate around={\theta:(\x,0)}] (\x,0)--+(1,0);
     }
     \foreach \y in {-1,0,1}{
       \fill[red] (0,\y) circle (.05);
@@ -783,90 +885,93 @@ motion, as shown in Fig.~\ref{fig:trans-and-rot}.
     }
     \node[above] at (0,1.5) {Translation};
     
-    \node at (2.5,0) {\Huge$+$};
+    \node at (3,0) {\Huge$+$};
     
-    \draw[vector,cyan,rotate around={-40:(4.5,0)}] (4.5,1.1) arc (90:0:1.1)
+    \draw[vector,cyan,rotate around={-40:(5,0)}] (5,1.1) arc (90:0:1.1)
     node[right]{$\omega$};
-    \draw[vector,cyan] (4.5,1)--+(1.5,0) node[above]{$v=\omega R$};
-    \draw[vector,cyan] (4.5,-1)--+(-1.5,0) node[below]{$v=\omega R$};
-    \foreach \y in {-1,1} \fill[blue] (4.5,\y) circle (.05);
-    \node[above] at (4.5,1.5) {Rotation};
+    \draw[vector,cyan] (5,1)--+(1.5,0) node[above]{$v=\omega R$};
+    \draw[vector,cyan] (5,-1)--+(-1.5,0) node[below]{$v=\omega R$};
+    \foreach \y in {-1,1} \fill[cyan] (5,\y) circle (.05);
+    \node[above] at (5,1.5) {Rotation};
     
     \node at (7,0) {\Huge$=$};
     
-    \foreach \y in {0,1} \fill[violet] (9,\y) circle (.05);
-    \draw[vector,violet] (9,1)--(12,1) node[above]{$v=2\omega R$};
-    \draw[vector,violet] (9,0)--(10.5,0) node[right]{$v=\omega R$};
-    \fill[violet] (9,-1) circle (.05) node[below]{$v=0$};
+    \foreach \y in {0,1} \fill[violet] (10,\y) circle (.05);
+    \draw[vector,violet] (10,1)--+(3,0) node[above]{$v=2\omega R$};
+    \draw[vector,violet] (10,0)--+(1.5,0) node[right]{$v=\omega R$};
+    \fill[violet] (10,-1) circle (.05) node[below]{$v=0$};
   \end{tikzpicture}
-  \caption{The rolling problem is one that combines translational and
-    rotational motion. At the contact point, if there is no slipping, the
-    velocity is zero.}
+  \caption{Separating translation and rotational motion in a rolling problem}
+  %\caption{The rolling problem is one that combines translational and
+  %  rotational motion. At the contact point, if there is no slipping, the
+  %  velocity is zero.}
   \label{fig:trans-and-rot}
 \end{figure}
- If there is no slippage at
-the contact point, the velocity of the object must be zero. We can see that
-in this case, the angular speed $\omega$ and the translational speed  of the
-centre of mass $v_\text{cm}$ must be related by
-\begin{equation}
-  \boxed{
-    v_\text{cm}=\omega R
-  }
+Since there is no slippage at the contact point, the velocity at that point
+must be zero. In this case, the angular speed $\omega=|\bm\omega|$ and the
+translational speed of the wheel's centre of mass $v_\text{cm}=|\bm v_\text{cm}|$
+must be related by the radius of the wheel $R$:
+\begin{important-equation}
+  \text{No slip:}\quad\quad v_\text{cm}=\omega R
   \label{eq:relate1}
-\end{equation}
-where $R$ is the radius of the object. Since $R$ is constant, the linear
-acceleration of the CM must also be related to the angular acceleration by
-taking the time derivative of Eq.~\ref{eq:relate1}:
-\begin{equation}
-  \diff{v_\text{cm}}t= \diff\omega{t}R\quad\rightarrow\quad
-    \boxed{
-      a_\text{cm}=\alpha R
-    }
-\end{equation}
+\end{important-equation}
+%where $R$ is the radius of the wheel.
+Since $R$ is constant, the linear acceleration of the centre of mass must also
+be related to the angular acceleration by taking the time derivative of
+Eq.~\ref{eq:relate1}:
+\begin{equation*}
+  \diff{v_\text{cm}}t= \diff\omega{t}R
+\end{equation*}
+leading to a relationship between the magnitude of the translational
+acceleration $a_\text{cm}=|\bm a_\text{cm}|$ and the magnitude of the angular
+acceleration $\alpha=|\bm\alpha|$, which we will take advantage of when we
+apply the second law of motion:
+\begin{important-equation}
+  \text{No slip:}\quad\quad a_\text{cm}=\alpha R
+\end{important-equation}
+
 
 
 \subsection{Pure Rolling on Flat Surface}
 \label{no-slip-ball}
-In the first and simplest case, shown in Fig.~\ref{roll-flat}, a uniform sphere
-of radius $R$ rolls along a smooth, flat surface with a translational velocity
-$\bm v$ and an angular velocity $\bm\omega$. Since there is no slipping,
-$v=\omega R$. We assume that the sphere and the surface are both perfectly
-rigid (i.e.\ they do not deform).
-%We also assume that the sphere and the surface are both perfectly smooth.
-% without defects even at the microscopic level. 
-The forces are also shown in Fig.~\ref{roll-flat}. Notice that
+In the simplest case, a uniform sphere of radius $R$ (think of a ball bearing)
+rolls along a smooth, flat surface with a translational velocity $\bm v$ and an
+angular velocity $\bm\omega$. Since there is no slipping, $v=\omega R$. To
+simplify the analysis, we will assume that the sphere and the surface are both
+perfectly rigid (i.e.\ they do not deform), and perfectly smooth, without
+defects even at the microscopic level. In this case, the forces are also shown
+in the free-body diagram in Figure~\ref{roll-flat}. Notice that
 \emph{there is no friction between the sphere and the surface}.
 \begin{figure}[!ht]
   \centering
-  \begin{tikzpicture}[scale=1.5]
+  \begin{tikzpicture}[scale=1.1]
     \shade[ball color=gray!20] circle (1);
     \draw[thick] (-2,-1)--(2,-1);
     \draw[vector] (1.5,0)--(2.5,0) node[right]{$\bm v$};
-    \draw[vector] (0,1.2) arc (90:60:1.2) node[midway,above]{$\bm\omega$};
+    \draw[vector] (0,1.2) arc (90:40:1.2) node[pos=1.2]{$\bm\omega$};
     \draw[axes] (2.5,-1.5)--+(.7,0) node[right]{$x$};
     \draw[axes] (2.5,-1.5)--+(0,.7) node[above]{$y$};
     \fill circle (.05) node[right]{cm};
-    \draw[vector,blue] (0,0)--+(0,-1.5) node[below]{$\bm F_g$};
-    \draw[vector,red] (-.03,-1)--+(0,1.5) node[above]{$\bm F_n$};
+    \draw[vector,blue] (0,0)--+(0,-1.5) node[below]{$\bm F_\text{grav}$};
+    \draw[vector,red] (-.03,-1)--+(0,1.5) node[above]{$\bm F_\text{norm}$};
   \end{tikzpicture}
-  \caption{Free-body diagram on a uniform density solid sphere rolling on a
-    smooth flat surface without slipping.}
+  \caption{Free-body diagram for pure rolling on a smooth flat surface without
+    slipping.}
   \label{roll-flat}
 \end{figure}
+There is zero net force acting on the sphere, therefore the the translational
+state (i.e.\ momentum $\bm p=m\bm v$) stays constant in time. Also, both
+gravity and normal forces go through the centre of mass, therefore there is
+zero net torque acting on the sphere, and rotational state (i.e.\ angular
+momentum $\bm L=I\omega$) is constant in time. In theory---if our assumptions
+are correct---the sphere will roll along forever. Indeed, when you roll a steel
+ball bearing along a steel track, it will roll for a \emph{very} long time.
 
-It is clear that there is zero net force acting on the sphere, therefore the
-the translational state (i.e.\ momentum $\bm p=m\bm v$) stays constant in time.
-Also, both gravity and normal forces go through the centre of mass, therefore
-there is zero net torque acting on the sphere, and rotational state
-(i.e.\ angular momentum $\bm L=I\omega$) is constant in time.In theory (if our assumptions are correct), the sphere will roll along forever.
-
-
-%But of course, we are very observant.
 But even a casual observer will notice that, in reality, a ball slows down and
 eventually come to a stop. A steel ball bearing on a track can roll over a
 much longer distance and time than a soccer ball, but neither staying rolling
 forever. So what causes this? Specifically, what is missing in the free-body
-diagram in Fig.~\ref{roll-flat}?
+diagram in Figure~\ref{roll-flat}?
 
 %It seems that our assumptions aren't quite correct.
 %There are two major oversights in our initial assumptions.
@@ -880,15 +985,15 @@ diagram in Fig.~\ref{roll-flat}?
 %  does not necessarily point toward the CM of the ball. This means that unlike
 %  in Fig.~\ref{roll-flat}, there is a net force and net torque that will slow
 %  down the motion of the ball.
-We must recognize that \textbf{nothing is perfectly rigid.}\footnote{This
-should be obvious, but in the pursuit of learning physics, this is a detail
+To properly understand this problem, we must recognize that \textbf{nothing is
+  perfectly rigid}. Both the ball and the surface deform as they make contact.
+This should be obvious, but in the pursuit of learning physics, this is a detail
 that may be lost. When two objects collide in any collision, it takes a finite
 amount of time for either objects to accelerate to the new velocities. If both
 objects are perfectly rigid, then the collision will occur over an infinitely
-small time interval, with infinitely large forces acting on them.} Both the
-ball and the surface deform as they make contact. A perfect illustration is how
-a tire flattens when it makes contact with the ground, shown in
-Fig.~\ref{tire1}.
+small time interval, with infinitely large forces acting on them. A perfect
+illustration is how a tire flattens when it makes contact with the ground,
+shown in Figure~\ref{tire1}.
 \begin{figure}[!ht]
   \centering
   \pic{.3}{rotationalMotion/OAGZy}
@@ -897,106 +1002,98 @@ Fig.~\ref{tire1}.
   \label{tire1}
 \end{figure}
 
-The normal force is large in magnitude on
-the front side is large in magnitude than on the other, and therefore exerts
-both a resistive force to slow down the wheel, as well as negative torque to
-slow down the tire. Also, the normal force does not point toward the CM. This
-is called \textbf{rolling resistance}.
-%\end{enumerate}  
-%Now that we have understood the basic problem, we can tackle the next problem
-%that involves friction.
+The normal force has a larger magnitude on the front side than on the other,
+therefore exerts both a resistive force to slow down the wheel, as well as
+negative torque to slow down the tire. Also, the normal force does not point
+toward the centre of mass. This is called \textbf{rolling resistance}.
 
 
-\subsection{Pure Rolling on an Inclined Surface}
+
+\subsection{Rolling on Inclined Surfaces}
+
 But what if the uniform sphere rolls down a ramp of angle $\theta$ instead? The
-free-body diagram for that sphere is shown in Fig.~\ref{roll-ramp}. The radius
-of the sphere is $R$ and its mass is $M$.
+free-body diagram for that sphere is shown in Figure~\ref{roll-ramp}. The radius
+of the sphere is $R$ and its mass is $m$.
 \begin{figure}[!ht]
   \centering
-  \begin{tikzpicture}[scale=1.3]
-    \begin{scope}[rotate=-30]
-      \shade[ball color=gray!20] circle(1);
-      \draw[thick] (-2,-1)--(5,-1);
-      \draw[->,rotate=30](0,0)--(-1,0) node[left]{$R$};
-      \draw[vector] (0,1.2) arc(90:60:1.2) node[pos=.3,right]{$\bm\omega$};
-      \draw[axes] (2,0)--(3,0) node[right]{$x$};
-      \draw[axes] (2,0)--(2,1) node[above]{$y$};
-      \fill circle (.05) node[right]{cm};
-      \draw[vector,blue,rotate=30] (0,0)--(0,-1.5) node[below]{$\bm F_g$};
-      \draw[vector,red] (.0,-1)--(.0,.3) node[above]{$\bm F_n$};
-      \draw[vector,orange] (.0,-1)--(-.5,-1) node[left]{$\bm f_s$};
-      \begin{scope}[rotate around={30:(5,-1)}]
-        \draw[thick] (5,-1)--(3,-1) node[pos=.4,above]{$\theta$};
-      \end{scope}
+  \begin{tikzpicture}[rotate=-30,thick]
+    \shade[ball color=gray!20] circle (1);
+    \draw (-2,-1)--(5,-1);
+    \draw[axes,rotate=30](0,0)--(-1,0) node[left]{$R$};
+    \draw[vector] (0,1.2) arc(90:60:1.2) node[pos=1.2]{$\bm\omega$};
+    \draw[axes] (2,0)--(3,0) node[right]{$x$};
+    \draw[axes] (2,0)--(2,1) node[above]{$y$};
+    \fill circle (.05) node[right]{cm};
+    \begin{scope}[vector]
+      \draw[blue,rotate=30] (0,0)--(0,-1.5) node[below]{$\bm F_\text{grav}$};
+      \draw[red] (.0,-1)--(.0,.3) node[above]{$\bm F_\text{norm}$};
+      \draw[orange] (.0,-1)--(-.5,-1) node[left]{$\bm F_\text{fric}$};
     \end{scope}
+    \draw[rotate around={30:(5,-1)}] (5,-1)--(3,-1)
+    node[pos=.4,above]{$\theta$};
   \end{tikzpicture}
-  \caption{Free-body diagram on a smooth solid sphere of radius $R$ rolling
-    down a smooth ramp without slipping.}
-    %The ball travels distance $d$ to the
-    %bottom of the ramp.}
+  \caption{Free-body diagram on a solid sphere rolling down a ramp without
+    slipping.}
   \label{roll-ramp}
 \end{figure}
 
 %\textbf{Be careful what forces are acting on it.}
-Gravity $\bm F_g$ acts at the CM, while normal force $\bm F_n$ acts at the
-point of contact. This time, there is also static friction $\bm f_s$ acting up
-the ramp ($-\iii$-dir.) at the point of contact between the sphere and the
-surface. (Without friction, the sphere will just \emph{slide} down the ramp
-without rotation.) To solve this problem, we have three dynamic equations. For
-translational motion, the acceleration of the CM is entirely along the
-$+\jjj$-direction:
-%along the three
-%axes\footnote{The $z$-axis points \emph{out} of the page. Counter-clockwise
-%rotational motion is positive, while clockwise rotational motion is negative}:
+Gravity $\bm F_\text{grav}=m\bm g$ acts at the centre of mass, while normal force
+$\bm F_\text{norm}$ acts at the point of contact between the sphere and the
+ramp. There is also static friction $\bm F_\text{fric}$ acting up the ramp, along
+the $-\iii$-direction, at the point of contact between the sphere and the
+ramp. (Without friction, the sphere will just \emph{slide} down the ramp
+without rotational motion.) To analyze this problem, we have to use three
+dynamic equations. For translational motion, the acceleration of the centre of
+mass is entirely along the $+\iii$-direction. The translational equations of
+motion along the $+\iii$- and $\jjj$-directions are, respectively:
 \begin{align}
-  \sum F_x&=mg\sin\theta-f_s=ma_\text{cm}\\ \label{f_x}
-  \sum F_y&=N-mg\cos\theta=0
+  \sum F_x&=mg\sin\theta-F_\text{fric}=ma_\text{cm}\\ \label{f_x}
+  \sum F_y&=F_\text{norm}-mg\cos\theta=0
 \end{align}
-and for rotational motion, the (clockwise) torque is provided by the static
-friction force alone, since neither gravity nor normal force generate a torque
-about the CM:
+For rotational motion, a clockwise torque is provided by the static friction
+force alone, since neither gravity nor normal force generate a torque about the
+centre of mass:
 \begin{equation}
-  \sum\tau=rf_s=I\alpha \label{tau}
+  \sum\tau=rF_\text{fric}=I\alpha
+  \label{tau}
 \end{equation}
-For a uniform sphere, $I=\frac25MR^2$. We also recognize that for pure rolling,
-$a_\text{cm}=\alpha R$. 
-%\textbf{Don't be so sure about what $\mu_s$ tells us.}
-At this stage, the static friction force is \emph{not} known and is a quantity
-that needs to be solved.\footnote{The coeefficient of static friction $\mu_s$
-can only tell you the \emph{maximum} static friction, not the \emph{actual}
-friction that exists. However, we can use it to double check to see if the
-answer makes sense.}
+For a uniform sphere, $I=\dfrac25mR^2$. We also recognize that if the sphere
+rolls without slipping, $a_\text{cm}=\alpha R$. At this stage, the magnitude of
+the static friction force $F_\text{fric}$ is \emph{not} known and is a quantity
+that needs to be solved. The coeefficient of static friction $\mu_s$ can only
+tell you the \emph{maximum} static friction, not the \emph{actual} friction
+that exists. However, we will use use that equation to see if the answer makes
+sense.
 
 Solving this problem (Eqs.~\ref{f_x} and \ref{tau}) means finding two unknowns:
-$a_\text{cm}$ and $f_s$. We first solve for the magnitude of static friction:
-
-%\textbf{Relating rotational and translational motions.} Inserting the
-%expression for the moment of inertia of the solid sphere $I_z=\dfrac25 mR^2$
-%
-%we can use
-%Eq.~\ref{tau} to express static friction in terms of linear acceleration $a$:
+$a_\text{cm}$ and $F_\text{fric}$. We first solve for the magnitude of static
+friction by rerranging Eq.~\label{tau}, and substituting the expressions for
+$I$ and $\alpha$:
 \begin{equation}
-  f_s=\frac{I\alpha}R=
+  F_\text{fric}=\frac{I\alpha}R=
   \left[\frac25 mR^2\right]
   \left[\frac{a_\text{cm}}R\right]
   \left[\frac1R\right]=\frac25ma_\text{cm}
   \label{f_s}
 \end{equation}
-Substituting the expression in Eq.~\ref{f_s} into Eq.~\ref{f_x}, the force
-equation in the $\iii$-direction becomes:
+Substituting the expression for $F_\text{fric}$
+%in Eq.~\ref{f_s}
+into Eq.~\ref{f_x}, the translational equation of motin along the
+$\iii$-direction becomes:
 \begin{equation}
   mg\sin\theta-\frac25 ma_\text{cm}=ma_\text{cm}
 \end{equation}
-Cancelling the mass terms and solving for acceleration, we find a constant
-acceleration of :
+Cancelling the mass terms ($m$) and solving for translational acceleration, we
+find a constant acceleration of :
 \begin{equation}
   a_\text{cm}=\frac57 g\sin\theta
   \label{pure-roll-accel}
 \end{equation}
-
 Compare the results in Eq.~\ref{pure-roll-accel} to that of an object
 \emph{sliding} without friction down the same ramp, the acceleration for the
-sliding block is $a=g\sin\theta$ which is higher than the pure rolling case.
+sliding block is $a=g\sin\theta$.
+%which is higher than the pure rolling case.
 %The simplest explanation is that some of the gravitational potential energy is
 %converted to both translational and rotational kinetic energies, while for the
 %sliding case, all of the potential energy is converted into translational
@@ -1004,50 +1101,229 @@ sliding block is $a=g\sin\theta$ which is higher than the pure rolling case.
 %If this is indeed the case, it means that the sphere will actually slip while
 %rolling down the ramp, and the friction at the contact point is in fact kinetic
 %friction.
-
 Since acceleration is constant, kinematic equation can be used to compute the
 speed of the sphere when it reaches the bottom of the ramp, a distance $d$ away.
 If the sphere starts from rest:
 \begin{equation}
-  v=\sqrt{2ad}=\sqrt{\frac{10}{7}gd\sin\theta}
+  v=\sqrt{2ad}=\sqrt{\frac{10}7gd\sin\theta}
 \end{equation}
 \textbf{Sanity Check:} we must make sure that the friction calculated in
 Eq.~\ref{f_s} has not exceeded the maximum static friction, given by
 \begin{equation}
-  f_s\leq\mu_sF_N
+  f_\text{fric}\leq\mu_sF_\text{norm}
   \label{maxf}
 \end{equation}
 Combining the expression for $f_s$ in Eq.~\ref{f_s}, the acceleration in
 Eq.~\ref{pure-roll-accel}, and the normal force on an incline, Eq.~\ref{maxf}
 becomes:
 \begin{align}
-  f_s&\leq\mu_sF_N\nonumber\\
+  f_\text{fric}&\leq\mu_sF_\text{norm}\nonumber\\
   \frac27mg\sin\theta&\leq\mu_smg\cos\theta\nonumber\\
   \frac27\tan\theta&\leq\mu_s
 \end{align}
 If the ramp angle $\theta$ is too steep, then the friction will transition from
 static to kinetic, which is a much more difficult problem.
 
-\textbf{Energy Conservation Consideration:} A much simpler way to find $v$ at
-the bottom of the ram is by using the conservation of energy. In this case,
-kinetic energy is split between translational kinetic energy $K_t$ and
-rotational kinetic energy $K_r$:
-\begin{align*}
-  \Delta U_g&=K_t+K_r\\
-  mg{\color{red}\Delta h}&=\frac12 mv^2+
-  \frac12
-  {\color{blue}I}{\color{orange}\omega}^2\\
-  mg{\color{red}d\sin\theta}&=\frac12 mv^2+\frac12
-  \left({\color{blue}\frac25 mR^2}\right)
-  \left({\color{orange}\frac vR}\right)^2
-  =\frac12 mv^2+\frac15mv^2=\frac7{10}mv^2
-\end{align*}
-Cancelling mass terms on both sides, and solving for $v$, we arrive at
-the same expression as using dynamics and kinematics equations, in a fraction
-of the time and effort:
+%\textbf{Energy Conservation Consideration:} A much simpler way to find $v$ at
+%the bottom of the ram is by using the conservation of energy. In this case,
+%kinetic energy is split between translational kinetic energy $K_t$ and
+%rotational kinetic energy $K_\text{rot}$:
+%\begin{align*}
+%  \Delta U_g&=K_t+K_r\\
+%  mg{\color{red}\Delta h}&=\frac12 mv^2+
+%  \frac12
+%  {\color{blue}I}{\color{orange}\omega}^2\\
+%  mg{\color{red}d\sin\theta}&=\frac12 mv^2+\frac12
+%  \left({\color{blue}\frac25 mR^2}\right)
+%  \left({\color{orange}\frac vR}\right)^2
+%  =\frac12 mv^2+\frac15mv^2=\frac7{10}mv^2
+%\end{align*}
+%Cancelling mass terms on both sides, and solving for $v$, we arrive at
+%the same expression as using dynamics and kinematics equations, in a fraction
+%of the time and effort:
+%\begin{equation*}
+%  v=\sqrt{\frac{10}7gd\sin\theta}
+%\end{equation*}
+%
+
+
+\subsection{Rolling on Flat Surface with Slippage}
+We return to the flat-surface problem again, but this time, we allow the sphere
+to slip at the point of contact with the surface.  In this case, because there
+is relative motion between them, there will also be \emph{kinetic} friction
+$F_\text{fric}=\mu_kF_\text{norm}$ at the point of contact between the sphere, as
+shown in Figure~\ref{slip1}. At that point, the sphere slides to the left
+relative to the surface, and therefore the force of friction is towards the
+right.
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpicture}
+    \shade[ball color=gray!20] circle (1);
+    \draw[thick](-2,-1)--(2,-1);
+    \draw[vector] (0,1.2) arc (90:40:1.2) node[right]{$\bm\omega(t)$};
+    \draw[vector] (1.2,0)--+(1,0) node[right]{$\bm v(t)$};
+    \draw[axes] (3,0)--+(1,0) node[right]{$x$};
+    \draw[axes] (3,0)--+(0,1) node[above]{$y$};
+    \fill circle (.05) node[right]{\small cm};
+    \begin{scope}[vector]
+      \draw[blue] (0,0)--(0,-1.5) node[below]{$\bm F_\text{grav}$};
+      \draw[red] (-.05,-1)--(-.05,.5) node[above]{$\bm F_\text{norm}$};
+      \draw[orange] (0,-1)--(.75,-1) node[below]{$\bm F_\text{fric}$};
+      \end{scope}
+  \end{tikzpicture}
+  \caption{Force diagram on a smooth solid sphere rolling on a flat surface with
+    slippage.}
+  \label{slip1}
+\end{figure}
+% and a counter-clockwise net torque, also caused by the kineteic
+%friction force. The consequences are that:
+%\begin{itemize}[itemsep=6pt]
+%
+There is now a net force in the $+\iii$ direction that is caused by kinetic
+friction $\bm F_\text{fric}$, which causes the sphere to accelerate towards that
+direction. Since $\bm F_\text{fric}$ is constant, the acceleration is also
+constant, as long as the sphere slips. At first glance, a foward kinetic
+friction force may seem counter intuitive, but we know that a car with its
+tires spinning on ice will still have a small acceleration. To analyze the
+translational motion:
+%, there are forces in the $\iii$ and $\jjj$ directions.
+%Like in all dynamics problems, we can separate the $\iii$ and $\jjj$ forces.
+%In the $\jjj$ direction, there is both kinetic friction is the only force,
+%therefore we note that the normal force is equal in magnitude to the
+%gravitational force:
 \begin{equation*}
-  v=\sqrt{\frac{10}7gd\sin\theta}
+  \sum F_y = 0
+  \quad\to\quad
+  F_\text{norm}-F_\text{grav}=0
+  \quad\to\quad
+  F_\text{norm}=F_\text{grav}=mg
 \end{equation*}
+%\item The net force caused by kinetic friction  
+%
+%\item 
+%\end{itemize}
+%%It is important to note that,
+%Unlike no-slip cases where we can relate the magnitudes of angular acceleration
+%$|\alpha|$ and linear acceleration $|\bm a|$ by the radius $R$ of the sphere,
+%for the slippage case, there is
+%\emph{no relationship between $\alpha$ and $\bm a$.}
+In the $\iii$-dir., kinetic friction is the only force, therefore we
+have a constant acceleration of:
+\begin{equation*}
+  \sum F_x = ma
+  \quad\to\quad
+  F_\text{fric}=ma
+  \quad\to\quad
+  \mu_kmg=ma
+  \quad\to\quad
+  a=\mu_kg
+\end{equation*}
+The horizontal velocity of the sphere $v_x$ towards the right can be expressed
+with a simple kinetic equation:
+\begin{equation}
+  v_x=v_0+at=v_0+\mu_kgt
+\end{equation}
+The kinetic friction force also generates a net torque in the counter clockwise
+direction. This causes the clockwise angular speed $\omega=|\bm\omega|$ to
+decrease over time. Solving the rotational equation of motion:
+\begin{equation*}
+  \sum\tau=I\alpha
+  \quad\to\quad
+  F_\text{fric}R=I\alpha
+  \quad\to\quad
+  \mu_kmgR=\left[\frac25mR^2\right]\alpha
+  \quad\to\quad
+  \alpha=\frac{2\mu_kg}{5R}
+\end{equation*}
+which is constant in time. Therefore, we can use a kinematic equation to
+describe the angular velocity of the sphere:
+\begin{equation}
+  \omega=\omega_0+\alpha t
+\end{equation}
+Note that $\omega_0$ is negative, since the rotation is clockwise. At some time
+$t$ there will be a point in time where $v=\omega r$. When this happens, the
+sphere stops slipping, and the problem returns to the no-slip case that was
+discussed in Section~\ref{no-slip-ball}.
+
+
+
+
+
+\section{Pulley Problems}
+
+Pulley problems are common in most dynamics problems, as we have already seen
+in Chapter~\ref{chapter:dynamics}). However, when we solve these problems, we
+usually assume that the pulleys are massless and frictionless. We can get away
+with this \emph{if} the mass of the pulley is small compared to the masses
+that it is connected to.
+%$m_1$ and $m_2$,
+However, we cannot treat the problem the same way if the mass of the pulley is
+significant. Instead, we have to solve the problem using rotational dynamics.
+If the cable is wrapped tightly around the pulley, then we can also expect the
+relation to hold true: $v=\omega R$ and $a=\alpha R$
+%\begin{itemize}[itemsep=6pt]
+%\item As the masses accelerate upwards/downwards, cable tension must also
+%  generate a torque on the pulley
+%\item The tension will not be constant along the cable
+%\item 
+%\end{itemize}
+    
+\begin{example}[Single Mass and Pulley]
+  A mass $m_1$ is connected to a cable that is wrapped tightly around a pulley
+  with radius $R$, mass $m_2$ and a rotational inertia of $I=\frac12m_2R^2$, as
+  shown in the figure below. The pulley can rotate about its axis without
+  friction.
+  \begin{center}
+    \begin{tikzpicture}[scale=.8]
+      \draw[ultra thick,brown] (1,0)--(1,-2);
+      \draw[thick,fill=gray] circle (1.05);
+      \draw[thick,fill=gray!40] circle (.95);
+      \draw[line width=5.5] (0,-.15)--(0,2);
+      \draw[very thick] (-2,2)--(2,2);
+      \fill[white] circle (.1) node[black,left=4]{$m_2$};
+      \draw[mass] (.5,-2) rectangle +(1,-1) node[midway]{$m_1$};
+    \end{tikzpicture}
+    %\caption{A simple pulley problem}
+    %\end{figure}
+  \end{center}
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the mass?
+  \item What is the magnitude of the tension force?
+  \item If the mass is released from rest, what is its speed after falling
+    a distance $d$?
+  \end{enumerate}
+\end{example}
+
+
+\begin{example}[Two Masses and Pulley]
+  Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
+  a pulley with radius $R$, mass $m_3$ and a rotational inertia of
+  $I=\frac12m_3R^2$, as shown in the figure below. The pulley can rotate about
+  its axis without friction. Assuming that $m_1>m_2$.
+  \begin{center}
+    \begin{tikzpicture}[scale=.8]
+      \draw[ultra thick,brown] (-1,-1.6)--(-1,0);
+      \draw[ultra thick,brown] (1,0)--(1,-3);
+      \draw[thick,fill=gray] circle (1.05);
+      \draw[thick,fill=gray!40] circle (.95);
+      \draw[line width=5.5] (0,-.15)--(0,2);
+      \draw[very thick] (-2,2)--(2,2);
+      \fill[white] circle (.1);
+      \draw[mass] (-1.5,-1.6) rectangle +(1,-1) node[midway]{$m_1$};
+      \draw[mass] (.5,-3) rectangle +(1,-1.2) node[midway]{$m_2$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the masses?
+  \item If the masses are released from rest, what is their speed after
+    falling a distance $d$?
+  \end{enumerate}
+\end{example}
+
+
+
+
+\section{Energy Conservation in Rotational Motion}
 
 \textbf{But why is energy conserved?} That the total system energy is conserved
 even when there is friction should be a significant insight for the novice
@@ -1056,14 +1332,15 @@ would have done some non-conservative external work. However, a careful look at
 the work done by the static friction reveals how energy is transformed:
 \begin{itemize}[leftmargin=12pt]
 \item Static friction does \emph{positive rotational work}. It is the only
-  force that generates a torque, therefore the positive work done by $\bm f_s$
-  increases the rotational kinetic energy, i.e.\ $W_r=\Delta K_r>0$ by the
-  work-energy theorem. This is supported by the fact that as the ball rolls, the
-  angular velocity increases.
+  force that generates a torque, therefore the positive work done by
+  $\bm F_\text{fric}$ increases the rotational kinetic energy, i.e.\
+  $W_\text{rot}=\Delta K_\text{rot}>0$ by the work-energy theorem. This is supported by the fact
+  that as the ball rolls, the  angular velocity increases.
 \item At the same time, static friction also does \emph{negative translational
   work}, as the direction of the frictional force is in the opposite direction
   to the translational motion of the CM. Again, by the
-  work-energy theorem, i.e.\ $W_t=\Delta K_t<0$. This is supported by the fact
+  work-energy theorem, i.e.\ $W_\text{trans}=\Delta K_\text{trans}<0$. This is
+  supported by the fact
   that the (translational) velocity for the rolling case is \emph{lower} than
   the sliding case with no friction.
 \end{itemize}
@@ -1076,59 +1353,30 @@ remains isolated from the surroundings, and therefore, although static friction
 is non-conservative, the work done is not external to the system, and therefore
 the total energy of the system is conserved.
 
-\subsection{Rolling on Flat Surface with Slippage}
-We return to the flat-surface problem, but this time, we allow slippage at the
-point of contact between the sphere and the surface. In this case, because there
-is relative motion between them, there is \emph{kinetic} friction $f_k=\mu_kF_N$
-at the point of contact, as shown in Fig.~\ref{slip1}. At that point, the
-sphere slides to the left relative to the surface, and therefore the force of
-friction is toward the right.
-\begin{figure}[!ht]
-  \centering
-  \begin{tikzpicture}[scale=1.3]
-    \shade[ball color=gray!20] circle (1);
-    \draw[thick](-2,-1)--(2,-1);
-    \draw[vector] (0,1.2) arc (90:60:1.2) node[below right]{$\bm\omega$};
-    \draw[axes] (2,0)--(3,0) node[right]{$x$};
-    \draw[axes] (2,0)--(2,1) node[above]{$y$};
-    \fill circle (.05) node[right]{\small cm};
-    \draw[vector,blue] (0,0)--(0,-1.5) node[below]{$\bm F_g$};
-    \draw[vector,red] (-.05,-1)--(-.05,.5) node[above]{$\bm F_N$};
-    \draw[vector,orange] (0,-1)--(.75,-1) node[below]{$\bm f_k$};
-  \end{tikzpicture}
-  \caption{Force diagram on a smooth solid sphere rolling on a flat surface with
-    slippage.}
-  \label{slip1}
-\end{figure}
 
-There is now a net force in the $+x$ direction, and a positive net torque in
-the $+z$ direction (i.e.\ net torque is counter-clockwise). The consequences
-are that:
-\begin{enumerate}[topsep=0pt]
-\item The net force caused by kinetic friction $\bm f_k$ causes the sphere to
-  accelerate toward the $+x$ direction. Since $\bm f_k$ is constant, the
-  acceleration is also constant as well (for as long as the sphere slips). At
-  first glance, this may seem counter intuitive, but, we know that a car with
-  its tires spinning on ice will still have a small acceleration.
-\item The net torque in the $+z$ (counter clockwise) direction
-  causes the angular velocity $\bm\omega$ to decrease over time.
-\end{enumerate}
-It is important to note that, unlike the previous no-slip cases where we can 
-relate angular acceleration $\alpha$ with linear acceleration $a$ by the radius
-of the sphere, for the slippage case, there is \emph{no relationship between
-  $\alpha$ and $a$.} The velocity of the sphere $\bm v$ toward the right can
-be expressed with a simple kinetic equation:
-\begin{equation}
-  v_x=v_0+at
-\end{equation}
-while the angular velocity of the sphere is given by:
-\begin{equation}
-  \omega=\omega_0+\alpha t
-\end{equation}
-Note that $\omega_0$ is negative, since the rotation is clockwise. At some time
-$t$ there will be a point in time where $v=\omega r$. When this happens, the
-sphere stops slipping, and the problem returns to the no-slip case that was
-discussed in Section~\ref{no-slip-ball}.
+\begin{example}[Rolling on Inclined Surface]
+  We have already studied this problem using \emph{dynamics}, but it is entirely
+  possible to solve some of this problem using energy conservation.
+  \begin{center}
+    \begin{tikzpicture}[scale=1.1,rotate=-30,thick]
+      \shade[ball color=gray!20] circle (1);
+      \draw (-2,-1)--(5,-1);
+      \draw[axes,rotate=30](0,0)--(-1,0) node[left]{$R$};
+      \draw[vector] (0,1.2) arc(90:60:1.2) node[pos=1.2]{$\bm\omega$};
+      \draw[axes] (2,0)--(3,0) node[right]{$x$};
+      \draw[axes] (2,0)--(2,1) node[above]{$y$};
+      \fill circle (.05) node[right]{cm};
+      \begin{scope}[vector]
+        \draw[blue,rotate=30] (0,0)--(0,-1.5) node[below]{$\bm F_\text{grav}$};
+        \draw[red] (.0,-1)--(.0,.3) node[above]{$\bm F_\text{norm}$};
+        \draw[orange] (.0,-1)--(-.5,-1) node[left]{$\bm F_\text{fric}$};
+      \end{scope}
+      \draw[rotate around={30:(5,-1)}] (5,-1)--(3,-1)
+      node[pos=.4,above]{$\theta$};
+    \end{tikzpicture}
+  \end{center}
+
+\end{example}
 
 
 \section{Pulley Problems}
@@ -1179,12 +1427,14 @@ immediately:
 
 
 
-\begin{example}[Pulley with two masses]
+\begin{example}[Two Masses and Pulley]
   Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
-  a pulley of uniform density with radius $R$, mass $m_3$, and a rotational
-  inertia of $I=\frac12m_3R^2$, as shown in the figure below.
+  a pulley with radius $R$, mass $m_3$ and a rotational inertia of
+  $I=\frac12m_3R^2$, as shown below. The pulley can rotate about its axis
+  without friction. Assuming that $m_1>m_2$. If the masses are released from
+  rest, what is their speed after falling a distance $d$?
   \begin{center}
-    \begin{tikzpicture}[scale=.65]
+    \begin{tikzpicture}[scale=.9]
       \draw[ultra thick,brown] (-1,-1.6)--(-1,0);
       \draw[ultra thick,brown] (1,0)--(1,-3);
       \draw[thick,fill=gray] circle (1.05);
@@ -1204,9 +1454,19 @@ immediately:
   \item If the masses are released from rest, what is their speed after
     $m_1$ has fallen a distance $d$?
   \end{enumerate}
+  Again, we ask the same questions when setting up an energy conservation
+  problem
+  \begin{itemize}
+  \item As $m_1$ rises, gravitational force does negative work, converting its
+    kinetic energy into gravitational potential energy.
+  \item As $m_1$ rises, positive work done by gravitational converts its
+    gravitational potential energy
+  \end{itemize}
+
 \end{example}
 
 
-
-\chapter{Energy Conservation in Rotational Motion}
-\label{chapter:rotational-energy-considerations}
+%
+%\chapter{Energy Conservation in Rotational Motion}
+%\label{chapter:rotational-energy-considerations}
+%

@@ -13,22 +13,19 @@
 %
 %    \pic1{flux2}
 
-Magnetic flux is defined as:
-\begin{equation}
-  \boxed{\Phi_m=\int_\mathcal{S}\bm B\cdot\dl{\bm A}}
-\end{equation}
+Magnetic flux through any surface $\mathcal S$ is defined as:
+\begin{important-equation}
+  \Phi_m=\int_\mathcal{S}\bm B\cdot\dl{\bm A}
+\end{important-equation}
 where $\bm B$ is the magnetic field, and $\dl{\bm A}$ is the infinitesimal
 area pointing \textbf{outwards}. Note that magnetic flux can also be
 expressed as:
-\begin{equation}
-  \boxed{\Phi_m=\int_{\mathcal S}(\bm B\cdot\hat n)\dl A}
-\end{equation}
+\begin{important-equation}
+  \Phi_m=\int_{\mathcal S}(\bm B\cdot\hat n)\dl A
+\end{important-equation}
 where $\hat n$ is the outward normal direction
-%  
 
-%
-%
-%
+
 %\begin{frame}{Magnetic Flux Over a Closed Surface}
 The SI unit for magnetic flux is a \textbf{weber} (\si\weber), after
 German physicist Wilhelm Weber, who invented the electromagnetic telegraph
@@ -38,31 +35,31 @@ with Carl Gauss. The unit is defined as:
 \end{equation*}  
 The magnetic flux over any closed surface $\mathcal S$ must always be zero.
 This is \textbf{Gauss's law for magnetism}:
-\begin{equation}
-  \boxed{\oint_{\mathcal S}\bm B\cdot\dl{\bm A}=0}
-\end{equation}
+\begin{important-equation}
+  \oint_{\mathcal S}\bm B\cdot\dl{\bm A}=0
+\end{important-equation}
 Since magnetic field lines only exist as a loop, that means there should be
 equal amount of ``flux'' flowing out of a closed surface as entering the
 surface.
 
-Magnetic flux $\Phi_m$ can change due to any of these reasons:
-\begin{enumerate}[nosep]
-\item A time-dependent magnetic field, i.e. $\bm B=\bm B(t)$
+Magnetic flux $\Phi_B$ can change due to any of these reasons:
+\begin{enumerate}[itemsep=6pt]
+\item A time-dependent magnetic field strength, i.e. $|\bm B|=B(t)$
 \item A time-dependent surface area, i.e. $\mathcal S=\mathcal S(t)$
 \item The orientation of the magnetic field with the surface is
   time-dependentm i.e. $\bm B\cdot\bm A= B\sin\left(\theta(t)\right)\dl A$
 \end{enumerate}
 
+
+
+
 \section{Faraday's Law}
 \textbf{Faraday's law} states that the time rate of change of magnetic flux
 induces electric field $\bm E$ in a circuit, and therefore an
 induced electromotive force, or \emph{emf}, $\mathcal E$ (voltage gain):
-\begin{equation}
-  \boxed{
-    \mathcal E=-\oint\bm E\cdot\dl{\bm\ell}={\color{red}-}
-    \diff{\Phi_m}t
-  }
-\end{equation}
+\begin{important-equation}
+  \mathcal E=-\oint\bm E\cdot\dl{\bm\ell}={\color{red}-}\diff{\Phi_B}t
+\end{important-equation}
 The negative sign {\color{red}highlighted in red} is the result of
 \textbf{Lenz's law}, which is related to the conservation energy
 
@@ -90,7 +87,7 @@ The plane of the loop is perpendicular to $\bm B$.
       it is a function of time:
     
       \begin{displaymath}
-        \Phi_m(t)=\int_{\mathcal S}\bm B(t)\cdot\dl{\bm A}=B(t)A
+        \Phi_B(t)=\int_{\mathcal S}\bm B(t)\cdot\dl{\bm A}=B(t)A
       \end{displaymath}\par
     };
     \draw[thick,->,red] (flux) to[out=0,in=110] (-.75,1.5)
@@ -102,7 +99,7 @@ The plane of the loop is perpendicular to $\bm B$.
       an induced \emph{emf} $\mathcal E$:
       
       \begin{displaymath}
-        \mathcal E=\left|\diff{\Phi_m}t\right|
+        \mathcal E=\left|\diff{\Phi_B}t\right|
       \end{displaymath}\par
     };
     %\draw[thick,->,green!60!black] (flux)--(emf);
@@ -149,7 +146,7 @@ motion machines.
 %
 %%\begin{frame}{When Magnetic Flux is Changing}
 %%  \begin{itemize}
-%%  \item When the magnetic flux $\Phi_m$ is changing, an electromotive force
+%%  \item When the magnetic flux $\Phi_B$ is changing, an electromotive force
 %%    (\emph{emf}, $\mathcal E$) is created in the wire.
 %%  \item Unlike in a circuit, where the \emph{emf} is concentrated at the
 %%    terminals of the battery, the induced \emph{emf} is spread across the
@@ -210,12 +207,12 @@ between the coil and the magnetic field is:
 The initial angle $\theta_0$ is not important. The magnetic
 flux through the coil is given by:
 \begin{equation}
-  \Phi_m = NAB\cos\theta = NAB\cos(\omega t+\theta_0)
+  \Phi_B = NAB\cos\theta = NAB\cos(\omega t+\theta_0)
 \end{equation}
 as the generator turns. The induced \emph{emf} is the rate
 of change of magnetic flux:
 \begin{equation}
-  \mathcal E(t) =\left|\diff{\Phi_m}t\right| =
+  \mathcal E(t) =\left|\diff{\Phi_B}t\right| =
   \underbracket{NAB\omega}_{\mathcal E_\text{max}}\sin(\omega t+\theta_0)
 \end{equation}
 
@@ -227,8 +224,8 @@ of change of magnetic flux:
 %%    the loop (and its rate of change) is:
 %%
 %%      \begin{align*}
-%%        \Phi_m &=BA=B\ell x\\
-%%        \mathcal E &= \diff{\Phi_m}r = B\ell\diff xt=B\ell v
+%%        \Phi_B &=BA=B\ell x\\
+%%        \mathcal E &= \diff{\Phi_B}r = B\ell\diff xt=B\ell v
 %%      \end{align*}
 %%    
 %%    We can use the magnetic force on the charges on the rod to find the
@@ -254,7 +251,7 @@ What happens when I slide the rod to the right?
     (phi) at (-4,-3.3){\color{red}
       The magnetic flux through the circuit is given by
       \begin{displaymath}
-            \Phi_m=BA=B\ell x
+            \Phi_B=BA=B\ell x
       \end{displaymath}\par
     };
     \draw[axes,red] (phi)--(-1,-.7);
@@ -265,7 +262,7 @@ What happens when I slide the rod to the right?
       of change in magnetic flux is
 
       \begin{displaymath}
-        \mathcal E = \left|\diff{\Phi_m}t\right| = B\ell\diff xt=B\ell v
+        \mathcal E = \left|\diff{\Phi_B}t\right| = B\ell\diff xt=B\ell v
       \end{displaymath}\par
     };
 
@@ -322,9 +319,9 @@ as we expect from Lenz's law.
   \centering
   \begin{tikzpicture}[auto,node distance=105, thick]
     \node[fill=pink!40,font=\large] (a) {
-      $\displaystyle\Phi_m=\int_{\mathcal S}\bm B\cdot\dl{\bm A}$};
+      $\displaystyle\Phi_B=\int_{\mathcal S}\bm B\cdot\dl{\bm A}$};
     \node[fill=green!20,font=\large] (b) [right of=a] {
-      $\displaystyle\left|\diff{\Phi_m}t\right|=\mathcal E$};
+      $\displaystyle\left|\diff{\Phi_B}t\right|=\mathcal E$};
     \node[fill=blue!20,font=\large] (c) [right of=b] {
       $I=\dfrac{\mathcal E}R$};
     \node[fill=orange!20,font=\large] (d) [right of=c]{
@@ -334,7 +331,7 @@ as we expect from Lenz's law.
     \draw[->] (c)--(d);
     \draw[<-,red] (a)--+(0,-1.3)
     node[draw=red,fill=pink!30,text width=2.7cm,below,font=\scriptsize]{
-      Find the loop of circuit and calculate magnetic flux $\Phi_m$ through it
+      Find the loop of circuit and calculate magnetic flux $\Phi_B$ through it
       as a function of time 
     };
 
@@ -363,8 +360,8 @@ as we expect from Lenz's law.
     (I) at (1.9,-3.9) {Direction of induced current $I$ must produce a magnetic
       field that opposes the change in magnetic flux.
       \begin{itemize}
-      \item If $\Phi_m$ is increasing, magnetic field must decrease it
-      \item If $\Phi_m$ is decreasing, magnetic field must increase it
+      \item If $\Phi_B$ is increasing, magnetic field must decrease it
+      \item If $\Phi_B$ is decreasing, magnetic field must increase it
       \end{itemize}\par
     };
     \draw[->] (cc) to[out=270,in=0] (I);
@@ -373,74 +370,66 @@ as we expect from Lenz's law.
 
 
 
-\section{Inductance}
+%\section{Inductance}
+\section{Back EMF}
 
-\subsection{Back \emph{emf}}
-Consider a very simple circuit consisting of a voltage source and a coil
-\begin{center}
+Consider a very simple circuit consisting of a voltage source and a coil, as
+shownin Figure~\ref{fig:back-emf1}. For convenience, we will assume that the
+wire itself has some resistance. At time $t=0$, the switch would be closed,
+completing the circuit.
+\begin{figure}[ht]
+  \centering
   \begin{tikzpicture}[american voltages,scale=1.3,thick]
     \draw (0,0) to[battery1,l=$\mathcal E$] (0,1.5)
     to[short,-*] (.5,1.5);
     \draw (.55,1.7) to[short,*-*] (1,1.5)--(1.5,1.5) to[L] (1.5,0)--(0,0);
   \end{tikzpicture}
-\end{center}
-\begin{itemize}
-\item When the switch is closed and current begins to flow, the coil
-  begins to generate a magnetic flux inside
-\item As the current changes (initially increasing with time), it
-  self-induces a ``back \emph{emf}'' that opposes the change in current
-\item A current can't jump from zero to some value (or from some value to
-  zero) instantaneously
-\end{itemize}
+  \caption{A simple circuit with an inductor and a voltage source}
+  \label{fig:back-emf1}
+\end{figure}
+When current begins to flow, the coil begins to generate a magnetic flux inside
+As the current changes (initially increasing with time), it self-induces a
+``back \emph{emf}'' that opposes the change in current. A current can't jump
+from zero to some value (or from some value to zero) instantaneously.
 
 %
 %
 %
 %\begin{frame}{Back \emph{emf}}
-\begin{center}
-  \begin{tikzpicture}[american voltages,scale=1.3,thick]
-    \draw (0,0) to[battery1,l=$\mathcal E$] (0,1.5)
-    to[short,-*] (.5,1.5);
-    \draw (.55,1.7) to[short,*-*] (1,1.5)--(1.5,1.5) to[L] (1.5,0)--(0,0);
-  \end{tikzpicture}
-\end{center}
-\begin{itemize}
-\item Breaking the circuit causes the magnetic flux to change very rapidly
-\item The rapid change of $\Phi_m$ creates a large induced back \emph{emf}
-  that is proportional to the time rate of change of magnetic flux
-  $\Phi_m'(t)$
-\item The back \emph{emf} creates a large voltage drop across the switch
-\item Large voltage across two metal contact produces a very strong electric
-  field--strong enough to tear electrons away from air molecules
-  (``dielectric breakdown'')
-\item Air conducts electricity in the form of a ``spark''
-\end{itemize}
+%\begin{center}
+%  \begin{tikzpicture}[american voltages,scale=1.3,thick]
+%    \draw (0,0) to[battery1,l=$\mathcal E$] (0,1.5)
+%    to[short,-*] (.5,1.5);
+%    \draw (.55,1.7) to[short,*-*] (1,1.5)--(1.5,1.5) to[L] (1.5,0)--(0,0);
+%  \end{tikzpicture}
+%\end{center}
+Likewise, breaking the circuit causes the magnetic flux to change very rapidly.
+The rapid change of $\Phi_B$ creates a large induced back \emph{emf} that is
+proportional to the time rate of change of magnetic flux $\Phi_B'(t)$. The back
+\emph{emf} creates a large voltage drop across the switch. Large voltage across
+two metal contact produces a very strong electric field--strong enough to tear
+electrons away from air molecules (``dielectric breakdown''). Air conducts
+electricity in the form of a ``spark''.
 
-%
-%
-%
-%\begin{frame}{Self Inductance}
+
+\section{Self Inductance}
+
 A solenoid carrying a current generates a magnetic field $B$; its magnitude at
 the core is proportional to the current $I$:
 \begin{equation}
   B=\left[\frac{\mu_0N}\ell\right]I
 \end{equation}
 Since $\bm B\propto I$, the magnetic flux through the core of the solenoid
-(really $\Phi_m=NBA$, where $A$ is the cross-sectional area of the solenoid
+(really $\Phi_B=NBA$, where $A$ is the cross-sectional area of the solenoid
 and $N$ is the number of coils) is therefore also proportional to $I$, i.e.
 \begin{equation}
-  \boxed{\Phi_m=LI}
+  \boxed{\Phi_B=LI}
 \end{equation}
-where $L$ is the called the \textbf{self inductance} of the coil.
-
-%
-%
-%
-%\begin{frame}{Self Inductance}
-For a solenoid, we can see that the self inductance is given by:
-\begin{equation}
-  \boxed{L=\frac{\Phi_m}I=\mu_0 n^2A\ell}
-\end{equation}
+where $L$ is the called the \textbf{self inductance} of the coil. For a
+solenoid, we can see that the self inductance is given by:
+\begin{important-equation}
+  L=\frac{\Phi_B}I=\mu_0 n^2A\ell
+\end{important-equation}
 
 \begin{center}
   \begin{tabular}{l|c|c}
@@ -456,17 +445,12 @@ For a solenoid, we can see that the self inductance is given by:
 Note that $A\ell$ is the \emph{enclosed volume} of the solenoid. The SI unit
 for self inductance is a \textbf{henry} (\si\henry).
 
-%
-%
-%
 %\begin{frame}{Self Inductance and Induced EMF}
 If the current changes, the magnetic flux changes as well, therefore inducing
 an electromotive force in the circuit According Faraday's law:
-\begin{equation}
-  \boxed{
-    \mathcal E=-\diff {\Phi_m}t=-L\diff It
-  }
-\end{equation}
+\begin{important-equation}
+  \mathcal E=-\diff {\Phi_B}t=-L\diff It
+\end{important-equation}
 The self-induced \emph{emf} is proportional to the rate of change of current
 
 %
@@ -484,7 +468,7 @@ so the power absorbed by the inductor is
 Integrating in time gives the magnetic (potential) energy that is stored in
 the magnetic field:
 \begin{equation}
-  U_m
+  U_B
   =\int_0^t P(t)\dl t
   =L \int I\diff It \dl t
   =L \int_0^I I\dl I=\frac12LI^2
@@ -495,11 +479,11 @@ the magnetic field:
 %\begin{frame}{Magnetic Energy}
 Just as a capacitor stores energy in its electric field, an inductor coil
 carrying a current $I$ stores energy in its magnetic field, given by:
-\begin{equation}
-  \boxed{U_m=\frac12LI^2}
-\end{equation}
+\begin{important-equation}
+  U_B=\frac12LI^2
+\end{important-equation}
 We can also define a \textbf{magnetic energy density}:
-\begin{equation}
-  \boxed{\eta_m=\frac{B^2}{2\mu_0}}
-\end{equation}
+\begin{important-equation}
+  \eta_B=\frac{B^2}{2\mu_0}
+\end{important-equation}
 

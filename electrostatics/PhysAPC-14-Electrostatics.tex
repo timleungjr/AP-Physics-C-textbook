@@ -669,9 +669,10 @@ the charges of $q_1$, $q_2$ and $q_3$.
 
 \begin{example}
   Four identical charges $q$ are located at the four corners of a square of
-  length $L$. What is the total potential energy of the system?
+  length $L$. What is the total electric potential energy of the system?
   \begin{center}
-    \begin{tikzpicture}[scale=1.3]
+    \vspace{-.1in}
+    \begin{tikzpicture}
       \draw rectangle (2,2) node[midway,above=35]{$L$};
       \draw[poscharge] (0,2) circle (.15) node[white]{$q$};
       \draw[poscharge] (0,0) circle (.15) node[white]{$q$};
@@ -679,6 +680,20 @@ the charges of $q_1$, $q_2$ and $q_3$.
       \draw[poscharge] (2,2) circle (.15) node[white]{$q$};
     \end{tikzpicture}
   \end{center}
+  \textbf{Solution:} There are 4 sets of ``two-charge'' systems, along the 4
+  edges of the square. The store are combined electric potential energy:
+  \begin{displaymath}
+    U_\text{edges}=4\frac{kq^2}L
+  \end{displaymath}
+  There are also 2 pairs of two-charge systems along the diagonals of the
+  square, with the electric potential energy of:
+  \begin{displaymath}
+    U_\text{diagonals}=2\frac{kq^2}{\sqrt2L}=\sqrt2\frac{kq^2}L
+  \end{displaymath}
+  for a total energy of
+  \begin{displaymath}
+    U_\text{tot}=U_\text{edges}+U_\text{diagonals}=(4+\sqrt2)\frac{kq^2}L
+  \end{displaymath}
 \end{example}
 
 
@@ -808,27 +823,23 @@ to evaluate the potential from a continuous distribution of charges:
 
 
 
-\fcolorbox{black}{yellow!10}{
-  \small
-  \begin{minipage}{.97\linewidth}
-    \begin{center}
-      \begin{tikzpicture}
-        \draw[axes] (-2,0)--(2,0) node[right]{$x$};
-        \draw[axes] (0,-2)--(0,2) node[right]{$y$};
-        \draw[gray] circle (1.5);
-        \draw[line width=2,red,rotate=90] (1.5,0) arc (0:180:1.5)
-        node[pos=.25,above=3]{$Q$};
-      \end{tikzpicture}
-    \end{center}
-    \textbf{Example:} A uniform charge $Q$ is located
-    \begin{enumerate}[nosep]
-      %\item What is the electric field at the origin?
-    \item What is the electric potential at the origin?
-    \item A charge $q$ is moved from $x=\infty$ to the origin. What is the
-      work done?
-    \end{enumerate}
-  \end{minipage}
-}
+\begin{example}[semi-circular charge]
+  A uniform charge $Q$ is located
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[right]{$y$};
+      \draw[gray] circle (1.5);
+      \draw[line width=2,red,rotate=90] (1.5,0) arc (0:180:1.5)
+      node[pos=.25,above=3]{$Q$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}[nosep]
+  \item What is the electric potential at the origin?
+  \item A charge $q$ is moved from $x=\infty$ to the origin. What is the
+    work done?
+  \end{enumerate}
+\end{example}
   
 
 
@@ -890,15 +901,15 @@ where $\Delta V$ is called the \textbf{potential difference}
 
 The change in electric potential is called the
 \textbf{electric potential difference} or \textbf{voltage}:
-\begin{equation}
-  \boxed{\Delta V=\frac{\Delta U_q}q}\quad\textsf{\normalsize and}\quad
-  \boxed{\dl V=\frac{\dl U_q}q}
-\end{equation}
+\begin{important-equation}
+  \Delta V=\frac{\Delta U_q}q\quad\text{and}\quad
+  \dl V=\frac{\dl U_q}q
+\end{important-equation}
 Here, we can relate $\Delta V$ to an equation that we knew from Physics 11
 and AP Physics 2, which related to the energy dissipated in a resistor in a
 circuit $\Delta U$ to the voltage drop $\Delta V$:
 \begin{equation}
-  \boxed{\Delta U_q=q\Delta V}
+  \Delta U_q=q\Delta V
 \end{equation}
 Electric potential difference also has the unit \emph{volts} (\si\volt)
 

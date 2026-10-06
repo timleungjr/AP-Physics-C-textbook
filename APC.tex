@@ -34,10 +34,10 @@
 %-----------------------------------------------------------------------------
 
 \documentclass[
-	10pt, % Default font size, select one of 10pt, 11pt or 12pt
+	11pt, % Default font size, select one of 10pt, 11pt or 12pt
 	%fleqn, % Left align equations
 	%letterpaper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
-        oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+        %oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
 ]{LegrandOrangeBook}
 \usepackage{enumitem}
 \usepackage{siunitx}
@@ -84,8 +84,8 @@
   \includegraphics[width=#1\textwidth]{#2}
 }
 
-\newcommand{\iii}{\hat{\bm i}}
-\newcommand{\jjj}{\hat{\bm j}}
+\newcommand{\iii}{\hat{\bm\imath}}
+\newcommand{\jjj}{\hat{\bm\jmath}}
 \newcommand{\kkk}{\hat{\bm k}}
 
 
@@ -267,7 +267,7 @@ language governing permissions and limitations under the License.\\
 
 \chapterimage{harmonicMotion/buying-compression-springs1765131102}
 \input{harmonicMotion/harmonicMotion}
-%\input{harmonicMotion/harmonicMotion-practice-questions}
+\input{harmonicMotion/harmonicMotion-practice-questions}
 
 
 \part{Gravity}
@@ -275,24 +275,24 @@ language governing permissions and limitations under the License.\\
 \chapterimage{universalGravitation/54371346378-f762763e96-o}
 \input{universalGravitation/univGravity}
 
-%\part{Electricity and Magnetism}
 
-\part{Electrostatics}
 
-\input{electrostatics/PhysAPC-14-Electrostatics}
-\input{electrostatics2/PhysAPC-15-gaussLaw}
-\input{capacitors-calculus/PhysAPC-16-Capacitors}
-
-\part{Magnetism}
-  
-\input{magnetism/PhysAPC-17-magnetism1}
-\input{magnetism2/PhysAPC-18-faradaysLaw}
-%\input{../magnetism3/PhysAPC-19-faradaysLawAsymmetry}
-
-\part{Circuit Analysis}
-\input{circuits1-calculus/PhysAPC-20-Circuits}
-\input{circuits2-calculus/PhysAPC-21-circuitAnalysis2}
-
+%TML \part{Electrostatics}
+%TML 
+%TML \input{electrostatics/PhysAPC-14-Electrostatics}
+%TML \input{electrostatics2/PhysAPC-15-gaussLaw}
+%TML \input{capacitors-calculus/PhysAPC-16-Capacitors}
+%TML 
+%TML \part{Magnetism}
+%TML   
+%TML \input{magnetism/PhysAPC-17-magnetism1}
+%TML \input{magnetism2/PhysAPC-18-faradaysLaw}
+%TML %\input{../magnetism3/PhysAPC-19-faradaysLawAsymmetry}
+%TML 
+%TML \part{Circuit Analysis}
+%TML \input{circuits1-calculus/PhysAPC-20-Circuits}
+%TML \input{circuits2-calculus/PhysAPC-21-circuitAnalysis2}
+%TML 
 
 
 
@@ -654,6 +654,9 @@ language governing permissions and limitations under the License.\\
 %-----------------------------------------------------------------------------
 %	APPENDICES
 %-----------------------------------------------------------------------------
+
+\part{Appendix}
+
 
 %\chapterimage{} % Chapter heading image
 %\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
