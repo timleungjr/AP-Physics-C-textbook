@@ -669,7 +669,7 @@ you are comfortable with to solve for the answers.
 
 
 
-\section{Examples}
+%\section{Examples}
 
 
 \subsection{A Spinning Disk}
@@ -760,7 +760,7 @@ only have to consider its rotational motion.
 
 
 
-\section{Pure Rolling Problems}
+\subsection{Pure Rolling Problems}
 
 The case of a rolling sphere is a standard example of combining the dynamics of
 translational and rotational motions of a rigid body. Here, we present two
@@ -1133,15 +1133,17 @@ discussed in Section~\ref{no-slip-ball}.
 
 \section{Pulley Problems}
 
-Pulley problems like these are common in most dynamics problems (e.g.\ as
-we gave seen in Chapter~\ref{chapter:dynamics}). However, when we solve these
-problems, we always insist that the pulleys are massless and frictionless.
-We can get away with this \emph{if} the mass of the pulley is small compared to
-$m_1$ and $m_2$, but we cannot treat the problem the same way if the mass of
-the pulley is large. Instead, we have to solve the problem using rotational
-dynamics:
-\begin{itemize}
-\item As the masses accelerate upwards/downwards, cable tension must also
+Pulley problems like the one shown in Figure~\ref{fig:simple-pulley-problem1}
+are common in most dynamics problems (e.g.\ as we have seen in
+Chapter~\ref{chapter:dynamics}). However, when we solve these problems, we
+always insist that the pulleys are massless and frictionless. This assumption
+is reasonably accurate \emph{if} the mass of the pulley is small compared to
+the masses hanging from it, but this assumption will fail terribly if the mass
+of the pulley is large. In such a case, we have to solve the problem using
+rotational dynamics. There are several observations that we can make
+immediately:
+\begin{itemize}[itemsep=6pt]
+\item As the mass accelerate upwards/downwards, cable tension must also
   generate a torque on the pulley
 \item The tension will not be constant along the cable
 \item If the cable is wrapped tightly around the pulley, then we can also
@@ -1159,44 +1161,52 @@ dynamics:
     \fill[white] circle (.1) node[black,left=4]{$M$};
     \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m$};
   \end{tikzpicture}
-  \caption{A simple pulley problem}
+  \caption{A very simple pulley problem}
+  \label{fig:simple-pulley-problem1}
 \end{figure}
 
-\textbf{Example:} A mass $m$ is connected to a cable that is wrapped
-tightly around pulley with radius $R$, mass $M$ and a rotational inertia of
-$I=\frac12MR^2$. The pulley can rotate about its axis without friction.
-\begin{enumerate}
-\item What is the magnitude of the acceleration of the mass?
-\item What is the magnitude of the tension force?
-\item If the mass is released from rest, what is its speed after falling
-  a distance $d$?
-\end{enumerate}
+\begin{example}
+  A mass $m$ is connected to a cable that is wrapped tightly around pulley with
+  radius $R$, mass $M$ and a rotational inertia of $I=\frac12MR^2$. The pulley
+  can rotate about its axis without friction.
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the mass?
+  \item What is the magnitude of the tension force?
+  \item If the mass is released from rest, what is its speed after falling
+    a distance $d$?
+  \end{enumerate}
+\end{example}
 
 
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}[scale=.7]
-    \draw[ultra thick,brown] (-1,-1.6)--(-1,0);
-    \draw[ultra thick,brown] (1,0)--(1,-3);
-    \draw[thick,fill=gray] circle (1.05);
-    \draw[thick,fill=gray!40] circle (.95);
-    \draw[line width=5.5] (0,-.15)--(0,2);
-    \draw[very thick] (-2,2)--(2,2);
-    \fill[white] circle (.1);
-    \draw[mass] (-1.5,-1.6) rectangle +(1,-1) node[midway]{$m_1$};
-    \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m_2$};
-  \end{tikzpicture}
-\end{figure}
 
-\textbf{Example:} Two masses, $m_1$ and $m_2$, are connected to each other,
-and wrapped around a pulley with radius $R$, mass $m_3$ and a rotational
-inertia of $I=\frac12m_3R^2$. The pulley can rotate about its axis without
-friction. Assuming that $m_1>m_2$,
-\begin{enumerate}
-\item What is the magnitude of the acceleration of the  masses?
-\item If the masses are released from rest, what is their speed after
-  falling a distance $d$?
-\end{enumerate}
+\begin{example}[Pulley with two masses]
+  Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
+  a pulley of uniform density with radius $R$, mass $m_3$, and a rotational
+  inertia of $I=\frac12m_3R^2$, as shown in the figure below.
+  \begin{center}
+    \begin{tikzpicture}[scale=.65]
+      \draw[ultra thick,brown] (-1,-1.6)--(-1,0);
+      \draw[ultra thick,brown] (1,0)--(1,-3);
+      \draw[thick,fill=gray] circle (1.05);
+      \draw[thick,fill=gray!40] circle (.95);
+      \draw[line width=5.5] (0,-.15)--(0,2);
+      \draw[very thick] (-2,2)--(2,2);
+      \fill[white] circle (.1) node[left=3,black]{$m_3$};
+      \draw[mass] (-1.5,-1.6) rectangle +(1,-1) node[midway]{$m_1$};
+      \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m_2$};
+    \end{tikzpicture}
+  \end{center}
+  The pulley can rotate about its axis without friction. Assuming that
+  $m_1>m_2$,
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the masses?
+  \item What is the tension forces on either side of the pulley?
+  \item If the masses are released from rest, what is their speed after
+    $m_1$ has fallen a distance $d$?
+  \end{enumerate}
+\end{example}
 
 
-\section{Energy Conservation in Rotational Motion}
+
+\chapter{Energy Conservation in Rotational Motion}
+\label{chapter:rotational-energy-considerations}
