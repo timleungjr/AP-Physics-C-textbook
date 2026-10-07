@@ -781,7 +781,98 @@ its translational motion, as shown in Figure~\ref{fig:trans-and-rot}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
-    \foreach \x in {0,5,10}{
+<<<<<<< HEAD
+    \draw[mass] circle (2);
+    \draw[thick] circle (.13);
+    \fill (0,0)--(.13,0) arc (0:90:.13) node[above=-2]{pivot}--(0,0);
+    \fill (0,0)--(-.13,0) arc (180:270:.13)--(0,0);
+%    \draw[axes,rotate=-30] (1,0) arc (0:60:1) node[above]{$\omega$, $\alpha$};
+    \draw[axes,rotate=40] (0,0)--(-2,0) node[midway,right=2]{$R$};
+%    \node at (0,-2.5) {Mass $M$};
+%    \node at (0,-3.3) {
+%    \only<2>{
+%      \begin{scope}[violet]
+%        \draw[thick,dash dot] (0,-.13)--(0,-2);
+%        \foreach \y in {-.4,-.8,...,-2.1} \draw[vector] (0,\y)--(-.8*\y,\y);
+%        \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%      \end{scope}
+    %    }
+  \end{tikzpicture}
+  \caption{A disk spinning in the counter-clockwise direction}
+  \label{disk1}
+\end{figure}
+
+%    \only<2>{Speed at any point on this disk is proportional to its distance
+%      to the pivot:
+%
+%      \eq{-.1in}{
+%        v=\omega r \quad\text{for}\quad 0\leq r\leq R
+%      }
+%    }
+%    \only<3>{When it is spinning, it has an angular momentum of
+%
+%      \eq{-.1in}{
+%        L = I\omega
+%      }
+%
+%      and a rotational kinetic energy:
+%      
+%      \eq{-.1in}{
+%        K_r = \frac12I\omega^2
+%      }
+%    }
+%    
+%    \item Any angular acceleration that it may have will be due to the net
+%      torque at the pivot/CM:
+%      \begin{displaymath}
+%        \tau_\text{net}=\frac{\Delta L}{\Delta t}=I\alpha
+%      \end{displaymath}
+%    \end{itemize}
+
+
+
+%\begin{frame}{A Rotating Rod}
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[mass] (-.15,0) rectangle (.15,-5);
+    \draw[thick] (0,-2.5) circle(.13);
+    \fill (0,-2.5)--(.13,-2.5) node[right=-1]{CM} arc(0:90:.13)
+    --(0,-2.5);
+    \fill (0,-2.5)--(-.13,-2.5) arc(180:270:.13)--(0,-2.5);
+    \fill circle(.07) node[above]{pivot};
+    \draw[axes,rotate=-90] (.7,0) arc (0:180:.7)
+    node[left]{$\omega$, $\alpha$};
+    \draw[thick,|<->|] (-.5,0)--(-.5,-5) node[midway,fill=black!2]{$L$};
+%      \node at (0,-2.5) {Mass $M$};
+%      \node at (0,-3.3) {$I=\dfrac12MR^2$};
+%      \only<2>{
+%        \begin{scope}[violet]
+%          \draw[thick,dash dot] (0,-.13)--(0,-2);
+%          \foreach \y in {-.4,-.8,...,-2.1}\draw[vector] (0,\y)--(-.8*\y,\y);
+%          \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%        \end{scope}
+    %      }
+  \end{tikzpicture}
+  \caption{A rod rotating about a pivot that is not at the centre of mass}
+  \label{rod1}
+\end{figure}
+
+
+
+\subsection{Pure Rolling Problems}
+
+The case of a rolling sphere is a standard example of combining the dynamics of
+translational and rotational motions of a rigid body. Here, we present two
+examples of a non-slip (i.e.\ pure rolling) motion, and one example with
+slippage.
+
+A pure rolling problem is one that contains both translational and rotational
+motion, as shown in Fig.~\ref{fig:trans-and-rot}.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \foreach \x in {0,4.5,9}{
       \fill (\x,0) circle (1);
       \fill[white] (\x,0) circle (.8);
       \fill (\x,0) circle (.1);
@@ -1288,6 +1379,54 @@ the total energy of the system is conserved.
 \end{example}
 
 
+\section{Pulley Problems}
+
+Pulley problems like the one shown in Figure~\ref{fig:simple-pulley-problem1}
+are common in most dynamics problems (e.g.\ as we have seen in
+Chapter~\ref{chapter:dynamics}). However, when we solve these problems, we
+always insist that the pulleys are massless and frictionless. This assumption
+is reasonably accurate \emph{if} the mass of the pulley is small compared to
+the masses hanging from it, but this assumption will fail terribly if the mass
+of the pulley is large. In such a case, we have to solve the problem using
+rotational dynamics. There are several observations that we can make
+immediately:
+\begin{itemize}[itemsep=6pt]
+\item As the mass accelerate upwards/downwards, cable tension must also
+  generate a torque on the pulley
+\item The tension will not be constant along the cable
+\item If the cable is wrapped tightly around the pulley, then we can also
+  expect the relation to hold true $v=\omega R$ and $a=\alpha R$
+\end{itemize}
+    
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=.7]
+    \draw[ultra thick,brown] (1,0)--(1,-3);
+    \draw[thick,fill=gray] circle (1.05);
+    \draw[thick,fill=gray!40] circle (.95);
+    \draw[line width=5.5] (0,-.15)--(0,2);
+    \draw[very thick] (-2,2)--(2,2);
+    \fill[white] circle (.1) node[black,left=4]{$M$};
+    \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m$};
+  \end{tikzpicture}
+  \caption{A very simple pulley problem}
+  \label{fig:simple-pulley-problem1}
+\end{figure}
+
+\begin{example}
+  A mass $m$ is connected to a cable that is wrapped tightly around pulley with
+  radius $R$, mass $M$ and a rotational inertia of $I=\frac12MR^2$. The pulley
+  can rotate about its axis without friction.
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the mass?
+  \item What is the magnitude of the tension force?
+  \item If the mass is released from rest, what is its speed after falling
+    a distance $d$?
+  \end{enumerate}
+\end{example}
+
+
+
 \begin{example}[Two Masses and Pulley]
   Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
   a pulley with radius $R$, mass $m_3$ and a rotational inertia of
@@ -1302,11 +1441,19 @@ the total energy of the system is conserved.
       \draw[thick,fill=gray!40] circle (.95);
       \draw[line width=5.5] (0,-.15)--(0,2);
       \draw[very thick] (-2,2)--(2,2);
-      \fill[white] circle (.1);
+      \fill[white] circle (.1) node[left=3,black]{$m_3$};
       \draw[mass] (-1.5,-1.6) rectangle +(1,-1) node[midway]{$m_1$};
-      \draw[mass] (.5,-3) rectangle +(1,-1.2) node[midway]{$m_2$};
+      \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m_2$};
     \end{tikzpicture}
   \end{center}
+  The pulley can rotate about its axis without friction. Assuming that
+  $m_1>m_2$,
+  \begin{enumerate}
+  \item What is the magnitude of the acceleration of the masses?
+  \item What is the tension forces on either side of the pulley?
+  \item If the masses are released from rest, what is their speed after
+    $m_1$ has fallen a distance $d$?
+  \end{enumerate}
   Again, we ask the same questions when setting up an energy conservation
   problem
   \begin{itemize}
@@ -1315,4 +1462,11 @@ the total energy of the system is conserved.
   \item As $m_1$ rises, positive work done by gravitational converts its
     gravitational potential energy
   \end{itemize}
+
 \end{example}
+
+
+%
+%\chapter{Energy Conservation in Rotational Motion}
+%\label{chapter:rotational-energy-considerations}
+%

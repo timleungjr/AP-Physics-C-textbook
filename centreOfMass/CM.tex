@@ -505,15 +505,17 @@ This is how we would think of it:
 
 \section{Momentum and Centre of Mass}
 
-If the components of this system of masses is in motion, the position of the
-centre of mass will also evolve in time as well. We can find out the velocity
-of the centre of mass by taking the time derivative of $\bm r_\text{cm}$:
+If the components of this system of masses are in motion, the position of the
+centre of mass will also evolve in time as well, i.e.\
+$\bm r_\text{cm}=\bm r_\text{cm}(t)$. We can find out the velocity of the centre
+of mass by taking the time derivative of $\bm r_\text{cm}$:
 \begin{equation}
   \bm v_\text{cm}=\diff{\bm r_\text{cm}}t
-  =\frac1m\diff{}t\left(\int\bm r\dl m\right)
-  =\frac1m\int\diff{\bm r}t\dl m
-  =\frac{\int\bm v\dl m}m
+  =\frac1{m_\text{tot}}\diff{}t\left(\int\bm r\dl m\right)
+  =\frac1{m_\text{tot}}\int\diff{\bm r}t\dl m
+  =\frac{\int\bm v\dl m}{m_\text{tot}}
 \end{equation}
+where $m_\text{tot}=\int\dl m$ is the total mass of the system
 Or, in a form that is similar to Eq.~\ref{eq:cm-integral}, the velocity of the
 centre of mass is the weighted sum/integral of the velocities of the distribution of
 mass:
@@ -527,12 +529,13 @@ for the velocity of the centre of mass to relate it to momentum, because the
 term $\int\bm v\dl m$ is the net momentum of the mass distribution
 $\bm p_\text{net}$:
 \begin{equation}
-  \bm v_\text{cm} = \frac{\int\bm v\dl m}m
+  \bm v_\text{cm} = \frac{\int\bm v\dl m}{m_\text{tot}}
   \quad\longrightarrow\quad
   \bm p_\text{net}=m\bm v_\text{cm}
   \label{eq:mv-cm}
 \end{equation}
-During a collision, there is no change in the net momentum,
+We have already found in Chapter~\ref{chapter:momentum} that, during a
+collision, there is no change in the net momentum,
 %\footnote{Because
 %there are are no external forces},
 the centre of mass will continue to move at the same velocity before/after the
@@ -597,18 +600,18 @@ Consider this 1D inelastic collision in between two masses:
 
 \section{Acceleration of the Centre of Mass}
 
-Take time derivative of the equation for $\bm v_\text{cm}$ gives us the
-acceleration of the centre of mass:
+When we take the time derivative of the equation for $\bm v_\text{cm}$, we
+can find the acceleration of the centre of mass:
 \begin{equation}
   \bm a_\text{cm}=\diff{\bm v_\text{cm}}t
-  =\frac1m\diff{}t\left(\int\bm v\dl m\right)
-  =\frac1m\int\diff{\bm v}t\dl m
-  =\frac{\int\bm a\dl m}m
+  =\frac1{m_\text{tot}}\diff{}t\left(\int\bm v\dl m\right)
+  =\frac1{m_\text{tot}}\int\diff{\bm v}t\dl m
+  =\frac{\int\bm a\dl m}{m_\text{tot}}
 \end{equation}
-where $m$ is the total mass. We can, of course, write this in a form that is
-similar to Eq.~\ref{eq:cm-integral}, the acceleration of the centre of mass is
-the weighted sum/integral of the accelerations of discrete number of masses, or
-a distribution of mass:
+where $m_\text{tot}$ is, again, the total system mass. We can, of course, write
+this in a form that is similar to Eq.~\ref{eq:cm-integral}, the acceleration of
+the centre of mass is the weighted sum/integral of the accelerations of
+discrete number of masses, or a distribution of mass:
 \begin{important-equation}
   \bm a_\text{cm} = \frac{\sum_{i=1}^N\bm m_ia_i}m
   \quad\text{or}\quad
@@ -617,9 +620,9 @@ a distribution of mass:
 We can now follow the same procedure, and multiply both sides by the total mass
 $m$:
 \begin{equation*}
-  m\bm a_\text{cm}=\sum_{i=1}^Nm_i\bm a_i
+  m_\text{tot}\bm a_\text{cm}=\sum_{i=1}^Nm_i\bm a_i
   \quad\text{or}\quad
-  m\bm a_\text{cm}=\int\bm a\dl m
+  m_\text{tot}\bm a_\text{cm}=\int\bm a\dl m
 \end{equation*}
 On the right hand side, each term in the summation (or integral if it is a
 continuous distribution of mass) is the net force on the individual mass $m_i$,
@@ -658,14 +661,14 @@ this equation reduces to:
 
 \begin{definition}
   \textbf{First Law:} An object will remain in its state of rest or uniform
-    motion, until a net external force is applied to it.
+  motion, until a net external force is applied to it.
 \end{definition}
 The first law, called the \emph{law of inertia}, states that when the sum
 of all the forces acting on an object, or a system of objects is balanced,
 now there are \emph{four} equations that are equivalent:
 \begin{important-equation}
   \bm F_\text{net}=\bm 0
-  \quad\leftrightarrow\quad
+  \quad\Leftrightarrow\quad
   \bm p_\text{net}=\text{constant}
   \quad\leftrightarrow\quad
   \bm v_\text{cm}=\text{constant}
@@ -674,7 +677,9 @@ now there are \emph{four} equations that are equivalent:
 \end{important-equation}
 
 
+In the second law of motion, 
 
+Now the first and second laws can be described by the equation:
 \begin{important-equation}
-  \bm F_\text{net}=\diff{\bm p_\text{net}}t=m\bm a_\text{cm}
+  \bm F_\text{net}=\diff{\bm p_\text{net}}t=m_\text{tot}\bm a_\text{cm}
 \end{important-equation}

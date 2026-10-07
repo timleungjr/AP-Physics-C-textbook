@@ -354,17 +354,20 @@ The forces that the objects exert on each other may include, but not limited to:
 \item Magnetic force (if the objects are magnetic)
 \end{itemize}
 \textbf{Starting with third law of motion:} If we assert that the third law of
-motion (Section~\ref{sec:3rd-law}) is valid, then the forces that objects 1
-and 2 exert on each other during the collision---the ``action--reaction pair
-of forces''---must be equal in magnitude and opposite in direction. Since the
-individual forces exerted on objects 1 and 2 are equal in magnitude and
-opposite in direction, both objects must experience a net force that is also
-equal in magnitude and opposite in direction:
+motion (Sec.~\ref{sec:3rd-law}) is valid, then every force that objects 1 and 2
+exert on each other during the collision---the ``action--reaction pair of
+forces''---must be equal in magnitude and opposite in direction.
+%Since the
+%individual forces exerted on objects 1 and 2 are equal in magnitude and
+%opposite in direction, both objects must experience a net force that is also
+The net force that object 1 experiences ($\bm F_1$) must then be equal in
+magnitude and opposite in direction to the net force that object 2 experiences
+($\bm F_2$):
 \begin{equation}
   \bm F_1=-\bm F_2
   \label{net-force}
 \end{equation}
-Since the forces are exerted on both objects over the same time interval
+Futhermore, forces are exerted on both objects over the same time interval
 ($t_0\to t_1$), the net impulse on $m_1$ and $m_2$ must also be equal and
 opposite:
 \begin{equation}
@@ -424,14 +427,29 @@ derail, their motion is confined to the track.
 
 \begin{example}[Railroad Cars]
   A \SI{1.75e4}{\kilo\gram} boxcar is rolling down a track towards a stationary
-  boxcar that has a mass of \SI{2.00e4}{\kilo\gram}. Just before the collision,
-  the first boxcar is moving east at \SI{5.45}{\metre\per\second}. When the
+  boxcar with a mass of \SI{2.00e4}{\kilo\gram}. Just before the collision,
+  the first boxcar is moving at \SI{5.45}{\metre\per\second}. When the
   boxcars collide, they lock together and continue to down the track. What is
   the velocity of the two boxcars immediately after the collision?
   \begin{center}
     \pic{.45}{momentum-calculus/boxcars}
   \end{center}
-  \textbf{Solution:} I will get to this when I have time
+  \textbf{Solution:} Defining the positive direction to be positive, let's
+  begin with the equation for conservation of momentum:
+  \begin{equation*}
+    m_Av_A+m_Bv_B=m_Av_A'+m_Bv_B'
+  \end{equation*}
+  Then noting that boxcar B was initially stationary (i.e.\ $v_B=0$) and that
+  boxcars travel together after the collision (i.e.\ $v_A'=v_B'=v'$),
+  conservation of momentum becomes:
+  \begin{equation*}
+    m_Av_A+\cancel{m_Bv_B}=(m_A+m_B)v'
+  \end{equation*}
+  Solving for the final velocity and substituting numerical values, we have:
+  \begin{equation*}
+    v'=\frac{m_A}{m_A+m_B}v_A=\frac{1.75}{1.75+2.00}(5.45)=
+    \boxed{\SI{2.54}{\metre\per\second}}
+  \end{equation*}
 \end{example}
 
 
