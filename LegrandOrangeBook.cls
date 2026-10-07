@@ -62,14 +62,14 @@
 
 \geometry{
   paperheight=9.25in,
-  paperwidth=7.25in,
+  paperwidth=7.5in,
   %letterpaper,
   top=2cm, %3cm, % Top margin
   bottom=2cm,%2.5cm, % Bottom margin
   inner=1.5cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
-  outer=1.5cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
+  outer=3cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
   headsep=10pt, % Space from the top margin to the baseline of the header
-  headheight=0.5cm, % Header height
+  headheight=.5cm, % Header height
   footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
   columnsep=1cm, % Horizontal space between columns when in two column mode
   %showframe, % Uncomment to show how the type block is set on the page
