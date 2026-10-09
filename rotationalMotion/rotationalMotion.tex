@@ -769,38 +769,34 @@ you are comfortable with to solve for the answers.
 
 \section{Rolling Problems}
 
-%The case of a rolling sphere is a standard example of combining the dynamics of
-%translational and rotational motions of a rigid body. Here, we present two
-%examples of a non-slip (i.e.\ pure rolling) motion, and one example with
-%slippage.
-
 A rolling problem is one example of dynamics problem that contains both
 translational and rotational motions. Consider a bicycle wheel that is rolling
 along the road without slipping, we can separate the rotational motion from
 its translational motion, as shown in Figure~\ref{fig:trans-and-rot}.
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
-<<<<<<< HEAD
-    \draw[mass] circle (2);
-    \draw[thick] circle (.13);
-    \fill (0,0)--(.13,0) arc (0:90:.13) node[above=-2]{pivot}--(0,0);
-    \fill (0,0)--(-.13,0) arc (180:270:.13)--(0,0);
-%    \draw[axes,rotate=-30] (1,0) arc (0:60:1) node[above]{$\omega$, $\alpha$};
-    \draw[axes,rotate=40] (0,0)--(-2,0) node[midway,right=2]{$R$};
-%    \node at (0,-2.5) {Mass $M$};
-%    \node at (0,-3.3) {
-%    \only<2>{
-%      \begin{scope}[violet]
-%        \draw[thick,dash dot] (0,-.13)--(0,-2);
-%        \foreach \y in {-.4,-.8,...,-2.1} \draw[vector] (0,\y)--(-.8*\y,\y);
-%        \node[right] at (1.6,-2) {$\bm v=\omega R$};
-%      \end{scope}
-    %    }
-  \end{tikzpicture}
-  \caption{A disk spinning in the counter-clockwise direction}
-  \label{disk1}
-\end{figure}
+We wil present two examples of a non-slip (i.e.\ pure rolling) motion, and one
+example with slippage.
+%\begin{figure}[ht]
+%  \centering
+%  \begin{tikzpicture}
+%    \draw[mass] circle (2);
+%    \draw[thick] circle (.13);
+%    \fill (0,0)--(.13,0) arc (0:90:.13) node[above=-2]{pivot}--(0,0);
+%    \fill (0,0)--(-.13,0) arc (180:270:.13)--(0,0);
+%%    \draw[axes,rotate=-30] (1,0) arc (0:60:1) node[above]{$\omega$, $\alpha$};
+%    \draw[axes,rotate=40] (0,0)--(-2,0) node[midway,right=2]{$R$};
+%%    \node at (0,-2.5) {Mass $M$};
+%%    \node at (0,-3.3) {
+%%    \only<2>{
+%%      \begin{scope}[violet]
+%%        \draw[thick,dash dot] (0,-.13)--(0,-2);
+%%        \foreach \y in {-.4,-.8,...,-2.1} \draw[vector] (0,\y)--(-.8*\y,\y);
+%%        \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%%      \end{scope}
+%    %    }
+%  \end{tikzpicture}
+%  \caption{A disk spinning in the counter-clockwise direction}
+%  \label{disk1}
+%\end{figure}
 
 %    \only<2>{Speed at any point on this disk is proportional to its distance
 %      to the pivot:
@@ -828,50 +824,48 @@ its translational motion, as shown in Figure~\ref{fig:trans-and-rot}.
 %        \tau_\text{net}=\frac{\Delta L}{\Delta t}=I\alpha
 %      \end{displaymath}
 %    \end{itemize}
-
-
-
-%\begin{frame}{A Rotating Rod}
+%
+%
+%
+%%\begin{frame}{A Rotating Rod}
+%\begin{figure}[ht]
+%  \centering
+%  \begin{tikzpicture}
+%    \draw[mass] (-.15,0) rectangle (.15,-5);
+%    \draw[thick] (0,-2.5) circle(.13);
+%    \fill (0,-2.5)--(.13,-2.5) node[right=-1]{CM} arc(0:90:.13)
+%    --(0,-2.5);
+%    \fill (0,-2.5)--(-.13,-2.5) arc(180:270:.13)--(0,-2.5);
+%    \fill circle(.07) node[above]{pivot};
+%    \draw[axes,rotate=-90] (.7,0) arc (0:180:.7)
+%    node[left]{$\omega$, $\alpha$};
+%    \draw[thick,|<->|] (-.5,0)--(-.5,-5) node[midway,fill=black!2]{$L$};
+%%      \node at (0,-2.5) {Mass $M$};
+%%      \node at (0,-3.3) {$I=\dfrac12MR^2$};
+%%      \only<2>{
+%%        \begin{scope}[violet]
+%%          \draw[thick,dash dot] (0,-.13)--(0,-2);
+%%          \foreach \y in {-.4,-.8,...,-2.1}\draw[vector] (0,\y)--(-.8*\y,\y);
+%%          \node[right] at (1.6,-2) {$\bm v=\omega R$};
+%%        \end{scope}
+%    %      }
+%  \end{tikzpicture}
+%  \caption{A rod rotating about a pivot that is not at the centre of mass}
+%  \label{rod1}
+%\end{figure}
+%
+%
+%
+%\subsection{Pure Rolling Problems}
+%
+%The case of a rolling sphere is a standard example of combining the dynamics of
+%translational and rotational motions of a rigid body.
+%
+%A pure rolling problem is one that contains both translational and rotational
+%motion, as shown in Fig.~\ref{fig:trans-and-rot}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}
-    \draw[mass] (-.15,0) rectangle (.15,-5);
-    \draw[thick] (0,-2.5) circle(.13);
-    \fill (0,-2.5)--(.13,-2.5) node[right=-1]{CM} arc(0:90:.13)
-    --(0,-2.5);
-    \fill (0,-2.5)--(-.13,-2.5) arc(180:270:.13)--(0,-2.5);
-    \fill circle(.07) node[above]{pivot};
-    \draw[axes,rotate=-90] (.7,0) arc (0:180:.7)
-    node[left]{$\omega$, $\alpha$};
-    \draw[thick,|<->|] (-.5,0)--(-.5,-5) node[midway,fill=black!2]{$L$};
-%      \node at (0,-2.5) {Mass $M$};
-%      \node at (0,-3.3) {$I=\dfrac12MR^2$};
-%      \only<2>{
-%        \begin{scope}[violet]
-%          \draw[thick,dash dot] (0,-.13)--(0,-2);
-%          \foreach \y in {-.4,-.8,...,-2.1}\draw[vector] (0,\y)--(-.8*\y,\y);
-%          \node[right] at (1.6,-2) {$\bm v=\omega R$};
-%        \end{scope}
-    %      }
-  \end{tikzpicture}
-  \caption{A rod rotating about a pivot that is not at the centre of mass}
-  \label{rod1}
-\end{figure}
-
-
-
-\subsection{Pure Rolling Problems}
-
-The case of a rolling sphere is a standard example of combining the dynamics of
-translational and rotational motions of a rigid body. Here, we present two
-examples of a non-slip (i.e.\ pure rolling) motion, and one example with
-slippage.
-
-A pure rolling problem is one that contains both translational and rotational
-motion, as shown in Fig.~\ref{fig:trans-and-rot}.
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=.9]
     \foreach \x in {0,4.5,9}{
       \fill (\x,0) circle (1);
       \fill[white] (\x,0) circle (.8);
@@ -885,21 +879,22 @@ motion, as shown in Fig.~\ref{fig:trans-and-rot}.
     }
     \node[above] at (0,1.5) {Translation};
     
-    \node at (3,0) {\Huge$+$};
+    \node at (2.5,0) {\Huge$+$};
     
-    \draw[vector,cyan,rotate around={-40:(5,0)}] (5,1.1) arc (90:0:1.1)
-    node[right]{$\omega$};
-    \draw[vector,cyan] (5,1)--+(1.5,0) node[above]{$v=\omega R$};
-    \draw[vector,cyan] (5,-1)--+(-1.5,0) node[below]{$v=\omega R$};
-    \foreach \y in {-1,1} \fill[cyan] (5,\y) circle (.05);
-    \node[above] at (5,1.5) {Rotation};
+    \draw[vector,cyan,rotate around={-40:(4.5,0)}] (4.5,1.2) arc (90:0:1.2)
+    node[pos=1.2]{$\omega$};
+    \draw[vector,cyan] (4.5,1)--+(1.5,0) node[above]{$v=\omega R$};
+    \draw[vector,cyan] (4.5,-1)--+(-1.5,0) node[below]{$v=\omega R$};
+    \foreach \y in {-1,1} \fill[cyan] (4.5,\y) circle (.05);
+    \node[above] at (4.5,1.5) {Rotation};
     
     \node at (7,0) {\Huge$=$};
     
-    \foreach \y in {0,1} \fill[violet] (10,\y) circle (.05);
-    \draw[vector,violet] (10,1)--+(3,0) node[above]{$v=2\omega R$};
-    \draw[vector,violet] (10,0)--+(1.5,0) node[right]{$v=\omega R$};
-    \fill[violet] (10,-1) circle (.05) node[below]{$v=0$};
+    \foreach \y in {0,1} \fill[violet] (9,\y) circle (.05);
+    \draw[vector,violet] (9,1)--+(3,0) node[above]{$v=2\omega R$};
+    \draw[vector,violet] (9,0)--+(1.5,0) node[right]{$v=\omega R$};
+    \fill[violet] (9,-1) circle (.05) node[below]{$v=0$};
+    \node[above] at (9,1.5) {Combined};
   \end{tikzpicture}
   \caption{Separating translation and rotational motion in a rolling problem}
   %\caption{The rolling problem is one that combines translational and
@@ -961,8 +956,8 @@ in the free-body diagram in Figure~\ref{roll-flat}. Notice that
 \end{figure}
 There is zero net force acting on the sphere, therefore the the translational
 state (i.e.\ momentum $\bm p=m\bm v$) stays constant in time. Also, both
-gravity and normal forces go through the centre of mass, therefore there is
-zero net torque acting on the sphere, and rotational state (i.e.\ angular
+gravitational and normal forces go through the centre of mass, therefore there
+is zero net torque acting on the sphere, and rotational state (i.e.\ angular
 momentum $\bm L=I\omega$) is constant in time. In theory---if our assumptions
 are correct---the sphere will roll along forever. Indeed, when you roll a steel
 ball bearing along a steel track, it will roll for a \emph{very} long time.
@@ -1038,11 +1033,11 @@ of the sphere is $R$ and its mass is $m$.
 \end{figure}
 
 %\textbf{Be careful what forces are acting on it.}
-Gravity $\bm F_\text{grav}=m\bm g$ acts at the centre of mass, while normal force
-$\bm F_\text{norm}$ acts at the point of contact between the sphere and the
-ramp. There is also static friction $\bm F_\text{fric}$ acting up the ramp, along
-the $-\iii$-direction, at the point of contact between the sphere and the
-ramp. (Without friction, the sphere will just \emph{slide} down the ramp
+Gravitational force $\bm F_\text{grav}=m\bm g$ acts at the centre of mass, while
+normal force $\bm F_\text{norm}$ acts at the point of contact between the sphere
+and the ramp. There is also static friction $\bm F_\text{fric}$ acting up the
+ramp, along the $-\iii$-direction, at the point of contact between the sphere
+and the ramp. (Without friction, the sphere will just \emph{slide} down the ramp
 without rotational motion.) To analyze this problem, we have to use three
 dynamic equations. For translational motion, the acceleration of the centre of
 mass is entirely along the $+\iii$-direction. The translational equations of
@@ -1052,8 +1047,8 @@ motion along the $+\iii$- and $\jjj$-directions are, respectively:
   \sum F_y&=F_\text{norm}-mg\cos\theta=0
 \end{align}
 For rotational motion, a clockwise torque is provided by the static friction
-force alone, since neither gravity nor normal force generate a torque about the
-centre of mass:
+force alone, since neither gravitational nor normal force generate a torque
+about the centre of mass:
 \begin{equation}
   \sum\tau=rF_\text{fric}=I\alpha
   \label{tau}
@@ -1110,14 +1105,14 @@ If the sphere starts from rest:
 \textbf{Sanity Check:} we must make sure that the friction calculated in
 Eq.~\ref{f_s} has not exceeded the maximum static friction, given by
 \begin{equation}
-  f_\text{fric}\leq\mu_sF_\text{norm}
+  F_\text{fric}\leq\mu_sF_\text{norm}
   \label{maxf}
 \end{equation}
 Combining the expression for $f_s$ in Eq.~\ref{f_s}, the acceleration in
 Eq.~\ref{pure-roll-accel}, and the normal force on an incline, Eq.~\ref{maxf}
 becomes:
 \begin{align}
-  f_\text{fric}&\leq\mu_sF_\text{norm}\nonumber\\
+  F_\text{fric}&\leq\mu_sF_\text{norm}\nonumber\\
   \frac27mg\sin\theta&\leq\mu_smg\cos\theta\nonumber\\
   \frac27\tan\theta&\leq\mu_s
 \end{align}
@@ -1252,15 +1247,23 @@ discussed in Section~\ref{no-slip-ball}.
 \section{Pulley Problems}
 
 Pulley problems are common in most dynamics problems, as we have already seen
-in Chapter~\ref{chapter:dynamics}). However, when we solve these problems, we
+in Chapter~\ref{chapter:dynamics}. However, when we solve these problems, we
 usually assume that the pulleys are massless and frictionless. We can get away
 with this \emph{if} the mass of the pulley is small compared to the masses
 that it is connected to.
 %$m_1$ and $m_2$,
 However, we cannot treat the problem the same way if the mass of the pulley is
 significant. Instead, we have to solve the problem using rotational dynamics.
-If the cable is wrapped tightly around the pulley, then we can also expect the
-relation to hold true: $v=\omega R$ and $a=\alpha R$
+There are several observations that we can make immediately:
+\begin{itemize}[itemsep=6pt]
+\item As the mass accelerate upwards/downwards, cable tension must also
+  generate a torque on the pulley
+\item The tension will not be constant along the cable
+\item If the cable is wrapped tightly around the pulley, then we can also
+  expect the relation to hold true $v=\omega R$ and $a=\alpha R$
+\end{itemize}
+%If the cable is wrapped tightly around the pulley, then we can also expect the
+%relation to hold true: $v=\omega R$ and $a=\alpha R$
 %\begin{itemize}[itemsep=6pt]
 %\item As the masses accelerate upwards/downwards, cable tension must also
 %  generate a torque on the pulley
@@ -1269,10 +1272,16 @@ relation to hold true: $v=\omega R$ and $a=\alpha R$
 %\end{itemize}
     
 \begin{example}[Single Mass and Pulley]
-  A mass $m_1$ is connected to a cable that is wrapped tightly around a pulley
-  with radius $R$, mass $m_2$ and a rotational inertia of $I=\frac12m_2R^2$, as
-  shown in the figure below. The pulley can rotate about its axis without
-  friction.
+  A mass $m_1$ is connected to a massless cable that is wrapped tightly around
+  a pulley with radius $R$, mass $m_2$ and a rotational inertia of
+  $I=\frac12m_2R^2$, as shown below. The pulley can rotate about its axis
+  without friction. For this configuration:
+  \begin{enumerate}[leftmargin=18pt,label=(\alph*)]
+  \item What is the magnitude of the acceleration of the mass?
+  \item What is the magnitude of the tension force?
+  \item If the mass is released from rest, what is its speed after falling
+    a distance $d$?
+  \end{enumerate}
   \begin{center}
     \begin{tikzpicture}[scale=.8]
       \draw[ultra thick,brown] (1,0)--(1,-2);
@@ -1281,17 +1290,9 @@ relation to hold true: $v=\omega R$ and $a=\alpha R$
       \draw[line width=5.5] (0,-.15)--(0,2);
       \draw[very thick] (-2,2)--(2,2);
       \fill[white] circle (.1) node[black,left=4]{$m_2$};
-      \draw[mass] (.5,-2) rectangle +(1,-1) node[midway]{$m_1$};
+      \draw[mass] (.5,-2) rectangle +(1,-.65) node[midway]{$m_1$};
     \end{tikzpicture}
-    %\caption{A simple pulley problem}
-    %\end{figure}
   \end{center}
-  \begin{enumerate}
-  \item What is the magnitude of the acceleration of the mass?
-  \item What is the magnitude of the tension force?
-  \item If the mass is released from rest, what is its speed after falling
-    a distance $d$?
-  \end{enumerate}
 \end{example}
 
 
@@ -1330,7 +1331,7 @@ even when there is friction should be a significant insight for the novice
 physics student. Clearly, static friction is \emph{non-conservative}; surely it
 would have done some non-conservative external work. However, a careful look at
 the work done by the static friction reveals how energy is transformed:
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[itemsep=6pt]
 \item Static friction does \emph{positive rotational work}. It is the only
   force that generates a torque, therefore the positive work done by
   $\bm F_\text{fric}$ increases the rotational kinetic energy, i.e.\
@@ -1379,50 +1380,23 @@ the total energy of the system is conserved.
 \end{example}
 
 
-\section{Pulley Problems}
-
-Pulley problems like the one shown in Figure~\ref{fig:simple-pulley-problem1}
-are common in most dynamics problems (e.g.\ as we have seen in
-Chapter~\ref{chapter:dynamics}). However, when we solve these problems, we
-always insist that the pulleys are massless and frictionless. This assumption
-is reasonably accurate \emph{if} the mass of the pulley is small compared to
-the masses hanging from it, but this assumption will fail terribly if the mass
-of the pulley is large. In such a case, we have to solve the problem using
-rotational dynamics. There are several observations that we can make
-immediately:
-\begin{itemize}[itemsep=6pt]
-\item As the mass accelerate upwards/downwards, cable tension must also
-  generate a torque on the pulley
-\item The tension will not be constant along the cable
-\item If the cable is wrapped tightly around the pulley, then we can also
-  expect the relation to hold true $v=\omega R$ and $a=\alpha R$
-\end{itemize}
-    
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}[scale=.7]
-    \draw[ultra thick,brown] (1,0)--(1,-3);
-    \draw[thick,fill=gray] circle (1.05);
-    \draw[thick,fill=gray!40] circle (.95);
-    \draw[line width=5.5] (0,-.15)--(0,2);
-    \draw[very thick] (-2,2)--(2,2);
-    \fill[white] circle (.1) node[black,left=4]{$M$};
-    \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m$};
-  \end{tikzpicture}
-  \caption{A very simple pulley problem}
-  \label{fig:simple-pulley-problem1}
-\end{figure}
 
 \begin{example}
   A mass $m$ is connected to a cable that is wrapped tightly around pulley with
   radius $R$, mass $M$ and a rotational inertia of $I=\frac12MR^2$. The pulley
-  can rotate about its axis without friction.
-  \begin{enumerate}
-  \item What is the magnitude of the acceleration of the mass?
-  \item What is the magnitude of the tension force?
-  \item If the mass is released from rest, what is its speed after falling
-    a distance $d$?
-  \end{enumerate}
+  can rotate about its axis without friction. If the mass is released from
+  rest, what is its speed after falling a distance $d$?
+  \begin{center}
+    \begin{tikzpicture}[scale=.7]
+      \draw[ultra thick,brown] (1,0)--(1,-3);
+      \draw[thick,fill=gray] circle (1.05);
+      \draw[thick,fill=gray!40] circle (.95);
+      \draw[line width=5.5] (0,-.15)--(0,2);
+      \draw[very thick] (-2,2)--(2,2);
+      \fill[white] circle (.1) node[black,left=4]{$M$};
+      \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m$};
+    \end{tikzpicture}
+  \end{center}
 \end{example}
 
 
@@ -1446,14 +1420,6 @@ immediately:
       \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m_2$};
     \end{tikzpicture}
   \end{center}
-  The pulley can rotate about its axis without friction. Assuming that
-  $m_1>m_2$,
-  \begin{enumerate}
-  \item What is the magnitude of the acceleration of the masses?
-  \item What is the tension forces on either side of the pulley?
-  \item If the masses are released from rest, what is their speed after
-    $m_1$ has fallen a distance $d$?
-  \end{enumerate}
   Again, we ask the same questions when setting up an energy conservation
   problem
   \begin{itemize}
@@ -1462,11 +1428,4 @@ immediately:
   \item As $m_1$ rises, positive work done by gravitational converts its
     gravitational potential energy
   \end{itemize}
-
 \end{example}
-
-
-%
-%\chapter{Energy Conservation in Rotational Motion}
-%\label{chapter:rotational-energy-considerations}
-%

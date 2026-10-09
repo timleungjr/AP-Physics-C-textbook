@@ -9,7 +9,7 @@ In an electric circuit, a large number of charge ``carriers'' are pushed along
 by a small electrostatic force in a conductive material, creating an
 \textbf{electric current}. We can model positive charges moving from the
 positive terminal towards the negative terminal, as shown in
-Fig.~\ref{fig:current}.
+Figure~\ref{fig:current}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.8,thick]
@@ -72,16 +72,16 @@ i.e.:
 \end{equation*}
 
 
-\subsection{Direct Current}
+%\subsection{Direct Current}
 In a \textbf{direct current} (\textbf{DC}), the flow of charges is always in
 the same direction, but the current itself does not have to be constant in
-time. The examples in Fig.~\ref{fig:DC-examples} shows different types of
+time. The examples in Figure~\ref{fig:DC-examples} shows different types of
 direct currents. Circuits with only resistors has constant, time-independent
-current, like in Fig.~\ref{fig:resistive-dc}. Circuits with charging or
+current, like in Figure~\ref{fig:resistive-dc}. Circuits with charging or
 discharging capacitors have an exponentially decaying current, as shown in
-Fig.~\ref{fig:capacitive-dc}. Circuit with capacitors and inductors has a
+Figure~\ref{fig:capacitive-dc}. Circuit with capacitors and inductors has a
 current that has a sinusoidal component, as shown in
-Fig.~\ref{fig:unductive-dc}.
+Figure~\ref{fig:unductive-dc}.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.28\textwidth}
@@ -122,7 +122,7 @@ Fig.~\ref{fig:unductive-dc}.
 
 
 
-\subsection{Alternating Current}
+%\subsection{Alternating Current}
 
 In contrast, in an \textbf{alternating current} (\textbf{AC}), the flow of
 charges changes direction, usually as a sinusoidal function of time.
@@ -151,7 +151,8 @@ AC current are important in the power generation.
 
 
 
-\subsection{Quantifying Electric Current}
+%\subsection{Quantifying Electric Current}
+
 %The amount of current that pases through a circuit depends on several factors,
 %namely:
 %\begin{itemize}[leftmargin=15pt]
@@ -169,18 +170,26 @@ the current depends on:
   I(t)=\diff Qt=\left[\frac QV\right]\diff Vt
 \end{equation}
 where
-\begin{itemize}
-\item $Q/V$ is charge density, which is the amount of charge per volume,
+\begin{itemize}[itemsep=6pt]
+\item $Q/V$ is the charge density, which is the amount of charge per volume,
   as discussed in Section~\ref{section:charge-density}. This is the charge of
   each charge carrier ($e$)\footnote{We have established that in a metal
   conductor, the charge carriers are electrons, with a charge of
   $e=\SI{1.602e-19}\coulomb$.}, multiplied by the \emph{charge carrier density}
-  ($n$).
+  ($n$):
+  \begin{equation*}
+    \frac QV=ne
+  \end{equation*}
+  
 \item $\diff Vt$ is the rate the at which the volume of charges moves through
   the conductor. This is just the ``volume flux'' that was discussed in
   Chapter~\ref{chapter:gauss}, and it is the speed $v_d$ at which the charges
   are moving, called the \textbf{drift velocity}, multiplied by the
-  cross-sectional area of the coductor $A$.
+  cross-sectional area of the coductor $A$:
+  \begin{equation*}
+    \diff Vt=v_dA
+  \end{equation*}
+  
 \end{itemize}
 %  is just
 %  the \textbf{charge carrier density} (number of charge carriers per volume)
@@ -197,7 +206,7 @@ Collecting the terms, we arrive at the equation:
 
 Calculating the charge carrier density ($n$) in a \emph{metal} conductor
 involves a few steps based on the physical information about the metal:
-\begin{enumerate}
+\begin{enumerate}[itemsep=6pt]
 \item Divide the metal's density $\rho$ by its molar mass $M$ to find the
   \emph{number of moles of atoms per \si{\metre^3}}
 \item Multiply by Avogadro's number $N_A=\num{6.0221e23}$ to find
@@ -288,7 +297,7 @@ velocity is in the other of 0.1 to \SI1{\milli\metre\per\second}.
 In reality, in a metal condcutor, electric current comes from motion of the
 negatively-charged electrons moving in the \emph{opposite} direction of
 convention current, called the \textbf{electron flow}, or
-\textbf{electron current}, as shown in Fig.~\ref{fig:electron-flow}.
+\textbf{electron current}, as shown in Figure~\ref{fig:electron-flow}.
 The electron's motion is chaotic, because as they move,
 they collide with other electrons and with the atoms in the metal. The drift
 velocity is the \emph{average} speed of the electrons. For circuit analysis,
@@ -298,13 +307,13 @@ we use the conventional current for simplicity.
   \centering
   \begin{subfigure}{.32\textwidth}
     \centering
-    \begin{tikzpicture}[scale=.4]
-      \draw[very thick] ellipse (1 and 3);
-      \draw[very thick] (0,3)--+(8,0);
-      \draw[very thick] (0,-3)--+(8,0);
-      \draw[very thick] (8,-3) arc(-90:90:1 and 3);
-      \draw[very thick,dashed] (8,-3) arc (270:90:1 and 3);
-      \draw[very thick,dashed,lightgray] (4,4)--(4,-4);
+    \begin{tikzpicture}[scale=.35,very thick]
+      \draw ellipse (1 and 3);
+      \draw (0,3)--+(8,0);
+      \draw (0,-3)--+(8,0);
+      \draw (8,-3) arc(-90:90:1 and 3);
+      \draw[dashed] (8,-3) arc (270:90:1 and 3);
+      \draw[dashed,lightgray] (4,4)--(4,-4);
       \node at (1.8,0){\huge$I$};
       \node at (5.3,0){\pic{.45}{circuits1-calculus/arrow-east}};
     \end{tikzpicture}
@@ -312,43 +321,43 @@ we use the conventional current for simplicity.
   \end{subfigure}
   \begin{subfigure}{.32\textwidth}
     \centering
-    \begin{tikzpicture}[scale=.4]
-      \draw[very thick] ellipse (1 and 3);
-      \draw[very thick] (0,3)--+(8,0);
-      \draw[very thick] (0,-3)--+(8,0);
-      \draw[very thick] (8,-3) arc(-90:90:1 and 3);
-      \draw[very thick,dashed] (8,-3) arc (270:90:1 and 3);
-      \draw[very thick,dashed,lightgray] (4,4)--(4,-4);
+    \begin{tikzpicture}[scale=.35,very thick]
+      \draw ellipse (1 and 3);
+      \draw (0,3)--+(8,0);
+      \draw (0,-3)--+(8,0);
+      \draw (8,-3) arc(-90:90:1 and 3);
+      \draw[dashed] (8,-3) arc (270:90:1 and 3);
+      \draw[dashed,lightgray] (4,4)--(4,-4);
         
       \draw[thick,fill=pink!20] (1.5,1) circle (.4) node{$+$};
-      \draw[thick,->] (1.9,1)--+(1.5,0);
+      \draw[vector] (1.9,1)--+(1.5,0);
 
       \draw[thick,fill=pink!20] (2,-1.3) circle (.4) node{$+$};
-      \draw[thick,->] (2.4,-1.3)--+(1.5,0);
+      \draw[vector] (2.4,-1.3)--+(1.5,0);
 
       \draw[thick,fill=pink!20] (3,1.9) circle (.4) node{$+$};
-      \draw[thick,->] (3.4,1.9)--+(1.5,0);
+      \draw[vector] (3.4,1.9)--+(1.5,0);
 
       \draw[thick,fill=pink!20] (3.8,0) circle (.4) node{$+$};
-      \draw[thick,->] (4.2,0)--+(1.5,0) node[right=-2]{\small$\vec F_q$};
+      \draw[vector] (4.2,0)--+(1.5,0) node[right=-2]{\small$\vec F_\text{elec}$};
 
       \draw[thick,fill=pink!20] (5.3,-2) circle (.4) node{$+$};
-      \draw[thick,->] (5.7,-2)--+(1.5,0);
+      \draw[vector] (5.7,-2)--+(1.5,0);
 
       \draw[thick,fill=pink!20] (6.3,1.5) circle (.4) node{$+$};
-      \draw[thick,->] (6.7,1.5)--+(1.5,0);
+      \draw[vector] (6.7,1.5)--+(1.5,0);
     \end{tikzpicture}
     \caption{Electric current modelled as discrete motion of ($+$) charges}
   \end{subfigure}
   \begin{subfigure}{.32\textwidth}
     \centering
-    \begin{tikzpicture}[scale=.4]
-      \draw[very thick] ellipse (1 and 3);
-      \draw[very thick] (0,3)--+(8,0);
-      \draw[very thick] (0,-3)--+(8,0);
-      \draw[very thick] (8,-3) arc(-90:90:1 and 3);
-      \draw[very thick,dashed] (8,-3) arc (270:90:1 and 3);
-      \draw[very thick,dashed,lightgray] (4,4)--(4,-4);
+    \begin{tikzpicture}[scale=.35,very thick]
+      \draw ellipse (1 and 3);
+      \draw (0,3)--+(8,0);
+      \draw (0,-3)--+(8,0);
+      \draw (8,-3) arc(-90:90:1 and 3);
+      \draw[dashed] (8,-3) arc (270:90:1 and 3);
+      \draw[dashed,lightgray] (4,4)--(4,-4);
 
       \draw[axes] (5,1)--(4,0)--(2.5,.5)--(.5,.8)--(0,0);
       \draw[thick,fill=pink!20] (5,1) circle (.4) node{\tiny$e^-$};
@@ -376,10 +385,10 @@ Materials that are formed by ionic bonds (e.g.\ sodium chloride, or table salt)
 do not conduct electricity, but they can be dissolved, for example, in water,
 and the solution containing the ions is now conductive. Positive ions move
 towards negative terminal; while negative ions move towards positive terminal,
-as shown in Fig.~\ref{fig:current-in-solutions}.
+as shown in Figure~\ref{fig:current-in-solutions}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.9]
+  \begin{tikzpicture}
     \draw[fill=cyan!20] rectangle (6,2.5);
     \foreach \x in {.4,5.6} \draw[line width=3] (\x,.5)--(\x,2);
     \draw[thick] (.4,1.25)--+(-1.5,0) node[left]{\large$+$};
@@ -456,7 +465,7 @@ as shown in Fig.~\ref{fig:current-in-solutions}.
 Georg Ohm discovered that when a current is passed through a piece of metal
 conductor, the voltage (electric potential difference) $V$ across the two ends
 of the metal is proportional to the amount of current ($I$) through it
-(Fig.~\ref{fig:ohm1}).
+(Figure~\ref{fig:ohm1}).
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[thick,scale=.37]
@@ -495,7 +504,7 @@ the current through the device is linear are called \textbf{ohmic devices}.
 Incandescent light bulbs and heating elements are examples of ohmic devices.
 If we plot the current vs.\ voltage for the device, we would find a straight
 line; the slope of the graph is the inverse of the resistance, as shown in
-Fig.~\ref{fig:ohmic-relationship}.
+Figure~\ref{fig:ohmic-relationship}.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.32\textwidth}
@@ -525,7 +534,7 @@ Fig.~\ref{fig:ohmic-relationship}.
 \end{figure}
 
 \begin{remark}
-  For clarification, the graphs in Fig.~\ref{fig:i-vs-v-diagrams} are plotted as
+  For clarification, the graphs in Figure~\ref{fig:i-vs-v-diagrams} are plotted as
   $I$ vs.\ $V$. This is because we usually alter the voltage as an
   \emph{input}, and then measure the resulting current in the circuit as an
   \emph{output}. From this point of view, it makes sense that $V$ is the
@@ -541,7 +550,7 @@ Fig.~\ref{fig:ohmic-relationship}.
 
 Loads that are \textbf{non-ohmic} do not obey Ohm's law; the relationship
 between voltage and current is \emph{not} linear, as shown in
-Fig.~\ref{fig:non-ohmic-relationship}. The majority of devices that we
+Figure~\ref{fig:non-ohmic-relationship}. The majority of devices that we
 encounter in circuits are non-ohmic. The include:
 \begin{itemize}
 \item Semi-conductor devices used for electronics
@@ -722,7 +731,7 @@ Chapter~\ref{chapter:capacitors}).
 
 Loads are devices that transforms the electrical energy in the circuit into
 other forms of energy. Examples include those in
-Fig.~\ref{fig:non-ohmic-loads}.
+Figure~\ref{fig:non-ohmic-loads}.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.24\textwidth}
@@ -835,13 +844,13 @@ and no current flows through it.)
 
 \section{Measuring Devices}
 
-A \textbf{voltmeter} (Fig.~\ref{fig:voltmeter}) is used to measure the voltage
+A \textbf{voltmeter} (Figure~\ref{fig:voltmeter}) is used to measure the voltage
 across two points in a circuit. To measure the voltage across a load, it is
 placed in \emph{parallel} with a load. % to measure the voltage across it.
 An ideal voltmeter has infinite resistance ($R=\infty$) and no current through
 it ($I=0$).
 
-An \textbf{ammeter} (Fig.~\ref{fig:ammeter}) is used to measure the current
+An \textbf{ammeter} (Figure~\ref{fig:ammeter}) is used to measure the current
 across a point in the circuit. It is placed in \emph{series} with a load to
 measure the current through it. An ideal ammeter has zero resistance ($R=0$),
 thus it does not alter the flow of current in the circuit
@@ -918,7 +927,7 @@ the current which flows out.
   \caption{An example of the junction law}
   \label{fig:junction-law}
 \end{figure}
-In the example in Fig.~\ref{fig:junction-law}, there are 4 paths to the
+In the example in Figure~\ref{fig:junction-law}, there are 4 paths to the
 junction at the centre, with $I$ flowing into the junction, and $I_1$, $I_2$,
 $I_3$ flowing out, then the junction law says that
 \begin{equation*}
@@ -936,7 +945,7 @@ must be no accumulation of charges anywhere in the circuit.
 
 In the \textbf{voltage law}, the voltage changes around any closed loop in
 the circuit must sum to zero, no matter what path you take through an
-electrical circuit. In the example in Fig.~\ref{fig:voltage-law}, voltage gains
+electrical circuit. In the example in Figure~\ref{fig:voltage-law}, voltage gains
 and losses from any of the loops always sum to zero:
 \begin{align*}
   +\mathcal E-V_1-V_2 &= 0\quad\text{(ABCHA)}\\
@@ -985,7 +994,7 @@ connected in parallel (side by side) must be the same:
 %The voltage changes around any closed loop in the circuit must sum to zero,
 %no matter what path you take through an electric circuit. This also applies
 %regardless of what circuit devices are along the path. In the example shown
-%in Fig.~\ref{fig:kvl1}, a resistor $R$, capacitor $C$ and an inductor $L$ are
+%in Figure~\ref{fig:kvl1}, a resistor $R$, capacitor $C$ and an inductor $L$ are
 %in parallel with a battery of emf $\mathcal E$.
 %
 %\begin{figure}[ht]

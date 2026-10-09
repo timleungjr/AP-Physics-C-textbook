@@ -3,14 +3,13 @@
 
 
 In Chapter~\ref{chapter:energy}, we examined several oscillatory systems using
-the law of conservation of energy, including the horizontal and vertical
-spring-mass systems, and the pendulum system, which are shown in
+conservation of energy, including the horizontal and vertical spring-mass
+systems, and the pendulum system, which are shown in
 Figure~\ref{fig:shm-systems}. We noted that when there is no friction, drag, or
 other damping forces, we have an isolated system where the total mechanical
 energy is constant. Using energy conservation approach allows us to solve
-motion problems of these systems quickly, but it is also clear that
-conservation of energy does not tell us \emph{why} or \emph{how} the systems
-oscillate.
+motion problems of these systems quickly, but it is also clear that energy
+conservation does not tell us \emph{why} or \emph{how} the systems oscillate.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.3\textwidth}
@@ -24,7 +23,7 @@ oscillate.
       --(-.2,2)--(0,2)--(0,.5)--cycle;
       \draw[very thick] (0,2)--(0,.5)--(4.3,.5);
     \end{tikzpicture}
-    \caption{Horizontal spring-mass system}
+    \caption{Horizontal spring-mass}
   \end{subfigure}
   \hspace{\stretch1}
   \begin{subfigure}{.3\textwidth}
@@ -37,7 +36,7 @@ oscillate.
       \fill[pattern=north east lines] (0,5) rectangle (2,5.2);
       \draw[very thick] (0,5)--(2,5);
     \end{tikzpicture}
-    \caption{Vertical spring-mass system}
+    \caption{Vertical spring-mass}
   \end{subfigure}
   \hspace{\stretch1}
   \begin{subfigure}{.3\textwidth}
@@ -51,26 +50,23 @@ oscillate.
       \end{scope}
       \draw[dashed,thin] (0,0)--(0,-3);
     \end{tikzpicture}
-   \caption{Simple pendulum system}
+   \caption{Simple pendulum}
   \end{subfigure}
   \caption{Common examples of harmonic oscillators}
   \label{fig:shm-systems}
 \end{figure}
+
 To get the full picture of the motion of these systems, we must instead return
 to the dynamics (i.e.\ using free-body diagrams and second law of motion) of
-such a system, and then solving for the kinematic properties: position $x(t)$,
+these systems, and then solving for the kinematic properties: position $x(t)$,
 velocity $v(t)$ and acceleration $a(t)$ as functions of time. Such a system is
 called a \textbf{harmonic oscillator}, and the resulting oscillatory motion is
-called a \textbf{harmonic motion}\footnote{This type of periodic motion is also
-known as \textbf{oscillatory motion}, \textbf{oscillations},
-\textbf{vibrations}. It should be noted that simple harmonic motion is a form of
-periodic motion, but not all periodic motion are harmonic motions. Take, for
-example, uniform circular motion.}.
+called a \textbf{harmonic motion}.
 
 
 \section{Horizontal Spring-Mass System}
 
-In an ideal horizontal-spring mass system, We consider a mass that rests on a
+In an ideal horizontal-spring mass system, we consider a mass that rests on a
 horizontal surface. The mass is connected horizontally to an ideal spring that
 obeys Hooke's law perfectly, and is free to move horizontally without friction,
 drag, or other damping forces. Three forces act on the mass: gravitational
@@ -104,7 +100,7 @@ Since there is no vertical motion, $\sum\bm F_\text{vertical}=0$,
 $\bm F_\text{grav}$ and $\bm F_\text{norm}$ cancel out. Net force is due only to
 spring force $\bm F_\text{elas}=-k\bm x$ along the horizontal direction. This is
 true regardless of whether the spring is in compression or in extension,
-although it should be obvious that the spring in
+although it is obvious that the spring in
 Figure~\ref{fig:horizontal-spring-mass1} is in extension. The spring force
 $\bm F_\text{elas}$ is called a \emph{restoring force} because is always points
 towards the equilibrium position.
@@ -122,17 +118,16 @@ In many math textbooks, Eq.~\ref{eq:ode0} is often written in standard form:
   \diff[2]xt + \frac kmx=0
   \label{eq:ode1}
 \end{important-equation}
-
 Eq.~\ref{eq:ode1} is a standard problem in calculus. If you are unfamiliar with
 equations in your calculus courses, we are solving for the position as a
 function of time, i.e.\ $x(t)$. When we compare the left- and right-hand side
 of Eq.~\ref{eq:ode0}, we conclude that $x(t)$ must be a function with a second
 time derivative $\ddot x(t)$ that \emph{looks like} $x(t)$, but with a negative
 sign, and some parameters that relate to the spring constant $k$ and mass $m$.
-Only two functions can satisfy this requirement: the sinusoidal functions
+Only two functions satisfy this requirement: the sinusoidal functions
 $\sin(t)$ and $\cos(t)$. Therefore, we can conclude that the motion along the
-horizontal direction must be \emph{periodic}, and we can start with a general
-form of the solution:
+horizontal direction must be \emph{periodic} in time, and we can start with a
+general form of the solution:
 \begin{important-equation}
   \quad x(t)=A\cos(\omega t+\theta_0)
   \label{eq:gen-form}
@@ -143,10 +138,25 @@ is a phase constant based on initial condition. For the remainder of the
 analysis, we will primarily use the cosine function for simplicity. Motion in
 the form of Eq.~\ref{eq:gen-form} is called the \textbf{simple harmonic motion}
 (\textbf{SHM}), and the spring-mass system is called a
-\textbf{simple harmonic oscillator}.
-
-Taking the time derivative of Eq.~\ref{eq:gen-form} give us the velocity $v(t)$
-of the mass:
+\textbf{simple harmonic oscillator}. We still have to relate $\omega$ to the
+mass and spring terms in the original differential equation in
+Eq.~\ref{eq:ode1}.
+\begin{remark}
+  A simple harmonic motion is also known as an \textbf{oscillatory motion},
+  \textbf{oscillation}, \textbf{vibration}.
+  %We have shown that the simple harmonic motion of the spring-mass system
+  %(without friction or drag or damping forces) as well as the simple-pendulum
+  %system with small-angle deflection are all periodic.
+  It should be noted that while SHM is a periodic motion, not all periodic
+  motions are harmonic. For example, uniform circular motion is periodic, but
+  not an SHM.  To ``qualify'' a motion to be a simple harmonic motion, there
+  must be a restoring in the form of Hooke's law:
+  \begin{equation*}
+    F_\text{restoring}=-kx
+  \end{equation*}
+\end{remark}
+Taking the time derivative of $x(t)$ (Eq.~\ref{eq:gen-form}) give us the
+velocity $v(t)$ of the mass:
 \begin{important-equation}
   v(t)=\dot x(t)=-A\omega\sin(\omega t+\theta_0)
 \end{important-equation}
@@ -258,7 +268,7 @@ acceleration:
   a(t)&=-A\omega^2\sin(\omega t)
 \end{align*}
 Mathematically, the two functions only differ by a phase constant of
-$\dfrac{\pi}2$. In practice, however, we must remember that it is entirely
+$\frac{\pi}2$. In practice, however, we must remember that it is entirely
 possible that a simple harmonic oscillator can have initial conditions where
 $x(0)\neq 0$ and $v(0)\neq 0$.
 
@@ -272,13 +282,14 @@ Note that depending on context or application, the term ``natural frequency''
 may refer to either $\omega$ or $f$. Usually it is easy to know from the
 context of the discussion.
 
-The period $T$---measured in seconds---is the reciprocal of the frequency,
-similar to uniform circular motion:
+The period $T$---the time required for one cycle of the oscillation, measured
+in seconds---is the reciprocal of the frequency, similar to uniform circular
+motion:
 \begin{important-equation}
   T=\frac1f=2\pi\sqrt{\frac mk}
 \end{important-equation}
-It should be clear that angular frequency ($\omega$), frequency ($f$), and
-period ($T$) are all independent of amplitude $A$.
+Angular frequency ($\omega$), frequency ($f$), and period ($T$) are all
+independent of amplitude $A$.
 
 
 %\begin{frame}{Displacement, Velocity and Acceleration}
@@ -309,13 +320,13 @@ period ($T$) are all independent of amplitude $A$.
 
 \begin{remark}
   \textbf{We keep referring to the natural frequency of the simple harmonic
-    motion as its ``angular frequency''. Is $\omega$ the same angular velocity
-    term from circular motion?}
+    motion as an ``angular frequency''. Is $\omega$ related to the angular
+    velocity term from circular motion?}
 
-  Yes, it most certainly is! Consider an object moving in uniform circular
+  Yes, it most certainly is! Let's consider an object moving in uniform circular
   motion about the origin of the $xy$ plane with angular velocity $\omega$
-  and a radius $r$. Here, the angular position of the object would be described
-  by:
+  and a radius $r$. As $\alpha=0$, the angular position of the object would be
+  described by:
   \begin{equation*}
     \theta(t)=\omega t+\theta_0
   \end{equation*}
@@ -327,21 +338,21 @@ period ($T$) are all independent of amplitude $A$.
   \end{align*}
   Both of $x(t)$ and $y(t)$ are in the same form as Eq.~\ref{eq:ode1}. In
   essence, a simple harmonic motion is the \emph{projection} of a uniform
-  circular motion onto an axis. The ``radius'' of that circular motion is the
-  amplitude $A$ of the simple harmonic motion. 
+  circular motion onto either axis. The ``radius'' of that circular motion is
+  the amplitude $A$ of the simple harmonic motion. 
   \begin{center}
     \begin{tikzpicture}[scale=.6]
       \draw[axes] (-3,0)--(3,0) node[right]{$x$};
       \draw[axes] (0,-3)--(0,3) node[above]{$y$};
       \draw[dotted] circle (2.5);
-      \begin{scope}[rotate=38]
-        \draw[vector] (0,0)--(2.45,0) node[midway,above]{$r$};
+      \begin{scope}[rotate=50]
+        \draw[vector] (0,0)--(2.45,0) node[midway,above]{$\bm r$};
         \draw[mass] (2.5,0) circle (.1);
-        \draw[vector] (2.7,0) arc (0:20:2.7) node[pos=1.15]{$\omega$};
+        \draw[vector] (2.9,0) arc (0:20:2.9) node[pos=1.25]{$\omega$};
       \end{scope}
-      \draw[axes] (1.5,0) arc (0:38:1.5) node[pos=.55,right]{$\theta(t)$};
-      \draw[vector] (0,0)--({2.5*cos(38)},0) node[midway,below]{$x(t)$};
-      \draw[dashed] ({2.5*cos(38)},0)--({2.5*cos(38)},{2.5*sin(38)});
+      \draw[axes] (1.5,0) arc (0:50:1.5) node[pos=.55,right]{$\theta(t)$};
+      \draw[vector] (0,0)--({2.5*cos(50)},0) node[midway,below]{$x(t)$};
+      \draw[dashed] ({2.5*cos(50)},0)--({2.5*cos(50)},{2.5*sin(50)});
     \end{tikzpicture}
   \end{center}   
 \end{remark}
@@ -379,8 +390,8 @@ period ($T$) are all independent of amplitude $A$.
 
 
 
-\subsection{Energies in the Oscillator}
-
+\subsection{Energies of a Simple Harmonic Oscillator}
+We can plot the functions over time, as shown in Figure~\ref{fig:total-energy}.
 As the mass oscillates, the kinetic energy of the mass is
 \begin{equation}
   K=\frac12mv^2=\frac12m\left[-A\omega\sin(\omega t)\right]^2
@@ -404,8 +415,7 @@ elastic potential energies, is not surprisingly:
   E_\text{total}=K+U_\text{elas}
   =\frac12kA^2\left[\sin^2(\omega t)+\cos^2(\omega t)\right]=\frac12kA^2
 \end{important-equation}
-We can plot the functions over time, as shown in Figure~\ref{fig:total-energy}.
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -450,10 +460,10 @@ In a vertical spring-mass system, shown in
 Figure~\ref{fig:vertical-spring-mass}, a mass is suspended vertically from a
 fixed point by an ideal spring. Again, we assume that there is no friction, no
 drag or other damping forces in the system. The difference between a horizontal
-and vertical system is that here, we must also consider the gravitational force
+and vertical system is that, here, we must also consider the gravitational force
 $\bm F_\text{grav}=m\bm g$ which acts along the direction of motion. The
-presence of gravity shifts the equilibrium position downwards by a
-distance $B$ from the unstretched length of the spring.
+presence of gravity shifts the equilibrium position downwards by a distance $B$
+from the unstretched length of the spring.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=1.3]
@@ -480,10 +490,10 @@ distance $B$ from the unstretched length of the spring.
 
 Using the downward direction as the positive direction of motion, the second
 law of motion becomes:
-\begin{equation}
+\begin{equation*}
   mg-kx=m\diff[2]xt
   %\label{eq:ode2}
-\end{equation}
+\end{equation*}
 Or, written standard form:
 \begin{important-equation}
   \diff[2]xt+\frac kmx-g=0
@@ -661,19 +671,19 @@ expansion. We can then use the \emph{small-angle approximation}, where:
 \begin{equation*}
   \sin\theta\approx\theta
 \end{equation*}
-Eq.~\ref{eq:real-pendulum-ode} reduces to the same form as the horizontal
+And Eq.~\ref{eq:real-pendulum-ode} reduces to the same form as the horizontal
 spring-mass system: % that we have studied in Eq.~\ref{eq:ode1}:
 \begin{equation}
   -\frac g\ell\theta = \diff[2]{\theta}t
 \end{equation}
 For small angles of deflection, the restoring force is approximately
-proportional to the angular displacement about the pivot, measured from the
-bottom of the swing, just like Hooke's law. Therefore the solution for
-$\theta(t)$ is also a sinusoidal function, like the horizontal spring-mass
-system:
+proportional to the angular displacement of the pendulum bob about the pivot,
+measured from the bottom of the swing, just like Hooke's law. Therefore the
+solution for $\theta(t)$ is also a sinusoidal function like the horizontal
+spring-mass system:
 \begin{important-equation}
   \theta(t)=\theta_\text{max}\cos(\omega t+\varphi)
-  \quad\quad\text{simple pendulum, small angles}
+  \quad\quad\text{(simple pendulum, small angles)}
 \end{important-equation}
 where $\theta_\text{max}$ is the maximum deflection of the pendulum (i.e.\ the
 amplitude)---which should be kept small for the solution to be
@@ -808,24 +818,35 @@ should be kept to less than \SI4\degree.
 
 \subsection{Velocity and Acceleration}
 
-We can take the time derivative of $\theta(t)$ to find the angular velocity and
-velocity about the pivot of the pendulum:
+We can take the time derivative of $\theta(t)$ to find the angular velocity
+$\dot\theta(t)$ of the pendulum \emph{about the pivot}:
 \begin{important-equation}
   \dot\theta(t)=-\theta_\text{max}\omega\sin(\omega t)
-  \quad\to\quad
-  v(t)=\ell\dot\theta(t)=-\ell\theta_\text{max}\omega\sin(\omega t)
+  %\quad\to\quad
+  %v(t)=\ell\dot\theta(t)=-\ell\theta_\text{max}\omega\sin(\omega t)
 \end{important-equation}
-And the second time derivative gives us the angular acceleration and tangential
-acceleration about the pivot:
+Note that the ``angular velocity'' $\dot\theta(t)$ is NOT the same as the
+``natural frequency'' $\omega$ term for the pendulum, as we have seen in circlar
+motion, and for the spring-mass systems.  The meaning of $\omega$ is explained
+in the next section. When we multiply the angular velocity by the length of the
+pendulum $\ell$, we find the the speed of the pendulum $|v(t)|$:
+\begin{important-equation}
+  |v(t)|=|\ell\dot\theta(t)|=\ell\theta_\text{max}\omega\sin(\omega t)
+\end{important-equation}
+The second time derivative of $\theta$ gives us the angular acceleration and
+tangential acceleration about the pivot:
 \begin{important-equation}
   \ddot\theta(t)=-\theta_\text{max}\omega^2\cos(\omega t)
-  \quad\to\quad
-  a_\text{tang}(t)=\ell\ddot\theta(t)=-\ell\theta_\text{max}\omega^2\cos(\omega t)
+\end{important-equation}
+As we did in circular motion, the magnitude of the tangential acceleration
+$a_t(t)$ is obtained by multiplying by the length of the pendulum $\ell$:
+\begin{important-equation}
+  |a_t(t)|=|\ell\ddot\theta(t)|=\ell\theta_\text{max}\omega^2\cos(\omega t)
 \end{important-equation}
 
 
 
-\subsection{The meaning of Angular Frequency}
+\subsection{The Meaning of ``Angular Frequency''}
 
 The meaning of the ``angular frequency'' term $\omega$ for the simple pendulum
 is a bit more abstract than in the spring-mass case. Since we are using a
@@ -939,25 +960,15 @@ of \emph{that} circular motion.
 \end{example}
 
 
-\begin{remark}
-  We have shown that the simple harmonic motion of the spring-mass system
-  (without friction or drag or damping forces) as well as the simple-pendulum
-  system with small-angle deflection are all periodic. However, it should be
-  noted that while all simple harmonic motion are periodic, not all periodic
-  motions are harmonic. The ``qualify'' a motion to be a simple harmonic
-  motion, there must be a restoring in the form of Hooke's law:
-  \begin{equation*}
-    F_\text{restoring}=-kx
-  \end{equation*}
-\end{remark}
+
 
 
 
 
 \section{Damped Oscillator}
 
-In reality, there are friction, drag, or other damping forces present in the
-spring-mass system, taking energy away from the system. We can represent the
+In reality, there are always friction, drag, or other damping forces present in
+spring-mass systems, taking energy away from the system. We can represent the
 energy dissipation in a horizontal spring-mass system schematically by the shock
 absorber, as shown in Figure~\ref{fig:damping1}. The shock absorber exerts a
 ``damping force'' $\bm F_\text{damp}$ on the mass.
@@ -997,8 +1008,8 @@ kinetic friction, which does not depend on velocity, $n=0$; for viscous damping
 in a practical shock absorber, $n\approx 1$, while for aerodynamic drag, $n=2$,
 as seen in Chapter~\ref{chapter:dynamics}. For the purpose of our analysis, we
 will use $n=1$ to \emph{approximate} the \emph{combined} effects of these three
-forces. Of course, whether this is actually accurate will depends on specific
-problems. In general, we will assume that $n=1$ is \emph{sufficiently} accurate
+forces. Of course, whether this is actually accurate depends on the specific
+problem. In general, we will assume that $n=1$ is \emph{sufficiently} accurate
 for a wide range of situations.
 
 With the addition of the damping force, the differential equation is obtained
@@ -1078,7 +1089,7 @@ damping occurs:
   b_c=2m\omega=\sqrt{4mk}
 \end{important-equation}
 At critical damping, the solution to Eq.~\ref{eq:ode2} for the position of the
-mass $x(t)$ no longer has any sinusoidal terms, but is instead a linear
+mass $x(t)$ no longer has a sinusoidal term, but is instead a linear
 combination of two exponential decay functions related to $\lambda_c$:
 \begin{important-equation}
   x(t)=(c_1+c_2t)e^{\lambda_ct}
@@ -1233,12 +1244,12 @@ exponentially with time:
 
 To keep a damped system going, energy must be added into the system. That means
 that positive external work must be done to the system. To ensure that this is
-the case, we subject the system to an external forcing function
-$\bm F_\text{ext}(t)$ (the ``external applied force'' shown in
-Figure~\ref{fig:driven1}) along the direction of motion that is harmonic with
-time, with a driving frequency of $\omega_\text{ext}$:
+the case, we subject the system to an external applied force
+$\bm F_\text{app}(t)$, shown in Figure~\ref{fig:driven1}, along the direction of
+motion that is harmonic with time, with a driving frequency of
+$\omega_\text{ext}$:
 \begin{equation}
-  F_\text{ext}=F\cos(\omega_\text{ext}t)
+  F_\text{app}=F\cos(\omega_\text{ext}t)
 \end{equation}
 In general, the driving frequency $\omega_\text{ext}$ is unrelated to the
 undamped natural frequency $\omega$ or the damped quasi-frequency $\omega'$,
@@ -1261,7 +1272,7 @@ i.e.\ we assume that $\omega_\text{ext}\neq\omega\neq\omega'$.
       \draw (3.5,1)--(3.5,0) node[right]{$\bm F_\text{grav}$};
       \draw (3.5,1)--(3.5,2) node[right]{$\bm F_\text{norm}$};
       \draw (3.5,1)--(2.5,1) node[above]{$\bm F_\text{elas}$};
-      \draw (3.5,.95)--(2,.95) node[below]{$\bm F_\text{ext}$};
+      \draw (3.5,.95)--(2,.95) node[below]{$\bm F_\text{app}$};
       \draw (3.5,1)--(4.5,1) node[below]{$\bm F_\text{damp}$};
     \end{scope}
     \fill[red] (3.5,1) circle (.075);
@@ -1275,7 +1286,7 @@ applying the second law of motion:
 \begin{equation}
   \sum F=
   \underbracket[1pt]{-kx}_{F_\text{elas}}\underbracket[1pt]{-bv}_{F_\text{damp}}+
-  \underbracket[1pt]{F\cos(\omega_\text{ext}t)}_{F_\text{ext}}=ma
+  \underbracket[1pt]{F\cos(\omega_\text{ext}t)}_{F_\text{app}}=ma
 \end{equation}
 In standard form, the differential equation is written as:
 \begin{important-equation}
@@ -1290,14 +1301,14 @@ is usually taught in a dedicated differential equation course in university.
 The solution to Eq.~\ref{eq:ode3} contains two parts:
 \begin{itemize}[itemsep=6pt]
 \item A \textbf{transient solution} that is obtained by setting
-  $F_\text{ext}=0$. Essentially this is the solution for the damped harmonic
+  $F_\text{app}=0$. Essentially this is the solution for the damped harmonic
   oscillator case, and the solution is either an under-damped,
   critically-damped, or over-damped motion. The transient solution depends on
   the initial position and velocity, but regardless of the damping factor $b$,
   the solution will become negligible over time.
   
 \item A \textbf{steady-state solution} that does not depend on the initial
-  condition, \emph{only} on the forcing function $\bm F_\text{ext}$. Solving for
+  condition, \emph{only} on the forcing function $\bm F_\text{app}$. Solving for
   the steady-state solution will be left as a difficult calculus exercise.
   We will instead focus on the solution.
 \end{itemize}
@@ -1419,7 +1430,7 @@ At resonance, the object is always moving in the same direction as the
 driving force:
 \begin{align*}
   v(t)&=A\omega_\text{ext}\cos(\omega_\text{ext}t)\\
-  F_\text{ext}(t)&=F\cos(\omega_\text{ext}t)
+  F_\text{app}(t)&=F\cos(\omega_\text{ext}t)
 \end{align*}
 This also makes sense from a work-energy perspective, because now the external
 force is doing positive work to the system.

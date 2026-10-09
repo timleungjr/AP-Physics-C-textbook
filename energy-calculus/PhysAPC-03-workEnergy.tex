@@ -25,6 +25,9 @@ At a minimum, these definitions at least tell two things:
 It is customary to start with the definition of mechanical work, and use it
 to define different forms of energies.
 
+
+
+
 \section{Mechanical Work}
 \label{sec:mechwork}
 An infinitesimal amount of \textbf{mechanical work} $\dl W$ is done when a
@@ -143,7 +146,7 @@ problems, when calculating the work done by ``a force'', it could mean:
   applied force. The free-body diagram for this problem is shown below. Here,
   four forces act on the crate: gravitational force $\bm F_\text{grav}$, normal
   force $\bm F_\text{norm}$, kinetic friction $\bm F_\text{fric}$, and applied
-  force   $\bm F_a(x)$, which changes in magnitude as the crate's moves.
+  force $\bm F_\text{app}(x)$, which changes in magnitude as the crate's moves.
   \begin{center}
     \begin{tikzpicture}[scale=.85,thick]
       \draw (0,0)--(5,0);
@@ -154,7 +157,7 @@ problems, when calculating the work done by ``a force'', it could mean:
         \draw[mass] (1.5,0) rectangle (3.5,1.5);
         \fill[red] (2.5,.75) circle (.07);
         \begin{scope}[vector,red]
-          \draw (2.5,.75)--+(1.5,0) node[right]{$\bm F_a(x)$};
+          \draw (2.5,.75)--+(1.5,0) node[right]{$\bm F_\text{app}(x)$};
           \draw (2.5,.75)--+(0,1.5) node[above]{$\bm F_\text{norm}$};
           \draw[rotate around={-25:(2.5,.75)}] (2.5,.75)--+(0,-1.25)
           node[below]{$\bm F_\text{grav}$};
@@ -189,7 +192,7 @@ problems, when calculating the work done by ``a force'', it could mean:
   \item Finally, the work done by the applied force is positive, because
     applied force is in the same direction as motion.
     \begin{equation*}
-      W_a(x)=\int_{x_0}^x F_a\dl x>0
+      W_a(x)=\int_{x_0}^x F_\text{app}\dl x>0
     \end{equation*}
   \end{itemize}
   The total work (i.e.\ the net work) done by summing the work done by each
@@ -197,7 +200,7 @@ problems, when calculating the work done by ``a force'', it could mean:
   \begin{align*}
     W_\text{net} &=W_a+W_\text{norm}+W_\text{grav} +W_\text{fric}\\
     &=\int\underbracket[1pt]{
-      \left(\bm F_a+\bm F_\text{norm}+\bm F_\text{grav}+\bm F_\text{fric}\right)
+      \left(\bm F_\text{app}+\bm F_\text{norm}+\bm F_\text{grav}+\bm F_\text{fric}\right)
     }_{\bm F_\text{net}}\cdot\dl{\bm r} =\int\bm F_\text{net}\cdot\dl{\bm r}
   \end{align*}
 \end{example}
@@ -398,10 +401,9 @@ is negative. There would now be a decrease in kinetic energy
   \quad\longrightarrow\quad
   \Delta K = W_\text{grav} < 0
 \end{equation*}
-The change in kinetic energy must be, of course, consistent with
-%the equations that we use for
-kinematics and dynamics, since the expression for kinetic
-energy was derived from the second law of motion and kinematic equations.
+The change in kinetic energy must be, of course, consistent with kinematics and
+dynamics, since the expression for kinetic energy was derived from the second
+law of motion and kinematic equations.
 
 But the work done by gravitational force can also be expressed in terms of the
 change in the object's height. Using the ground as the \textbf{reference}
@@ -744,7 +746,8 @@ and spring force:
 
 \section{Conservative Forces}
 
-These forces are called \textbf{conservative forces}
+These forces are called \textbf{conservative forces}, which is a very short
+list.
 \begin{itemize}[nosep]
 \item Gravitational force $\bm F_\text{grav}$
 \item Spring force $\bm F_\text{elas}$
@@ -755,13 +758,22 @@ These forces are called \textbf{conservative forces}
 Because they shared these common properties:
 \begin{definition}
   \begin{itemize}[itemsep=6pt]
-  \item When work done by a conservative force is \emph{positive}, there is a
-    \emph{decrease} in the related potential energy by the same amount.
-  \item When work done by a conservative force is \emph{negative}, there is
-    an \emph{increase} in the related potential energy by the same amount
-  \item Positive work by a conservative force transforms the related potential
-    energy into kinetic energy; negative work by a conservative force
-    transforms kinetic energy into the related potential energy
+  \item When work done by a conservative force is \emph{positive}:
+    \begin{itemize}[nosep]
+    \item There is a \emph{decrease} in the related potential energy by the
+      same amount.
+    \item That potential energy is transformed into the kinetic energy
+    \end{itemize}
+  \item When work done by a conservative force is \emph{negative}
+    \begin{itemize}[nosep]
+    \item There is an \emph{increase} in the related potential energy by the
+      same amount
+    \item The increase is because kinetic energy is transformed into potential
+      energy by the work done
+    \end{itemize}
+    %\item Positive work by a conservative force transforms the related 
+  %  potential energy into kinetic energy; negative work by a conservative force
+  %  transforms kinetic energy into the related potential energy
   \item Work by the a conservative force is always path independent: it depends
     only on end points, but not \emph{how} it gets from one end point to the
     other
@@ -836,7 +848,7 @@ Conservative forces only account for a small list of known forces; the majority
 of the common forces encountered in introductory physics courses are generally
 \textbf{non-conservative}. They include, but not limited to:
 \begin{itemize}[itemsep=6pt]
-\item Applied force $\bm F_a$
+\item Applied force $\bm F_\text{app}$
 \item Tension force $\bm F_\text{ten}$
 \item Normal force $\bm F_\text{norm}$
 \item Static and kinetic friction $\bm F_\text{fric}$
@@ -860,7 +872,7 @@ We can illustrate the work done by a non-conservative force in general, by
 examining how work is done by static friction, using a standard multi-body
 problem studied in dynamics. Two blocks with masses $m_1$ and $m_2$, stacked
 vertically, move to the right without slipping by an external applied force
-$\bm F$ applied to $m_2$, as shown in Figure~\ref{stacked1}.
+$\bm F_\text{app}$ applied to $m_2$, as shown in Figure~\ref{stacked1}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -868,7 +880,7 @@ $\bm F$ applied to $m_2$, as shown in Figure~\ref{stacked1}.
     \draw[mass] (1,0) rectangle (4,1.2) node[midway]{$m_2$};
     \draw[thick,fill=pink!30] (1.7,1.2) rectangle (3.3,2) node[midway]{$m_1$};
     \draw[very thick] (0,0)--(6,0);
-    \draw[vector] (4,.6)--+(1.5,0) node[right] {$\bm F$};
+    \draw[vector] (4,.6)--+(1.5,0) node[right] {$\bm F_\text{app}$};
     \draw[<-] (.95,.05) to[out=150,in=0] (0,.5) node[left]{frictionless};
     \draw[<-] (3.35,1.25) to[out=20, in=180] (4.5,1.8) node[right]{$\mu$};
   \end{tikzpicture}
@@ -906,7 +918,7 @@ The free-body diagrams of the blocks are shown in Figure~\ref{stacked-fbd}.
       \draw (5.03,0)--+(0,-1) node[right,fill=pink!30]{$\bm F_{\text{norm},1}$};
       \draw (5,0)--+(0,1) node[above]{$\bm F_{\text{norm},2}$};
       \draw (5,0)--+(-1.5,0) node[left,fill=yellow!30]{$\bm F_\text{fric}$};
-      \draw (5,0)--+(2,0) node[right]{$\bm F$};
+      \draw (5,0)--+(2,0) node[right]{$\bm F_\text{app}$};
     \end{tikzpicture}
     \caption{Mass $m_2$ on the bottom}
   \end{subfigure}
@@ -943,14 +955,15 @@ Without static friction, the net force on $m_2$ would have just been $\bm F$,
 and the change in kinetic energy moving from $x_0\to x_1$ to the right would
 simply be:
 \begin{equation*}
-  \Delta K_2 = \int_{x_0}^{x_1} F\dl x
+  \Delta K_2 = \int_{x_0}^{x_1} F_\text{app}\dl x
   %\quad\quad\text{(no friction)}
 \end{equation*}
 However, with static friction present, the gain in kinetic energy is reduced
 due to the negative work that it does:
 \begin{equation*}
   \Delta K_2 = \int_{x_0}^{x_1} F_\text{net}\dl x =
-  \int_{x_0}^{x_1} (F-F_\text{fric})\dl x = \int_{x_0}^{x_1} F\dl x -
+  \int_{x_0}^{x_1} (F_\text{app}-F_\text{fric})\dl x =
+  \int_{x_0}^{x_1} F_\text{app}\dl x -
   \underbracket[1pt]{\int_{x_0}^{x_1} F_\text{fric}\dl x}_{\Delta K_1}
 \end{equation*}
 Work done by static friction reduced the kinetic energy of $m_2$ by the same
@@ -958,13 +971,13 @@ amount that is gained by $m_1$. Because the force does positive work on one
 block and negative work on the other, We conclude that work done by static
 friction transfers kinetic energy from one block to another.
 
-Now, if the applied force $\bm F$ is large enough to overcome static friction,
-then it will cause the $m_1$ to slide off $m_2$. We can use this example to
-learn about the work done by kinetic friction. For this case, the free-body
-diagrams in Figure~\ref{stacked-fbd} are still valid, but $\bm F_\text{fric}$
-now represents \emph{kinetic} friction instead of static friction. As
-$\bm F_\text{fric}$ accelerates $m_1$ to the right, the gain in kinetic energy
-as it moves from $x_0\to x_1$ is
+Now, if the applied force $\bm F_\text{app}$ is large enough to overcome static
+friction, then it will cause the $m_1$ to slide off $m_2$. We can use this
+example to learn about the work done by kinetic friction. For this case, the
+free-body diagrams in Figure~\ref{stacked-fbd} are still valid, but
+$\bm F_\text{fric}$ now represents \emph{kinetic} friction instead of static
+friction. As $\bm F_\text{fric}$ accelerates $m_1$ to the right, the gain in
+kinetic energy as it moves from $x_0\to x_1$ is
 \begin{equation*}
   \Delta K_1=\int_{x_0}^{x_1}F_\text{fric}\dl x=\mu_km_1g(x_1-x_0)
 \end{equation*}
@@ -977,7 +990,8 @@ Applied force $\bm F$ still does work, while kinetic friction
 $\bm F_\text{fric}$ does negative work. The gain in kinetic energy is now
 \begin{equation*}
   \Delta K_2 = \int_{x_0}^{x_2} F_\text{net}\dl x =
-  \int_{x_0}^{x_2} (F-F_\text{fric})\dl x = \int_{x_0}^{x_2} F\dl x -
+  \int_{x_0}^{x_2} (F_\text{app}-F_\text{fric})\dl x =
+  \int_{x_0}^{x_2} F_\text{app}\dl x -
   \underbracket[1pt]{\mu_km_1g(x_2-x_0)}_{>\Delta K_1}
 \end{equation*}
 Negative work done by kinetic friction reduced the kinetic energy of $m_2$ by
@@ -993,10 +1007,11 @@ energy called thermal energy.
 \section{Thermal Energy}
 
 Aside from the kinetic energy and potential energies, there is a third category
-of energy called the thermal energy. Let's consider a container of gas of mass
-$M$ that oscillates vertically from the ceiling by a massless spring with
-stiffness $k$. The container moves at speed $v$ at a height $h$ above Earth,
-shown in Figure~\ref{fig:gas}.
+of energy.
+%called the thermal energy.
+Let's consider a container of gas of mass $M$ that oscillates vertically from
+the ceiling by a massless spring with stiffness $k$. The container moves at
+speed $v$ at a height $h$ above Earth, as shown in Figure~\ref{fig:gas}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.7]
@@ -1031,9 +1046,10 @@ level as the reference $h=0$. There is also an elastic potential energy of
 \end{equation*}
 stored when the spring is stretched or compressed. But the random motion of
 the air molecules in the container, the container itself, and the spring also
-contribute to additional energy, called the object's \textbf{thermal energy}
-$E_\text{thermal}$. The thermal energy of a system of molecules is the sum of
-all their kinetic and potential energies at the molecular level:
+contribute to additional energy, called the object's \textbf{thermal energy}, or
+\textbf{internal energy} $E_\text{thermal}$. The total thermal energy of a
+system of molecules is the sum of all the kinetic and potential energies at the
+molecular level:
 \begin{equation}
   E_\text{thermal}=K_\text{mol.} + U_\text{mol.}
 \end{equation}
@@ -1077,6 +1093,14 @@ solids are part of a large discipline within physics called
 }
 
 
+
+\section*{Exercise Questions}
+\textbf{THERE SHOULD BE A LOT OF PRACTICE EXAMPLES FOR THIS CHAPTER, BUT I
+  HAVEN'T STARTED WORKING ON THEM YET.}
+
+
+
+
 \chapter{Conservation of Energy}
 \label{chapter:energy-conservation}
 
@@ -1086,22 +1110,20 @@ solids are part of a large discipline within physics called
 \section{Law of Conservation of Energy}
 We can now turn our attention to the single more recognizable and possibly the
 most important concept in physics all together. The law of conservation of
-energy is most often stated using a statement that any lay person with no
-physics background watching a movie may be familiar with:
+energy is most often stated in a way that any lay person with no physics
+background watching a movie may be familiar with:
 \begin{definition}
   \textbf{Conservation of Energy (lay person's version):} In an isolated system,
   energy cannot be created or destroyed; it only changes in form.
 \end{definition}
-While this statement certainly is not incorrect---indeed, it absolutely
-captures the \emph{essence} of how energy is conserved---the actual law for the
-conservation of energy is more nuanced, and a more tedious bookkeeping
-exercise:
+While this statement certainly is not incorrect---indeed, it is an insightful
+statement that absolutely captures the \emph{essence} of how energy is
+conserved---the actual law for the conservation of energy is more nuanced, and
+a more tedious bookkeeping exercise:
 \begin{definition}
   \textbf{Law of conservation of energy:} The change in the total energy of a
   system is equal to the net external work done to the system.
 \end{definition}
-%In application, the law of conservation of energy is often a tedius exercise in
-%bookkeeping.
 We can express the law of conservation of energy with a simple equation:
 \begin{important-equation}
   \Delta E_\text{sys}=W_\text{ext}
@@ -1117,7 +1139,7 @@ done from outside the system.
 
 Before we can show how energy \emph{must} be conserved, we must first define
 what a system is. A \emph{system} of objects is defined in the same way as in
-solving dynamics problems,specifically, the multi-body problems studied in
+solving dynamics problems, specifically, the multi-body problems studied in
 Section~\ref{sec:multibody}: a predefined collection of objects that apply
 forces on each other\footnote{This statement may be plainly obvious to some,
 but not to many others: the third law of motion is at work here when objects
@@ -1142,7 +1164,9 @@ The system's energy depend on what objects are part of the system. They include
 all the kinetic energies of objects $i$ that may be in motion, the potential
 energies stored in the objects, as well as the internal/thermal energies of the
 objects. Kinetic and potential energies at the macroscopic levels are 
-collectively known as the \textbf{mechanical energy}.
+collectively known as the \textbf{mechanical energy}, while kinetic and
+potential energies in at the molecular/microscopic level is known as the
+\textbf{thermal energy}.
 \begin{important-equation}
   E_\text{sys}
   =\underbracket[1pt]{\sum K_i+\sum U_i}_\text{mechanical energy}+
@@ -1216,7 +1240,7 @@ energy. If the total change is zero, no energy is created or destroyed.
 
 
 \section{Setting Up Conservation of Energy Problems}
-Before we are able to solve a problem using conservation of energy, we first
+Before we are able to solve problems using conservation of energy, we first
 need to set it up. There are a few steps to this:
 \begin{enumerate}[itemsep=6pt]
 \item\textbf{What objects form the system?} Ideally, we would like to include
@@ -1303,22 +1327,21 @@ where the ``initial state'' and ``final state'' represent two points in time
 during the free fall.
 
 \begin{example}[Energy conservation in 1D free-fall]
+  \label{eg:1d-freefall}
   A ball is thrown direction \emph{upwards} with an initial speed $v$ from the
   balcony of a tall building, at a height $h$ above the ground. If friction and
   drag can be ignored, with what speed $v'$ would it hit the ground?
   
-  \textbf{Solution:} This is a simple problem that can be solved using
-  kinematics, but we will solve it using conservation of energy instead. Since
-  there is no friction and drag, total mechanical energy is conserved until the
-  mmoment when the ball hits the grond.
-  %between when the ball is thrown, and just before it hits the ground.
-  Setting   $h=0$ at ground level:
+  \textbf{Solution:} This is a simple problem usually solved using kinematics,
+  but we will use conservation of energy instead. Since there is no friction
+  and drag, total energy is conserved until the moment when the ball hits the
+  ground. Setting $h=0$ at ground level:
   \begin{displaymath}
     \underbracket[1pt]{K + U_\text{grav}}_\text{thrown} =
     \underbracket[1pt]{K'+\cancel{U_\text{grav}'}}_\text{hitting the ground}
   \end{displaymath}
-  Substituting the expressions for $K$ and $U_\text{grav}$ into the above
-  equation, we have:
+  Substituting the expressions for $K$ and $U_\text{grav}$, we have:
+  %into the above equation,
   \begin{displaymath}
     \frac12 mv^2 + mgh = \frac12 mv'^2
   \end{displaymath}
@@ -1326,13 +1349,13 @@ during the free fall.
   \begin{displaymath}
     v'= \sqrt{v^2+2gh}
   \end{displaymath}
-  Our answer is, of course, identical to using 1D kinematic equation---as one
-  would expect---but with subtle differences:
+  Our answer is---as one would expect---identical to using one-dimensional
+  kinematic equations, but with some subtle differences:
   \begin{itemize}[itemsep=6pt]
-  \item This is a scalar problem, so we didn't bother with defining a positive
-    direction, as we would have done when solving a vector problem. We actually
-    don't know explicitly the direction of the ball when it hits the ground,
-    although it is plainly obvious that it falls downwards.
+  \item This is a scalar problem, so we didn't have to define a positive
+    direction, as we would have done in 1D vector problems. We actually
+    don't know explicitly the direction of the ball's motion when it hits the
+    ground, although it is plainly obvious that it falls downwards.
   \item We cannot find out how long it took to hit the ground.
   \item All we know is the speeds at the end points; we do not know how velocity
     changes during its motion.
@@ -1340,11 +1363,14 @@ during the free fall.
   We would have arrived at the same answer had the ball been thrown downwards
   instead.
 \end{example}
- Let's try something \emph{slightly} more difficult for a bit more insight.
+Let's try something \emph{slightly} more difficult for a bit more insight. The
+advantages of using the conservation of energy becomes more apparent for more
+complex kinematic problems.
 \begin{example}[Energy conservation in projectile motion]
-  A ball is thrown with an upward angle of $\theta$ with an initial speed of
-  $v$ from the same third-floor balcony, a height $h$ above the ground. If
-  friction and drag can be ignored, with what speed would it hit the ground?
+  \label{eg:projectile-energy-conservation}
+  A projectile is launched with an upward angle of $\theta$ and an initial
+  speed of $v$ from a height $h$ above the ground. If friction and drag is
+  negligible, with what speed would it hit the ground?
   \begin{center}
     \begin{tikzpicture}[scale=.7]
       \draw[thick] (-1,0)--(0,0)--(0,-2)--(8,-2);
@@ -1355,22 +1381,18 @@ during the free fall.
     \end{tikzpicture}
   \end{center}
   \vspace{4pt}\textbf{Solution:} Again, since there is no friction and drag,
-  the total energy is conserved between when the ball is thrown, and just
-  before it hits the ground.
+  the total energy is conserved between when the ball is thrown, to the moment
+  just before it hits the ground:
   \begin{displaymath}
     \underbracket[1pt]{K + U_\text{grav}}_\text{thrown} =
     \underbracket[1pt]{K'+\cancel{U_\text{grav}'}}_\text{hitting the ground}
   \end{displaymath}
   Setting $h=0$ at ground level and substituting the expressions for $K$ and
   $U_\text{grav}$ into the above equation, as we did in the previous example, we
-  have:
+  can cancel the mass terms, and solve for $v'$:
   \begin{displaymath}
-    \frac12 mv^2 + mgh = \frac12 mv'^2
-  \end{displaymath}
-  Again, cancelling mass terms, then solving for $v'$:
-  numerical values:
-  \begin{displaymath}
-    v'= \sqrt{v^2+2gh}
+    \frac12 mv^2 + mgh = \frac12 mv'^2\quad\longrightarrow\quad
+    \boxed{v'= \sqrt{v^2+2gh}}
   \end{displaymath}
   This is, of course, the exact same answer as the previous example. Solving
   this problem using 2D kinematics require us to split the problem into
@@ -1381,13 +1403,15 @@ during the free fall.
   solve this problem is a fraction of the time, and without worrying about
   whether we have used the correct vector directions.
 \end{example}
+In the next section, we will see that there are still examples for when the
+only way to solve a problem is using conservation of energy.
 
 
 
-\section{Arbitrary Ramp}
+\subsection{Arbitrary Ramp}
 
 Assuming that there is no friction, drag or other damping forces present,
-energy is also conserved for an object sliding down an arbitrarily-shaped ramp:
+energy is also conserved for an object sliding down an arbitrarily-shaped ramp.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.9]
@@ -1402,22 +1426,34 @@ energy is also conserved for an object sliding down an arbitrarily-shaped ramp:
   \caption{A mass sliding along an arbitrary ramp is an isolated system.}
   \label{fig:ramp-system}
 \end{figure}
-Normal force $\bm F_\text{norm}$ and gravity $\bm F_\text{grav}$ act on the
-object, but only gravity does work ($\bm F_\text{norm}$ is always perpendicular
-to motion). The sum of the kinetic energy of the mass ($K$) and the
-gravitational potential energy ($U_\text{grav}$) stored between the mass and
-Earth is constant
+Like the free-fall problems, this system also consists of only Earth and the
+object. Therefore the system energies are the kinetic energy of the mass ($K$)
+and the gravitational potential energy ($U_\text{grav}$) stored between the mass
+and Earth. In this case, there are two \emph{internal} forces acting between
+the mass and Earth:
+\begin{itemize}[itemsep=6pt]
+\item Normal force $\bm F_\text{norm}$ at the interface due to the contact
+  between both objects are, and 
+\item Gravitational force $\bm F_\text{grav}$ between the centres of mass of the
+  two objects
+\end{itemize}
+There are no external forces, therefore no external work. Like a free-fall,
+this is also an isolated system. The sum of the kinetic energy
+and gravitational potential energy ($U_\text{grav}$) is constant, i.e.:
 \begin{equation}
-  K+U_\text{grav}=\text{constant}
+  \Delta K+\Delta U_\text{grav}=0
 \end{equation}
-The shape of the ramp does not matter, only the initial and final height
-relative to the reference.
+As the mass slides, only gravitational force is doing work, transforming energy
+between gravitational potential energy and kinetic energy. ($\bm F_\text{norm}$
+is always perpendicular to motion, therefore it does not do work.) The shape of
+the ramp does not matter, only the initial and final height relative to the
+reference.
 
 
 \begin{example}[Energy conservation along an arbitrary ramp]
   A block slides down a arbitrarily shaped ramp with an initial speed $v$ from
-  a height $h$ above the ground, as shown in Figure~\ref{fig:ramp-system}. If
-  friction and drag can be ignored, with what speed $v'$ would it be when the
+  a height $h$ above the ground, already shown in Figure~\ref{fig:ramp-system}.
+  If friction and drag can be ignored, with what speed $v'$ would it be when the
   block reaches the ground?
   %\begin{center}
   %  \begin{tikzpicture}[scale=.7]
@@ -1430,27 +1466,28 @@ relative to the reference.
   %\end{center}
   %\vspace{-.1in}
   
-  \textbf{Solution:} This is a simple problem using conservation of energy, but
-  impossible to solve using kinematics and dynamics, because \emph{we are never
-  told what the shape of the ramp is}! Since there is no friction and drag, the
-  total mechanical energy is conserved throughout the entire motion of the
-  block. Setting $h=0$ at ground level:
+  \textbf{Solution:} The set up for this problem is exactly the same as for
+  the free-fall examples. Since there is no friction and drag, system energy is
+  conserved throughout the entire motion of the block. Setting $h=0$ at ground
+  level, conservation of energy equation is:
   \begin{displaymath}
     \underbracket[1pt]{K + U_\text{grav}}_\text{start} =
     \underbracket[1pt]{K' + \cancel{U_\text{grav}'}}_\text{end}
   \end{displaymath}
-  Substituting the expressions for $K$ and $U_\text{grav}$, we have:
+  Once again, we substitute the expressions for $K$ and $U_\text{grav}$ into
+  the equation. We can then cancel the mass terms, and solve for $v'$:
   \begin{displaymath}
     \frac12 mv^2 + mgh = \frac12 mv'^2
-  \end{displaymath}
-  Cancelling mass terms, then solving for $v'$, we have:
-  \begin{displaymath}
+    \quad\longrightarrow\quad
     v'= \sqrt{v^2+2gh}
   \end{displaymath}
-  Our answer is, of course, identical to the two previous gravitational
-  problems, and the same as using 1D kinematic equation. We can note that using
-  conservation of energy is really the only viable method to solving this
-  problem.
+  Our answer is, of course, identical to the free-fall problems in Examples
+  \ref{eg:1d-freefall} and \ref{eg:projectile-energy-conservation}. Using
+  conservation of energy, this problem is no more difficult than the simplest
+  1D kinematic equations. But the most important observation is that this
+  problem is \textbf{impossible to solve using kinematics and dynamics, because
+    we were never told what the shape of the ramp is}! Using conservation of
+  energy is really the only viable method to solving this problem.
 \end{example}
 
 
@@ -1466,7 +1503,7 @@ point, thus allowing it to vibrate in the horizontal direction, as shown in
 Figure~\ref{fig:hspring-mass}.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=1.1]
+  \begin{tikzpicture}[scale=1.2]
     \draw[mass] (5,.5) rectangle (6,1.5);
     \draw[thick,decorate,
       decoration={coil,amplitude=6,aspect=.5,segment length=6}] (0,1)--(5,1);
@@ -1485,18 +1522,19 @@ Figure~\ref{fig:hspring-mass}.
   \label{fig:hspring-mass}
 \end{figure}
 Assuming that there are no friction, drag or other damping forces present, this
-horizontal spring-mass system is a closed system: it consists of the mass and
-the spring. (Earth is not part of the system.) Therefore the system's total
-mechanical energy consists of the kinetic energy of the mass ($K$) and the
-elastic potential energy stored in the spring ($U_\text{elas}$). Several
-\emph{external} forces act on the system: the gravitational force
-($\bm F_\text{grav}$) and normal force ($\bm F_\text{norm}$) which act on the
-mass. However, these forces do not do any work because they are orthogonal to
-the motion of the mass. Therefore there is no external work, and the total
-energy of the system is constant:
-\begin{equation}
-  K+U_\text{elas}=\text{constant}
-\end{equation}
+horizontal spring-mass system is an isolated system: it consists of the mass and
+the spring. (We can include Earth as part of the system, but it is not
+necessary.) Therefore the system's total energy consists of the kinetic energy
+of the mass ($K$) and the elastic potential energy stored in the spring
+($U_\text{elas}$). Several \emph{external} forces do, in fact, act on the
+system: the gravitational force ($\bm F_\text{grav}$) and normal force
+($\bm F_\text{norm}$) both act on the mass. However, these forces do not do any
+work because they are perpendicular to the motion of the mass. Therefore there
+is no external work, and the total energy of the system is constant, i.e.:
+\begin{important-equation}
+  \Delta K + \Delta U_\text{elas}=0
+  \quad\text{(frictionless horizontal spring-mass)}
+\end{important-equation}
 In practice, we would solve the following problem:
 \begin{align}
   \nonumber
@@ -1508,12 +1546,14 @@ where, like the gravitational problems, the ``initial state'' and ``final
 state'' represent to points in time during the motion of the spring-mass system.
 
 \begin{example}[Toy Cart]
-  Even when the mass isn't always attached to the spring, energy can still be
-  conserved. In this case, a toy cart with a mass of \SI{.25}{\kilo\gram}
+  A toy cart with a mass $m$
+  %$\SI{.25}{\kilo\gram}$
   travels along a frictionless horizontal track and collides head on with a
-  spring that has a spring constant of \SI{155}{\newton\per\metre}. If the
-  spring is compressed by \SI{6.0}{\centi\metre}, how fast is the cart initially
-  travelling?
+  spring with a spring constant $k$.
+  %of \SI{155}{\newton\per\metre}.
+  If the spring is compressed by a distance $x$,
+  %\SI{6.0}{\centi\metre},
+  how fast is the cart initially travelling?
   \begin{center}
     \begin{tikzpicture}
       \fill[blue!30] rectangle (10,-.3);
@@ -1530,15 +1570,31 @@ state'' represent to points in time during the motion of the spring-mass system.
       (6.3,.4)--(9.3,.4) node[midway,above=3]{spring};
     \end{tikzpicture}
   \end{center}
-  \vspace{.2in}\textbf{Solution:} We define the system first\dots
+  \vspace{.2in}\textbf{Solution:} Even when the mass isn't always attached to
+  the spring, energy can still be conserved. In this very simple case, we
+  start with the conservation of energy equation, noting that $U_\text{elas}$
+  (initial elastic potential energy) and $K'$ (final kinetic energy) are both
+  zero:
+  \begin{equation*}
+    K+\cancel{U_\text{elas}}= \cancel{K'}+U_\text{elas}'
+    %\frac12mv^2+\frac12kx^2 &= \frac12m(v')^2+\frac12k(x')^2
+  \end{equation*}
+  We can substitute expressions for $K$ and $U_\text{elas}$, then cancel the
+  $\frac12$ terms, and solve for initial speed $v$:
+  \begin{equation*}
+    \frac12mv^2 = \frac12k(x')^2
+    \quad\longrightarrow\quad
+    v=x'\sqrt{\frac km}
+  \end{equation*}
 \end{example}
 
 
 
 
 \subsection{Vertical Spring-Mass System}
-In a vertical spring-mass system, a mass is suspended vertically by a
-massless spring, as shown in Figure~\ref{fig:vspring-mass}.
+In an ideal vertical spring-mass system, a mass is suspended vertically by a
+massless spring, as shown in Figure~\ref{fig:vspring-mass}. The mass is allowed
+to oscillate vertically. % with no friction, drag or other damping forces.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -1555,19 +1611,20 @@ massless spring, as shown in Figure~\ref{fig:vspring-mass}.
   isolated system.}
   \label{fig:vspring-mass}
 \end{figure}
-The mass is allowed to oscillate vertically. This system consists of the mass,
-the spring and Earth. Therefore, the total energy of the system includes the
-kinetic energy of the mass ($K$), the gravitational potential energy stored
-between the mass and Earth ($U_\text{grav}$), and the elastic potential energy
-stored in the spring ($U_\text{elas}$). Assuming that there are no friction,
-drag or other damping forces in the spring, the only forces are the spring force
-$\bm F_\text{elas}$ and the gravitational force $\bm F_\text{grav}$, both of
+This system consists of the mass, the spring and Earth. Therefore, the total
+energy of the system includes the kinetic energy of the mass ($K$), the
+gravitational potential energy stored between the mass and Earth
+($U_\text{grav}$), and the elastic potential energy stored in the spring
+($U_\text{elas}$). Assuming that there are no friction, drag or other damping
+forces in the system, the only forces acting in the system are the spring force
+$\bm F_\text{elas}$, and the gravitational force $\bm F_\text{grav}$, both of
 which are \emph{internal} to the system. Therefore, there are no external
 forces, and the vertical spring-mass system is an isolated system. The total
-energy remains constant as the mass oscillates vertically.
-\begin{equation}
-  K + U_\text{grav} + U_\text{elas}=\text{constant}
-\end{equation}
+system energy remains constant as the mass oscillates vertically, i.e.:
+\begin{important-equation}
+  \Delta K + \Delta U_\text{grav} + \Delta U_\text{elas}=0
+  \quad\text{(frictionless vertical spring-mass)}
+\end{important-equation}
 In practice, we would solve the following problem:
 \begin{align}
   \nonumber
@@ -1581,11 +1638,29 @@ In practice, we would solve the following problem:
 %\end{example}
 
 \begin{example}
-  A mass $m$ is dropped from a height of $h$ above the equilibrium position of
-  a spring. Set up the equation that determines the spring's compression $d$
-  when the object is instantaneously at rest.
+  A mass $m$ is dropped from a height of $h$ above an unstretched spring. Set
+  up the equation that determines the spring's compression $x$ when the object
+  is instantaneously at rest.
   \begin{center}
-    \pic{.3}{spring-example1}
+    \begin{tikzpicture}
+      \draw[line width=3] (0,0)--+(2,0) node[midway,below]{
+        Before dropping mass};
+      \draw[line width=3] (4,0)--+(2,0) node[midway,below]{
+        Maximum compression};
+      \draw[decoration={aspect=.35, segment length=4.5, amplitude=12, coil},
+        decorate] (1,0)--+(0,2);
+      \draw[decoration={aspect=.17, segment length=2.3, amplitude=12.5, coil},
+        decorate] (5,0)--+(0,1);
+
+      \draw[dashed] (0,2)--+(4,0);
+      \draw[dashed] (1.5,1)--+(3,0);
+       
+       \draw[mass] (.5,3.5) rectangle +(1,.6) node[midway]{$m$};
+       \draw[mass] (4.5,1) rectangle +(1,.6) node[midway]{$m$};
+       
+       \draw[thick,<->|] (.3,2)--+(0,1.5) node[midway,left]{$h$};
+       \draw[thick,<->] (3,1)--+(0,1) node[midway,right]{$x$};
+    \end{tikzpicture}
   \end{center}
   \textbf{Solution:} I will get around to it when I have time!
 \end{example}
@@ -1626,16 +1701,16 @@ total energy in the system include the kinetic energy of the mass ($K$), as
 well as the gravitational potential energy stored between the mass and Earth
 ($U_\text{grav}$). Assuming that there are no friction, drag or other damping
 forces in the system, there are only two forces act on the pendulum bob: the
-tension force $\bm F_T$, and the gravitational force $\bm F_\text{grav}$.
-Gravitational force is an internal force (because it acts on both the pendulum
-bob and Earth), while tension force is an \emph{external} force. However, since
-$\bm F_T$ always acts perpendicular to the motion of the pendulum bob, it does
-not do any work, and the system is therefore an isolated system. The total
-energy of the system is therefore constant. The conservation of energy is the
-same as the gravitational systems previously:
-\begin{equation}
-  K + U_\text{grav} = \text{constant}
-\end{equation}
+tension force $\bm F_\text{ten}$, and the gravitational force $\bm F_\text{grav}$.
+Gravitational force is an internal force because it acts on both the pendulum
+bob and Earth, while tension force is an \emph{external} force. However, since
+$\bm F_\text{ten}$ always acts perpendicular to the motion of the pendulum bob,
+it does not do any work, and the system is therefore an isolated system. The
+total energy of the system is therefore constant. The conservation of energy
+is the same as the gravitational systems previously:
+\begin{important-equation}
+  \Delta K + \Delta U_\text{grav} = 0 \quad\text{(Simple pendulum)}
+\end{important-equation}
 In practice, we solve this problem:
 \begin{align}
   \nonumber
@@ -1782,7 +1857,7 @@ initial and final states
 
 
 
-\subsection{Advantages and Disadvantages of Conservation of Energy}
+\section{Advantages and Disadvantages of Conservation of Energy}
 If solving motion problems using the law of energy conservation is so much
 easier, why don't we use it all the time?
 

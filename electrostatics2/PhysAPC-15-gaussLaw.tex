@@ -21,13 +21,13 @@ $\bm v_\perp$, and the component parallel to the surface $\bm v_\parallel$. It
 should be apparent that $\bm v_\parallel$ does not actually flow \emph{out} of
 the hose, leaving only the perpendicular component:
 \begin{equation*}
-  \Phi_\text{volume}=\bm v_\perp A=(\bm v\cdot\hat{\bm n})A
+  \Phi_\text{vol}=\bm v_\perp A=(\bm v\cdot\hat{\bm n})A
 \end{equation*}
 where $\hat{\bm n}$ is the outward normal direction of the surface. For
 convenience, we would incorporate this direction into the area $A$, turning it
 into a vector $\bm A$:
 \begin{equation*}
-  \Phi_\text{volume}=\bm v\cdot\bm A
+  \Phi_\text{vel}=\bm v\cdot\bm A
 \end{equation*}
 This equation would apply if the velocity across the mouth of the hose is
 uniform. But the water velocities out of the mouth of the hose is never
@@ -36,14 +36,14 @@ function of time as well} $\bm v=\bm v(x,y,z)$, so instead of multiplying the
 velocity vector by the area $\bm A$, we must instead \emph{integrate} over the
 cross sectional area of the hose to compute the volumetric flow rate:
 \begin{equation*}
-  \Phi_\text{volume}=\int_{\mathcal S}\bm v\cdot\dl{\bm A}
+  \Phi_\text{vel}=\int_{\mathcal S}\bm v\cdot\dl{\bm A}
 \end{equation*}
 As before, the direction of $\dl{\bm A}$ is the outward normal from the surface.
 This volumetric flow rate can also be called the \emph{velocity flux}. If we
 are interested in the \emph{mass flow rate} instead, we can replace the
 velocity vector field with momentum, i.e.\ multiplying by the fluid density:
 \begin{equation*}
-  \Phi_\text{mass}=\int_{\mathcal S}(\rho\bm v)\cdot\dl{\bm A}
+  \Phi_\text{mom}=\int_{\mathcal S}(\rho\bm v)\cdot\dl{\bm A}
 \end{equation*}
 The mass flow rate is also called the \emph{momentum flux}. Flux through a
 surface can be of something physical, like the flow of water out of the mouth
@@ -51,7 +51,7 @@ of a hose, but it can also be \emph{any} vector field $\bm X=\bm X(x,y,z)$ that
 passes through a surface $\mathcal S$. In this chapter, we are interested in
 the flux of  the electric field, called the \textbf{electric flux}:
 \begin{equation}
-  \Phi_E=\int_\mathcal{S}\bm E\cdot\dl{\bm A}
+  \Phi_\text{elec}=\int_{\mathcal S}\bm E\cdot\dl{\bm A}
 \end{equation}
 
 
@@ -75,11 +75,11 @@ the flux of  the electric field, called the \textbf{electric flux}:
 $\mathcal S$ (think of the surface of a balloon), the total electric flux is
 given by:
 \begin{important-equation}
-    \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}
-    =\frac{Q_\text{encl}}{\epsilon_0}
+    \Phi_\text{elec}=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}
+    =\frac{Q_\text{encl}}{\varepsilon_0}
 \end{important-equation}    
 where $Q_\text{encl}$ is the charge enclosed by the surface, and
-$\epsilon_0=\SI{8.85e-12}{C^2/N.m^2}$ is the permittivity of free space.
+$\varepsilon_0=\SI{8.85e-12}{C^2/N.m^2}$ is the permittivity of free space.
 That closed surface is called a \textbf{Gaussian surface}. Gauss's law is
 derived from Coulomb's law.
 
@@ -96,16 +96,16 @@ derived from Coulomb's law.
 
 Since Gauss's law is a \emph{fundamental} equation, it should apply to
 \emph{any} arbitrary-shaped Gaussian surface around \emph{any} arbitrary
-distribution of charges, like those shown in Fig.~\ref{fig:2-gaussians}. In the
+distribution of charges, like those shown in Figure~\ref{fig:2-gaussians}. In the
 present example, two arbitrary Gaussian surfaces ($S_1$ and $S_2$) enclose an
-arbitrarily-shaped charge $Q_\text{encl}$. The electric field at $\mathcal S_1$
-is stronger, but the electric flux is integrated over a smaller Gaussian
-surface, while the electric field at $\mathcal S_2$ is weaker than
-$\mathcal S_1$ because the Gaussian surface is farther away from the charge,
-but the electric flux is integrated over a much larger surface.
+arbitrarily-shaped charge $Q_\text{encl}$. The electric field at the surface
+$S_1$ is stronger, but the electric flux is integrated over a smaller Gaussian
+surface, while the electric field at $S_2$ is weaker than $S_1$ because the
+Gaussian surface is farther away from the charge, but the electric flux is
+integrated over a much larger surface.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.5]
+  \begin{tikzpicture}[scale=.5,thick]
     \node (0) at (-4.25, 0.75) {};
     \node (1) at (-2.25, 1) {};
     \node (2) at (-4.5, -0.25) {};
@@ -178,37 +178,39 @@ but the electric flux is integrated over a much larger surface.
       \draw (0,5.2)--+(.2,.6);
       \draw (2,5.2)--+(.4,.5);
     \end{scope}
-    \draw[thick] (-3.3,.5) to[out=270,in=90] +(2,-2)
-    node[below]{$Q_\text{encl}$};
-    \node[right,violet] at (4.3,4.3) {$\mathcal S_2$};
-    \node[right,orange] at (1.3,1.8) {$\mathcal S_1$};
+    \draw (-3.3,.5) to[out=270,in=90] +(2,-2) node[below]{$Q_\text{encl}$};
+    \node[right,violet] at (4.3,4.3) {$S_2$};
+    \node[right,orange] at (1.3,1.8) {$S_1$};
   \end{tikzpicture}
   \caption{Two different Gaussian surfaces over the same enclosed charge}
   \label{fig:2-gaussians}
 \end{figure}
 However, regardless of the shape and size of the Gaussian surfaces, the total
-electric flux $\Phi_E$ out of $\mathcal S_1$ and $\mathcal S_2$ are the same:
+electric flux $\Phi_\text{elec}$ out of $S_1$ and $S_2$ are the same:
 \begin{equation*}
-  \Phi_E=
-  {\color{orange}\oint_{\mathcal S_1}\bm E\cdot\dl{\bm A}}=
-  {\color{violet}\oint_{\mathcal S_2}\bm E\cdot\dl{\bm A}}=
-  \frac{Q_\text{encl}}{\epsilon_0}
+  \Phi_\text{elec}=
+  {\color{orange}\oint_{S_1}\bm E\cdot\dl{\bm A}}=
+  {\color{violet}\oint_{S_2}\bm E\cdot\dl{\bm A}}=
+  \frac{Q_\text{encl}}{\varepsilon_0}
 \end{equation*}
+%It must be pointed out that
+Using the Gauss's law in practice is not always straightforward: while the
+right-hand side of the equation ($q_\text{encl}/\varepsilon_0$) is a simple
+expression, the integral on the left hand side ($\oint\bm E\cdot\dl{\bm A}$)
+can be extremely difficult and impractical to do. Therefore, in the practical
+use of Gauss's law, we seek configurations with high degrees of symmetry, where
+the integral can turn in to an algebraic expression.
 
-It must be pointed out that using the Gauss's law in practice is not always
-straightforward: while the right-hand side of the equation
-($q_\text{encl}/\epsilon_0$) is a simple expression, the integral on the left
-hand side ($\oint\bm E\cdot\dl{\bm A}$) can be extremely difficult and
-impractical to do. Therefore, in the practical use of Gauss's law, we seek
-configurations with high degrees of symmetry, where the integral can turn in to
-an algebraic expression.
 
 
-\subsection{Electric Field from a Point Charge}
+\section{Radially Symmetric Configurations}
+
+
+\subsection{Point Charge}
 We can use Gauss's law to find the magnitude of the electric field near a
-point charge $q$. We place a spherical Gaussian surface of radius $r$,
-with the centre of the Gaussian sphere at the point charge, as shown in
-Fig.~\ref{fig:pt-charge-gaussian}. In this case, the point charge is positive,
+point charge $q$. We place a spherical Gaussian surface of radius $r$, with the
+centre of the Gaussian sphere at the point charge, as shown in
+Figure~\ref{fig:pt-charge-gaussian}. In this case, the point charge is positive,
 and the electric field is radially outward, in the $+\hat{\bm r}$-direction
 (i.e.\ $E$ is only a function of $r$).
 \begin{figure}[ht]
@@ -232,12 +234,12 @@ Likewise, the outward normal direction $\hat{\bm n}$ of the Gaussian surface is
 also along $+\hat{\bm r}$. By symmetry, the integral on the left hand side
 reduces to a multiple:
 \begin{equation*}
-  \Phi_E=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac q{\epsilon_0}
+  \Phi_\text{elec}=\oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac q{\varepsilon_0}
 \end{equation*}
 Since the surface area of a sphere is $A=4\pi r^2$, we find that the magnitude
 of the electric field to be:
 \begin{equation*}
-  E=\frac q{\epsilon_0A}=\frac1{4\pi\epsilon_0}\frac q{r^2}=\frac{kq}{r^2}
+  E=\frac q{\varepsilon_0A}=\frac1{4\pi\varepsilon_0}\frac q{r^2}=\frac{kq}{r^2}
 \end{equation*}
 Of course, we recover the expression that we have already defined in
 Eq.~\ref{eq:pt-charge-E}.
@@ -245,9 +247,9 @@ Eq.~\ref{eq:pt-charge-E}.
 
 
 
-\subsection{Electric Field from a Uniformly-Charged Spherical Shell}
+\subsection{Uniformly-Charged Spherical Shell}
 Consider a uniformly-charged spherical thin shell with radius $R$ and a total
-charge of $Q$, as shown in Fig.~\ref{fig:spherical-charged-shell}.
+charge of $Q$, as shown in Figure~\ref{fig:spherical-charged-shell}.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -279,32 +281,32 @@ surfaces concentric with the sphere, one inside and one outside the sphere.
 \textbf{Inside the shell ($r_i<R$):} There is no enclosed charge, therefore
 the electric field must be zero:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}=0
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\varepsilon_0}=0
   \quad\quad\longrightarrow\quad\quad E=0
 \end{equation*}
 \textbf{Outside the shell ($r_o>R$):} The entire spherical charge is inside the
-Gaussian surface, therefore enclosed charge is $Q$. By symmetry, the
-magnitude of the electric field must be the same throughout the Gaussian
-surface, and with a direction in in the outwardly radial ($+\hat{\bm r}$)
-direction, which is also the outward normal direction of the Gaussian surface.
-Like the point charge, integration can be avoid:
+Gaussian surface, therefore enclosed charge is $Q$. By symmetry, the magnitude
+of the electric field must be the same throughout the Gaussian surface, and
+with a direction in in the outwardly radial ($+\hat{\bm r}$) direction, which
+is also the outward normal direction of the Gaussian surface. Like the point
+charge, integration can be avoid:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\epsilon_0}
-  \quad\quad\longrightarrow\quad\quad E=\frac Q{\epsilon_0A}
-  =\frac1{4\pi\epsilon_0}\left[\frac Q{r^2}\right]
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\varepsilon_0}
+  \quad\quad\longrightarrow\quad\quad E=\frac Q{\varepsilon_0A}
+  =\frac1{4\pi\varepsilon_0}\left[\frac Q{r^2}\right]
 \end{equation}
 Electric field outside a spherical shell is the same equation as the point
 charge.
 
-Fig.~\ref{fig:E-spherical-shell} shows the electric field strength $|\bm E|$ as
-a function of the distance $r$ from the centre of the shell.
+Figure~\ref{fig:E-spherical-shell} shows the electric field strength $|\bm E|$
+as a function of the distance $r$ from the centre of the shell.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \draw[axes] (0,0)--(0,3) node[above]{$|\bm E|$};
     \draw[axes] (0,0)--(5.5,0) node[right]{$r$};
     \draw[dashed] (1,0)--(1,2) node[pos=0,below]{$R$}
-    --(0,2) node[left]{$\dfrac1{4\pi\epsilon_0}\dfrac Q{R^2}$};
+    --(0,2) node[left]{$\dfrac1{4\pi\varepsilon_0}\dfrac Q{R^2}$};
     \draw[function,smooth,domain=1:5] plot(\x,{2/\x});
     \draw[function] (0,0)--(1,0);
     \draw[function,fill=white] (1,0) circle (.06);
@@ -315,23 +317,20 @@ a function of the distance $r$ from the centre of the shell.
   \label{fig:E-spherical-shell}
 \end{figure}
 This graph may be familiar, because the graph for the gravitational field
-strength inside a uniform shell (Fig.~\ref{fig:spherical-shells}) is exactly
+strength inside a uniform shell (Figure~\ref{fig:spherical-shells}) is exactly
 the same. This shows that Gauss's law can also be used to compute gravitational
 fields of symmetrical masses. To adapt the law for gravity, we replace the
-constant $\epsilon_0$ with $-4\pi G$.\footnote{The negative sign is necessary
+constant $\varepsilon_0$ with $-4\pi G$.\footnote{The negative sign is necessary
 because for a positive charge, the electric field lines are outwardly away
 from the charge, whereas for masses, the gravitational field lines are inward,
 toward the masses.}
 
 
 
-%\section{Worksheet Examples}
-%  Follow the worksheet for these examples:
-%  \begin{itemize}
-\subsection{Electric Fields from a Uniformly-Charged Sphere}
+\subsection{Uniformly-Charged Sphere}
 For a slightly more difficult example, consider a uniformly-charged sphere
 with radius $R$ and a total charge of $Q$, as shown in
-Fig.~\ref{fig:uniform-spherical-charge}. The charge is evenly spread over the
+Figure~\ref{fig:uniform-spherical-charge}. The charge is evenly spread over the
 entire volume of the sphere.
 \begin{figure}[ht]
   \centering
@@ -373,15 +372,15 @@ Gaussian surface, therefore integration can be avoided.
 %There is no enclosed charge, therefore
 %the electric field must be zero:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}
-  \quad\quad\longrightarrow\quad\quad EA=\frac Q{\epsilon_0}\frac{r^3}{R^3}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\varepsilon_0}
+  \quad\quad\longrightarrow\quad\quad EA=\frac Q{\varepsilon_0}\frac{r^3}{R^3}
 \end{equation*}
 Solving for $E$, we find that it is linear with the distance from the centre
 of the sphere:
 \begin{equation*}
-  E=\frac Q{\epsilon_0A}\frac{r^3}{R^3}
-  =\frac Q{\epsilon_0(A\pi r^2)}\frac{r^3}{R^3}
-  =\frac Q{4\pi\epsilon_0}\left[\frac r{R^3}\right]
+  E=\frac Q{\varepsilon_0A}\frac{r^3}{R^3}
+  =\frac Q{\varepsilon_0(A\pi r^2)}\frac{r^3}{R^3}
+  =\frac Q{4\pi\varepsilon_0}\left[\frac r{R^3}\right]
 \end{equation*}
 \textbf{Outside the sphere ($r_o>R$):} The entire spherical charge is inside the
 Gaussian surface, therefore enclosed charge is $Q$. By symmetry, the
@@ -390,9 +389,9 @@ surface, and with a direction in in the outwardly radial ($+\hat{\bm r}$)
 direction, which is also the outward normal direction of the Gaussian surface.
 Like the point charge, integration can be avoid:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\epsilon_0}
-  \quad\quad\longrightarrow\quad\quad E=\frac Q{\epsilon_0A}
-  =\frac1{4\pi\epsilon_0}\left[\frac Q{r^2}\right]
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac Q{\varepsilon_0}
+  \quad\quad\longrightarrow\quad\quad E=\frac Q{\varepsilon_0A}
+  =\frac1{4\pi\varepsilon_0}\left[\frac Q{r^2}\right]
 \end{equation}
 Electric field outside a sphere is the same equation as the point charge.
 
@@ -402,7 +401,7 @@ Electric field outside a sphere is the same equation as the point charge.
     \draw[axes] (0,0)--(0,3) node[above]{$|\bm E|$};
     \draw[axes] (0,0)--(5.5,0) node[right]{$r$};
     \draw[thick,dashed] (1,0)--(1,2) node[pos=0,below]{$R$}--(0,2)
-    node[left]{$\dfrac1{4\pi\epsilon_0}\dfrac Q{R^2}$};
+    node[left]{$\dfrac1{4\pi\varepsilon_0}\dfrac Q{R^2}$};
     \draw[function,domain=1:5] plot(\x,{2/\x});
     \draw[function] (0,0)--(1,2);
   \end{tikzpicture}
@@ -425,37 +424,39 @@ the sphere.
 
 
 
-\subsection{Infinitely-long charge rod with uniform density}
+\subsection{Charge Rod with Uniform Density}
 Gauss's law can be used to find the electric fields inside and outside an
-infinitely-long charged rod of radius $R$ with uniform charge density,
-as shown in Fig.~\ref{fig:charged-rod}. In this
-example, since the rod is infinitely long, the total charge would be infinite,
-it would be easier to describe the charge by its charge density $\rho$.
+infinitely-long charged rod of radius $R$ with uniform charge density, as shown
+in Figure~\ref{fig:charged-rod}. In this example, since the rod is infinitely
+long, the total charge would be infinite, it would be easier to describe the
+charge by its charge density $\rho$.
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{.6\linewidth}
     \centering
-    \begin{tikzpicture}[scale=.6]
-      \draw[thick,dashed,violet,fill=violet!30,opacity=.2] (0,2.8)--(8,2.8)
+    \begin{tikzpicture}[scale=.6,thick]
+      \draw[dashed,violet,fill=violet!30,opacity=.2] (0,2.8)--(8,2.8)
       arc (90:270:1.4 and 2.8)--(0,-2.8) arc(270:90:1.4 and 2.8);
 
-      \draw[thick,fill=lightgray] ellipse (1 and 2);
+      \draw[fill=lightgray] ellipse (1 and 2);
 
-      \draw[thick,dashed,magenta,fill=magenta!30,opacity=.3] (0,1)--(8,1)
+      \draw[dashed,magenta,fill=magenta!30,opacity=.3] (0,1)--(8,1)
       arc (90:270:.5 and 1)--(0,-1) arc(270:90:.5 and 1);
-      \draw[thick,dashed,magenta,fill=magenta!50,opacity=.3] (0,1)--(8,1)
+      
+      \draw[dashed,magenta,fill=magenta!50,opacity=.3] (0,1)--(8,1)
       arc (90:-90:.5 and 1)--(0,-1) arc(-90:90:.5 and 1);
       
-      \draw[thick,fill=gray] (0,2)--(8,2) arc (90:-90:1 and 2)--(0,-2)
+      \draw[fill=gray] (0,2)--(8,2) arc (90:-90:1 and 2)--(0,-2)
       arc (-90:90:1 and 2);
 
-      \draw[thick] (-5,0)--(0,0);
-      \draw[thick] (9,0)--(11,0);
-      \draw[thick,dashed] (-5,2)--(11,2);
-      \draw[thick,dashed] (-5,-2)--(11,-2);
-      \draw[thick,dashed,violet] ellipse (1.4 and 2.8);
-      \draw[thick,dashed,violet,fill=violet!50,opacity=.2] (0,2.8)--(8,2.8)
+      \draw (-5,0)--(0,0);
+      \draw (9,0)--(11,0);
+      \draw[dashed] (-5,2)--(11,2);
+      \draw[dashed] (-5,-2)--(11,-2);
+      \draw[dashed,violet] ellipse (1.4 and 2.8);
+      \draw[dashed,violet,fill=violet!50,opacity=.2] (0,2.8)--(8,2.8)
       arc (90:-90:1.4 and 2.8)--(0,-2.8) arc(-90:90:1.4 and 2.8);
+      
       \foreach \x in {0,...,8}{
         \draw[vector,orange!50] (\x,2.8)--(\x,4.1);
         \draw[vector,orange!50] (\x,-2.8)--(\x,-4);
@@ -499,11 +500,11 @@ side. The total charge enclosed by the Gaussian surface is:
 \end{equation*}
 Substituting this into Gauss's law, and simplifying the terms:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\varepsilon_0}
   \quad\longrightarrow\quad
-  E=\frac{q_\text{encl}}{\epsilon_0A}
-  =\frac{\rho\pi r_i^2L}{\epsilon_0(2\pi r_iL)}
-  =\left[\frac\rho{2\epsilon_0}\right]r_i
+  E=\frac{q_\text{encl}}{\varepsilon_0A}
+  =\frac{\rho\pi r_i^2L}{\varepsilon_0(2\pi r_iL)}
+  =\left[\frac\rho{2\varepsilon_0}\right]r_i
 \end{equation*}
 Inside the rod, electric field strength scales linearly with the distance from
 the axis of the rod.
@@ -517,11 +518,11 @@ enclosed charge is therefore:
 \end{equation*}
 Substituting this into Gauss's law:
 \begin{equation*}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=EA=\frac{q_\text{encl}}{\varepsilon_0}
   \quad\longrightarrow\quad
-  E=\frac{q_\text{encl}}{\epsilon_0A}
-  =\frac{\rho\pi R^2L}{\epsilon_0(2\pi r_oL)}
-  =\left[\frac{\rho R^2}{2\epsilon_0}\right]\frac1{r_o}
+  E=\frac{q_\text{encl}}{\varepsilon_0A}
+  =\frac{\rho\pi R^2L}{\varepsilon_0(2\pi r_oL)}
+  =\left[\frac{\rho R^2}{2\varepsilon_0}\right]\frac1{r_o}
 \end{equation*}
 Outside the rod, electric field strength is inversely proprotional to the
 distance from axis of the rod.
@@ -534,26 +535,26 @@ distance from axis of the rod.
   \pic{.45}{electrostatics2/elec_gauss_figure9}
 \end{figure}
 
-\begin{itemize}
+\begin{itemize}[itemsep=6pt]
 \item Charge density (charge per unit area) $\sigma$
 \item By symmetry, $\bm E$ must be perpendicular to the plane
 \item Our Gaussian surface is a cylinder shown in the left with an area
   $A$; the height of the cylinder is unimportant
 \item Nothing ``flows out'' of the side of the cylinder, only at the ends
-\item The total flux is $\Phi_E=E(2A)$
+\item The total flux is $\Phi_\text{elec}=E(2A)$
 \item The enclosed charge is $Q_\text{encl}=\sigma A$
 \end{itemize}
   
 Gauss's law simplifies to:
 \begin{equation}
-  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\epsilon_0}
+  \oint_{\mathcal S}\bm E\cdot\dl{\bm A}=\frac{q_\text{encl}}{\varepsilon_0}
   \;\rightarrow\;
-  E(2A)=\frac{\sigma A}{\epsilon_0}
+  E(2A)=\frac{\sigma A}{\varepsilon_0}
 \end{equation}
 Solving for $E$, we get:
 \begin{equation}
   \boxed{
-    E=\frac\sigma{2\epsilon_0}
+    E=\frac\sigma{2\varepsilon_0}
   }
 \end{equation}
 Electric field $E$ is constant away from the plane charge, and is independent
@@ -598,7 +599,7 @@ of the distance from the plnate.
   plane, pointing from the positively charged plate toward the negatively
   charged plate
   \begin{equation}
-    \boxed{E=\frac\sigma{\epsilon_0}}
+    \boxed{E=\frac\sigma{\varepsilon_0}}
   \end{equation}
 \item $\bm E$ outside the plates is very low (close to zero), except for
   fringe effects at the edges of the plates

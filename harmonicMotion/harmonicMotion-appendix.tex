@@ -1,14 +1,19 @@
 \chapter{Mathematical Considerations for Harmonic Motion Equation}
 \label{appendix:harmonic-motion}
 
-In this appendix, we will do deep dive into the vigorious mathematics of how
+In this appendix, we will dive deeper into the vigorious mathematics of how
 the equations for the undamped simple harmonic oscillator, the under-damped
 oscillator, the critically damped and overdamped motions in
 Chapter~\ref{chapter:harmonic-motion} are derived. For \emph{some}
-of you, this analysis may be familiar, but this is generally not a topic of
-discussion for most physics or mathematics courses at this level, so most
-students may find this slightly difficult. That said, as long as you have a
-decent background in calculus, this should be very much understandable.
+readers with more experience with differential equations, this analysis may be
+familiar, but this is generally not a topic of discussion for most physics or
+mathematics courses at this level, so most students may find this slightly
+difficult. That said, as long as you have a decent background in calculus,
+this should be very much understandable.
+
+
+
+\section{Characteristic Equation}
 
 The second-order ordinary differential equation that we are solving is based on
 the second law of motion, and the damping and spring forces acting on a
@@ -19,43 +24,41 @@ spring-mass system:
 \end{equation}
 where $m$ is the mass, $k$ is the spring constant, and $b$ is the damping
 factor. The kinematics and dynamics of this problem has already been discussed
-quite extensively in Chapter~\ref{chapter:harmonic-motion}. Here, we are
-interested in the mathematics of how we arrived at all the solutions discussed
-in that chapter.
+in details in Chapter~\ref{chapter:harmonic-motion}. Here, we are interested in
+the mathematics of how we arrived at all the solutions discussed in that
+chapter.
 
 To begin, we note that Eq.~\ref{eq:general-ode} can only be satisfied if the
-function $x(t)$, its first derivative $\dot x(t)$, and second derivative
+function $x(t)$, its first derivative $\dot x(t)$, and its second derivative
 $\ddot x(t)$ all have the same form. The \emph{only} function that can satisfy
 this is the exponential function. This means that our solution must be a
 variation of the form:
 \begin{equation}
   x(t)=e^{rt}
 \end{equation}
-where $r$ is a parameter based on mass $m$, spring constant $k$ and damping
-factor $b$. When we take the first and second derivatives of $x(t)$ with
-respect to time, we have
+where $r$ is a parameter based on $m$, $k$ and $b$. When we take the first and
+second derivatives of $x(t)$ with respect to time, we have
 \begin{equation*}
   \dot x=re^{rt}\quad\text{and}\quad\ddot x=r^2e^{rt}
 \end{equation*}
-Substituting $\dot x$ and $\ddot x$ back into Eq.~\ref{eq:general-ode}, we have
-the equation:
+Substituting $\dot x(t)$ and $\ddot x(t)$ back into the original differential
+equation (Eq.~\ref{eq:general-ode}), we have the equation:
 \begin{equation}
   (mr^2+br+k)e^{rt}=0
 \end{equation}
-Since $e^{rt}$ is always nonzero, we are actually solving for the roots of the
-\textbf{characteristic equation}:
+Since $e^{rt}$ is always nonzero, we must solve the roots of the
+\textbf{characteristic equation} which is just quadratic equation in $r$.
 \begin{equation}
   mr^2+br+k=0
 \end{equation}
-which is just quadratic equation in $r$. We can fin the roots by simply using
-the quadratic formula:
+We can easily find the roots by using the quadratic formula:
 \begin{equation}
   r=\frac{-b\pm\sqrt{b^2-4mk}}{2m}
 \end{equation}
-We can see from the square root term in the above equation that:
+From the square root term in the above equation, we can see that:
 \begin{itemize}[itemsep=6pt]
 \item When the system has no damping ($b=0$), the roots are entirely imaginary.
-  This corresponds to the simple harmonic oscillator.
+  This corresponds to the motion of a simple harmonic oscillator.
 \item When the system is lightly damped ($b<\sqrt{4mk}$), the
   roots are complex. This corresponds to the under-damped harmonic oscillator.
 \item When the system is critically damped, ($b=\sqrt{4mk}$), there is only one
@@ -338,12 +341,12 @@ characteristic equation, our final solution for $x(t)$ will be in the form:
 \end{equation*}
 To find the function $u(t)$, we take the first and second derivation of $x_2$:
 \begin{align*}
-  \diff{x_2}t &= \diff ut e^{-\lambda_ct} -\lambda_cu(t) e^{-\lambda_ct}\\
-  \diff[2]{x_2}t &= \diff[2]ut e^{-\lambda_ct} -2\lambda_cu(t) e^{-\lambda_ct} +
+  \dot{x_2}(t) &= \dot{u}(t) e^{-\lambda_ct} -\lambda_cu(t) e^{-\lambda_ct}\\
+  \ddot{x_2}(t) &= \ddot{u}(t) e^{-\lambda_ct} -2\lambda_cu(t) e^{-\lambda_ct} +
   \lambda_c^2u(t)e^{-\lambda_ct}
 \end{align*}
-When we substitute this solution back into the original ODE, we find the
-solution to this previously unknown function:
+When we substitute this solution back into the original differential equation,
+we find that indeed there is a solution to this previously unknown function:
 %\diff[2]ut e^{-\lambda_ct} -2\lambda_cu(t) e^{-\lambda_ct} +
 %  \lambda_c^2u(t)e^{-\lambda_ct}
 %
@@ -354,8 +357,8 @@ solution to this previously unknown function:
 \begin{equation*}
   u(t)=t
 \end{equation*}
-And our solution is in the linear combination of the two fundamental solutions,
-in the form of:
+And our solution is the linear combination of the two fundamental solutions,
+in the form:
 \begin{important-equation}
   x(t)=(c_1+c_2t)e^{-\lambda_ct}
   \quad\text{where}\quad
