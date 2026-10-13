@@ -873,86 +873,43 @@ still draw a FBD.
   \end{center}
 \end{example}
 
+\subsection{Further Examples of Free-Body Diagrams}
 
 
-%\section{Multi-Body Problems}
+\section{Solving Dynamics Problems}
+
+\subsection{Setting Up a Problem}
+
+\subsection{One-Dimensional Problems}
+
+In a one-dimensional problem, all forces act along one direction (surprise
+surprise!)
+
+\subsection{Motion Level Surfaces}
+
+
+\subsection{Motion Along Incline Surfaces}
+
+
+\subsection{Motion with Non-Constant Forces}
+
+%  \textbf{Example:} A tractor-trailer pulling two trailers starts from rest
+%  and accelerates with an acceleration $a$ on a straight, level road. The mass
+%  of the truck (T) is \SI{5450}{\kilo\gram}, the mass of the first trailer (A)
+%  is \SI{31500}{\kilo\gram}, and the mass of the second trailer (B) is
+%  \SI{19600}{\kilo\gram}.
+%  \begin{enumerate}
+%  \item What magnitude of force must the truck generate in order to accelerate
+%    the entire vehicle?
+%  \item What magnitude of force must each of the trailer hitches withstand
+%    while the vehicle is accelerating?
+%  \end{enumerate}
+%  Assume that frictional forces are negligible in comparison with the forces
+%  needed to accelerate the large masses.
 %
-%\begin{figure}[ht]
-%  \pic1{dynamics-calculus/graphics/worldslongestroadtrainwithpowertrailer8}
-%  \caption{A road train that is common in Australia}
-%  \label{fig:roadtrain}
-%\end{figure}
-%\begin{itemize}
-%\item The objects are connected by a cable or a solid linkage with negligible
-%  mass
-%\item All objects (usually) have the same acceleration
-%\item Require multiple free-body diagrams
-%\end{itemize}
-%
-%
-%
-%To solve a connected-bodies problem, you can follow these procedures:
-%\begin{enumerate}
-%\item Draw a FBD on each of the objects
-%\item Sum all the forces on all the objects along the direction of motion
-%  \begin{itemize}
-%  \item Direction of motion is usually very obvious
-%  \item All internal forces should cancel and do not figure into the
-%    acceleration of the system
-%  \end{itemize}
-%\item Compute the acceleration of the entire system using second law of motion
-%  \begin{itemize}
-%  \item Remember that (usually) every object has the same acceleration!
-%  \end{itemize}
-%\item Go back to the FBD of each of the objects and compute the unknown
-%  forces (usually tension)
-%\end{enumerate}
-%
-%
-%
-%%  \textbf{Example:} A tractor-trailer pulling two trailers starts from rest
-%%  and accelerates with an acceleration $a$ on a straight, level road. The mass
-%%  of the truck (T) is \SI{5450}{\kilo\gram}, the mass of the first trailer (A)
-%%  is \SI{31500}{\kilo\gram}, and the mass of the second trailer (B) is
-%%  \SI{19600}{\kilo\gram}.
-%%  \begin{enumerate}
-%%  \item What magnitude of force must the truck generate in order to accelerate
-%%    the entire vehicle?
-%%  \item What magnitude of force must each of the trailer hitches withstand
-%%    while the vehicle is accelerating?
-%%  \end{enumerate}
-%%  Assume that frictional forces are negligible in comparison with the forces
-%%  needed to accelerate the large masses.
-%%
-%
-%
-%
-%%\begin{frame}{Different Types of Connected Bodies}
-%Multiple objects pressed against one another. There may not be friction, but
-%there are definitely action/reaction forces between the blocks.
-%\begin{center}
-%  \begin{tikzpicture}[scale=.8]
-%    \draw[thick] (-3,0)--(4,0);
-%    \draw[thick] rectangle (1,1) node[midway]{$m$};
-%    \draw[thick] (1,0) rectangle (3,1.5) node[midway]{$M$};
-%    \draw[vector] (-1.5,.5)--(0,.5) node[pos=0,left]{$\bm F_a$};
-%  \end{tikzpicture}
-%\end{center}
-%Or multiple objects stacked on top of one another. The contact surface between
-%$M$ and the floor may (or may not) have friction, while the surface between
-%$M$ and $m$ must have a friction coefficient $\mu$.
-%\begin{center}
-%  \begin{tikzpicture}[scale=.8]
-%    \draw[thick] (-1,0)--(5.5,0);
-%    \draw[thick] rectangle (3,1.5) node[midway]{$M$};
-%    \draw[thick] (.75,1.5) rectangle (2.25,2.5) node[midway]{$m$};
-%    \draw[vector] (3,.5)--(4.5,.5) node[right]{$\bm F_a$};
-%  \end{tikzpicture}
-%\end{center}
-%
-%
-%
-%
+
+
+
 %\subsection{Pulley Problems}
 %
 %\begin{figure}[ht]
@@ -980,110 +937,69 @@ still draw a FBD.
 %\item What is the acceleration of the masses?
 %\item What is the tension in the rope?
 %\end{enumerate}
+  
+
+%%\begin{frame}{Example Problem: Atwood Machine}
+%  An \textbf{Atwood machine} is made of two objects connected by a rope that
+%  runs over a pulley. The pulley allows the direction of force and direction
+%  of motion to change between two objects.
+%  \begin{columns}
+%    \column{.35\textwidth}
+%    \centering
+%    \pic1{dynamics-calculus/graphics/pulley_prob_2}
+%
+%    \column{.65\textwidth}
+%    \textbf{Example:} The object on the left has a mass of $M$ and the object
+%    on the right has a mass of $m$.
+%    \begin{itemize}
+%    \item What is the acceleration of the masses?
+%    \item What is the tension in the rope?
+%    \end{itemize}
 %  
 %
-%%%\begin{frame}{Example Problem: Atwood Machine}
-%%  An \textbf{Atwood machine} is made of two objects connected by a rope that
-%%  runs over a pulley. The pulley allows the direction of force and direction
-%%  of motion to change between two objects.
-%%  \begin{columns}
-%%    \column{.35\textwidth}
-%%    \centering
-%%    \pic1{dynamics-calculus/graphics/pulley_prob_2}
-%%
-%%    \column{.65\textwidth}
-%%    \textbf{Example:} The object on the left has a mass of $M$ and the object
-%%    on the right has a mass of $m$.
-%%    \begin{itemize}
-%%    \item What is the acceleration of the masses?
-%%    \item What is the tension in the rope?
-%%    \end{itemize}
-%%  
-%%
+
+
+
+%%\begin{frame}{A Difficult Problem!}
+%  \begin{columns}
+%    \column{.6\textwidth}
+%    \textbf{Example:} Two blocks of mass $m$ and $M$ are connected via pulley
+%    with a configuration as shown on the right. The coefficient of static
+%    friction between the left block and the surface is $\mu_{s,1}$, and the
+%    coefficient of static friction between the right block and the surface is
+%    $\mu_{s,2}$. Formulate a mathematical inequality for the condition that no
+%    sliding occurs. There may be more than one inequality. 
+%    
+%    \column{.4\textwidth}
+%    \pic{1}{dynamics-calculus/graphics/pulley_prob_6}
+
+
+
+%%\begin{frame}{Multiple Pulleys}
+%  When there are multiple pulleys involved, we have to remember that tension
+%  force is distributed evenly along the cable.
 %
+%  \vspace{.2in}
+%    \textbf{Example:} A block of mass $m$ is pulled, via two pulleys as shown,
+%    at constant velocity along a surface inclined at angle $\theta$. The
+%    coefficient of kinetic friction is $\mu_k$, between block and surface.
+%    Determine the pulling force $F$. Ignore the mass of the pulleys. 
+%    
+%    \pic{1}{dynamics-calculus/graphics/pulley_prob_7}
+
+
+
+%%\begin{frame}{One More!}
+%  \begin{columns}
+%    \column{.75\textwidth}
+%    \textbf{Example:} A block of mass $M$ is lifted at constant velocity, via
+%    an arrangement of pulleys as shown. Determine the pulling force $F$. Ignore
+%    the mass of the pulleys. 
 %
-%
-%%%\begin{frame}{A Difficult Problem!}
-%%  \begin{columns}
-%%    \column{.6\textwidth}
-%%    \textbf{Example:} Two blocks of mass $m$ and $M$ are connected via pulley
-%%    with a configuration as shown on the right. The coefficient of static
-%%    friction between the left block and the surface is $\mu_{s,1}$, and the
-%%    coefficient of static friction between the right block and the surface is
-%%    $\mu_{s,2}$. Formulate a mathematical inequality for the condition that no
-%%    sliding occurs. There may be more than one inequality. 
-%%    
-%%    \column{.4\textwidth}
-%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_6}
-%%  
-%%
-%%
-%%
-%%
-%%%\begin{frame}{Multiple Pulleys}
-%%  When there are multiple pulleys involved, we have to remember that tension
-%%  force is distributed evenly along the cable.
-%%
-%%  \vspace{.2in}
-%%  \begin{columns}
-%%    \column{.6\textwidth}
-%%    \textbf{Example:} A block of mass $m$ is pulled, via two pulleys as shown,
-%%    at constant velocity along a surface inclined at angle $\theta$. The
-%%    coefficient of kinetic friction is $\mu_k$, between block and surface.
-%%    Determine the pulling force $F$. Ignore the mass of the pulleys. 
-%%    
-%%    \column{.4\textwidth}
-%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_7}
-%%    
-%%
-%
-%
-%%%\begin{frame}{One More!}
-%%  \begin{columns}
-%%    \column{.75\textwidth}
-%%    \textbf{Example:} A block of mass $M$ is lifted at constant velocity, via
-%%    an arrangement of pulleys as shown. Determine the pulling force $F$. Ignore
-%%    the mass of the pulleys. 
-%%
-%%    \uncover<2>{
-%%      \vspace{.2in}\textbf{Example:} The pulling force is replaced by a $10M$
-%%      mass, and was let go. What are the accelerations of the $M$ and the
-%%      $10M$ mass?
-%%    }
-%%    
-%%    \pic{1}{dynamics-calculus/graphics/pulley_prob_9}
-%%  
-%%
-%
-%
-%%\begin{frame}{A More Typical Problem}
-%More typically, an Atwood machine problem is one where two objects are
-%sliding on a surface. These surfaces may have (or may not) have friction. In
-%this example, two blocks are connected by a massless string over a
-%frictionless pulley as shown in the diagram.
-%\begin{figure}[ht]
-%  \centering
-%  \begin{tikzpicture}[scale=1.2]
-%    \draw[thick,brown] (-4,.4)--(.1,.4);
-%      \draw[thick] (0,0)--(-5.5,0) node[midway,below]{$\mu$};
-%      \draw[thick,fill=magenta!20] (-4,0) rectangle (-5,.75) node[midway]{$m$};
-%      \begin{scope}[rotate=-30,thick]
-%        \draw[brown] (1,.4)--(-.05,.4);
-%        \draw (0,0)--(3,0) node[midway,below left]{$\mu$};
-%        \draw[mass] (1,0) rectangle (2.5,1) node[midway]{$M$};
-%      \end{scope}
-%      \begin{scope}[rotate=-15]
-%        \draw[thick,fill=gray] (0,.3) circle (.15);
-%        \draw[thick,fill=lightgray] (0,.3) circle (.1);
-%        \draw[ultra thick] (0,0)--(0,.3);
-%        \fill (0,.3) circle (.04);
-%      \end{scope}
-%      \draw[thick,gray!70] (0,0)--(0,-1.5);
-%      \draw[axes] (0,-.5) arc (270:330:.5) node[midway,below]{$\phi$};
-%  \end{tikzpicture}
-%\end{figure}
-%\begin{enumerate}
-%\item Determine the acceleration of the blocks.
-%\item Calculate the tension in the string.
-%\end{enumerate}
-%
+%    \uncover<2>{
+%      \vspace{.2in}\textbf{Example:} The pulling force is replaced by a $10M$
+%      mass, and was let go. What are the accelerations of the $M$ and the
+%      $10M$ mass?
+%    }
+%    
+%    \pic{1}{dynamics-calculus/graphics/pulley_prob_9}

@@ -30,16 +30,16 @@ to define different forms of energies.
 
 \section{Mechanical Work}
 \label{sec:mechwork}
-An infinitesimal amount of \textbf{mechanical work} $\dl W$ is done when a
-force $\bm F$ displaces an object by an infinitesimal amount $\dl{\bm r}$. If
-the force moves an object along the path $\mathcal C$, the total work $W$ done
+An infinitesimal amount of \textbf{mechanical work} ($\dl W$) is done when a
+force $\bm F$ displaces an object by an infinitesimal amount ($\dl{\bm r}$). If
+the force moves an object along a path $\mathcal C$, the total work $W$ done
 by the force is defined by the integral:
 \begin{important-equation}
   W=\int_{\mathcal C}\dl W=\int_{\mathcal C}\bm F(\bm r)\cdot\dl{\bm r}
   \label{work-definition}
 \end{important-equation}
 While both force and displacement are vectors, work is a scalar quantity. Work
-by $\bm F$ can be positive or negative depending on the dot product. In
+done by $\bm F$ can be positive or negative depending on the dot product. In
 general, the amount of work done depends on the path $\mathcal C$. No work is
 done if the force is perpendicular to displacement, (i.e.\
 $\bm F\cdot\dl{\bm r}=0$) which means that the force did not \emph{cause}
@@ -48,13 +48,15 @@ $\dl{\bm r}=\bm 0$), or if no force is applied during motion (i.e.\
 $\bm F=\bm 0$).
 
 For motion confined to one direction along a one-dimensional coordinate system,
-Eq.~\ref{work-definition} reduces to\footnote{Note that direction still matters
-for $F$ and $x$, even in 1D, in that there is still a positive and negative
-direction (if $F$ and $\dl x$ are in the same direction, then $W>0$; and if $F$
-and $\dl x$ are in opposite direction, then $W<0$).}:
+Eq.~\ref{work-definition} reduces to:
 \begin{important-equation}
   W=\int_{x_0}^{x_1} F(x)\dl x
 \end{important-equation}
+Note that direction still matters for $F$ and $x$, even in 1D, in that there is
+still a positive and negative
+direction (if $F$ and $\dl x$ are in the same direction, then $W>0$; and if $F$
+and $\dl x$ are in opposite direction, then $W<0$).
+
 For a constant force that moves an object along a straight path, the integral
 simplifies to just the dot product of two vectors\endnote{We must remember how
   to express the dot products. If you know the angles between the vectors,
@@ -88,8 +90,9 @@ the displacement, also known as a \textbf{spatial average}:
   \begin{displaymath}
     \overline{\bm F}=\frac{\int_{t_0}^{t_1} \bm F(t)\dl t}{t_1-t_0}
   \end{displaymath}
-  Here, we purposely use different notation to distinguish different types of
-  averaging. Time averaging does not consider the actual motion of the object.
+  We have purposely use different notation to distinguish different types of
+  averaging.
+  %Time averaging does not consider the actual motion of the object.
   This time averaging is also how we get the expressions for average velocity
   and average acceleration in Chapter~\ref{chapter:kinematics}, when we
   describe the motion of a single object:
@@ -98,12 +101,12 @@ the displacement, also known as a \textbf{spatial average}:
     \quad\text{and}\quad
     \overline{\bm a}=\frac{\int_{t_0}^{t_1} \bm a(t)\dl t}{t_1-t_0}
   \end{displaymath}
-  Later in this chapter, we will also discuss the concept of average power,
-  which uses a time averaging.
+  Later in this chapter, we will discuss the concept of average power, which
+  also uses a time averaging.
 
   However, there is still a third kind of averaging that we will briefly
   mention here. In the thermodynamics of gases, when we calculate the average
-  speed and kinetic energies of many gas molecules, the average is the
+  speed and kinetic energies of \emph{many} gas molecules, the average is the
   arithmetic mean of all the speeds:
   \begin{displaymath}
     \langle v\rangle = \frac{\sum v_i}N
@@ -117,8 +120,8 @@ the displacement, also known as a \textbf{spatial average}:
   solving problems, it is usually very clear from the context. 
 \end{remark}
 
-At this moment, we have not specified what the force $\bm F$ is. Whereas we
-always use the \emph{net force} when calculating acceleration in dynamics
+At this moment, we have not specified \emph{what} the force $\bm F$ is. Whereas
+we always use the \emph{net force} when calculating acceleration in dynamics
 problems, when calculating the work done by ``a force'', it could mean:
 \begin{enumerate}[itemsep=6pt]
 \item\textbf{Work done by a \emph{specific} force.} As you have no doubt seen
@@ -166,7 +169,7 @@ problems, when calculating the work done by ``a force'', it could mean:
       \end{scope}
     \end{tikzpicture}
   \end{center}
-  We can calculate the work done by each force:
+  %We can calculate the work done by each force:
   \begin{itemize}[itemsep=6pt]
   \item Work done by the normal force is zero, because $\bm F_\text{norm}$ is
     perpendicular to the direction of motion:
@@ -186,23 +189,24 @@ problems, when calculating the work done by ``a force'', it could mean:
     not necessary:
     \begin{equation*}
       W_\text{grav}=\int\bm F_\text{grav}\cdot\dl{\bm r}
-      =\int F_\text{grav}\cos(\phi+\SI{90}\deg)\dl x
-      =mg\Delta x\cos(\phi+\SI{90}\deg)<0
+      =\int F_\text{grav}\cos(\phi+\SI{90}{\degree})\dl x
+      =mg\Delta x\cos(\phi+\SI{90}{\degree})<0
     \end{equation*}
   \item Finally, the work done by the applied force is positive, because
     applied force is in the same direction as motion.
     \begin{equation*}
       W_a(x)=\int_{x_0}^x F_\text{app}\dl x>0
     \end{equation*}
+  \item The total work (i.e.\ the net work) done on the crate is the sum of
+    the work done by each force:
+    \begin{align*}
+      W_\text{net} &=W_a+W_\text{norm}+W_\text{grav} +W_\text{fric}\\
+      &=\int\underbracket[1pt]{
+        \left(\bm F_\text{app}+\bm F_\text{norm}+\bm F_\text{grav}+
+        \bm F_\text{fric}\right)
+      }_{\bm F_\text{net}}\cdot\dl{\bm r}=\int\bm F_\text{net}\cdot\dl{\bm r}
+    \end{align*}
   \end{itemize}
-  The total work (i.e.\ the net work) done by summing the work done by each
-  force:
-  \begin{align*}
-    W_\text{net} &=W_a+W_\text{norm}+W_\text{grav} +W_\text{fric}\\
-    &=\int\underbracket[1pt]{
-      \left(\bm F_\text{app}+\bm F_\text{norm}+\bm F_\text{grav}+\bm F_\text{fric}\right)
-    }_{\bm F_\text{net}}\cdot\dl{\bm r} =\int\bm F_\text{net}\cdot\dl{\bm r}
-  \end{align*}
 \end{example}
 
 
@@ -253,9 +257,9 @@ is known as the \textbf{work-energy principle}:
   W_\text{net}=\Delta K
   \label{work-energy-theorem}
 \end{important-equation}
-When multiple forces act on an object, \emph{positive} net work will
-\emph{increase} the kinetic energy of the object by the same amount, while
-\emph{negative} net work will decreases kinetic energy by the same amount.
+When multiple forces act on an object, \emph{positive} net work
+\emph{increases} the kinetic energy of the object by the same amount, while
+\emph{negative} net work \emph{decreases} kinetic energy by the same amount.
 Eq.~\ref{work-energy-theorem} applies regardless of \emph{what} the net force
 is comprised of.
 
@@ -303,7 +307,7 @@ in kinetic energy in 1D, 2D and 3D cases, it should be noted that
   be either along the direction of motion, or opposite to motion. Therefore net
   force would \emph{always} do work, and there would always be a change in
   energy.
-\item However, in two or higher dimensions, the net force can be perpendicular
+\item In two or higher dimensions, the net force can be perpendicular
   to motion. Therefore the presence of a net force does \emph{not} mean that the
   net force is necessarily doing work. A good example is in circular motion
   (Chapter~\ref{chapter:circ-motion}), where the net force towards the centre of
@@ -374,7 +378,7 @@ through a displacement of $\Delta\bm r$, as shown in Figure~\ref{fig:falling1}.
 \end{remark}
 We have specifically chosen a free fall because we want to isolate the work
 done by gravitational force alone, without worrying about any other forces.
-Since gravitational force is the net force, the work done by gravitational
+Since gravitational force is the net force, work done by gravitational
 force is also the net work on the object, i.e.\ $W_\text{grav}=W_\text{net}$.
 
 When the displacement $\Delta\bm r$ is small, acceleration due to gravity
@@ -383,8 +387,9 @@ is a constant force. Work done by gravitational force can be calculated without
 using any integration.
 
 If the object falls downwards, i.e.\ both $\bm F_\text{grav}$ and $\Delta\bm r$
-are in the same direction, work done by gravitational force ($W_\text{grav}$) is
-positive. From the work-energy principle (Eq.~\ref{work-energy-theorem}),
+are in the same direction, work done
+%by gravitational force ($W_\text{grav}$)
+is positive. From the work-energy principle (Eq.~\ref{work-energy-theorem}),
 there must be an increase in kinetic energy \emph{by the same amount as work},
 and the object speeds up:
 \begin{equation*}
@@ -394,14 +399,14 @@ and the object speeds up:
 \end{equation*}
 Conversely, if the object moves upwards, i.e.\ $\bm F_\text{grav}$ and
 $\Delta\bm r$ are in opposite direction, then work done by gravitational force
-is negative. There would now be a decrease in kinetic energy
-\emph{by the same amount as work}, and the object slows down.
+is negative. There must be a decrease in kinetic energy
+\emph{by the same amount as work}, and the object slows down:
 \begin{equation*}
   W_\text{grav}=W_\text{net}=mg\Delta r<0
   \quad\longrightarrow\quad
   \Delta K = W_\text{grav} < 0
 \end{equation*}
-The change in kinetic energy must be, of course, consistent with kinematics and
+The change in kinetic energy is, of course, consistent with kinematics and
 dynamics, since the expression for kinetic energy was derived from the second
 law of motion and kinematic equations.
 
@@ -413,8 +418,8 @@ work done by gravitational force can therefore be written as:
 \begin{equation*}
   W_\text{grav}= mg(h_0-h_1)
 \end{equation*}
-The term $h_0-h_1$ is rather curious, because when there is a change in a
-physical quantity, we usually express the difference as subtracting the initial
+The term $h_0-h_1$ is rather curious, because whenever there is a change in a
+physical quantity, we usually express the difference by subtracting the initial
 quantity from the final quantity. For example, displacement is defined as
 $\Delta\bm r=\bm r_1-\bm r_0$, change in velocity is
 $\Delta\bm v=\bm v_1-\bm v_0$, and even earlier in Section~\ref{sec:transKE},
@@ -511,9 +516,9 @@ Chapter~\ref{chapter:gravity}.
 
 \subsubsection{Path Independence}
 As we can see in Figure~\ref{path-independence}, the work done by gravity is the
-same in all cases. That is not to say that there are no other forces acting on
-the object; we have merely isolated the work done by the gravitational force
-alone.
+same in all cases because they all have the same $h_0$ and $h_1$. That is not
+to say that there are no other forces doing work on the object; we have merely
+isolated the work done by the gravitational force alone.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
@@ -635,31 +640,33 @@ work done by the spring alone without influence of other forces.
   \label{fig:hspring-mass1}
 \end{figure}
 
-If the mass moves in the same direction as the spring force,, work done by
-the spring ($W_\text{grav}$) is positive. From the work-energy principle
-(Eq.~\ref{work-energy-theorem}), there must be an increase in kinetic energy
-\emph{by the same amount as work}, and the object speeds up:
+If the mass moves in the same direction as the spring force, work done by
+the spring ($W_\text{elas}$) is positive. Therefore
+%From the work-energy principle (Eq.~\ref{work-energy-theorem}),
+there must be an increase in kinetic energy
+\emph{by the same amount as work}, and the mass speeds up:
 \begin{equation*}
   W_\text{elas}=W_\text{net}=\Delta K > 0
 \end{equation*}
 Conversely, if the mass moves in the opposite direction to the spring force,
-then work done by the spring is negative. There would now be a decrease in
+then work done by the spring is negative. There must be a decrease in
 kinetic energy \emph{by the same amount as work}, and the object slows down:
 \begin{equation*}
   W_\text{elas}=W_\text{net}=\Delta K = < 0
 \end{equation*}
-As was in the case in gravity, the change in kinetic energy is consistent with
-kinematics and dynamics. An in-depth discussion is presented later in
+As was in the case of gravity, the change in kinetic energy is consistent with
+kinematics and dynamics. An in-depth discussion in the kinematics and dynamics
+of spring-mass systems is presented in
 Chapter~\ref{chapter:harmonic-motion}, on harmonic motion. As the spring force
 moves the mass, the work done by the spring force on the object is:
-\begin{equation}
+\begin{align*}
   W_\text{elas}
   =\int\bm F_\text{elas}\cdot\dl{\bm r}
   =\int_{x_0}^{x_1}F_\text{elas}\dl x
-  =-k\int_{x_0}^{x_1} x\dl x
-  =-\left(\frac12kx_1^2-\frac12kx_0^2\right)=-\Delta U_\text{elas}
+  & =-k\int_{x_0}^{x_1} x\dl x \\
+  &=-\left(\frac12kx_1^2-\frac12kx_0^2\right)=-\Delta U_\text{elas}
   \label{eq:spring-pot1}
-\end{equation}
+\end{align*}
 where $U_\text{elas}$ is defined as the \textbf{elastic potential energy}:
 \begin{important-equation}
   U_\text{elas}=\frac12kx^2

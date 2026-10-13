@@ -1296,7 +1296,8 @@ There are several observations that we can make immediately:
 \end{example}
 
 
-\begin{example}[Two Masses and Pulley]
+\begin{example}[Two Masses and a Pulley]
+  \label{eg:2masses-pulley-dynamics}
   Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
   a pulley with radius $R$, mass $m_3$ and a rotational inertia of
   $I=\frac12m_3R^2$, as shown in the figure below. The pulley can rotate about
@@ -1335,8 +1336,8 @@ the work done by the static friction reveals how energy is transformed:
 \item Static friction does \emph{positive rotational work}. It is the only
   force that generates a torque, therefore the positive work done by
   $\bm F_\text{fric}$ increases the rotational kinetic energy, i.e.\
-  $W_\text{rot}=\Delta K_\text{rot}>0$ by the work-energy theorem. This is supported by the fact
-  that as the ball rolls, the  angular velocity increases.
+  $W_\text{rot}=\Delta K_\text{rot}>0$ by the work-energy theorem. This is
+  supported by the fact that as the ball rolls, the  angular velocity increases.
 \item At the same time, static friction also does \emph{negative translational
   work}, as the direction of the frictional force is in the opposite direction
   to the translational motion of the CM. Again, by the
@@ -1376,16 +1377,15 @@ the total energy of the system is conserved.
       node[pos=.4,above]{$\theta$};
     \end{tikzpicture}
   \end{center}
-
 \end{example}
 
 
 
-\begin{example}
-  A mass $m$ is connected to a cable that is wrapped tightly around pulley with
-  radius $R$, mass $M$ and a rotational inertia of $I=\frac12MR^2$. The pulley
-  can rotate about its axis without friction. If the mass is released from
-  rest, what is its speed after falling a distance $d$?
+\begin{example}[Mass and a Pulley]
+  A mass $m_1$ is connected to a massless cable that is wrapped tightly around
+  a frictional pulley with radius $R$, mass $m_2$ and a rotational inertia of
+  $I=\frac12m_2R^2$. If the mass is released from rest, what is its speed after
+  falling a distance $d$?
   \begin{center}
     \begin{tikzpicture}[scale=.7]
       \draw[ultra thick,brown] (1,0)--(1,-3);
@@ -1397,18 +1397,52 @@ the total energy of the system is conserved.
       \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m$};
     \end{tikzpicture}
   \end{center}
+  \textbf{Solution:} In this case, the system includes the pulley, the mass, as
+  well as Earth. As such, the energies of the systems include:
+  \begin{itemize}
+  \item Translational kinetic energy of mass: $K_t$
+  \item Rotational kinetic energy the pulley: $K_r$
+  \item Gravitational potential energy of of mass $m$: $U$
+  \end{itemize}
+  There are no external forces, therefore no external work. The total energy
+  of the system is conserved.
+  \begin{align*}
+    \Delta K_t + \Delta K_r + \Delta U  &= 0\\
+    \frac12m_1v^2 +\frac12I\omega^2-m_1gd & = 0
+  \end{align*}
+  Since the cable is tightly wrapped around the pulley, the angular speed of
+  the pulley is related to the translational speed of the mass by the pulley
+  radius: $v=\omega R$. Therefore the rotational kinetic energy of the
+  pulley can be expressed as:
+  \begin{equation*}
+    K_r=\frac12
+    \underbracket[1pt]{\left[\frac12m_2\cancel{R^2}\right]}_I
+    \underbracket[1pt]{\frac{v^2}{\cancel{R^2}}}_{\omega^2}
+        =\frac14m_2v^2
+  \end{equation*}
+  The conservation of energy equation how becomes:
+  \begin{equation*}
+    \frac12m_1v^2 +\frac14m_2v^2-m_1gd = 0
+  \end{equation*}
+  And calculating $v$ is a straightforward algebraic exercise:
+  \begin{equation*}
+    \left[\frac12m_1+\frac14m_2\right]v^2 =m_1gd\quad\rightarrow\quad
+    \boxed{
+      v=\sqrt{\frac{4m_2gd}{m_2+2m_1}}
+    }
+  \end{equation*}
 \end{example}
 
 
 
-\begin{example}[Two Masses and Pulley]
-  Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped around
-  a pulley with radius $R$, mass $m_3$ and a rotational inertia of
-  $I=\frac12m_3R^2$, as shown below. The pulley can rotate about its axis
-  without friction. Assuming that $m_1>m_2$. If the masses are released from
-  rest, what is their speed after falling a distance $d$?
+\begin{example}[Two Masses and a Pulley]
+  Two masses, $m_1$ and $m_2$, are connected to each other, and wrapped tightly
+  around a frictionless pulley with radius $R$, mass $m_3$ and a rotational
+  inertia of $I=\frac12m_3R^2$, as shown below. Assuming that $m_1>m_2$. If the
+  masses are released from rest, what is their speed after falling a distance
+  $d$?
   \begin{center}
-    \begin{tikzpicture}[scale=.9]
+    \begin{tikzpicture}[scale=.8]
       \draw[ultra thick,brown] (-1,-1.6)--(-1,0);
       \draw[ultra thick,brown] (1,0)--(1,-3);
       \draw[thick,fill=gray] circle (1.05);
@@ -1420,12 +1454,38 @@ the total energy of the system is conserved.
       \draw[mass] (.5,-3) rectangle +(1,-1.4) node[midway]{$m_2$};
     \end{tikzpicture}
   \end{center}
-  Again, we ask the same questions when setting up an energy conservation
-  problem
+%  \begin{itemize}
+%  \item As $m_1$ rises, gravitational force does negative work, converting its
+%    kinetic energy into gravitational potential energy.
+  %  \end{itemize}
+  \vspace{.2in}\textbf{Solution:} In this case, and very similar to the
+  problem before, the system includes the pulley, the masses $m_1$ and $m_2$,
+  as well as Earth. As such, the energies of the systems include:
   \begin{itemize}
-  \item As $m_1$ rises, gravitational force does negative work, converting its
-    kinetic energy into gravitational potential energy.
-  \item As $m_1$ rises, positive work done by gravitational converts its
-    gravitational potential energy
+  \item Translational kinetic energy of mass $m_1$: $K_1$
+  \item Translational kinetic energy of mass $m_2$: $K_2$
+  \item Rotational kinetic energy the pulley: $K_r$
+  \item Gravitational potential energy of of mass $m_1$: $U_1$
+  \item Gravitational potential energy of of mass $m_2$: $U_2$
   \end{itemize}
+  There are no external forces, therefore no external work. The total energy
+  of the system is conserved. This time, let's solve it using the general form:
+  \begin{align*}
+    \Delta K_1 + \Delta K_2 + \Delta K_r + \Delta U_1 + \Delta U_2  &= 0\\
+    \frac12m_1v^2 + \frac12m_2v^2 +
+    \underbracket[1pt]{\frac12I\omega^2}_{
+      =\frac12\left(\frac12m_3R^2\right)\frac{v^2}{R^2}=\frac14m_3v^2} +
+    \underbracket[1pt]{-m_1gd + m_2gd}_{=(m_2-m_1)gd} &= 0
+  \end{align*}
+  Collecting terms, we now have:
+  \begin{align*}
+    \frac12m_1v^2 + \frac12 m_2v^2 + \frac14m_3v^2 &= (m_1-m_2)gd
+  \end{align*}
+  Solving for $v$, we find that:
+  \begin{equation*}
+    \boxed{v=\sqrt{\frac{4(m_1-m_2)gd}{2m_1+2m_2+m_3}}}
+  \end{equation*}
+  Which is the same result that we obtained in
+  Example~\ref{eg:2masses-pulley-dynamics}. We should not be surprised by
+  how much easier it is to solve this problem.
 \end{example}

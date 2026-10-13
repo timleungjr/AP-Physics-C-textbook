@@ -445,12 +445,12 @@ Of course both ways gives you the same answer.
 
 
 
-\subsection{Atwood Machine--Pulley Problems}
+\section{Pulley Problems}
 
-\subsection{Example Problem: Atwood Machine}
-An \textbf{Atwood machine} is made of two objects connected by a rope that
-runs over a pulley. The pulley allows the direction of force and direction
-of motion to change between two objects.
+%\subsection{Example Problem: Atwood Machine}
+%An \textbf{Atwood machine} is made of two objects connected by a rope that
+%runs over a pulley. The pulley allows the direction of force and direction
+%of motion to change between two objects.
 %  \begin{columns}
 %    \column{.35\textwidth}
 %    \begin{center}
@@ -465,35 +465,35 @@ of motion to change between two objects.
 %    \end{itemize}
 %  \end{columns}
 
-
-%  More typically, an Atwood machine problem is one where two objects are
-%  sliding on a surface. These surfaces may have (or may not) have friction. In
-%  this example, two blocks are connected by a massless string over a
-%  frictionless pulley as shown in the diagram.
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}[scale=1.5,thick]
-    \draw[ultra thick,brown] (-2,.4)--(.1,.4);
-    \draw (0,0)--(-4,0) node[pos=.35,below]{$\mu$};
-    \draw[fill=magenta!50] (-2,0) rectangle +(-1,.75) node[midway]{$m$};
-    \begin{scope}[rotate=-30]
-      \draw[ultra thick,brown] (1,.4)--(-.05,.4);
-      \draw (0,0)--(3,0) node[midway,below left]{$\mu$};
-      \draw[mass] (1,0) rectangle (2.5,1) node[midway,rotate=-30]{$M$};
-    \end{scope}
-    \begin{scope}[rotate=-15]
-      \draw[fill=gray] (0,.3) circle (.15);
-      \draw[fill=lightgray] (0,.3) circle (.1);
-      \draw[ultra thick] (0,0)--(0,.3);
-      \fill (0,.3) circle (.04);
+We would often see pulley problem is one where two objects are sliding on a
+surface, and these surfaces may have (or may not) have friction.
+\begin{example}
+  Two blocks are connected by a massless string over a frictionless pulley as
+  shown in the diagram. By frictionless, it means that when the pulley spins,
+  there is no kinetic friction about its axle, or if the cable slides along the
+  pulley, there is also no kinetic friction either.
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5,thick]
+      \draw[ultra thick,brown] (-2,.4)--(.1,.4);
+      \draw (0,0)--(-4,0) node[pos=.35,below]{$\mu$};
+      \draw[fill=magenta!50] (-2,0) rectangle +(-1,.75) node[midway]{$m$};
+      \begin{scope}[rotate=-30]
+        \draw[ultra thick,brown] (1,.4)--(-.05,.4);
+        \draw (0,0)--(3,0) node[midway,below left]{$\mu$};
+        \draw[mass] (1,0) rectangle (2.5,1) node[midway,rotate=-30]{$M$};
       \end{scope}
-    \draw[gray] (0,0)--(0,-1.5);
-    \draw[->] (0,-.5) arc (270:330:.5) node[midway,below]{$\phi$};
-  \end{tikzpicture}
-\end{figure}
-%  \begin{enumerate}[(a)]
-%  \item Determine the acceleration of the blocks.
-%  \item Calculate the tension in the string.
-%  \end{enumerate}
-%\end{document}
-%
+      \begin{scope}[rotate=-15]
+        \draw[fill=gray] (0,.3) circle (.15);
+        \draw[fill=lightgray] (0,.3) circle (.1);
+        \draw[ultra thick] (0,0)--(0,.3);
+        \fill (0,.3) circle (.04);
+      \end{scope}
+      \draw[gray] (0,0)--(0,-1.5);
+      \draw[->] (0,-.5) arc (270:330:.5) node[midway,below]{$\phi$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}[label=(\alph*),itemsep=6pt]
+  \item Determine the acceleration of the blocks.
+  \item Calculate the tension in the string.
+  \end{enumerate}
+\end{example}
