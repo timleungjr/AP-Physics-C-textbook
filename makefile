@@ -6,4 +6,4 @@ all:
 	pdflatex APC
 
 clean:
-	rm -rf *~ *.*~ *.log *.nav *.aux *.out *.snm *.toc *.ent *.lot *.lof
+	rm -rf *~ *.*~ *.log *.nav *.aux *.out *.snm *.toc *.ent *.lot *.lof *.bbl *.bcf *.blg *.idx *.ilg *.ind *.ptc *.xml

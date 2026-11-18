@@ -1,91 +1,100 @@
 \chapter{Circular Motion}
 \label{chapter:circ-motion}
 
-The \textbf{circular motion} (Figure~\ref{fig:circ-motion1}) is the simplest
-form of curvilinear motions, an object of mass $m$ moves in a circular path
-about a fixed centre.
-Like we did in Chapters~\ref{chapter:kinematics} and \ref{chapter:dynamics},
-we will begin studying the circular motion, first be defining the coordinate
-system, and then to the kinematic quantities, and then onto dynamics.
+For the majority of two-dimensional motions (like the ones in
+Chapters~\ref{chapter:kinematics} and \ref{chapter:dynamics}) we usually
+describe an object's motion using the Cartesian coordinate system. The
+position of the object is the $x$- and $y$-coordinates as functions of time:
+\begin{equation}
+  \bm r(t)=x(t)\iii + y(t)\jjj
+\end{equation}
+where $\iii$ and $\jjj$ are unit vectors (called basis vectors) that describe
+the direction of the $x$ and $y$ axes respectively. We can then take derivatives
+with respect to time for each component to get velocity and acceleration.
+This type of motion described is called \textbf{rectilinear motion}. However,
+the Cartesian coordinate system is not the most intuitive in other types of
+motion, called general \textbf{curvilinear motions}. Some examples of
+curvilinear motion are shown in Figure~\ref{fig:curvilinear-motions}.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{.23\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=.7]
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[right]{$y$};
+      \draw[function] circle (1.5);
+    \end{tikzpicture}
+    \caption{Circular}
+    \label{fig:circ-motion1}
+  \end{subfigure}
+  \begin{subfigure}{.23\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=.7]
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[right]{$y$};
+      \draw[function,rotate=30] ellipse (2 and 1);
+    \end{tikzpicture}
+    \caption{Elliptical}
+  \end{subfigure}  
+  \begin{subfigure}{.23\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=.7]
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[right]{$y$};
+      \draw[function,domain={-1.7:1.7}] plot (\x,{.5*(\x*\x)-.3});
+    \end{tikzpicture}
+    \caption{Parabolic}
+  \end{subfigure}
+  \begin{subfigure}{.23\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=.7]
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[right]{$y$};
+      \draw[domain=45:1000,samples=500,function]
+      plot (\x:{1.75*exp(-0.0025*\x)});
+    \end{tikzpicture}
+    \caption{Spiral}
+  \end{subfigure}
+  \caption{Examples of curvilinear motion in two dimensions}
+  \label{fig:curvilinear-motions}
+\end{figure}
+
+In this chapter, we focus on the simplest form of curvilinear motion, called the
+\textbf{circular motion} (Figure~\ref{fig:circ-motion1}), where an object of
+mass $m$ moves in a circular path about a fixed centre. We will begin studying
+circular motions, first by defining the coordinate system, and then discuss the
+kinematics, dynamics and energy conservation.
 
 
 
 
 \section{Polar Coordinate System}
 
-In the majority of types of two-dimensional motion,
-%discussed in earlier chapters,
-it is usually best to describe an object's position using the Cartesian
-coordinate system, and using the $x$ and $y$ coordinates as functions of time:
-\begin{equation}
-  \bm r(t)=x(t)\iii + y(t)\jjj
-\end{equation}
-where $\iii$ and $\jjj$ are unit vectors describing the direction of the $x$
-and $y$ axes respectively. This kind of motion is called \textbf{rectilinear
-  motion}. However, for circular motion or general \textbf{curvilinear
-  motions}, the \textbf{polar coordinate system} is preferred. The position of
-an object is described by:
+For general curvilinear motions, the \textbf{polar coordinate system} is
+preferred over the Cartesian coordinate system. In this case, position of an
+object is described by:
 \begin{equation}
   \bm r(t)=r(t)\hat{\bm r} + \theta(t)\hat{\bm\theta}
 \end{equation}
 where $r(t)=|\bm r(t)|$ is distance from the origin, and $\theta(t)$ is the
-standard angle, measured counter clockwise from the $x$ axis. Some examples of
-curvilinear motion are shown in Figure~\ref{fig:curvilinear-motions}.
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{.4\linewidth}
-    \centering
-    \begin{tikzpicture}
-      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
-      \draw[axes] (0,-2)--(0,2) node[above]{$y$};
-      \draw[function] circle (1.5);
-    \end{tikzpicture}
-    \caption{Circular motion}
-    \label{fig:circ-motion1}
-  \end{subfigure}
-  \begin{subfigure}{.4\linewidth}
-    \centering
-    \begin{tikzpicture}
-      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
-      \draw[axes] (0,-2)--(0,2) node[above]{$y$};
-      \draw[function,rotate=30] ellipse (1.8 and 1);
-    \end{tikzpicture}
-    \caption{Elliptical motion}
-  \end{subfigure}  
-  \begin{subfigure}{.4\linewidth}
-    \centering
-    \begin{tikzpicture}
-      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
-      \draw[axes] (0,-2)--(0,2) node[above]{$y$};
-      \draw[function,domain={-1.7:1.7}] plot (\x,{.5*(\x*\x)-.3});
-    \end{tikzpicture}
-    \caption{Parabolic motion}
-  \end{subfigure}
-  \begin{subfigure}{.4\linewidth}
-    \centering
-    \begin{tikzpicture}
-      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
-      \draw[axes] (0,-2)--(0,2) node[above]{$y$};
-      \draw[domain=45:1000,samples=500,function]
-      plot (\x:{1.75*exp(-0.0025*\x)});
-    \end{tikzpicture}
-    \caption{Inward/Outward spiral}
-  \end{subfigure}
-  \caption{Examples of curvilinear motion in two dimensions}
-  \label{fig:curvilinear-motions}
-\end{figure}
-Like the Cartesian system, the polar coordinate system is also right-handed;
-basis vectors $\hat{\bm r}$ (``outward radial direction'') and $\hat{\bm\theta}$
+standard angle, measured counter clockwise from the $x$ axis. Like the
+Cartesian system, the polar coordinate system is also right-handed; basis
+vectors $\hat{\bm r}$ (``outward radial direction'') and $\hat{\bm\theta}$
 (``angular direction'') point in the directions shown in
-Figure~\ref{fig:basis-vecs},
+Figure~\ref{fig:basis-vecs}, and rotate as the object moves. It is clear from
+basic geometry that Cartesian and polar coordinates are related by:
+\begin{align*}
+  x &=r \cos(\theta)\\
+  y &=r \sin(\theta)
+\end{align*}
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.75]
+  \begin{tikzpicture}[scale=.7]
     \draw[axes] (-3,0)--(3,0) node[right]{$x$};
     \draw[axes] (0,-3)--(0,3) node[above]{$y$};
     \draw[vector] (0,0)--(1,0) node[below]{$\iii$};
     \draw[vector] (0,0)--(0,1) node[left] {$\jjj$};
-    \draw circle (2.5);
+    \draw[gray] circle (2.5);
     \begin{scope}[rotate=38]
       \draw[vector] (0,0)--(2.45,0) node[midway,above]{$r$};
       \draw[vector] (2.5,0)--(3.5,0) node[right]{$\hat r$};
@@ -97,12 +106,7 @@ Figure~\ref{fig:basis-vecs},
   \caption{Basis vectors for rectilinear and curvilinear motions}
   \label{fig:basis-vecs}
 \end{figure}
-and rotate as the object moves. It is clear from basic geometry that Cartesian
-and polar coordinates are related by:
-\begin{align*}
-  x &=r \cos(\theta)\\
-  y &=r \sin(\theta)
-\end{align*}
+
 
 
 %\section{Cylindrical Coordinates in 3D}
@@ -129,15 +133,14 @@ and polar coordinates are related by:
 
 \section{Kinematics of Circular Motion}
 
+As is customary for any discussion in mechanics, we begin with the
+kinematics---the mathematical description---of circular motion, where the
+distance $r$ to the origin is constant.
+
 \subsection{Angular Position}
-For constant distance $r$ to the origin, the \textbf{angular position}
-$\theta$ determines an object's position as a continuous function of
-time\footnote{The more mathematically rigorous notation is to express the
-angular position as a vector along the angular direction:
-\begin{displaymath}
-  \bm\theta=\theta(t)\hat{\bm\theta}
-\end{displaymath}
-The magnitude is $\theta(t)$ and the direction is $\hat{\bm\theta}$.}:
+For a constant radius $r$, the \textbf{angular position} $\theta$ determines an
+object's position as a continuous function of
+time:
 \begin{important-equation}
   \theta=\theta(t)
 \end{important-equation}
@@ -147,7 +150,7 @@ when measured counter clockwise from the $x$-axis, and negative when it is
 measured clockwise. In the example shown in Figure~\ref{fig:angular-position},
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=.5]
+  \begin{tikzpicture}[scale=.7]
     \draw[axes] (-3,0)--(3,0) node[right]{$x$};
     \draw[axes] (0,-3)--(0,3) node[above]{$y$};
     \draw[gray] circle (2.5);
@@ -167,14 +170,47 @@ measured clockwise. In the example shown in Figure~\ref{fig:angular-position},
 \end{figure}
 the angular position of object A is positive, while the angular position of
 object B is negative. At this time, we are not concerned with what kind of
-function this is; the exact expression will depend only on the forces that act
+function $\theta(t)$ is; the exact expression will depend only on the forces
+acting
 on the object. For now, it is sufficient to say that the object can be at one
 position at any given time (hence it is a \emph{function} of time), and that
 the object cannot teleport from one position to another (hence it is a
 \emph{continuous} function of time). Angular position is also continuously
 differentiable.
+\begin{remark}
+  The more mathematically rigorous notation is to express angular position
+  as a vector along the angular direction:
+  \begin{displaymath}
+    \bm\theta=\theta(t)\hat{\bm\theta}
+  \end{displaymath}
+  The magnitude is $\theta(t)$ and the direction is $\hat{\bm\theta}$.
+\end{remark}
 
-For the remainder of the chapter, the angular position of an object is not
+\begin{remark}
+  For your amusement: calling a \emph{radian} a unit is a bit weird, since it
+  does not seem to have any dimensions. Bear in mind that SI units are always
+  defined based on the 7 base units: \emph{metres} for length, \emph{kilograms}
+  for mass, and \emph{seconds} for time etc. So what exactly is a radian then?
+  Since one radian is defined as the angle when the arc length is equal to the
+  radius:
+  \begin{center}
+    \begin{tikzpicture}[scale=.9]
+      \draw[axes] (-2,0)--(2,0) node[right]{$x$};
+      \draw[axes] (0,-2)--(0,2) node[above]{$y$};
+      \draw[gray] circle (1.7);
+      \begin{scope}[very thick,red]
+        \draw (0,0)--(1.7,0) node[midway,below]{$r$};
+        \draw[rotate=57] (0,0)--(1.7,0);
+        \draw (1.7,0) arc (0:57.3:1.7) node[midway,right]{$s=r$};
+      \end{scope}
+      \draw[axes] (.75,0) arc (0:57.3:.75) node[midway,right]{1 rad};
+    \end{tikzpicture}
+  \end{center}
+  From the definition of SI units, the radian is defined as
+  \emph{one metre per metre}.
+\end{remark}
+
+For the remainder of the chapter, the angular position of an object will not be
 particularly important, because the $x$-axis can be defined arbitrarily.
 Instead, we will focus on the other related kinematic quantities in circular
 motion: angular displacement, angular velocity and angular acceleration.
@@ -195,47 +231,22 @@ motion: angular displacement, angular velocity and angular acceleration.
 
 \subsection{Angular Displacement}
 
-If the object is moving along this circular path, then the change in the
-angular position is the object's
+If the object moves along this circular path, then the change in the angular
+position is the object's
 \textbf{angular displacement}\index{Displacement!Angular}
-$\Delta\theta(t)$. It is defined as the difference between an object's current
-(or final) angular position ($\theta(t)$) and its initial angular position
-($\theta_i$):
-%For constant distance $r$ to the origin, the \textbf{angular position}
-%$\theta$ determines an object's position as a continuous function of
-%time, i.e.:
-%%\footnote{The more mathematically rigorous notation is to express the
-%%angular position as a vector along the angular direction:
-%%\begin{displaymath}
-%%  \bm\theta=\theta(t)\hat{\bm\theta}
-%%\end{displaymath}
-%%The magnitude is $\theta(t)$ and the direction is $\hat{\bm\theta}$.}:
-%\begin{equation}
-%  \boxed{
-%    \theta=\theta(t)
-%  }
-%  \label{eq:angular-position}
-%\end{equation}
-%The unit for angular position is a \emph{radian} (rad): If motion is confined
-%to the $xy$-plane, then $\theta$ is the standard angle: $\theta$ is positive
-%when measured counterclockwise from the $x$-axis, and negative when it is
-%measured clockwise.
-%
-%When an object moves along this circular path, we can calculate the change in
-%the angular position (i.e.\ change in the angle). This is the object's
-%\textbf{angular displacement} $\Delta\theta$:
+$\Delta\theta(t)$. It is the difference between an object's current/final
+angular position ($\theta(t)$) and its initial angular position ($\theta_0$):
 \begin{important-equation}
-  \Delta\theta(t)=\theta(t)-\theta_i
+  \Delta\theta(t)=\theta(t)-\theta_0
   \label{eq:angular-displacement}
 \end{important-equation}
 Like angular position, $\Delta\theta$ is positive if the object moves in the
 counter clockwise direction, and negative if it moves clockwise, as shown in
 Figure~\ref{fig:angular-displacement}. As angular position $\theta(t)$ evolves
-in time, so does angular displacement, therefore $\Delta\theta(t)$ is also a
-continuous and continuously differentiable function of time. At this point, it
-should be obvious that the relationship between angular position and angular
-displacement is analogous to position and displacement in one-dimensional
-kinematics presented in Chapter~\ref{chapter:kinematics}.
+in time, so too does angular displacement, therefore $\Delta\theta(t)$ is also a
+continuous and continuously differentiable function of time. To absolutely no
+one's surprise, angular displacement is also measured in \emph{radians}.
+
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.7]
@@ -256,19 +267,21 @@ kinematics presented in Chapter~\ref{chapter:kinematics}.
   \caption{Positive and negative angular displacement}
   \label{fig:angular-displacement}
 \end{figure}
-Angular displacement is also measured in \emph{radians}.
-
+At this point, it should be obvious that the relationship between angular
+position and angular displacement is analogous to position and displacement in
+one-dimensional kinematics presented in Chapter~\ref{chapter:kinematics}.
 
 
 \subsection{Angular Velocity and Velocity}
 
-Analogous to the relationship between position $\bm r$, displacement
-$\Delta\bm r$ and velocity $\bm v$, for circular motion, the instantaneous
-\textbf{angular velocity} (also known as \textbf{angular frequency})
-$\omega(t)$, is the time derivative of the angular position\footnote{Of course,
+%Analogous to the relationship between position $\bm r$, displacement
+%$\Delta\bm r$ and velocity $\bm v$, for circular motion, the
+The instantaneous \textbf{angular velocity} $\omega(t)$, also known as
+\textbf{angular frequency}, is the time derivative of the angular
+position\footnote{Of course,
 we can also take the time derivative of angular displacement as well, as
 $\theta(t)$ and $\Delta\theta(t)$ only differ by the (constant) initial position
-$\theta_0$. And the derivative of a constant is zero.} measured in
+$\theta_0$. And the derivative of a constant is zero.}, measured in
 \emph{radian per second} (\si{\radian\per\second}). 
 \begin{important-equation}
     \omega(t)=\diff{\theta}t
@@ -276,20 +289,21 @@ $\theta_0$. And the derivative of a constant is zero.} measured in
 Angular velocity is also a continuously function of time, but it is not
 necessarily continuously differentiable. Using the fundamental theorem of
 calculus, angular position $\theta(t)$ and angular displacement
-$\Delta\theta(t)$ can be obtained by integrating $\omega(t)$. The difference
-between the integrals, of course, is that the integral for angular position,
-is indefinite, and the integral for angular displacement is definite.
+$\Delta\theta(t)$ can be obtained by integrating $\omega(t)$ in time. The
+difference between the two integrals, of course, is that the integral for
+angular position is indefinite, and the integral for angular displacement is
+definite.
 \begin{important-equation}
   \theta(t)=\int\omega(t)\dl t +\theta_0
   \quad\quad
   \Delta\theta(t)=\int_{t_0}^t\omega(t)\dl t
 \end{important-equation}
-Again, if motion is confined to the $xy$-plane, then $\omega$ is positive when
-the object moves in the counter clockwise direction, and negative when it moves
+If motion is confined to the $xy$-plane, then $\omega$ is positive when the
+object moves in the counter clockwise direction, and negative when it moves
 clockwise (Figure~\ref{fig:omega-plus-minus}).
-\begin{figure}[ht]
+\begin{figure}[bh]
   \centering
-  \begin{tikzpicture}[scale=.75]
+  \begin{tikzpicture}[scale=.6]
     \draw[axes] (-3,0)--(3,0) node[right]{$x$};
     \draw[axes] (0,-3)--(0,3) node[above]{$y$};
     \draw[axes] (1,0) arc (0:38:1) node[midway,right]{$\theta$};
@@ -304,13 +318,12 @@ clockwise (Figure~\ref{fig:omega-plus-minus}).
     $\bm v$ when circular motion is confined to the $xy$-plane}
   \label{fig:omega-plus-minus}
 \end{figure}
-
 As the object moves with angular speed $\omega$, the actual velocity vector
 $\bm v$ is tangent to the circle\footnote{For your information, the velocity
 vector along \emph{any} path is \emph{always} tangent to the path.}. Obviously
 $\bm v$ is not constant in time, as its direction is always changing. However,
 there is a simple mathematical relationship between the speed of object
-$v(t)=|\bm v(t)|$ and the angular speed $|\omega|$:
+$v(t)=|\bm v(t)|$ and its angular speed $|\omega|$:
 \begin{important-equation}
   v=r|\omega|
 \end{important-equation}
@@ -369,9 +382,11 @@ object's \textbf{angular acceleration}:
 \end{important-equation}
 The unit for angular acceleration is \emph{radian per second squared}
 (\si{\radian\per\second\squared}). The sign convention for $\alpha$ is the same
-as for $\theta$ and $\omega$. Similar to the relationship between velocity and
-angular velocity, \textbf{tangential acceleration} $a_t$ along the direction of
-motion is related to angular acceleration $\alpha$ by the radius $r$:
+as for $\theta$ and $\omega$: positive for counter clockwise acceleration, and
+negative for clockwise acceleration. Similar to the relationship between
+velocity and angular velocity, \textbf{tangential acceleration} $a_t$ along the
+direction of motion is related to angular acceleration $\alpha$ by the radius
+$r$:
 \begin{equation}
   a_t(t)=\diff vt=r\diff{\omega}t=r\alpha(t)
 \end{equation}
@@ -379,8 +394,8 @@ For \emph{uniform} circular motion, $\omega$ is constant, $\alpha=0$, and
 therefore $a_t=0$.
 
 By the fundamental theorem of calculus, we can of course integrate angular
-acceleration to find the angular velocity (or the \emph{change} in angular
-velocity) as a function of time:
+acceleration to find the angular velocity, and the \emph{change} in angular
+velocity, as functions of time:
 \begin{important-equation}
   \omega(t)=\int\alpha(t)\dl t+\omega_0
   \quad\quad
@@ -436,9 +451,11 @@ For non-constant $\alpha$, calculus will be required.
 
 
 
-\subsection{Centripetal Acceleration}% \& Centripetal Force}
-Even when there is no angular acceleration, there is also a component of
-acceleration towards the centre of the motion,
+\subsection{Centripetal Acceleration}
+Even when there is no angular acceleration, the velocity vector is still
+changing in direction along a circular path, therefore there is still a
+component of acceleration towards the centre of the motion, called the
+\textbf{centripetal acceleration} $\bm a_c$.
 %\begin{figure}[ht]
 %  \centering
 %  \begin{tikzpicture}
@@ -458,7 +475,7 @@ acceleration towards the centre of the motion,
 %    \draw(0,1)[<->] arc(90:30:1) node[pos=.6,above]{$\Delta\theta$};
 %  \end{tikzpicture}
 %\end{figure}
-called the \textbf{centripetal acceleration} $\bm a_c$.
+
 %\begin{equation}
 %  \boxed{
 %    \bm a_c=-\frac{v^2}r\hat{\bm r}=-(\omega^2r)\hat{\bm r}
@@ -482,38 +499,38 @@ called the \textbf{centripetal acceleration} $\bm a_c$.
 Consider an object in uniform circular motion in the counter clockwise
 direction with constant radius $r$ and constant speed $v$ (i.e.\ constant
 angular speed $\omega=v/r$), as shown in
-Figure~\ref{fig:v-in-uniform-circ-motion}. At initial time $t_0$, the position
-and velocity of the object are given by $\bm r_0=\bm r(t_0)$ and
-$\bm v_0=\bm v(t_0)$. Then, at a later time $t_1=t_0+\Delta t$, the object has
-moved through an angular displacement of $\Delta\theta$, and the final
-position and velocity are now $\bm r_1=\bm r(t_1)$ and $\bm v_1=\bm v(t_1)$.
+Figure~\ref{fig:v-in-uniform-circ-motion}. At time $t_0$, its position and
+velocity are given by $\bm r_0=\bm r(t_0)$ and $\bm v_0=\bm v(t_0)$. Then, at a
+later time $t_1=t_0+\Delta t$, the object has moved through an angular
+displacement of $\Delta\theta$, and the final position and velocity are now
+$\bm r_1=\bm r(t_1)$ and $\bm v_1=\bm v(t_1)$.
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=.8]
     \draw[axes] (-3,0)--(3,0);
     \draw[axes] (0,-3)--(0,3);
-    \draw circle (2.5);
+    \draw[lightgray] circle (2.5);
     \begin{scope}[rotate=30]
       \draw[vector,blue] (2.5,0)--(2.5,1.5) node[above]{$\bm v_0$};
       \draw[vector,red] (0,0)--(2.5,0) node[pos=.6,below]{$\bm r_0$};
-      \fill (2.5,0) circle (.06);
+      \fill (2.5,0) circle (.08);
     \end{scope}
     \begin{scope}[rotate=90]
       \draw[vector,blue] (2.5,0)--(2.5,1.5) node[left]{$\bm v_1$};
       \draw[vector,red] (0,0)--(2.5,0) node[midway,left]{$\bm r_1$};
-      \fill (2.5,0) circle (.06);
+      \fill (2.5,0) circle (.08);
     \end{scope}
     \draw[<-,thick] (0,1) arc (90:30:1) node[pos=.6,above]{$\Delta\theta$};
   \end{tikzpicture}
-  \caption{An object in counter clockwise uniform circular motion}
+  \caption{Position and velocity vectors for an object in a counter clockwise
+    uniform circular motion}
   \label{fig:v-in-uniform-circ-motion}
 \end{figure}
-
-From the definition of acceleration,
+Using the definition of average acceleration, we can relate
 \begin{equation}
   \bm a_c=\frac{\Delta\bm v}{\Delta t}=\frac{\bm v_1-\bm v_0}{\Delta t}
 \end{equation}
-And the magnitude of the centripetal acceleration is
+with a magnitude of:
 \begin{equation}
   |\bm a_c|=\frac{|\Delta\bm v|}{\Delta t}
 \end{equation}
@@ -611,26 +628,31 @@ object:
 
 \begin{figure}[ht]
   \centering
-  \begin{tikzpicture}[scale=4.2]
-    \draw[dashed] (.866,-.5) arc (-30:30:1);
-    \draw[vector,magenta] (1,0)--(.5,0) node[midway,below]{$\bm a_c=\omega^2r$};
-    \draw[vector,cyan] (1,0)--(1,.3) node[right]{$\bm a_t=r\alpha$};
-    \draw[vector] (1,0)--(.5,.3) node[left]{$\bm a$};
-    \fill (1,0) circle (.02);
+  \begin{tikzpicture}
+    \draw[lightgray] (0,0) arc (0:30:3);
+    \draw[lightgray] (0,0) arc (0:-20:3);
+    \begin{scope}[vector]
+      \draw[red] (0,0)--(-2.5,0) node[below]{$\bm a_c=-\omega^2r\hat{\bm r}$};
+      \draw[cyan] (0,0)--(0,1.5) node[above]{$\bm a_t=r\alpha\hat{\bm\theta}$};
+      \draw (0,0)--(-2.5,1.5) node[left=1]{$\bm a$};
+    \end{scope}
+    \fill circle (.1);
   \end{tikzpicture}
-  \caption{The two component of acceleration in general circular motion.}
+  \caption{Components of acceleration in general circular motion.}
   \label{fig:circular-motion-accelerations}
 \end{figure}
 
-To summarize, in general circular motion, there are two components of
-acceleration (Figure~\ref{fig:circular-motion-accelerations}):
+In general circular motion, there are two components of acceleration, which are
+shown summarized in Figure~\ref{fig:circular-motion-accelerations}:
 \begin{itemize}
 \item\textbf{Centripetal acceleration} $\bm a_c$ depends on radius of curvature
   $r$ and instantaneous speed $v$. The direction of the acceleration is
-  towards the centre of the circular path.
+  towards the centre of the circular path. Centripetal acceleration is non-zero
+  for \emph{all} circular motions.
 \item\textbf{Tangential acceleration} $\bm a_t$ depends on radius $r$ and
   angular acceleration $\alpha$. The direction of the acceleration is tangent
-  to the circle, along the angular direction $\hat{\bm\theta}$.
+  to the circle, along the angular direction $\hat{\bm\theta}$. Tangential
+  acceleration is zero for uniform circular motions.
 \end{itemize}
 The total acceleration is the vector sum of both components:
 \begin{important-equation}
@@ -650,9 +672,9 @@ The total acceleration is the vector sum of both components:
 %        \draw[mass] (2.5,0) circle (.1);
 %      \end{scope}
 %    \end{tikzpicture}
-For constant angular velocity $\omega$ (uniform circular motion), the motion
-is strictly periodic. The \textbf{frequency} $f$, which is how many revolutions
-made by the object per second is related to the angular velocity by:
+For circular motion with constant angular velocity $\omega$ (uniform circular
+motion), the motion is strictly periodic. The \textbf{frequency} $f$---the
+number of revolutions per second---is related to the angular velocity by:
 \begin{important-equation}
   f=\frac\omega{2\pi}
 \end{important-equation}
@@ -666,52 +688,47 @@ The SI unit for period is a \emph{second} (\si\second). Note that frequency and
 period are reciprocals of each other.
 
 In uniform circular motion ($\alpha=0$), if the period or frequency are known,
-%the speed of the object is:
-%\begin{equation}
-%  v=\omega r = 2\pi rf = \frac{2\pi r}T
-%\end{equation}
 we can express centripetal acceleration in terms of $T$ or $f$:
-\begin{equation}
-  \bm a_c=-(\omega^2r)\hat{\bm r}\quad\longrightarrow\quad
-  \boxed{
-    \bm a_c=-\frac{4\pi^2r}{T^2}\hat{\bm r}=-4\pi^2rf^2\hat{\bm r}
-  }
-\end{equation}
-
+\begin{important-equation}
+  \bm a_c=-\frac{4\pi^2r}{T^2}\hat{\bm r}=-4\pi^2rf^2\hat{\bm r}
+\end{important-equation}
+\begin{remark}
+  Since uniform circular motion is guarenteed to be strictly periodic, there
+  will always be a period and a frequency. However, a proper period and
+  frequency can still be defined as long as the circular motion is periodic,
+  i.e.\ it does not have to be uniform with a constant $\bm\omega$. In such a
+  case, the above equation for centripetal acceleration will not be correct.
+\end{remark}
 
 
 \section{Dynamics of Circular Motion}
 
-By the second law of motion $\bm F_\text{net}=m\bm a$, acceleration must be
-caused by a net force along that direction. Along the direction of motion
-(i.e.\ the angular direction $\hat{\bm\theta}$), tangential acceleration is
-caused by the \textbf{tangential force} $\bm F_t$:
+From the second law of motion $\bm F_\text{net}=m\bm a$, any acceleration must be
+caused by a net force along that direction. For circular motions, along the
+direction of motion (the angular direction $\hat{\bm\theta}$), the component of
+net force that causes tangential cceleration is called the
+\textbf{tangential force} $\bm F_t$:
 \begin{important-equation}
   \bm F_t=m\bm a_t=mr\alpha\hat{\bm\theta}
 \end{important-equation}
-while in the radial ($\hat{\bm r}$) direction, centripetal acceleration
-(directed in the inward radial direction $-\hat{\bm r}$) is caused by a
-\textbf{centripetal force} $\bm F_c$:
+In the radial ($\hat{\bm r}$) direction, the component of the net force that
+causes centripetal acceleration (directed in the inward radial direction
+$-\hat{\bm r}$) is called the \textbf{centripetal force} $\bm F_c$:
 \begin{important-equation}
   \bm F_c
   =m\bm a_c
   =-\frac{mv^2}r\hat{\bm r}
-  =-m\left(\omega^2r\right)\hat{\bm r}
+  =-m\omega^2r\hat{\bm r}
 \end{important-equation}
-%  The condition for circular motion is the second law of motion:
-%
-%  \begin{equation}
-%    \bm F_c=\sum\bm F=m\bm a_c
-%  }
-
 The forces that generate the centripetal force comes from the free-body
-diagram. It may include:
+diagram. It can be any of the forces (or a component of that force) that we
+have studied in Chapter~\ref{chapter:dynamics}, including, but not limited to:
 \begin{itemize}[nosep]
-\item Gravity
-\item Friction
+\item Gravitational force
+\item Kinetic or static friction force
 \item Normal force
-\item Tension
-\item Etc.
+\item Cable tension force
+\item Aerodynamic lift
 \end{itemize}
 
 
@@ -768,48 +785,38 @@ To simplify the analysis, we will ignore forces in the angular direction.
 \end{remark}
 
 
-\begin{example}
+\begin{example}[Ball on a String]
   A boy is twirling a \SI{555}{\gram} ball on a \SI{65.0}{\centi\metre}
   string in a \emph{horizontal} circle. The string will break if the tension
-  reaches \SI{15.0}\newton.
-  \begin{enumerate}[itemsep=3pt]
-%  \item On the dot below, draw and label all the forces (not components) that
-%    act on the ball. Forces should be drawn as arrows originating at, and
-%    pointing away from, the dot. (Hint: Tension force $F_\text{ten}$ does \emph{not}
-%    point towards the centre of the circular motion.  This is similar to the
-%    in-class example of an airplane turning.)
-%    %      \begin{center}
-%    %        \vspace{1in}
-%    %      {\tikz\fill circle (.15);}
-%    %      \vspace{1in}
-%    %    \end{center}        
-
-  \item Find the centripetal force when tension is at maximum?
-    %(Hint: It may
-    %be easier to solve the problem algebraically first, before substituting
-    %numerical values.
-      
-  \item What is the maximum speed at which the ball can move without breaking
-    the string?
+  reaches \SI{15.0}\newton. Find the:
+  \begin{enumerate}[label=(\alph*),itemsep=4pt]
+  \item Centripetal force when tension is at maximum.
+  \item Maximum speed at which the ball can move without breaking the string.
     %(Hint: Once the centripetal force is found, you can find the
     %centripetal acceleration.
   \end{enumerate}
 
-  \vspace{.1in}\textbf{Solutions:} This is a standard problem in circular
-  motion, but it's also a tricky one: the centripetal force is \emph{not}
+  \vspace{.1in}\textbf{Solution:} This is a standard problem in circular
+  motion, but it is also a tricky one: the centripetal force is \emph{not}
   \SI{15.0}\newton, and the radius of the circular motion is \emph{not}
   \SI{65.0}{\centi\metre} either! Since the ball moves in a horizontal path,
   the vertical component of the net force must be zero. The horizontal
   component is the centripetal force. Therefore, we will have a free-body
   diagram that looks like this:
   \begin{center}
-    \begin{tikzpicture}[scale=.6]
-      \fill circle (.07);
-      \draw[thick] (0,0)--(-4,-2) node[midway,left]{$\ell$};
+    \begin{tikzpicture}[scale=.85]
+      \fill circle (.1);
+      \draw[thick] (0,0)--(-4,-2) node[pos=.4,above=3]{$\ell$};
       \draw[thick,dashed] (0,-2) ellipse (4 and 1);
-      \shade[poscharge] (-4,-2) circle (.3);
+      \draw[vector,red] (-4,-2)--+(0,-1.5) node[below]{$\bm F_\text{grav}$};
+      \draw[vector,red,rotate around={atan(.5):(-4,-2)}]
+      (-4,-2)--+(3.5,0) node[below=3]{$\bm F_\text{ten}$};
+      \shade[poscharge] (-4,-2) circle (.25);
     \end{tikzpicture}
   \end{center}
+  As it is customary in throughout this book, we will first solve the problem
+  algebraically first, before substituting numerical values.
+
   %Thankfully, for most students, once you
   %see this, there is no unseeing it!
 \end{example}
@@ -882,7 +889,7 @@ direction.
   \begin{tikzpicture}[scale=1.1]
     \begin{scope}[rotate=20,thick]
       \node[rotate=20] at (0,0) {
-        \pic{.2}{circularMotion/bmw-back-small-shadowy}
+        \pic{.22}{circularMotion/bmw-back-small-shadowy}
       };
       \draw (-3,-1)--+(6,0);
       \draw[rotate around={-20:(-3,-.95)}] (-3,-1)--+(6*cos{20},0)
@@ -947,8 +954,7 @@ $\cos\theta=1$, the equation reduces to:
 When there is no friction (i.e.\ $\mu=0$), the speed that the car can travel
 reduces to:
 \begin{important-equation}
-  \text{Banked road with no friction:}
-    v=\sqrt{rg\tan\theta}
+  \text{Banked road with no friction:}\quad v=\sqrt{rg\tan\theta}
 \end{important-equation}
 In the frictionless case, the speed is no longer a ``maximum''. The car can
 only travel in \emph{one} speed without deviating from the track. Travelling to
@@ -980,11 +986,11 @@ Afterwards, we can use the equation for centripetal force to find other forces.
 
 \subsection{Simple Pendulum}
 A simple pendulum, shown in Figure~\ref{fig:simple-pendulum-again}, is an
-example of a circular motion problem: even though the pendulum (usually) never
-completes a full circular of motion, its path does form a segment of a circle.
-In Section~\ref{sec:simple-pendulum-energy}, we have already established that,
-in the absence of any friction, drag or other damping forces, total mechanical
-energy is conserved.
+example of a vertical circular motion problem. Even though the pendulum
+(usually) never completes a full circle, its path still forms a segment of a
+circle. In Section~\ref{sec:simple-pendulum-energy}, we have already
+established that, in the absence of any friction, drag or other damping forces,
+total mechanical energy is conserved.
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}[scale=.8]
@@ -1005,12 +1011,13 @@ energy is conserved.
   \caption{A simple pendulum is a vertical circular motion problem}
   \label{fig:simple-pendulum-again}
 \end{figure}
-In this system, which is defined as the pendulum bob and Earth, there are two
-two forces acting on the pendulum: weight $\bm F_\text{grav}$, and tension
-$\bm F_\text{ten}$. As the pendulum swings, $\bm F_\text{ten}$ is always $\perp$
-to motion, therefore it does not do any mechanical work. The only work is done
-by $\bm F_\text{grav}$ as the pendulum changes height. Since gravity is an
-internal force, the total energy of the system is constant, or:
+In this isolated system, which is defined as the pendulum bob and Earth, there
+are two two forces acting on the pendulum: weight $\bm F_\text{grav}$, and
+tension $\bm F_\text{ten}$. As the pendulum swings, $\bm F_\text{ten}$ is always
+perpendicular to motion, therefore it does not do any mechanical work. The only
+work is done by $\bm F_\text{grav}$ as the pendulum changes height. Since
+gravity is an internal force, no external work is done to the system, and the
+total energy of the system is constant, i.e.:
 \begin{equation*}
   \Delta U_\text{grav} + \Delta K = 0
 \end{equation*}
@@ -1046,9 +1053,7 @@ bob. We must therefore use equations for circular motion to find the forces.
 \textbf{At the top of the swing}, when the pendulum is deflected by an angle
 $\theta=\theta_\text{max}$, shown in Figure~\ref{fig:top-swing}, velocity is zero
 by definition ($v=0$). From Eq.~\ref{eq:centripetal-acceleration}, we know that
-centripetal acceleration
-%and centripetal force
-must also be zero:
+centripetal acceleration must also be zero:
 \begin{equation}
   a_c=\frac{v^2}\ell=0 %\quad\text{and}\quad F_c=ma_c=0
 \end{equation}
@@ -1137,146 +1142,147 @@ direction:
 
 \begin{example}[Yo-Yo]
   \label{example:yoyo}
-  You are playing with a yo-yo with a mass $M$; the length of the string is
-  $R$. You decide to see how slowly you can swing it in a vertical circle
-  while keeping the string fully extended, even when the yo-yo is at the top of
-  its swing.
-  \begin{enumerate}%[label=(\Alpha)]
+  You are playing with a yo-yo with a mass $m$; the length of the string is
+  $R$. You decide to see how slowly you can swing it in a vertical circle while
+  keeping the string taut, even when the yo-yo is at the top of its swing.
+  Assuming that there is no friction, drag or other damping forces:
+  \begin{enumerate}[label=(\alph*),leftmargin=18pt,itemsep=6pt]
   \item Calculate the minimum speed at which you can swing the yo-yo while
     keeping it on a circular path.
-  \item If the yo-yo is at its minimum speed at the top of its swing, find the
-    tension in the string when the yo-yo is at the side and at the bottom.
+  \item Given that the yo-yo is at its minimum speed at the top of its swing,
+    express the tension force as a function of the angle deflection from the
+    vertical ($\theta$) using given quantities and fundamental constants.
+  %\item If the yo-yo is at its minimum speed at the top of its swing, find the
+  %  tension in the string when the yo-yo is at the side and at the bottom.
   \end{enumerate}
  
   \vspace{.1in}\textbf{Solution:} This is a very typical problem for vertical
-  motion. To solve this problem, we first draw free-body diagrams for each of
-  the positions in the circle: top, side and bottom. Assuming that there is no
-  friction, drag or other damping forces, there are only two forces acting on
-  the yo-yo: gravity ($\bm F_\text{grav}=m\bm g$) and tension force
-  ($\bm F_\text{ten}$).
+  motion. To solve it, we first draw free-body diagram for when the yo-yo is
+  at the top of the circle. Without friction, drag or other damping forces, two
+  forces act on the yo-yo: gravitational force ($\bm F_\text{grav}=m\bm g$)
+  pointing downwards, and tension force ($\bm F_\text{ten}$) pointing along the
+  string.
   \begin{center}
-    \begin{tikzpicture}[scale=.75]
-      \draw[thick] circle (2);
-      \begin{scope}[red]
-        \fill (0,2) circle (.1);
-        \draw[vector] (-.06,2)--+(0,-1) node[left]{$\bm F_\text{ten}$};
-        \draw[vector] (.06,2)--+(0,-1.5) node[right]{$\bm F_\text{grav}$};
-      \end{scope}
-      \begin{scope}[violet]
-        \fill (-2,0) circle (.1);
-        \draw[vector] (-2,0)--+(1.5,0) node[below left]{$\bm F_\text{ten}$};
-        \draw[vector] (-2,0)--+(0,-1.5) node[left]{$\bm F_\text{grav}$};
-      \end{scope}
-      \begin{scope}[orange]
-        \fill (0,-2) circle (.1);
-        \draw[vector] (0,-2)--+(0,1.7) node[right]{$\bm F_\text{ten}$};
-        \draw[vector] (0,-2)--+(0,-1.5) node[left]{$\bm F_\text{grav}$}; 
-      \end{scope}
+    \begin{tikzpicture}
+      \draw circle (2);
+      \fill[red] (0,2) circle (.13);
+      \draw[vector,red] (-.06,2)--+(0,-1) node[left]{$\bm F_\text{ten}$};
+      \draw[vector,red] (.06,2)--+(0,-1.5) node[right]{$\bm F_\text{grav}$};
     \end{tikzpicture}
   \end{center}
-%  \vspace{-.2in}Since the circular motion is not uniform (i.e.\ the speed of
-%  the yo-yo is not constant), we have to also use conservation of energy to
-%  solve it.
-  At the top of the circle, centripetal force is provided by \emph{both} gravity
-  and string tension. Since $M$, $g$ and $R$ are all constants, minimum velocity
-  $v_\text{min}$ on the right side must occur when $F_\text{ten}=0$ on the left
-  side. We are now left with:
+  At the top of the circle, centripetal force is provided by \emph{both}
+  gravitational and tension forces, as both forces point downwards. Since $m$,
+  $g$ and $R$ are all constants, minimum velocity $v=v_\text{min}$ on the right
+  hand side of the equation must occur when $F_\text{ten}=0$ on the left side.
+  We are left with:
   \begin{displaymath}
-    F_c = Ma_c\quad\rightarrow\quad
-    F_\text{ten}+Mg = \frac{Mv^2}R\quad\rightarrow\quad
-    Mg = \frac{Mv_\text{min}^2}R
+    F_c = ma_c\quad\rightarrow\quad
+    F_\text{ten}+mg = \frac{mv^2}R\quad\rightarrow\quad
+    mg = \frac{mv_\text{min}^2}R
   \end{displaymath}
-  Cancelling $M$ and solving for $v_\text{min}$, we have:
+  Cancelling mass on both side of the equation, and solving for $v_\text{min}$,
+  we find the minimum speed at the top of the swing to be:
   \begin{displaymath}
     v^2=gR\quad\rightarrow\quad\boxed{v_\text{min} = \sqrt{gR}}
   \end{displaymath}
+  This minimum speed is independent of the mass of the yo-yo. This should not be
+  a surprise from the conservation of energy problems that we have solved for
+  the simple pendulum.
 
+  A vertical circular motion such as this one is not uniform (i.e.\ the speed of
+  the yo-yo is not constant), therefore we must also use conservation of energy
+  to solve the rest of the question. After the yo-yo has rotated from the top
+  by an angle $\theta$:
   \begin{center}
-    \begin{tikzpicture}
-      \fill circle (.05);
-      \draw[dashed] circle (2);
-      \begin{scope}[violet]
-        \fill (-2,0) circle (.1);
-        \draw[vector] (-2,0)--+(1.5,0) node[pos=1.15]{$\bm F_\text{ten}$};
-        \draw[vector] (-2,0)--+(0,-1.5) node[pos=1.1]{$\bm F_\text{grav}$};
+    \begin{tikzpicture}[scale=1.1]
+      \draw[<->] (0,0)--(0,2) node[pos=.4,left]{$R$};
+      \foreach \y in {0,2} \draw (-2.5,\y)--+(3.5,0);
+      \draw (-2.5,2*sin{35})--+(3.5,0);% node[pos=0,left]{$h=0$};
+      \draw circle (2);
+      \begin{scope}[red,rotate=55]
+        \draw (0,0)--(0,2);
+        \fill (0,2) circle (.06);
+        \draw[vectors] (0,2)--+(0,-1.5) node[below=0]{$\vec F_\text{ten}$};
+        \draw[vectors,rotate around={-55:(0,2)}]
+        (0,2)--+(0,-1.5) node[below=0]{$\vec F_\text{grave}$};
       \end{scope}
+      \draw[<->] (.5,0)--(.5,2*sin{35}) node[midway,right]{$R\cos\theta$};
+      \draw[<->] (.5,2*sin{35})--(.5,2) node[midway,right]{$R-R\cos\theta$};
+      \draw[red,thick] (0,2) circle (.06);
+      \draw[axes] (0,2) arc (90:145:2) node[midway,below]{$\theta$};
+      \fill circle (.05);
     \end{tikzpicture}
   \end{center}
-  At the side of the circle, centripetal force is provided only by tension,
-  i.e. $F_c=F_\text{ten}$:
+  It's height is lowered by
   \begin{displaymath}
-    F_c = Ma_c\quad\longrightarrow\quad
-    F_\text{ten} = \frac{Mv_\text{side}^2}R
+    R-R\cos\theta=R(1-\cos\theta)
   \end{displaymath}
-  But at this time, we do not know the speed $v_\text{side}$ of the yo-yo at this
-  location yet. (Actually, we don't \emph{need} to find $v_\text{side}$; what we
-  actually need is its square, $v_\text{min}^2$.) This is a problem that we can
-  easily solve using the law of conservation of energy:
-  \begin{displaymath}
-    K_\text{top} + U_\text{top} = K_\text{side}\quad\longrightarrow\quad
-    \frac12Mv_\text{top}^2 + MgR =\frac 12Mv_\text{side}^2
-  \end{displaymath}
-  Cancelling $M$ term and solving for $v_\text{side}^2$, we have:
-  \begin{displaymath}
-    v_\text{side}^2 = v_\text{top}^2+2gR
-  \end{displaymath}
-  Since $v_\text{top}^2=v_\text{min}^2=gR$ that we have just calculated,
-  \begin{displaymath}
-    v_\text{side}^2 = gR+2gR=3gR
-  \end{displaymath}
-  Substituting the expression for $v_\text{side}^2$, we now have the final
-  expression for the tension force $F_\text{ten}$, which is 3 times the weight
-  of the yo-yo!
-  \begin{displaymath}
-    F_\text{ten} = \frac{Mv_\text{side}^2}R = \frac{M(3gR)}R=\boxed{3Mg}
-  \end{displaymath}
-  Tension is 3 times the weight of the yo-yo.
-  \begin{center}
-    \begin{tikzpicture}
-      \fill circle (.05);
-      \draw[dashed] circle (2);
-      \begin{scope}[orange]
-        \fill (0,-2) circle (.1);
-        \draw[vector] (0,-2)--+(0,1.7) node[right]{$\bm F_\text{ten}$};
-        \draw[vector] (0,-2)--+(0,-1.5) node[left]{$\bm F_\text{grav}$}; 
-      \end{scope}
-    \end{tikzpicture}
-  \end{center}
-  Finally, at the bottom of the circle, tension contributes to centripetal
-  force, while gravity contributes \emph{against} it:
-  \begin{displaymath}
-    F_c = Ma_c\quad\rightarrow\quad
-    F_\text{ten}-F_\text{grav} = \frac{Mv_\text{bottom}^2}R
-  \end{displaymath}
-  Again, we need to find the speed $v_\text{bottom}$ of the yo-yo at the bottom
-  of the swing. Using conservation of energy again:
+  Using the same conservation of energy method used for the simple pendulum,
+  which was discussed extensively in Chapter~\ref{chapter:energy}, we can find
+  the speed $v$ as a function of $\theta$:
   \begin{align*}
-    K_\text{top} + U_\text{top} &= K_\text{bottom}\\
-    \frac12Mv_\text{top}^2 + MgR &=\frac 12Mv_\text{bottom}^2
+    \Delta K + \Delta U_\text{grav} &=0 \\
+    \left[\frac12mv^2-\frac12mv_\text{min}^2\right]-mgR(1-\cos\theta) &=0
   \end{align*}
-  Cancelling $M$ term and solving for $v_\text{bottom}^2$, we have:
+  We can, once again, cancel the mass term, and solve for $v^2$, we get
   \begin{displaymath}
-    v_\text{bottom}^2 = v_\text{top}^2+4gR
+    v^2=gR(3-2\cos\theta)
   \end{displaymath}
-  Recognizing that $v_\text{top}^2=gR$ like we did before:
+  Now that we have the speed of the yo-yo at any angle of deflection, we can
+  return to the equations for centripetal force to calculate the tension. In
+  this case, the centripetal force is provided by tension force, and
+  \emph{the component of gravity directed towards the centre}, i.e.:
+  %    \node[text width=11cm,fill=red!10] (fc) at (6.7,2.1){
+%      At the side of the circle, $F_c$ is provided  by string tension only:
+%
   \begin{displaymath}
-    v_\text{bottom}^2 = gR+4gR=5gR
+    F_c = ma_c\quad\rightarrow\quad
+    F_\text{ten} + F_\text{grav}\cos\theta = \frac{mv^2}R
   \end{displaymath}
-  Now the final expression for tension:
+  Since we have already calculated the square of the speed $v^2$ as a function
+  of $\theta$ using conservation of energy, we can directly substitute that
+  expression into the above equation. Solving for $F_\text{ten}$, we have:
+%      But we do not know the speed $v_\text{side}$ yet.
+%    };
+%
+%    \node[text width=11cm,fill=yellow!15] (min) at (6.7,.4){
+%      We can find $v_\text{side}$ using conservation of energy:
+%      
+%      \vspace{-.25in}\begin{displaymath}
+%        K_\text{top} + U_\text{top} = K_\text{side}\quad\to\quad
+%        \frac12Mv_\text{top}^2 + MgR =\frac 12Mv_\text{side}^2
+%      \end{displaymath}
+%    };
+%    
+%    \node[text width=11cm,fill=green!10] at (6.7,-1.2){
+%      Cancelling $M$ term and solving for $v_\text{side}^2$, we have:
+%      
+%      \vspace{-.1in}\begin{displaymath}
+%        v_\text{side}^2 = \underbracket[1pt]{v_\text{top}^2}_{=gR}+2gR=3gR
+%      \end{displaymath}\par
+%    };
+%
+%    \node[text width=11cm,fill=violet!15] at (6.7,-3){
+%      Now the final expression for tension:
   \begin{align*}
-    F_\text{ten} &= Mg+\frac{Mv_\text{bottom}^2}R =Mg + \frac{M(5gR)}R\\
-    &=\boxed{6Mg}
+    F_T & = \frac{mv^2}R-mg\cos\theta\\
+    &= \frac m{\cancel R}\left[g\cancel{R}(3-2\cos\theta)\right]-mg\cos\theta\\
+    &= 3mg-3mg\cos\theta \\
+    &=\boxed{3mg(1-\cos\theta)}
   \end{align*}
-  The tension force $F_\text{ten}$ is 6 times the weight of the yo-yo at the
-  bottom.
+  We can even plot the tension force as a function of $\theta$:
+
+  When the yo-yo is at its side ($\theta=\SI{90}{\degree}$), tension force
+  $F_\text{ten}$ is 3 times the weight of the yo-yo; and when the yo-yo is at
+  the bottom, tension force $F_\text{ten}$ is 6 times the weight of the yo-yo.
 \end{example}
 
 
 
 \begin{example}
-  A cord is tied to a pail of water, and the pail is swung
-  in a vertical circle of \SI{1.0}\metre. What must be the minimum velocity of
-  the pail be at its highest point so that no water spills out?
+  A cord is tied to a pail of water, and the pail is swung in a vertical circle
+  of \SI{1.0}\metre. What must be the minimum velocity of the pail be at its
+  highest point so that no water spills out?
 %  \begin{enumerate}[(A)]
 %  \item\SI{3.1}{\metre\per\second}
 %  \item\SI{5.6}{\metre\per\second}
@@ -1310,3 +1316,62 @@ direction:
 %  \item $4gR$
 \end{example}
 
+
+
+\section{Multi-body Circular Motion Problems}
+
+
+
+\begin{example}[Stacked Boxes Circular Motion]
+  Mass $m_1$ (\SI{2.0}{\kilo\gram}) sits atop mass $m_2$
+  (\SI{5.0}{\kilo\gram}), which rests on a frictionless table, as shown below.
+  \begin{center}
+    \vspace{-.1in}
+    \begin{tikzpicture}[scale=1.2]
+      \draw[brown,ultra thick] (2,.5)--(4,.5) node[midway,above,black]{$\ell$};
+      \draw[line width=3] (2,0)--(2,1);
+      \draw[thick,fill=gray!70] (4,0) rectangle +(1,1) node[midway]{$m_2$};
+      \draw[thick,fill=gray!40] (4,1) rectangle +(.7,.7) node[midway]{$m_1$};
+      \draw[very thick] (1,0)--(7,0);
+      \draw[<-,thick] (4.72,1.02) to[out=25,in=270] (5,2) node[above]{$\mu_s$};
+    \end{tikzpicture}
+  \end{center}
+  \vspace{-.1in}The coefficient of static friction between the two masses is
+  $\mu_s=0.30$. A string of length $\ell=\SI{5.0}\metre$ is tied to $m_2$, and
+  both masses are swung around without slipping in a horizontal circle.
+  Calculate:
+  \begin{enumerate}[label=(\alph*),itemsep=4pt]
+%  \item On the dots below, draw and label all the forces (not components) that
+%    act on the masses. Forces should be drawn as arrows originating at, and
+%    pointing away from, the dots that represent the masses. (Hint: There are
+%    normal force at all contacts between the masses and the table.)
+
+  \item The maximum centripetal acceleration of the masses.
+  \item The maximum speed of the masses.
+  \item The tension in the string when the masses are moving at maximum speed.
+  \end{enumerate}
+  \textbf{Solution:} This problem is not unlike the stacked object problem that
+  we saw in Example 2.x, except this time, the external force is from the cable
+  tension, and that acceleration is not a translational acceleration, but
+  rather, a centripetal acceleration. We will start with a free-body diagram on
+  $m_1$. For the sake of completeness, we are also drawing the free-body
+  diagram on $m_2$ as well, athough this is not needed for the calculations.
+  \begin{center}
+    \begin{tikzpicture}[vector,scale=1.2]
+      \fill circle (.1) node[right]{$m_1$};
+      \draw (0,0)--(0,-1) node[left]{$\bm F_{\text{grav},1}$};
+      \draw (0,0)--(0,1) node[left]{$\bm F_{\text{norm},21}$};
+      \draw (0,0)--(-1,0) node[left]{$\bm F_\text{fric}$};
+    \end{tikzpicture}
+    \hspace{.2in}
+    \begin{tikzpicture}[vector,scale=1.2]
+      \fill circle (.1) node[above left]{$m_2$};
+      \draw (0.03,0)--+(0,-1) node[right]{$\bm F_{\text{grav},2}$};
+      \draw (-.03,0)--+(0,-1) node[left]{$\bm F_{\text{norm},12}$};
+      \draw (0,0)--(0,1) node[right]{$\bm F_{\text{norm},2}$};
+      \draw (0,0)--(1,0) node[right]{$\bm F_\text{fric}$};
+      \draw (0,0)--(-1.25,0) node[below]{$\bm F_\text{ten}$};
+    \end{tikzpicture}
+  \end{center}
+
+\end{example}
